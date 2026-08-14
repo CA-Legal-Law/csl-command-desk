@@ -1,0 +1,705 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL Command Desk</title>
+<meta name="viewport" content="width=device-width, initial-scale=1"></head><body>
+<style>
+  /* ---------- tokens: light (default) ---------- */
+  :root {
+    color-scheme: light;
+    --page: #f6f6f1;
+    --card: #fbfbf8;
+    --card-inset: #f1f1ea;
+    --side-bg: #14171a00;
+    --ink: #161815;
+    --ink-2: #565b53;
+    --ink-3: #8a8d84;
+    --line: #e2e2d8;
+    --line-soft: #ecece3;
+    --brass: #8a6d2f;
+    --brass-soft: rgba(138,109,47,.12);
+    --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #eda100;
+    --good: #0ca30c; --good-text: #006300;
+    --warn: #fab219; --serious: #ec835a; --crit: #d03b3b;
+    --crit-wash: rgba(208,59,59,.07);
+    --warn-wash: rgba(250,178,25,.10);
+    --grid: #e1e0d9;
+    --shadow: 0 1px 2px rgba(20,22,18,.05);
+    --shadow-lift: 0 6px 18px rgba(20,22,18,.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --page: #101210;
+      --card: #191b19;
+      --card-inset: #202320;
+      --ink: #f0f1ea;
+      --ink-2: #b7bcb0;
+      --ink-3: #848b80;
+      --line: #2b2e2a;
+      --line-soft: #242723;
+      --brass: #c9a55c;
+      --brass-soft: rgba(201,165,92,.14);
+      --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+      --good: #0ca30c; --good-text: #0ca30c;
+      --crit-wash: rgba(208,59,59,.12);
+      --warn-wash: rgba(250,178,25,.10);
+      --grid: #2c2c2a;
+      --shadow: none;
+      --shadow-lift: 0 6px 18px rgba(0,0,0,.35);
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --page: #101210;
+    --card: #191b19;
+    --card-inset: #202320;
+    --ink: #f0f1ea;
+    --ink-2: #b7bcb0;
+    --ink-3: #848b80;
+    --line: #2b2e2a;
+    --line-soft: #242723;
+    --brass: #c9a55c;
+    --brass-soft: rgba(201,165,92,.14);
+    --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #c98500;
+    --good: #0ca30c; --good-text: #0ca30c;
+    --crit-wash: rgba(208,59,59,.12);
+    --warn-wash: rgba(250,178,25,.10);
+    --grid: #2c2c2a;
+    --shadow: none;
+    --shadow-lift: 0 6px 18px rgba(0,0,0,.35);
+  }
+
+  * { box-sizing: border-box; margin: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--page);
+    color: var(--ink);
+    font: 14px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+    display: grid;
+    grid-template-columns: 236px minmax(0, 1fr);
+    min-height: 100vh;
+  }
+  .serif { font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; }
+
+  /* ---------- sidebar ---------- */
+  .side {
+    border-right: 1px solid var(--line);
+    background: var(--card);
+    position: sticky; top: 0; height: 100vh;
+    display: flex; flex-direction: column;
+    padding: 22px 14px 16px;
+    z-index: 30;
+  }
+  .brand { display: flex; align-items: center; gap: 12px; padding: 0 8px 18px; border-bottom: 1px solid var(--line-soft); }
+  .brand .ele { width: 46px; height: 42px; color: var(--brass); flex: none; }
+  .brand h1 { font-size: 17px; font-weight: 650; letter-spacing: .2px; line-height: 1.15; }
+  .brand .firm { font-size: 10.5px; color: var(--ink-3); letter-spacing: .06em; text-transform: uppercase; margin-top: 3px; }
+  nav { margin-top: 14px; display: flex; flex-direction: column; gap: 2px; overflow-y: auto; }
+  nav a {
+    display: flex; align-items: center; gap: 10px;
+    padding: 8px 10px; border-radius: 6px; border-left: 2px solid transparent;
+    font-size: 13px; color: var(--ink-2); text-decoration: none; font-weight: 500;
+  }
+  nav a .glyph { width: 17px; text-align: center; font-size: 13px; opacity: .75; }
+  nav a:hover { background: var(--card-inset); color: var(--ink); }
+  nav a:focus-visible { outline: 2px solid var(--brass); outline-offset: 1px; }
+  nav a.active { background: var(--brass-soft); border-left-color: var(--brass); color: var(--ink); font-weight: 650; }
+  nav a.active .glyph { opacity: 1; color: var(--brass); }
+  nav .navlbl { font-size: 9.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-3); padding: 14px 10px 5px; }
+  .side .sfoot { margin-top: auto; padding: 12px 10px 0; border-top: 1px solid var(--line-soft); font-size: 11px; color: var(--ink-3); }
+  .side .sfoot b { color: var(--ink-2); display: block; font-size: 12px; }
+
+  /* ---------- main ---------- */
+  main { padding: 22px 26px 64px; min-width: 0; }
+  .topline { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+  .topline h2 { font-size: 20px; font-weight: 600; margin-right: auto; }
+  .sources { display: flex; gap: 7px; flex-wrap: wrap; }
+  .src {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; color: var(--ink-2);
+    border: 1px solid var(--line); border-radius: 99px; padding: 3px 9px 3px 7px;
+    background: var(--card);
+  }
+  .src .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .src.live .dot { background: var(--good); }
+  .src.issue .dot { background: var(--warn); }
+  .src.off .dot { background: transparent; border: 1.5px solid var(--ink-3); }
+  .src b { color: var(--ink); font-weight: 600; }
+
+  section.zone { scroll-margin-top: 18px; margin-bottom: 26px; }
+  .zonehead { display: flex; align-items: baseline; gap: 10px; margin: 0 0 10px 2px; }
+  .zonehead h3 { font-size: 15px; font-weight: 650; letter-spacing: .01em; }
+  .zonehead .sub { font-size: 12px; color: var(--ink-3); }
+
+  /* reveal */
+  .reveal { opacity: 0; transform: translateY(10px); transition: opacity .45s ease, transform .45s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+    .card, .kpi { transition: none !important; }
+  }
+
+  /* ---------- cards ---------- */
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 8px;
+    box-shadow: var(--shadow); padding: 16px 18px;
+    transition: box-shadow .2s ease, transform .2s ease;
+  }
+  .card:hover { box-shadow: var(--shadow-lift); }
+  .eyebrow {
+    font-size: 10.5px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-3); display: flex; align-items: center; gap: 8px; margin-bottom: 10px;
+  }
+  .eyebrow .rule { flex: 1; height: 1px; background: var(--line-soft); }
+  .chip {
+    font-size: 9.5px; font-weight: 700; letter-spacing: .08em;
+    border: 1px solid var(--line); border-radius: 3px; padding: 1px 5px; color: var(--ink-3);
+    text-transform: uppercase; white-space: nowrap;
+  }
+  .chip.live { color: var(--good-text); border-color: currentColor; }
+  .chip.sample { color: var(--brass); border-color: currentColor; }
+
+  /* ---------- alerts ---------- */
+  .alerts { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 12px; }
+  .alert { border: 1px solid var(--line); border-left: 3px solid var(--crit); border-radius: 8px; background: var(--crit-wash); padding: 11px 14px; }
+  .alert.warn { border-left-color: var(--warn); background: var(--warn-wash); }
+  .alert h4 { font-size: 13px; font-weight: 650; display: flex; gap: 7px; align-items: baseline; }
+  .alert p { font-size: 12px; color: var(--ink-2); margin-top: 3px; }
+  .alert .act { font-size: 11.5px; font-weight: 650; color: var(--brass); margin-top: 5px; display: inline-block; text-decoration: none; }
+  .alert .act:hover { text-decoration: underline; }
+  .alert .act:focus-visible { outline: 2px solid var(--brass); outline-offset: 2px; }
+
+  /* ---------- KPI band ---------- */
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); gap: 12px; margin-top: 12px; }
+  .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 13px 15px 12px; transition: box-shadow .2s ease; }
+  .kpi:hover { box-shadow: var(--shadow-lift); }
+  .kpi .lbl { font-size: 10.5px; font-weight: 650; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-3); display: flex; justify-content: space-between; gap: 6px; }
+  .kpi .val { font-size: 27px; font-weight: 650; letter-spacing: -.01em; margin: 3px 0 1px; font-variant-numeric: tabular-nums; }
+  .kpi .sub { font-size: 11.5px; color: var(--ink-2); }
+  .up   { color: var(--good-text); font-weight: 650; }
+  .down { color: var(--crit); font-weight: 650; }
+
+  .row { display: grid; gap: 14px; }
+  .row.r-2 { grid-template-columns: 7fr 5fr; }
+  .row.r-3 { grid-template-columns: 1fr 1fr 1fr; }
+  .row.r-22 { grid-template-columns: 1fr 1fr; }
+
+  /* ---------- funnel ---------- */
+  .fstage { display: grid; grid-template-columns: 118px 1fr 74px; align-items: center; gap: 10px; padding: 7px 0; }
+  .fstage .nm { font-size: 12.5px; color: var(--ink-2); }
+  .fstage .nm b { display: block; color: var(--ink); font-weight: 650; font-size: 13px; }
+  .fbar { height: 22px; background: var(--card-inset); border-radius: 4px; overflow: hidden; position: relative; }
+  .fbar span { position: absolute; inset: 0 auto 0 0; background: var(--s1); border-radius: 4px 0 0 4px; }
+  .fstage .n { font-size: 15px; font-weight: 650; text-align: right; font-variant-numeric: tabular-nums; }
+  .fconv { display: grid; grid-template-columns: 118px 1fr; gap: 10px; }
+  .fconv div { font-size: 10.5px; color: var(--ink-3); padding-left: 6px; border-left: 1px dotted var(--line); margin-left: 4px; height: 13px; }
+  .leadmix { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line-soft); }
+  .lm { font-size: 11.5px; color: var(--ink-2); display: flex; align-items: center; gap: 6px; }
+  .lm i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
+  .lm b { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+  /* ---------- table ---------- */
+  .tblwrap { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-variant-numeric: tabular-nums; }
+  th { font-size: 10.5px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-3); text-align: right; padding: 6px 10px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+  th:first-child, td:first-child { text-align: left; padding-left: 4px; }
+  td { padding: 9px 10px; border-bottom: 1px solid var(--line-soft); font-size: 13px; text-align: right; white-space: nowrap; }
+  tbody tr { transition: background .15s ease; }
+  tbody tr:hover { background: var(--card-inset); }
+  tr:last-child td { border-bottom: none; }
+  td .swatch { width: 9px; height: 9px; border-radius: 2px; display: inline-block; margin-right: 8px; }
+  td.ch { font-weight: 650; }
+  td .note { display: block; font-size: 10.5px; color: var(--ink-3); font-weight: 400; }
+  .spark polyline { fill: none; stroke-width: 2; }
+  .spark circle { stroke: var(--card); stroke-width: 2; }
+  .rowdim td { color: var(--ink-3); }
+  .pill { font-size: 10px; font-weight: 700; letter-spacing: .06em; border-radius: 99px; padding: 2px 8px; text-transform: uppercase; }
+  .pill.ok   { background: var(--brass-soft); color: var(--brass); }
+  .pill.crit { background: var(--crit-wash); color: var(--crit); border: 1px solid var(--crit); }
+  .pill.off  { border: 1px solid var(--line); color: var(--ink-3); }
+
+  /* ---------- channel cards ---------- */
+  .stat3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; margin-bottom: 12px; }
+  .ministat .v { font-size: 19px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .ministat .l { font-size: 10.5px; color: var(--ink-3); }
+  .bullet { margin: 10px 0 2px; }
+  .bullet .blbl { display: flex; justify-content: space-between; font-size: 11.5px; color: var(--ink-2); margin-bottom: 4px; }
+  .bullet .blbl b { color: var(--ink); font-variant-numeric: tabular-nums; }
+  .btrack { height: 8px; border-radius: 4px; background: var(--card-inset); position: relative; overflow: hidden; }
+  .btrack > span { position: absolute; inset: 0 auto 0 0; border-radius: 4px; }
+  .btrack .tgt { position: absolute; top: -2px; bottom: -2px; width: 2px; background: var(--ink-3); }
+  .foot-note { font-size: 11px; color: var(--ink-3); margin-top: 10px; padding-top: 9px; border-top: 1px solid var(--line-soft); }
+
+  /* ---------- chart ---------- */
+  .chart { position: relative; }
+  .chart svg { display: block; width: 100%; height: auto; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 11.5px; color: var(--ink-2); margin-top: 8px; }
+  .tip {
+    position: absolute; pointer-events: none; background: var(--ink); color: var(--page);
+    font-size: 11.5px; padding: 5px 9px; border-radius: 4px; opacity: 0; transition: opacity .12s;
+    transform: translate(-50%, -110%); white-space: nowrap; font-variant-numeric: tabular-nums; z-index: 5;
+  }
+  .barhit:hover rect.seg, .barhit:focus rect.seg { filter: brightness(1.08); }
+
+  /* ---------- ops ---------- */
+  .op { display: grid; grid-template-columns: 1fr auto auto; gap: 10px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line-soft); }
+  .op:last-child { border-bottom: none; }
+  .op .l { font-size: 12.5px; color: var(--ink-2); }
+  .op .v { font-size: 15px; font-weight: 650; font-variant-numeric: tabular-nums; }
+  .op .t { font-size: 11px; color: var(--ink-3); width: 92px; text-align: right; }
+  .st { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; font-weight: 650; }
+  .st::before { content: ""; width: 8px; height: 8px; border-radius: 2px; background: currentColor; }
+  .st.good { color: var(--good-text); }
+  .st.warn { color: var(--serious); }
+  .st.crit { color: var(--crit); }
+
+  footer.pagefoot { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 14px; font-size: 11.5px; color: var(--ink-3); display: flex; gap: 18px; flex-wrap: wrap; }
+  footer.pagefoot b { color: var(--ink-2); }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 980px) {
+    body { grid-template-columns: 1fr; }
+    .side {
+      position: sticky; top: 0; height: auto; flex-direction: column;
+      padding: 10px 14px; border-right: none; border-bottom: 1px solid var(--line);
+    }
+    .brand { padding-bottom: 8px; border-bottom: none; }
+    .brand .ele { width: 34px; height: 31px; }
+    .brand h1 { font-size: 15px; }
+    nav { flex-direction: row; margin-top: 2px; overflow-x: auto; gap: 4px; padding-bottom: 4px; -webkit-overflow-scrolling: touch; }
+    nav a { border-left: none; border-bottom: 2px solid transparent; border-radius: 6px 6px 0 0; white-space: nowrap; padding: 6px 10px; }
+    nav a.active { border-bottom-color: var(--brass); background: var(--brass-soft); }
+    nav .navlbl { display: none; }
+    .side .sfoot { display: none; }
+    main { padding: 18px 16px 56px; }
+    .row.r-2, .row.r-3, .row.r-22 { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 480px) {
+    .kpi .val { font-size: 23px; }
+    .fstage { grid-template-columns: 96px 1fr 62px; }
+    .fconv { grid-template-columns: 96px 1fr; }
+    .fconv div { height: auto; min-height: 13px; padding-bottom: 2px; }
+    .topline h2 { font-size: 17px; }
+  }
+</style>
+
+<svg style="display:none" aria-hidden="true"><symbol id="elephant" viewBox="138.639 61.059 139.648 124.544"><g fill="currentColor"><path d="M178.898 79.04c0 .07-.17.49-.34.43l-.52-.86c.37 2.23.89 4.31.68 6.61-.23 2.54-1.64 4.75-2.15 7.13-1.22 5.66 2.57 10.79 4.04 15.98-.8-1.06-1.47-2.49-2.04-3.72-1.7-3.72-3.42-8.16-2.55-12.29.4-1.92 1.84-3.79 2.02-5.71.29-3.16-1.82-5.39-2.07-8.26-.31-3.72 2.38-9.48 5.77-11.23 1.13-.58 2.54-.88 3.73-1.42 1.4-.64 3.77-2.47 5.05-2.68.87-.15 1.83.03 2.71-.04 3.67-.33 6.9-2.26 10.8-1.87 1.49.15 3.21 1.23 4.49 1.2 1.16-.03 2.69-1.01 3.99-1.17 4-.5 7.24 1.48 10.97 1.82.98.09 2.04-.1 2.99.1 1.33.28 3.76 2.16 5.25 2.82 1.42.63 3.06.89 4.34 1.84 2.37 1.76 4.46 6.06 4.78 8.97.42 3.78-2.33 6.18-2.02 9.92.17 2.03 1.55 3.66 1.99 5.57 1 4.41-1.16 9.52-3.04 13.47-.42.89-.88 1.97-1.52 2.69 1.07-3.98 3.43-7.52 4.07-11.64s-.82-5.63-1.76-9.32c-.77-3.04-.45-5.75.26-8.76-.44.08-.29 1.01-.86.86v-4.47l-.51 1.89c.07-2.09.73-3.75-1.29-5.15-.23.33.41.69.64 1.08.74 1.28 0 3.39.14 5.02.12 1.49.7 3.11.85 4.64.07.72-.08 1.52 0 2.23.41 3.39 1.52 6.95.68 10.3-.55 2.16-1.82 3.95-2.74 5.94 2.18-2.14 3.93-4.89 3.44-8.07.33.05.28.36.36.58 1.4 3.68-2.99 7.48-4.44 10.55s-1.59 6.85-3.74 9.66c-.12-1.81 1.19-4.04 1.29-5.76.05-.81-.28-1.34-.34-2.06-.04-.48.17-2.83-.26-2.83-.61.5-1.31 1.54-2.15 1.03l-.17 1.38h-.51v-3.35c0-.27-.69-1.62-.51-1.8l1.37.26-1.37-1.8c2.1-.09 3.98 1.35 5.5-.78-1.62.97-3.53 1.01-4.29-.94.66 1.07 4.33 1.9 5.64-.71l.99.52.41-.33c-1.79-.57-.85-3.19-3.17-3.47-1.6-.2-2.14.58-3.09 1.69.18-1.43 2.37-2.56 3.7-2.37.6.09.47.55 1.04.7-.75-2.04-3.68-.54-4.84.7 1.11-3.24 5.24-4.39 4.03-8.41-.18-.6-1.22-1.9-.42-2.17l-1.73-5.39c-.31-.05-.1.3-.2.47-.06.09-.59.28-.65.21.33-1.14-.55-1.16-.52-2.06l-.51.51-.08-1.05c-.72.06-.51-.76-1.04-1.18l.26 1.72c-1.26-1.31-1.21-2.71-1.05-4.4.02-.19.16-.62-.15-.58-.58 2.62.32 5.27 1.4 7.62 1.17 2.57 5.28 7.67 1.92 9.87-.49.32-1.56.53-1.75.83-.74 1.18-.63 4.11-1.11 5.59-.52 1.6-1.76 1.86-1.46 3.79.14.89.81 1.84 1.07 2.71.15.52.58 1.73-.25 1.71l-1.89-3.09c-.03 2.16 1.51 4.16.86 6.36.28 0 .51-.98.77-.52.18.31.28 1.14.47 1.59.27.64.86 1.51.95 2.15.14.94-.39 1.82-.29 2.86.17 1.8 1.94 4.2 1.69 5.85-.13.88-1.13 1.99-1.02 3.02l-.77-1.21c-.25-.36-.79-.52-1.03-.86-.28-.39-.11-.87-.43-1.03-.07 1.75-2.14 1.49-2.93 2.49-.68.86-.62 2.78-2.06 2.84l.17-4.12c-.16-.01-.34.89-.34.94v2.92c0 1.08-1.03 2.15-1.26 3.04-.2.78.1 2.02-.98 2.2v-2.58l-.85 3.53c-1.88 2.92-.9 6.78-.86 10.12.11 9.21-.24 19.02-1.21 28.18-.71 6.71-.91 14.41-8.42 16.84-1.77.57-3.01.86-4.75-.06-1.63-.85-1.7-1.91-1.6-3.64l-.51.51c-1.16-2.21-.76-4.73-1.05-7.11-.2-1.6-1.22-2.87-1-4.64.07-.54.46-1.06.33-1.69l1.19-.46 1.38 10.99c.54-3.63-.5-7.3-.68-10.91-.05-1.02-.38-3.26.95-3.34s2.82.55 4.3.17c.29-.07.5.17.42-.35-1.32-.25-5.08.11-5.92-.87-.72-.84-1.01-4.26-.44-5.32h4.21l1.27-1.57c-1.69-.27-5.92.69-6.31-.1-1.2-2.46 3.98-2.91 5.71-2.74l1.13-1.08c-2.46-.8-4.74.92-7.19.66-.28-.18-1.09-4.72-1.2-5.42-.66-4.25-1.13-8.57-1.4-12.85-.07-1.14-.36-2.36-.34-3.52l1.32 1.51c1.1.27 1.95-.25 2.97-.48l-1.72-.17c-.21-.83.47-.83.76-1.21.42-.55.39-1.63 1.3-1.96l-.51-.17.86-1.12c-.24-.21-1.65 1.14-1.9 1.28-.15.09-.42-.06-.51 0-.08.06-.39.73-.46.91-.14.35.17.85-.39.72l-1.55-4.12c-.06 1.94 1.21 3.71 1.71 5.42.12.4-.48.29-.68.17-.13-.08-1.21-2.46-1.32-2.8-.31-.95-.46-2.13-.57-3.13l-.25 2.24c-.19.27-.27.1-.43-.09-.51-.59-.28-1.56-.6-2.32-.15-.36-.45-.57-.61-.94-.77-1.8-.36-3.54-.68-5.42-.67.58-.03 2.13 0 3 .01.27.15 1.07-.27.96-1.24-.44-1.21-2.11-1.9-2.91-.79-.91-2.84-.77-2.82-2.42-.46.12-.25.7-.43 1.03-.23.41-1.74.95-1.63 2.07l-1.16-2.87c-.35-2.08 1.56-4.08 1.66-6.17.05-.89-.42-1.79-.29-2.68.16-1.13 1.43-2.61 1.34-3.91l.86.69c-.69-2.28.91-4.27.86-6.53l-1.81 2.91-.59.18c-.14-1.9 1.77-3.69 1.34-5.55-.12-.51-.12-1.75-.38-2.23-.85-1.55-.99-6.28-1.98-6.91-.38-.24-1.43.58-1.95.23-1.94-1.31-1.46-3.22-.66-5.07 1.71-3.95 4.99-7.73 3.98-12.42-.29-.04-.18.41-.17.6.12 1.54.27 2.7-.71 4.1-.11.16-.3.48-.49.2l.84-2.42-.16-1.44c.06.78 0 1.34-.26 2.06-.06.16-.58 1.29-.63 1.34-.03.03-.32-.14-.41.01-.18.32.05.94-.42 1.05l-.17-.51c.03.9-.85.91-.52 2.06-.78.18-.46-.46-.86-.69l-1.7 4.94c.66 1.22-.59 2.29-.71 3.56-.31 3.22 3.41 4.71 4.29 7.47-1.09-1.23-4.25-2.05-4.81 0 .95-.41 1.81-.86 2.88-.57 1.18.32 1.97.5 2.25 1.66-.92-1.25-1.72-1.62-3.48-1.41s-1.56 1.34-2.26 2.38c-.23.34-.92.72-.94.78-.16.52.52.1.68-.01.43-.3 1.04-.8 1.13-1.28.95 3.05 3.11 3.35 5.49 2.71-.84 1.88-3-.15-4.55-.05 1.49 2.19 3.4.62 5.5.78l-1.37 1.8 1.37-.26c.2.22-.51 1.43-.51 1.63v3.52h-.51l-.18-1.37c-.88.52-1.55-.49-2.15-1.03-.43 0-.21 2.36-.26 2.83s-.28.8-.33 1.22c-.25 1.98 1.32 4.58 1.28 6.6-2.15-2.76-2.29-6.42-3.72-9.51s-5.89-7.1-4.49-10.72c.08-.22.1-.51.39-.55-.6 3.06 1.26 6.07 3.44 8.07-.91-1.89-2.09-3.62-2.66-5.67-.96-3.45.03-5.85.43-9.19.14-1.21.05-2.61.18-3.77.25-2.26 1.01-4.15.85-6.53-.09-1.37-.65-1.47.14-2.96.17-.32.73-.65.47-.91-1.87 1.31-1.17 3.06-1.12 4.98l-.51-1.72c-.12 1.21.16 2.69 0 3.87zm2.06-2.75c-.05-.84 0-1.73 0-2.58 0-.1.42-.6 0-.6-.64 1.5-.16 2.78 0 4.29.49-.14 0-.95 0-1.12zm54.97.94c.09-1.42.67-2.77-.08-4.12-.03.78.11 1.53.09 2.33 0 .4-.16.78-.19 1.19-.01.19-.11.65.18.61zm-54.28-1.54v5.15l.36-2.83zm53.6 5.15v-5.15l-.35 1.62v1.38zm-27.54 2.47c-2.94-.79-4.72-1.3-7.68-.14-.79.31-1.82.84-2.41 1.46 1.77-.65 3.46-1.04 5.4-1.14s3.61 1.17 5.6 1.16c1.84-.01 3.28-.94 5.02-.92 2.13.03 4.25.41 6.15 1.25-2.12-1.82-4.97-2.88-7.77-2.36-1.19.22-2.51.85-3.66.81-.1 0-.6-.09-.65-.11zm-27.78 5.26c.76-1.87 1.12-3.83.69-5.84-.3-.04-.16.39-.17.6-.03.83.09 1.76-.01 2.56-.08.64-.47 1.46-.6 2.15-.03.18-.23.56.09.52zm56.18-5.33v2.66c0 .26.4 1.37.51 1.72l.52 1.03-.82-3.31-.22-2.1zm-45.53 8.42c.14-1.18.34-1.77.34-2.92-.8.68-1.29 2.16-.34 2.92m29.2 3.09c-.79-.05-1.29-.66-2.1-.91-1.86-.58-5.13-.99-7.16-1.01-2.84-.03-9.06-.2-11.45 1.05-.52.27-1.32.8-1.71.87-.59.11.03-.96-.43-1.03-.05.45.09 1-.04 1.42-.09.32-.56.41-.48.81 2.69-2.44 5.74-1.76 9.02-1.88a67 67 0 0 1 6 0c3.23.12 6.12-.53 8.85 1.71-.36-.71-.41-1.26-.34-2.06l-.17 1.03zm-16.4 3.61c1.1-.1 2.47 0 3.61 0 .18 0 .89-.08.78-.81-2.85-.47-5.74.57-8.43 1.58-.12.05-.53.08-.26.26 1.37-.28 2.91-.91 4.29-1.03zm14.86 1.04c-3.32-1.41-6.42-2.64-9.96-1.96-.05.22-.03 1.21.11 1.21.58.01 1.3-.26 1.87-.28 3.08-.14 4.62.35 7.47 1.12.17.05.55.25.52-.09zm-8.08-.26c-1.11.36-2.65.34-3.79.26.6.64 1.51 1.31 2.27 1.09.17-.05 1.5-1.13 1.52-1.35m-17.86 10.04c.78-2.18 1.64-4.34 1.03-6.7l-1.16 6.14zm31.09-6.27c-.11.76 0 1.92 0 2.75 0 .52 1.02 3.02 1.29 3.69.05.12.07.53.25.26-.56-2.34-1.23-4.68-1.21-7.13-.17-.06-.33.36-.34.43zm-1.72 4.73c.07-.31-.16-.42-.34-.6-2.74-2.76-7.44-4.91-11.25-4.67-1.41.09-1.54.22-2.93.13-4.32-.28-9.32 1.8-12.11 5.22l2.98-2c3.95-2.12 6.09-1.84 10.33-1.85 1.13 0 2.23-.27 3.45-.19 3.62.22 7.07 1.73 9.87 3.96m-32.98 6.01c1.63-2.25 2.9-4.89 2.92-7.73zm39.51.17-2.92-7.9c-.02 1.77.5 3.58 1.28 5.16l1.63 2.74zm-21.13-7.38h-2.66c-.67 0-2.78.82-3.52 1.12l-1.98 1.11c2.66-1.16 4.97-1.38 7.92-1.49.21 0 .28-.45.24-.75zm5.24 0c-.83-.08-1.88 0-2.75 0-.03 0-.68 1.1-.61 1.29 3.2-.69 6.03-.33 8.86.95.24-.12-.23-.33-.31-.38-1.28-.75-3.73-1.71-5.19-1.86m-7.52 2.55c.94-.06 1.86-.45 2.8-.5l-1.47-.35-2.14.35c.03.45.69.5.81.49zm4.52-.49 2.88.55.08-.68-1.5-.22-1.46.34zm-10.65 2.23c-.31-.04-.5.22-.74.38-1.11.75-2.71 1.96-3.56 2.97-.16.19-.09 1.74-.02 2.06l4.31-5.41zm23.63 4.63c.19-.19-.44-1.98-.61-2.14-.28-.26-2.56-2.14-2.75-1.97 1.09 1.24 2.14 2.99 3.36 4.11m-14.36-3.6c-.55.04-.87.5-1.46.53-1.08.05-2.42-1.16-3.52.16.57-.04 1.14.16 1.7.21 1.05.1 2.22.76 3.28-.9m5.67.35c-1.15-.72-2.2.23-3.18.18-.48-.02-.81-.58-1.29-.53.96 2.3 2.2.93 3.13.82.38-.05.66-.18.96-.16.19.02.41 0 .37-.32zm10.83 7.9c1.38-1.33.88-3.36.2-4.93l-1.58-3.15c.23 1.81 1.18 3.65 1.31 5.45.06.9.2 1.75.07 2.62zm-31.96 0c-.22-.88-.64-1.78-.57-2.72.13-1.72 1.52-3.32 1.77-5.01l-1.63 3.27c-.53 1.43-.84 3.32.43 4.46m13.13-6.36c-2.01-.78-3.06-.07-4.03.86zm9.72.86c-.96-.92-2.31-1.42-3.66-.98zm1.37 3.61c-1.38-1.39-5.08-3.29-7.01-3.43-3.57-.26-7.04 1.11-9.82 3.61.79-.24 1.46-.79 2.24-1.11 3.76-1.56 8.94-1.55 12.71 0 .66.27 1.23.71 1.89.94zm-.34 5.49c-4.1-4.31-11.73-4.37-15.8 0l3.11-1.37c3.27-1.49 6.06-1.38 9.26.22 1.03.51 2.39.69 3.44 1.16zm-19.93.69.69-3.09c-.62.45-.82 1.75-.86 2.49-.01.19-.11.65.18.6zm3.27 2.41h-.77c-.31-1.21-1.43-2.65-1.47-3.88-.02-.43.21-.76.09-1.11-.86.83-.26 1.9-.1 2.85.17 1.04.08.81.41 1.66.35.89.57 1.84.98 2.71l.18-.5h.68l-.5-1.1.5-.62zm19.71-.73c.15-.24 0-1.15.06-1.58.13-.88.8-2.03-.19-2.68.24.84.13 1.38-.13 2.2-.12.39-1.19 2.9-1.35 2.94-.14.03-.4-.19-.59-.15l.5.62-.5 1.09.94.17c.43-.66.48-1.63.81-2.29.11-.22.39-.25.44-.32zm-10.78-2.02h-.34c-.12.74-1.48.57-2.07.76l-1.37 1.37c2.77.21 3.25-.76 7.27.23l-1.3-1.56c-.62-.26-2.05-.03-2.2-.81zm8.26 8.4c.07.06.44.04.56 0 .37-.13 1.96-4.7 1.82-5.48l-1.22 3.33-.58.79c-.03-.47-.22-1.28-.59-1.63-.08-.07-.38.03-.58-.11-.74-.52-1.47-1.23-2.35-1.53l1.37 1.46-.51.17c.82.41.89 1.47 1.3 1.97.26.32.84.35.78 1.02zm-11.52-4.79c-1.02.27-2.19.77-2.92 1.54.97-.38 2.16-.84 2.92-1.54m9.1 1.54c-.77-.78-2-1.38-3.09-1.54zm-1.37 3.26c-1.05-1.02-2.6-1.53-3.95-2.06l.38.39zm-5.33 1.55c-2.04.09-4.14.23-6.01 1.12-.24.12-.77.34-.86.6l5.84.31 1.03-2.02zm6.01 1.04c-1.73-.53-3.49-1.02-5.33-.86l-.35 1.85c1.59-.12 3.51-.91 5.07-.82.19.01.65.11.61-.18zm-6.53 4.12c-1.87.2-3.7.65-5.44 1.34l-1.6.89 6.9-.71zm7.05 1.03c-1.98-.45-3.97-.9-6.01-1.03l-.18 1.52c1.81.09 3.81-.51 5.62-.34.19.02.62.16.58-.15zm-6.87 3.95c-2.52.05-5.56.74-7.04 2.92 1.82-.87 4.8-1.35 6.87-1.53zm.67 1.46h5.03c.11 0 .92-.12 1-.6-1.93-.35-3.87-.79-5.84-.86l-.18 1.46zm6.88 4.21c-2.2-.55-4.38-1.51-6.7-1.03v1.05c.42-.04.78.14 1.16.19 1.36.18 3.17-.12 4.59-.03.2.01.95.12.95-.18m-8.24-1.03c-1.8-.06-3.83.67-5.15 1.89l5.15-.71zm8.24 4.74c-1.74-.44-4.9-.5-6.7-.45v.9c1.34.06 2.69-.12 4.03-.03.23.01 2.62-.11 2.67-.41zm-.17 5.39c-2.09-.96-4.25-1.28-6.53-1.2v.68c1.99.13 3.97.49 5.95.67.19.02.62.16.58-.15m-7.56 2.41h-3.44l2.92.98c.35 0 .35-.62.52-.98m7.05.98c-1.02-.33-5.06-.94-6.19-.81v1.05c.88-.09 1.68-.18 2.54-.07.19.02 3.69.14 3.65-.17m-6.87 5.03c-.83-.31-1.46-.68-2.4-.52.08.32.65.62.93.69.26.07 1.26.68 1.47-.18zm6.87-.34h-5.07c-.21 0-.65.31-1.12 0v.88h2.34l3.85-.89zm-7.22 2.92-3.09-.52c.29.47 1.3.9 1.83.96.27.03 1.09.31 1.26-.45zm7.22-.18h-6.19c-.44 1.46.89.86 1.33.72l4.85-.72zm-6.7 2.93c-.79-.33-1.54-.6-2.4-.69.34.52 1.25.77 1.82.84.18.02.62.15.58-.15m6.53-.35h-6.01v.51h.6l5.41-.52zm-6.7 2.92-3.26-.69c.58.75 1.78.87 2.66.86.2 0 .64.12.6-.17m3.09-.34c-.71-.02-1.45.05-2.15.18-.28.05-.3-.11-.26.34l1.07-.04 1.33-.47zm.17 2.75c-.75.14-1.6.08-2.32.17-.26.03-.52.14-.25.34l1.24-.04zm-2.75 2.4-3.26-.34c0 .24.51.36.69.42.72.24 1.56.36 2.32.27.24-.03.53-.12.25-.34zm0 2.92c-.06-.34-.37-.27-.6-.35-.71-.23-1.44-.45-2.15-.68.57.84 1.78 1.11 2.75 1.03" class="st0"/><path d="M177.178 128.25c-.95-.2-1.34-1.15-2.36-1.33-1.38-.25-2.49.32-3.74.32-1.73 0-5.39-1.79-6.96-2.67-2.35-1.33-4.23-2.98-5.92-5.07-.32.31.72 1.04 0 1.03-1.02-1.12-2.37-2.04-3.44-3.09-1.33-1.31-.66-1.75-1.2-3.1-.42-1.05-1.91-.59-3.01-.94-.64-.21-1.18-.74-1.77-.98-.8-.31-1.58-.18-2.27-.65-.43-.29-1.91-2.21-2.12-2.69-.59-1.34.69-3.45 1.26-4.7l3.01-4.81c-.9.58-1.91 2.74-2.75 3.18-.65.34-.48-.31-.6-.26l-.77.86c-.1-.3.46-1.07 0-1.2-.67 1.44-.99 2.77-.35 4.29-1.45.22-2.15-1.31-3.1-1.96-1.01-.69-1.69-.44-2.17-1.95-.92-2.85.63-8.71 1.81-11.49 1.06-2.49 2.68-4.75 3.78-7.21 1.38-3.08 1.44-4.78 3.89-7.45 3.15-3.43 9.16-8.44 13.54-9.99 2.29-.81 6.98-.13 9.65-.31 1.94-.13 3.9-.68 5.84-.86 1.24-.11 3.5-.43 4.47.34 1.09.87-.41.96-1.07 1.34-1.24.73-1.66 2.02-2.72 2.95-.58.07.27-.8.09-1.03-1.33.89-1.35 2.98-2.12 4.15-.37.57-.79.57-1.08.89-1.34 1.47-1.26 2.17-3.84 1.83.78.82 2.11.89 2.58 2.06-.36.28-3.22-1.7-3.77-1.98-2.87-1.44-7.2-2.85-9.97-.6 1.78-.61 4.37-1.78 5.84 0-2.08-.52-4.02.64-6.01 1.03-.04.29.41.18.6.17.48-.04.82-.19 1.37-.17 3.56.11 9.4 4.21 11.69 6.87.32.37 1.36 1.63 1.43 2.02.21 1.11-1.62 1.7-1.65 2.91 0 .34.37.69.3 1.09l1.03-.69-.17.69.52-.08-.34.77 1.2-.51-.52 1.12.34.16c-.98 2.34-.31 5.06-.54 7.54-.06.61-.2 2.39-1.01 1.82v.5c.96-.04.79.59.87.67.13.12 1.58-.18 1.09.38-1.32 1.52 2.69 7.92 4.31 8.23.18.04.12.32.08.52l-1.29-1.89c-.35 1.44 1.01 2.78 1.25 4.08.15.8-.11 1.65.21 2.45l.86-.51-.66 3.58.66.12c.34-.21.33-1.06.86-.95-.08 1.35-.62 2.69-.69 4.03-.01.23-.12 1.07.18 1.12-.05-.64.42-.99.86-1.37l-.34 4.29c.47.1.29-.14.42-.34.3-.45.51-1.06.95-1.38-.08 1.01-.38 2-.51 3.01-.18 1.36.46 3.23-1.48 3.5-1.53.22-2.99-.11-3.71-1.59-.09-.18-.48-1.31-.48-1.41v-3.35h-.17c.15.32-.17.79-.17.94zm-4.29-61.5h3.18c.76 0 2.35 1.67 2.83-.17-.53.04-1.09.4-1.63.36-.38-.03-.6-.31-1.02-.37-.69-.1-2.01-.02-2.76 0-.21 0-.64-.13-.6.17zm-2.24 15.12c.37-.35-2.03-1.94-2.29-2.09-.34-.19-.76-.45-1.15-.48.64.78 1.62 1.21 2.4 1.81.34.26.43.85 1.04.76m-28.68 12.2 2.06-5.5c-.05-.06-.19.09-.25.17-1.34 1.63-3.63 9.8-3.63 11.97 0 .4.18.83.11 1.26l.84-2c-.52-.5-.26-1.31-.11-1.98.68-3.01 2.7-5.91 4.59-8.3l-.08-.25-3.52 4.64zm-.35 9.45c.37.07.4-.17.52-.42.49-.98.74-2.53 1.24-3.57.45-.96 1.37-1.84 1.67-2.88-.86.68-3.97 6.23-3.43 6.87m12.71 8.07c-.08-3 .03-5.98.52-8.93l-.46 1.68-.39 5.62.34 1.63zm-2.23-2.32c-.17-1.28.13-2.89 0-4.21h-.17v4.38c0 .42.73 2.7.95 3.18.12.26-.03.42.42.34-.11-1.19-1.05-2.55-1.2-3.69m7.39 7.13c.63-3.19 2.03-6.12 3.81-8.81l1.68-2.35c-.9.82-1.85 1.66-2.66 2.57-.87.97-2.19 2.32-2.32 3.61.25.06 1.15-1.21 1.03-.43-.07.47-.58 1.13-.77 1.63-.38 1-.79 2.17-.9 3.23-.02.19-.2.59.12.55zm12.32-8.11c.1-.09.34-.7.13-.82-1.04 1.2-3.06.97-3.01 3.09l1.12-1.54c.33-.45 1.51-.52 1.76-.73m2.79 10.69v4.38c0 .11.39 1.58.47 1.76.11.23.16.44.39.13-.49-1.91-.61-3.71-.69-5.67 0-.21.13-.64-.17-.6m-1.54 6.18-.51-.34c-.05.86-.9 1.54-1.64.86-.35.85-.58.06-.72.01-.37-.11-.76-.13-1.23-.29-.23-.08-.52-.11-.36.19.18.34.83.24 1.16.38.26.1.19.51.83.56.96.08 1.86-.6 2.82-.17-.04-.52.18-1.17-.26-1.54zm66.31 1.63c-.26 2.2-1.68 3.37-3.87 3.18-2.35-.2-1.59-1.74-1.8-3.35-.14-1.06-.48-2.1-.51-3.18.45.34.64 1.06.98 1.5.11.14 0 .31.39.22l-.34-4.29c.33-.06.07.34.2.49.07.08.38-.03.5.13.19.26-.02.89.33.93.24-1.84-.64-3.5-.68-5.32l.86.96.66-.12-.66-3.58.86.52c.27-.81.08-1.66.21-2.45.2-1.22 1.23-2.41 1.34-3.82.02-.2.03-.37-.18-.17-.32.31-.53 1.09-.89 1.52-.12.14-.28.49-.49.2l4.46-8.73c.4-.48 1.17.04 1.07-.77l1-.47c-.9-.12-.94-1.17-1.01-1.91-.27-2.8 0-5.4-.43-8.31-.03-.19-.3-.66-.28-.68l1.2.51-.35-.77.52.08-.17-.69.77.68c1.78-1.64-1.33-2.7-1.09-3.99.09-.46 1.64-2.35 2.05-2.77 2.24-2.32 7.82-6.02 11.07-6.12.55-.02.89.13 1.37.17.19.02.64.13.6-.17-2-.36-3.93-1.56-6.01-1.03-.1-.46.12-.29.34-.43 1.84-1.1 3.66-.2 5.5.42-3.01-2.35-7.38-.73-10.42.83-.51.26-2.99 2-3.32 1.75.47-1.17 1.79-1.24 2.58-2.06-2.38.29-2.43-.25-3.77-1.64-.37-.39-.9-.65-1.18-1.05-.81-1.14-.72-3.31-2.08-4.18-.18.23.67 1.1.09 1.03-.94-.69-1.48-2.1-2.41-2.75-.41-.29-1.57-.59-1.73-.86-.57-.92 2.06-1.22 2.59-1.21 2.67.06 5.46.86 8.07 1.04s7.36-.5 9.65.31c4.6 1.63 11.55 7.5 14.66 11.28 1.36 1.65 1.75 3.88 2.6 5.82 2.57 5.87 6.69 10.82 5.99 17.89-.24 2.39-.88 2.03-2.39 3.11-1.04.74-1.77 2.01-3.11 1.96.72-1.72.19-3.04-.52-4.64-.42.23.18 1.11.18 1.46l-.34.09-.43-.86-.17.35c-.78.14-2.09-2.37-2.83-2.76.76 1.77 2.17 3.22 3.01 4.98.5 1.04 1.39 3.05.84 4.11-.25.47-1.64 2.34-2.04 2.6-.63.4-1.53.38-2.27.65-.63.24-1.19.79-1.77.98-1.02.33-2.54-.14-3.01.94s-.04 1.92-1.02 2.93c-1.08 1.11-2.58 2.05-3.62 3.26-.72.01.32-.72 0-1.03-.95.94-1.73 2.05-2.75 2.91-1.98 1.67-7.79 4.9-10.31 4.82-1.46-.05-2.96-.85-4.44.02-.5.29-.81 1.01-1.49 1.01v-3.69c0-.15-.32-.62-.17-.94h-.17c-.09 1.01.12 2.19 0 3.18zm1.29-60.04c.93-.18 2.35.13 3.35 0 .04-.3-.39-.16-.6-.17-.75-.03-2.07-.11-2.76 0-.41.06-.64.34-1.02.37-.59.04-1.21-.38-1.81-.36.9 1.68 1.82.37 2.83.17zm9.53 12.2c-.58.18-1.24.57-1.77.89-.24.15-2.59 1.63-2.18 2.03.61.08.7-.49 1.04-.76.94-.74 2.04-1.32 2.91-2.16m26.46 23.02v-2.83c0-.64-1.65-6.35-1.98-7.3s-1.42-2.92-2-3.84c-.11-.17-.35-.53-.32-.03l2.57 6.1c-1.2-1.24-1.97-2.87-3.1-4.2-.07-.08-.4-.55-.51-.35 1.67 2.5 3.55 4.86 4.38 7.82.24.86.7 2.08.11 2.63l.84 2.01zm-1.38 1.55c.43-.51-2.34-6.01-3.26-6.53.38 1.02 1.13 1.81 1.57 2.8s.67 2.35 1.16 3.31c.13.25.16.49.52.42zm-12.71 8.93c.47-2.68.39-5.26-.05-7.94l-.46-1.85c.52 3.12.59 6.06.34 9.19-.01.19-.13.64.17.6m-5.67-1.03c.35-.46-1.06-2.09-1.38-2.49-1.06-1.34-2.34-2.55-3.6-3.7l2.54 3.73c1.41 2.36 2.45 4.9 2.96 7.61.3.04.17-.39.15-.58-.08-.75-.42-1.87-.66-2.6-.3-.88-.98-1.82-.95-2.66zm8.08-1.98c.16-1.29-.12-2.88 0-4.21h-.17v3.87l-1.2 3.86c.49.09.28-.13.39-.38.3-.65.9-2.47.99-3.15zm-17.01 1.29c.09-2.26-1.85-2.09-3.09-3.26-.16 1.34 2.05.9 2.55 2.18l.54 1.09zm-6.19 14.6c.57-2.02.61-4.1.51-6.18l-.57 4.67c.03.63-.88 1.49.05 1.51zm2.08-.18-.36-.5v1.55c.89-.22 2.19.54 2.97.31.25-.07.42-.41.68-.53.34-.15.98-.06 1.16-.39.16-.3-.13-.26-.36-.19-.55.18-1.3.19-1.44.62h-.34c-.12-.63-.53-.04-1.03-.08-.47-.03-.73-.53-.77-.96l-.5.16zm-19.53 3.39c.02-.06.27-.06.27-.16 0-.22-.26-.49-.16-.82.06-.2.97-.56.67-1.31l.34.17v-.69l.69.17c-.01-1.31 1.14-2.21 2.32-1.38 1.28.91 1.19 3.48 1.62 4.91 1.94 6.45 7.02 13.32 7.58 20.25.37 4.6-.83 8.96-5.27 11.07-1.22.58-4.26 1.54-4.54-.4.05-.47 2.95-2.4 3.47-3.41 1.13-2.15.02-6.29-.6-8.58-.89-3.28-2.31-6.44-3.7-9.53-.49-1.08-3.39-6.5-3.44-7.04-.02-.26.37-.53.45-.86.19-.81-.1-1.44.28-2.39zm-33.57-2.51.5-.17c.17.68.94 1.47 1.14 2.05.28.82.27 2.02.42 2.83.07.39.5.65.47 1.01-.05.57-2.73 5.54-3.2 6.58-1.83 4.05-6.12 13.72-4.75 17.93.56 1.71 3.63 3.42 3.7 4.04.2 1.88-3.44.9-4.42.46-10.23-4.62-3.4-18.29-.43-25.4.75-1.8 2.2-4.31 2.7-6.07.36-1.27.36-5.19 2.39-4.98.73.07 1.44.99 1.48 1.72" class="st0"/></g></symbol></svg>
+
+<aside class="side">
+  <div class="brand">
+    <svg class="ele" aria-hidden="true"><use href="#elephant"/></svg>
+    <div>
+      <h1 class="serif">Command Desk</h1>
+      <div class="firm">Corcoran Smith Law</div>
+    </div>
+  </div>
+  <nav aria-label="Dashboard sections">
+    <div class="navlbl">Firm</div>
+    <a href="#overview" class="active"><span class="glyph" aria-hidden="true">◆</span>Overview</a>
+    <a href="#funnel"><span class="glyph" aria-hidden="true">▼</span>Lead funnel</a>
+    <div class="navlbl">Growth</div>
+    <a href="#channels"><span class="glyph" aria-hidden="true">⇄</span>Channels</a>
+    <a href="#paid"><span class="glyph" aria-hidden="true">◎</span>Paid search</a>
+    <a href="#search"><span class="glyph" aria-hidden="true">¶</span>Search &amp; content</a>
+    <a href="#local"><span class="glyph" aria-hidden="true">★</span>Local &amp; reviews</a>
+    <div class="navlbl">Business</div>
+    <a href="#practice"><span class="glyph" aria-hidden="true">§</span>Practice economics</a>
+    <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
+  </nav>
+  <div class="sfoot"><b>August 2026 · MTD</b>refreshed Aug 14, 6:00 AM PT</div>
+</aside>
+
+<main>
+  <div class="topline">
+    <h2 class="serif">One desk for every number that runs the firm</h2>
+    <div class="sources" aria-label="Connected data sources">
+      <span class="src live"><span class="dot"></span><b>Ads</b></span>
+      <span class="src live"><span class="dot"></span><b>Search Console</b></span>
+      <span class="src live"><span class="dot"></span><b>Business Profile</b></span>
+      <span class="src issue"><span class="dot"></span><b>GA4</b></span>
+      <span class="src off"><span class="dot"></span><b>CallRail</b></span>
+      <span class="src off"><span class="dot"></span><b>Clio</b></span>
+      <span class="src off"><span class="dot"></span><b>QuickBooks</b></span>
+    </div>
+  </div>
+
+  <!-- OVERVIEW -->
+  <section class="zone reveal" id="overview" aria-label="Overview">
+    <div class="alerts">
+      <div class="alert">
+        <h4><span aria-hidden="true">⛔</span> Ad budgets still cut — leads down ~45%</h4>
+        <p>Spend fell from ~$150/day to a $60/day cap on Aug 1. Two campaigns are budget-limited at &lt;10% impression share.</p>
+        <a class="act" href="#paid">Review paid search →</a>
+      </div>
+      <div class="alert warn">
+        <h4><span aria-hidden="true">▲</span> Form leads invisible to analytics</h4>
+        <p>GA4's form_submit event has recorded zero data for 28 days while the Ads tag counted 22 form leads. Organic leads are uncounted.</p>
+        <a class="act" href="#ops">See intake tracking →</a>
+      </div>
+      <div class="alert warn">
+        <h4><span aria-hidden="true">▲</span> Call tracking owned by a third party</h4>
+        <p>The CallRail account recording client calls belongs to an unidentified outside party. Confidentiality exposure; recovery in progress.</p>
+        <a class="act" href="#ops">Ops checklist →</a>
+      </div>
+    </div>
+    <div class="kpis">
+      <div class="kpi">
+        <div class="lbl">New retainers <span class="chip sample">sample</span></div>
+        <div class="val" data-count="52.5" data-pre="$" data-suf="K" data-dec="1">$52.5K</div>
+        <div class="sub">15 clients × $3,500 · <span class="down">▼ 18% vs Jul</span></div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">Cash collected <span class="chip sample">sample</span></div>
+        <div class="val" data-count="148.2" data-pre="$" data-suf="K" data-dec="1">$148.2K</div>
+        <div class="sub">retainers + hourly billing · QBO</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">New clients <span class="chip sample">sample</span></div>
+        <div class="val" data-count="15">15</div>
+        <div class="sub">plan: 20 · <span class="down">5 behind plan</span></div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">Cost per lead <span class="chip live">live</span></div>
+        <div class="val" data-count="53" data-pre="$">$53</div>
+        <div class="sub">30-day · was $138 at full spend</div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">Blended CAC <span class="chip live">live</span></div>
+        <div class="val" data-count="187" data-pre="$">$187</div>
+        <div class="sub">per signed client · <span class="up">19× retainer return</span></div>
+      </div>
+      <div class="kpi">
+        <div class="lbl">Pipeline <span class="chip sample">sample</span></div>
+        <div class="val" data-count="89" data-pre="$" data-suf="K">$89K</div>
+        <div class="sub">41 open consults, close-rate weighted</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FUNNEL -->
+  <section class="zone reveal" id="funnel" aria-label="Lead funnel">
+    <div class="zonehead"><h3 class="serif">Lead funnel</h3><span class="sub">search impression → signed client, this month</span></div>
+    <div class="row r-2">
+      <div class="card">
+        <div class="eyebrow">This month's funnel <span class="rule"></span> <span class="chip live">live</span> <span class="chip sample">sample</span></div>
+        <div class="fstage">
+          <div class="nm"><b>Searches seen</b>Google impressions</div>
+          <div class="fbar"><span style="width:100%"></span></div>
+          <div class="n">27,400</div>
+        </div>
+        <div class="fconv"><div>1.9% click through</div></div>
+        <div class="fstage">
+          <div class="nm"><b>Site sessions</b>all channels</div>
+          <div class="fbar"><span style="width:62%; background: var(--s1)"></span></div>
+          <div class="n">908</div>
+        </div>
+        <div class="fconv"><div>6.5% become a lead</div></div>
+        <div class="fstage">
+          <div class="nm"><b>Leads</b>forms + calls</div>
+          <div class="fbar"><span style="width:34%; background: var(--s1)"></span></div>
+          <div class="n">59</div>
+        </div>
+        <div class="fconv"><div>54% book a consult · sample</div></div>
+        <div class="fstage">
+          <div class="nm"><b>Consults held</b>Clio</div>
+          <div class="fbar"><span style="width:20%; background: var(--s1)"></span></div>
+          <div class="n">32</div>
+        </div>
+        <div class="fconv"><div>47% sign · sample</div></div>
+        <div class="fstage">
+          <div class="nm"><b>Signed clients</b>retainers in</div>
+          <div class="fbar"><span style="width:11%; background: var(--brass)"></span></div>
+          <div class="n">15</div>
+        </div>
+        <div class="leadmix">
+          <span class="lm"><i style="background:var(--s1)"></i>Website forms <b>22</b></span>
+          <span class="lm"><i style="background:var(--s2)"></i>Calls from ads <b>16</b></span>
+          <span class="lm"><i style="background:var(--s3)"></i>Maps profile calls <b>12</b></span>
+          <span class="lm"><i style="background:var(--s4)"></i>Other tracked calls <b>9</b></span>
+        </div>
+      </div>
+
+      <div class="card chart">
+        <div class="eyebrow">Tracked leads by source — 6 months <span class="rule"></span> <span class="chip live">live</span></div>
+        <svg viewBox="0 0 460 218" role="img" aria-label="Stacked monthly bars of leads by source, March through August 2026. June peaked at 71; August is on pace for 38.">
+          <g stroke="var(--grid)" stroke-width="1">
+            <line x1="34" y1="20" x2="450" y2="20"/><line x1="34" y1="72" x2="450" y2="72"/>
+            <line x1="34" y1="124" x2="450" y2="124"/><line x1="34" y1="176" x2="450" y2="176"/>
+          </g>
+          <g font-size="10" fill="var(--ink-3)" font-family="system-ui" text-anchor="end">
+            <text x="28" y="23">80</text><text x="28" y="75">53</text><text x="28" y="127">27</text><text x="28" y="179">0</text>
+          </g>
+          <g id="bars"></g>
+          <g font-size="10.5" fill="var(--ink-2)" font-family="system-ui" text-anchor="middle">
+            <text x="70" y="194">Mar</text><text x="133" y="194">Apr</text><text x="196" y="194">May</text>
+            <text x="259" y="194">Jun</text><text x="322" y="194">Jul</text><text x="385" y="194">Aug*</text>
+          </g>
+          <g font-size="11" font-weight="650" fill="var(--ink)" font-family="system-ui" text-anchor="middle" id="totals"></g>
+        </svg>
+        <div class="tip" id="tip"></div>
+        <div class="legend">
+          <span class="lm"><i style="background:var(--s1)"></i>Forms</span>
+          <span class="lm"><i style="background:var(--s2)"></i>Ad calls</span>
+          <span class="lm"><i style="background:var(--s3)"></i>Maps calls</span>
+          <span class="lm"><i style="background:var(--s4)"></i>Other calls</span>
+        </div>
+        <div class="foot-note">*August projected from first 13 days. The June peak (71) matches full ad spend; the August drop tracks the budget cut.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNELS -->
+  <section class="zone reveal" id="channels" aria-label="Channel economics">
+    <div class="zonehead"><h3 class="serif">Channel economics</h3><span class="sub">where clients actually come from</span></div>
+    <div class="card">
+      <div class="eyebrow">Per-channel performance <span class="rule"></span> <span class="chip live">marketing live</span> <span class="chip sample">client attribution sample</span></div>
+      <div class="tblwrap">
+        <table>
+          <thead>
+            <tr><th>Channel</th><th>Leads / mo</th><th>Signed / mo</th><th>CAC</th><th>Retainer rev / mo</th><th>6-mo trend</th><th>Status</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="ch"><span class="swatch" style="background:var(--s2)"></span>Google Ads<span class="note">search, 3 campaigns</span></td>
+              <td>38</td><td>9</td><td>$279</td><td>$31,500</td>
+              <td><svg class="spark" width="110" height="26" aria-label="Ads leads trend: high through July, falling in August"><polyline points="4,10 25,8 46,9 67,5 88,9 106,20" stroke="var(--s2)"/><circle cx="106" cy="20" r="3" fill="var(--s2)"/></svg></td>
+              <td><span class="pill crit">Budget capped</span></td>
+            </tr>
+            <tr>
+              <td class="ch"><span class="swatch" style="background:var(--s3)"></span>Maps profile<span class="note">Google Business Profile</span></td>
+              <td>12</td><td>3</td><td>$0</td><td>$10,500</td>
+              <td><svg class="spark" width="110" height="26" aria-label="Maps calls trend: peak in June, declining since"><polyline points="4,14 25,18 46,16 67,4 88,8 106,17" stroke="var(--s3)"/><circle cx="106" cy="17" r="3" fill="var(--s3)"/></svg></td>
+              <td><span class="pill ok">Brand-only reach</span></td>
+            </tr>
+            <tr>
+              <td class="ch"><span class="swatch" style="background:var(--s1)"></span>Organic search<span class="note">non-brand SEO</span></td>
+              <td>3</td><td>1</td><td>$0</td><td>$3,500</td>
+              <td><svg class="spark" width="110" height="26" aria-label="Organic non-brand clicks: flat and low"><polyline points="4,20 25,19 46,18 67,17 88,18 106,17" stroke="var(--s1)"/><circle cx="106" cy="17" r="3" fill="var(--s1)"/></svg></td>
+              <td><span class="pill ok">Dormant asset</span></td>
+            </tr>
+            <tr>
+              <td class="ch"><span class="swatch" style="background:var(--s4)"></span>Referral &amp; repeat<span class="note">past clients, professional network</span></td>
+              <td>6</td><td>2</td><td>$0</td><td>$7,000</td>
+              <td><svg class="spark" width="110" height="26" aria-label="Referral leads: steady"><polyline points="4,14 25,13 46,15 67,13 88,14 106,13" stroke="var(--s4)"/><circle cx="106" cy="13" r="3" fill="var(--s4)"/></svg></td>
+              <td><span class="pill ok">Untracked → Clio</span></td>
+            </tr>
+            <tr class="rowdim">
+              <td class="ch">Local Services Ads<span class="note">pay-per-lead, "Google Screened"</span></td>
+              <td>—</td><td>—</td><td>—</td><td>—</td>
+              <td></td>
+              <td><span class="pill off">Not launched</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHANNEL DETAIL -->
+  <section class="zone reveal" id="paid" aria-label="Paid search detail">
+    <div class="zonehead"><h3 class="serif">Channel detail</h3><span class="sub">paid · search &amp; content · local</span></div>
+    <div class="row r-3">
+      <div class="card">
+        <div class="eyebrow">Paid search <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v">$2,508</div><div class="l">30-day spend</div></div>
+          <div class="ministat"><div class="v">$53</div><div class="l">per lead</div></div>
+          <div class="ministat"><div class="v">17.8%</div><div class="l">click→lead</div></div>
+        </div>
+        <div class="bullet">
+          <div class="blbl"><span>Spend vs. pre-cut run-rate</span><b>34%</b></div>
+          <div class="btrack"><span style="width:34%; background:var(--crit)"></span><span class="tgt" style="left:96%"></span></div>
+        </div>
+        <div class="bullet">
+          <div class="blbl"><span>Search impression share</span><b>18%</b></div>
+          <div class="btrack"><span style="width:18%; background:var(--s2)"></span><span class="tgt" style="left:60%"></span></div>
+        </div>
+        <div class="foot-note">Auction is soft: no major firms bidding. Top of page won 40% of the time shown. Target marks: restore $150/day; 60% share.</div>
+      </div>
+
+      <div class="card" id="search">
+        <div class="eyebrow">Search &amp; content <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v">344</div><div class="l">clicks, best mo</div></div>
+          <div class="ministat"><div class="v">79%</div><div class="l">branded share</div></div>
+          <div class="ministat"><div class="v">37</div><div class="l">backlinks</div></div>
+        </div>
+        <div class="bullet">
+          <div class="blbl"><span>City pages indexed</span><b>2 of 6</b></div>
+          <div class="btrack"><span style="width:33%; background:var(--s1)"></span><span class="tgt" style="left:99%"></span></div>
+        </div>
+        <div class="bullet">
+          <div class="blbl"><span>Blog cadence (posts / mo, target 4)</span><b>0</b></div>
+          <div class="btrack"><span style="width:2%; background:var(--s1)"></span><span class="tgt" style="left:99%"></span></div>
+        </div>
+        <div class="foot-note">Last post Mar 22. The trustee-accounting post alone out-earns the homepage in impressions — content works when it ships.</div>
+      </div>
+
+      <div class="card" id="local">
+        <div class="eyebrow">Local &amp; reputation <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v">12</div><div class="l">calls / mo</div></div>
+          <div class="ministat"><div class="v">30%</div><div class="l">view→action</div></div>
+          <div class="ministat"><div class="v">4.8★</div><div class="l">rating</div></div>
+        </div>
+        <div class="bullet">
+          <div class="blbl"><span>Google reviews (target 100)</span><b>29</b></div>
+          <div class="btrack"><span style="width:29%; background:var(--s3)"></span><span class="tgt" style="left:99%"></span></div>
+        </div>
+        <div class="bullet">
+          <div class="blbl"><span>Non-brand profile impressions</span><b>4%</b></div>
+          <div class="btrack"><span style="width:4%; background:var(--s3)"></span><span class="tgt" style="left:50%"></span></div>
+        </div>
+        <div class="foot-note">96% of profile searches are the firm's own name. Review volume is what unlocks "probate lawyer sacramento." 2 reviews await replies.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICE -->
+  <section class="zone reveal" id="practice" aria-label="Practice area economics">
+    <div class="zonehead"><h3 class="serif">Practice economics</h3><span class="sub">what a client is worth by practice area</span></div>
+    <div class="card">
+      <div class="eyebrow">This month by practice <span class="rule"></span> <span class="chip sample">sample · Clio</span></div>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Practice</th><th>New matters</th><th>Avg lifetime value</th><th>WIP</th><th>Billed MTD</th></tr></thead>
+          <tbody>
+            <tr><td class="ch">Trust &amp; estate litigation</td><td>6</td><td>$28,400</td><td>$212K</td><td>$74,800</td></tr>
+            <tr><td class="ch">Estate planning</td><td>7</td><td>$4,200</td><td>$18K</td><td>$29,400</td></tr>
+            <tr><td class="ch">GC subscriptions <span class="note">recurring</span></td><td>1</td><td>$18,000 / yr</td><td>—</td><td>$6,000</td></tr>
+            <tr><td class="ch">VA disability</td><td>1</td><td>$9,100</td><td>$31K</td><td>$8,200</td></tr>
+            <tr><td class="ch">Real estate</td><td>0</td><td>$6,800</td><td>$12K</td><td>$4,300</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="foot-note">One litigation client ≈ eight estate-planning clients by lifetime value. Marketing weight should follow this column.</div>
+    </div>
+  </section>
+
+  <!-- OPS -->
+  <section class="zone reveal" id="ops" aria-label="Intake and operations">
+    <div class="zonehead"><h3 class="serif">Intake &amp; operations</h3><span class="sub">the handoff from marketing to revenue</span></div>
+    <div class="card">
+      <div class="eyebrow">Operational health <span class="rule"></span> <span class="chip sample">sample</span></div>
+      <div class="op"><span class="l">Speed to first response</span><span class="v">26 h</span><span class="t"><span class="st crit">target 1 h</span></span></div>
+      <div class="op"><span class="l">Missed / unanswered calls</span><span class="v">—</span><span class="t"><span class="st warn">needs CallRail</span></span></div>
+      <div class="op"><span class="l">Consult show rate</span><span class="v">78%</span><span class="t"><span class="st good">healthy</span></span></div>
+      <div class="op"><span class="l">Consult → signed</span><span class="v">47%</span><span class="t"><span class="st good">strong</span></span></div>
+      <div class="op"><span class="l">Realization rate</span><span class="v">89%</span><span class="t"><span class="st good">healthy</span></span></div>
+      <div class="op"><span class="l">A/R over 60 days</span><span class="v">$23.4K</span><span class="t"><span class="st warn">watch</span></span></div>
+      <div class="op"><span class="l">Google reviews unanswered</span><span class="v">2</span><span class="t"><span class="st warn">reply today</span></span></div>
+    </div>
+  </section>
+
+  <footer class="pagefoot">
+    <span><b>● live</b> — measured from Google Ads, Search Console, GA4, and Business Profile on Aug 14, 2026</span>
+    <span><b>○ sample</b> — illustrative until Clio, QuickBooks, and CallRail are connected</span>
+    <span>Mockup for Mark Smith · BizRnR</span>
+  </footer>
+</main>
+
+<script>
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- stacked leads chart ---- */
+  const MONTHS = ["March","April","May","June","July","August (proj.)"];
+  const DATA = [
+    [24, 14, 12, 6],
+    [26, 15,  8, 7],
+    [27, 16, 10, 6],
+    [30, 18, 14, 9],
+    [26, 15, 10, 8],
+    [17,  9,  8, 4],
+  ];
+  const COLORS = ["--s1","--s2","--s3","--s4"];
+  const NAMES = ["Forms","Ad calls","Maps calls","Other calls"];
+  const X = [70,133,196,259,322,385], W = 40, BASE = 176, SCALE = 1.95, GAP = 2;
+  const bars = document.getElementById("bars");
+  const totals = document.getElementById("totals");
+  const tip = document.getElementById("tip");
+  const NS = "http://www.w3.org/2000/svg";
+  DATA.forEach((stack, m) => {
+    const g = document.createElementNS(NS, "g");
+    g.setAttribute("class", "barhit");
+    g.setAttribute("tabindex", "0");
+    let y = BASE;
+    stack.forEach((v, i) => {
+      const h = Math.max(v * SCALE - GAP, 2);
+      y -= v * SCALE;
+      const r = document.createElementNS(NS, "rect");
+      r.setAttribute("x", X[m] - W/2); r.setAttribute("y", y + GAP/2);
+      r.setAttribute("width", W); r.setAttribute("height", h);
+      r.setAttribute("rx", i === stack.length - 1 ? 3 : 1);
+      r.setAttribute("fill", `var(${COLORS[i]})`);
+      r.setAttribute("class", "seg");
+      g.appendChild(r);
+    });
+    const total = stack.reduce((a,b)=>a+b,0);
+    const show = () => {
+      const svg = bars.ownerSVGElement.getBoundingClientRect();
+      const scale = svg.width / 460;
+      tip.style.left = (X[m] * scale) + "px";
+      tip.style.top = ((BASE - total*SCALE) * scale) + "px";
+      tip.innerHTML = `<b>${MONTHS[m]}: ${total} leads</b><br>` +
+        stack.map((v,i)=>`${NAMES[i]} ${v}`).join(" · ");
+      tip.style.opacity = 1;
+    };
+    const hide = () => { tip.style.opacity = 0; };
+    g.addEventListener("mouseenter", show);
+    g.addEventListener("mouseleave", hide);
+    g.addEventListener("focus", show);
+    g.addEventListener("blur", hide);
+    bars.appendChild(g);
+    const t = document.createElementNS(NS, "text");
+    t.setAttribute("x", X[m]); t.setAttribute("y", BASE - total*SCALE - 6);
+    t.textContent = total;
+    totals.appendChild(t);
+  });
+
+  /* ---- section reveal ---- */
+  const zones = [...document.querySelectorAll(".reveal")];
+  if (reduced) { zones.forEach(z => z.classList.add("in")); }
+  else {
+    const ro = new IntersectionObserver(es => es.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add("in"); ro.unobserve(e.target); }
+    }), { threshold: 0.08 });
+    zones.forEach(z => ro.observe(z));
+  }
+
+  /* ---- KPI count-up ---- */
+  const fmt = (el, n) => {
+    const dec = +(el.dataset.dec || 0);
+    el.textContent = (el.dataset.pre || "") + n.toFixed(dec) + (el.dataset.suf || "");
+  };
+  document.querySelectorAll("[data-count]").forEach(el => {
+    const target = parseFloat(el.dataset.count);
+    if (reduced) { fmt(el, target); return; }
+    const t0 = performance.now(), dur = 750;
+    const step = t => {
+      const p = Math.min((t - t0) / dur, 1);
+      fmt(el, target * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  });
+
+  /* ---- scroll-spy ---- */
+  const links = [...document.querySelectorAll("nav a")];
+  const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
+  const spyTargets = ["overview","funnel","channels","paid","search","local","practice","ops"]
+    .map(id => document.getElementById(id)).filter(Boolean);
+  const spy = new IntersectionObserver(es => {
+    es.forEach(e => {
+      if (e.isIntersecting) {
+        links.forEach(a => a.classList.remove("active"));
+        const a = byId[e.target.id];
+        if (a) a.classList.add("active");
+      }
+    });
+  }, { rootMargin: "-30% 0px -60% 0px" });
+  spyTargets.forEach(s => spy.observe(s));
+  links.forEach(a => a.addEventListener("click", () => {
+    links.forEach(x => x.classList.remove("active"));
+    a.classList.add("active");
+  }));
+</script>
+</body></html>
