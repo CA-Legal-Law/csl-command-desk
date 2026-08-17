@@ -256,6 +256,10 @@
 
   footer.pagefoot { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 14px; font-size: 11.5px; color: var(--ink-3); display: flex; gap: 18px; flex-wrap: wrap; }
   footer.pagefoot b { color: var(--ink-2); }
+  #freshness.stale { color: var(--serious); }
+  .hydrated { animation: hy .5s ease; }
+  @keyframes hy { from { background: var(--brass-soft); } to { background: transparent; } }
+  @media (prefers-reduced-motion: reduce) { .hydrated { animation: none; } }
 
   /* ---------- responsive ---------- */
   @media (max-width: 980px) {
@@ -506,9 +510,9 @@
       <div class="card">
         <div class="eyebrow">Paid search <span class="rule"></span> <span class="chip live">live</span></div>
         <div class="stat3">
-          <div class="ministat"><div class="v">$2,508</div><div class="l">30-day spend</div></div>
-          <div class="ministat"><div class="v">$53</div><div class="l">per lead</div></div>
-          <div class="ministat"><div class="v">17.8%</div><div class="l">click→lead</div></div>
+          <div class="ministat"><div class="v" data-m="ads.last_30d.cost" data-fmt="usd0">$2,508</div><div class="l">30-day spend</div></div>
+          <div class="ministat"><div class="v" data-m="ads.cost_per_conv_30d" data-fmt="usd0">$53</div><div class="l">per conversion</div></div>
+          <div class="ministat"><div class="v" data-m="ads.cpc_30d" data-fmt="usd2">$9.50</div><div class="l">cost per click</div></div>
         </div>
         <div class="bullet">
           <div class="blbl"><span>Spend vs. pre-cut run-rate</span><b>34%</b></div>
@@ -566,23 +570,23 @@
     <div class="kpis">
       <div class="kpi">
         <div class="lbl">Lifetime value <span class="chip live">measured</span></div>
-        <div class="val">$3,007</div>
-        <div class="sub">per matter opened · 106 mature matters</div>
+        <div class="val" data-m="clio.ltv_per_matter" data-fmt="usd0">$3,007</div>
+        <div class="sub">per matter opened · <span data-m="clio.ltv_cohort_size" data-fmt="int">106</span> mature matters</div>
       </div>
       <div class="kpi">
         <div class="lbl">Break-even ceiling</div>
-        <div class="val">$75</div>
+        <div class="val" data-m="derived.breakeven_cost_per_conv" data-fmt="usd0">$75</div>
         <div class="sub">max cost / conversion to clear 5:1</div>
       </div>
       <div class="kpi">
         <div class="lbl">Return per $1,000</div>
-        <div class="val">$6,659</div>
-        <div class="sub"><span class="up">6.7:1</span> at August efficiency</div>
+        <div class="val" data-m="derived.return_per_1000" data-fmt="usd0">$6,659</div>
+        <div class="sub"><span class="up" data-m="derived.current_roas" data-fmt="ratio">6.7:1</span> at current efficiency</div>
       </div>
       <div class="kpi">
         <div class="lbl">Cash sitting uncollected</div>
-        <div class="val">$51,553</div>
-        <div class="sub"><span class="down">$15,536</span> over 90 days old</div>
+        <div class="val" data-m="clio.ar_total" data-fmt="usd0">$51,553</div>
+        <div class="sub"><span class="down" data-m="clio.ar_over_90" data-fmt="usd0">$15,536</span> over 90 days old</div>
       </div>
     </div>
 
@@ -677,7 +681,7 @@
 
   <footer class="pagefoot">
     <span><b>● live</b> — first-party data from Google Ads, Search Console, GA4, Business Profile, CallRail, Lawmatics, and Clio, read Aug 14–17, 2026</span>
-    <span><b>next refresh</b> — automated pipeline pending API credentials (see repo)</span>
+    <span id="freshness"><b>next refresh</b> — checking for live data…</span>
     <span>Command Desk for Mark Smith · BizRnR</span>
   </footer>
 </main>
@@ -766,6 +770,48 @@
     };
     requestAnimationFrame(step);
   });
+
+  /* ---- live hydration from metrics.json ----
+     Progressive enhancement: every [data-m] element ships with a correct
+     hardcoded value. If metrics.json is present (written by pipeline/refresh.py)
+     the live number replaces it and the footer stamps the refresh time.
+     If the fetch fails, the page is still correct as of its last publish. */
+  const FMT = {
+    usd0:  n => "$" + Math.round(n).toLocaleString("en-US"),
+    usd2:  n => "$" + n.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}),
+    int:   n => Math.round(n).toLocaleString("en-US"),
+    pct1:  n => (n * 100).toFixed(1) + "%",
+    ratio: n => n.toFixed(1) + ":1",
+  };
+  const dig = (o, path) => path.split(".").reduce((a, k) => (a == null ? a : a[k]), o);
+
+  fetch("metrics.json", {cache: "no-store"})
+    .then(r => r.ok ? r.json() : Promise.reject(new Error("no metrics.json")))
+    .then(m => {
+      let filled = 0;
+      document.querySelectorAll("[data-m]").forEach(el => {
+        const v = dig(m, el.dataset.m);
+        if (v == null || v === 0 || Number.isNaN(v)) return;   // keep published value
+        const f = FMT[el.dataset.fmt];
+        el.textContent = f ? f(v) : v;
+        el.classList.add("hydrated");
+        filled++;
+      });
+      const meta = m._meta || {};
+      const stamp = document.getElementById("freshness");
+      if (stamp) {
+        const failed = Object.keys(meta.errors || {});
+        stamp.textContent = `Live data refreshed ${meta.generated_at || "—"} · `
+          + `${meta.sources_ok}/${meta.sources_total} sources`
+          + (failed.length ? ` · degraded: ${failed.join(", ")}` : "")
+          + ` · ${filled} live values`;
+        stamp.classList.toggle("stale", failed.length > 0);
+      }
+    })
+    .catch(() => {
+      const stamp = document.getElementById("freshness");
+      if (stamp) stamp.textContent = "Showing last published figures — live refresh unavailable.";
+    });
 
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];

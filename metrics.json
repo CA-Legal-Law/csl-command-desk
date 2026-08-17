@@ -1,0 +1,642 @@
+{
+ "clio": {
+  "referrals_out_total": 107,
+  "referrals_out_by_firm": {
+   "BelleBurdy (Andrew Stilwell)": 42,
+   "Devereaux Estate Law (Brady Devereaux)": 24,
+   "DME & Associates (Debby Ehrlich)": 14,
+   "Preovolos Lewin ALC (Thanasi K. Preovolos)": 12,
+   "Precision Counsel (Joel Weinberg)": 6,
+   "Cirkveni 2.0 (Neva Cirkveni)": 3,
+   "Praetor Law (Nicholas D'Amico)": 2,
+   "Orsus Gate LLP (Denis Shmidt)": 1,
+   "California Legal Counsel (Sharen Ghatan)": 1,
+   "McLellan Law Group (Steven McLellan)": 1,
+   "Law offices of Daniel Leahy (Daniel Leahy)": 1
+  },
+  "referrals_pending_firm": 18,
+  "referral_splits": {
+   "25%": 22,
+   "20%": 5,
+   "15%": 1
+  },
+  "fee_structure": {
+   "Flat-Fee - ICA": 106,
+   "Hourly": 21,
+   "Pure Contingency": 19,
+   "Flat-Fee - Other": 7,
+   "Flat-Fee - Trust Drafting": 2,
+   "Hybrid": 1
+  },
+  "ltv_per_matter": 3085.56,
+  "ltv_cohort_size": "Contribution Credit % 3",
+  "payback_curve": {
+   "30": 741.75,
+   "60": 1249.69,
+   "90": 1507.34,
+   "180": 2475.36,
+   "365": 3055.56
+  },
+  "payback_pct": {
+   "30": 0.2404,
+   "60": 0.405,
+   "90": 0.4885,
+   "180": 0.8022,
+   "365": 0.9903
+  },
+  "collected_all_time": 821827.23,
+  "collected_by_month": {
+   "2023-07": 3996.0,
+   "2023-11": 4995.0,
+   "2024-02": 2997.0,
+   "2024-04": 4509.8,
+   "2024-05": 1747.1,
+   "2025-03": 3987.0,
+   "2025-04": 12907.5,
+   "2025-05": 19597.0,
+   "2025-06": 39433.5,
+   "2025-07": 29107.8,
+   "2025-08": 83691.37,
+   "2025-09": 54891.55,
+   "2025-10": 47038.17,
+   "2025-11": 28537.5,
+   "2025-12": 44709.71,
+   "2026-01": 49109.55,
+   "2026-02": 44490.15,
+   "2026-03": 81677.7,
+   "2026-04": 44720.45,
+   "2026-05": 54391.62,
+   "2026-06": 46849.45,
+   "2026-07": 60464.4,
+   "2026-08": 57977.91
+  },
+  "collected_last_12mo": 640571.62,
+  "monthly_run_rate": 53380.97,
+  "new_matters_by_month": {
+   "2024-01": 1,
+   "2024-03": 1,
+   "2024-04": 2,
+   "2024-11": 1,
+   "2025-01": 1,
+   "2025-03": 10,
+   "2025-04": 20,
+   "2025-05": 13,
+   "2025-06": 16,
+   "2025-07": 17,
+   "2025-08": 14,
+   "2025-09": 22,
+   "2025-10": 19,
+   "2025-11": 23,
+   "2025-12": 54,
+   "2026-01": 36,
+   "2026-02": 37,
+   "2026-03": 51,
+   "2026-04": 31,
+   "2026-05": 31,
+   "2026-06": 38,
+   "2026-07": 51,
+   "2026-08": 18,
+   "2026-09": 1
+  },
+  "matters_total": 530,
+  "matters_open": 80,
+  "matters_pending": 171,
+  "ar_total": 51553.44,
+  "ar_over_90": 15535.55,
+  "ar_buckets": {
+   "180+": {
+    "amount": 6571.0,
+    "bills": 5
+   },
+   "91-180": {
+    "amount": 8964.55,
+    "bills": 5
+   },
+   "31-60": {
+    "amount": 7067.81,
+    "bills": 6
+   },
+   "0-30": {
+    "amount": 28950.08,
+    "bills": 16
+   }
+  },
+  "revenue_by_practice": {
+   "Wills, Estates, & Probate (Administration, Beneficiary Rights, Etc.)": {
+    "matters": 238,
+    "collected": 505698.84,
+    "per_matter": 2124.79
+   },
+   "Trust/Estate Plan Drafting": {
+    "matters": 76,
+    "collected": 114080.0,
+    "per_matter": 1501.05
+   },
+   "Probate or Trust Litigation": {
+    "matters": 79,
+    "collected": 72146.82,
+    "per_matter": 913.25
+   },
+   "(unassigned)": {
+    "matters": 36,
+    "collected": 50789.42,
+    "per_matter": 1410.82
+   },
+   "General Civil Litigation": {
+    "matters": 21,
+    "collected": 21295.85,
+    "per_matter": 1014.09
+   },
+   "General Counsel": {
+    "matters": 10,
+    "collected": 18185.0,
+    "per_matter": 1818.5
+   },
+   "Probate- Real Property Succession": {
+    "matters": 10,
+    "collected": 7693.95,
+    "per_matter": 769.39
+   },
+   "Corcoran Smith Law - Personal Development": {
+    "matters": 1,
+    "collected": 5206.9,
+    "per_matter": 5206.9
+   },
+   "Probate": {
+    "matters": 18,
+    "collected": 4970.0,
+    "per_matter": 276.11
+   },
+   "Corcoran Smith Law - Business Development": {
+    "matters": 2,
+    "collected": 4000.0,
+    "per_matter": 2000.0
+   },
+   "Employment Litigation": {
+    "matters": 1,
+    "collected": 3999.0,
+    "per_matter": 3999.0
+   },
+   "Real Estate": {
+    "matters": 20,
+    "collected": 3987.0,
+    "per_matter": 199.35
+   },
+   "Probate-Small Estate Affidavit": {
+    "matters": 3,
+    "collected": 3500.0,
+    "per_matter": 1166.67
+   },
+   "Personal Injury Litigation": {
+    "matters": 2,
+    "collected": 2774.45,
+    "per_matter": 1387.22
+   },
+   "Corcoran Smith Law - Admin": {
+    "matters": 6,
+    "collected": 2500.0,
+    "per_matter": 416.67
+   },
+   "Veterans Law": {
+    "matters": 7,
+    "collected": 1000.0,
+    "per_matter": 142.86
+   }
+  }
+ },
+ "ads": {
+  "last_30d": {
+   "cost": 1995.58,
+   "conversions": 42.0,
+   "clicks": 262,
+   "impressions": 3726
+  },
+  "cost_per_conv_30d": 47.51,
+  "cpc_30d": 7.62,
+  "monthly": [
+   {
+    "month": "2025-03",
+    "cost": 143.95,
+    "conversions": 2.0,
+    "clicks": 18,
+    "cpc": 8.0,
+    "cost_per_conv": 71.97,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-04",
+    "cost": 208.62,
+    "conversions": 1.0,
+    "clicks": 75,
+    "cpc": 2.78,
+    "cost_per_conv": 208.62,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-05",
+    "cost": 579.69,
+    "conversions": 33.0,
+    "clicks": 1271,
+    "cpc": 0.46,
+    "cost_per_conv": 17.57,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-06",
+    "cost": 685.97,
+    "conversions": 139.0,
+    "clicks": 1465,
+    "cpc": 0.47,
+    "cost_per_conv": 4.94,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-07",
+    "cost": 684.22,
+    "conversions": 83.0,
+    "clicks": 1609,
+    "cpc": 0.43,
+    "cost_per_conv": 8.24,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-08",
+    "cost": 561.18,
+    "conversions": 32.0,
+    "clicks": 450,
+    "cpc": 1.25,
+    "cost_per_conv": 17.54,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-09",
+    "cost": 320.5,
+    "conversions": 8.0,
+    "clicks": 159,
+    "cpc": 2.02,
+    "cost_per_conv": 40.06,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-10",
+    "cost": 521.76,
+    "conversions": 13.009039,
+    "clicks": 190,
+    "cpc": 2.75,
+    "cost_per_conv": 40.11,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-11",
+    "cost": 519.23,
+    "conversions": 15.007607,
+    "clicks": 199,
+    "cpc": 2.61,
+    "cost_per_conv": 34.6,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2025-12",
+    "cost": 388.3,
+    "conversions": 14.983354,
+    "clicks": 255,
+    "cpc": 1.52,
+    "cost_per_conv": 25.92,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2026-01",
+    "cost": 2271.47,
+    "conversions": 48.518397,
+    "clicks": 772,
+    "cpc": 2.94,
+    "cost_per_conv": 46.82,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2026-02",
+    "cost": 2783.51,
+    "conversions": 54.968394,
+    "clicks": 378,
+    "cpc": 7.36,
+    "cost_per_conv": 50.64,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2026-03",
+    "cost": 4465.84,
+    "conversions": 109.0,
+    "clicks": 659,
+    "cpc": 6.78,
+    "cost_per_conv": 40.97,
+    "impression_share": 0.0999
+   },
+   {
+    "month": "2026-04",
+    "cost": 5094.3,
+    "conversions": 95.0,
+    "clicks": 548,
+    "cpc": 9.3,
+    "cost_per_conv": 53.62,
+    "impression_share": 0.10248652362329563
+   },
+   {
+    "month": "2026-05",
+    "cost": 4795.23,
+    "conversions": 29.001929,
+    "clicks": 267,
+    "cpc": 17.96,
+    "cost_per_conv": 165.34,
+    "impression_share": 0.29838915878292
+   },
+   {
+    "month": "2026-06",
+    "cost": 5256.84,
+    "conversions": 20.998071,
+    "clicks": 251,
+    "cpc": 20.94,
+    "cost_per_conv": 250.35,
+    "impression_share": 0.540010237160894
+   },
+   {
+    "month": "2026-07",
+    "cost": 5232.6,
+    "conversions": 44.0,
+    "clicks": 277,
+    "cpc": 18.89,
+    "cost_per_conv": 118.92,
+    "impression_share": 0.18560648096770613
+   },
+   {
+    "month": "2026-08",
+    "cost": 1073.11,
+    "conversions": 19.0,
+    "clicks": 163,
+    "cpc": 6.58,
+    "cost_per_conv": 56.48,
+    "impression_share": 0.0999
+   }
+  ],
+  "campaigns_30d": [
+   {
+    "name": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
+    "status": "ENABLED",
+    "daily_budget": 20.0,
+    "cost": 694.93,
+    "conversions": 11.0,
+    "clicks": 82,
+    "cost_per_conv": 63.18
+   },
+   {
+    "name": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
+    "status": "ENABLED",
+    "daily_budget": 20.0,
+    "cost": 685.36,
+    "conversions": 14.0,
+    "clicks": 89,
+    "cost_per_conv": 48.95
+   },
+   {
+    "name": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
+    "status": "ENABLED",
+    "daily_budget": 20.0,
+    "cost": 615.29,
+    "conversions": 17.0,
+    "clicks": 91,
+    "cost_per_conv": 36.19
+   }
+  ]
+ },
+ "gsc": {
+  "window": "2026-07-18 to 2026-08-14",
+  "clicks": 73,
+  "impressions": 5577,
+  "brand_clicks": 57,
+  "nonbrand_clicks": 16,
+  "nonbrand_share": 0.2192,
+  "ctr": 0.0131,
+  "top_queries": [
+   {
+    "query": "corcoran smith law",
+    "clicks": 35,
+    "impressions": 121,
+    "position": 1.0
+   },
+   {
+    "query": "corcoran smith law corp.",
+    "clicks": 15,
+    "impressions": 22,
+    "position": 1.1
+   },
+   {
+    "query": "seth steward",
+    "clicks": 9,
+    "impressions": 40,
+    "position": 1.9
+   },
+   {
+    "query": "corcoran smith",
+    "clicks": 2,
+    "impressions": 11,
+    "position": 7.9
+   },
+   {
+    "query": "california",
+    "clicks": 1,
+    "impressions": 12,
+    "position": 6.7
+   },
+   {
+    "query": "corcoran law",
+    "clicks": 1,
+    "impressions": 3,
+    "position": 3
+   },
+   {
+    "query": "corcoran law firm",
+    "clicks": 1,
+    "impressions": 15,
+    "position": 6.5
+   },
+   {
+    "query": "corcoran law group",
+    "clicks": 1,
+    "impressions": 4,
+    "position": 4
+   },
+   {
+    "query": "corcoran law office",
+    "clicks": 1,
+    "impressions": 2,
+    "position": 6
+   },
+   {
+    "query": "corcoran smith law reviews",
+    "clicks": 1,
+    "impressions": 24,
+    "position": 1.7
+   },
+   {
+    "query": "how to transfer llc to trust",
+    "clicks": 1,
+    "impressions": 8,
+    "position": 8.1
+   },
+   {
+    "query": "mark c. smith",
+    "clicks": 1,
+    "impressions": 14,
+    "position": 4.6
+   },
+   {
+    "query": "mark smith attorney at law",
+    "clicks": 1,
+    "impressions": 13,
+    "position": 9.1
+   },
+   {
+    "query": "step up property tax",
+    "clicks": 1,
+    "impressions": 6,
+    "position": 10
+   },
+   {
+    "query": "trustee refuses to give accounting",
+    "clicks": 1,
+    "impressions": 70,
+    "position": 4.8
+   }
+  ]
+ },
+ "ga4": {
+  "window": "last 28 days",
+  "channels": [
+   {
+    "channel": "Organic Search",
+    "sessions": 307,
+    "conversions": 8.0
+   },
+   {
+    "channel": "Direct",
+    "sessions": 250,
+    "conversions": 2.0
+   },
+   {
+    "channel": "Paid Search",
+    "sessions": 189,
+    "conversions": 3.0
+   },
+   {
+    "channel": "Organic Social",
+    "sessions": 8,
+    "conversions": 1.0
+   },
+   {
+    "channel": "Referral",
+    "sessions": 8,
+    "conversions": 0.0
+   },
+   {
+    "channel": "Paid Social",
+    "sessions": 7,
+    "conversions": 0.0
+   },
+   {
+    "channel": "AI Assistant",
+    "sessions": 6,
+    "conversions": 0.0
+   },
+   {
+    "channel": "Unassigned",
+    "sessions": 3,
+    "conversions": 11.0
+   },
+   {
+    "channel": "Cross-network",
+    "sessions": 1,
+    "conversions": 0.0
+   },
+   {
+    "channel": "Organic Video",
+    "sessions": 1,
+    "conversions": 0.0
+   }
+  ],
+  "sessions_total": 780,
+  "events": {
+   "page_view": 1060,
+   "session_start": 781,
+   "first_visit": 570,
+   "user_engagement": 545,
+   "scroll": 200,
+   "view_search_results": 169,
+   "consultation_request": 105,
+   "form": 49,
+   "form_start": 34,
+   "phone_call": 18,
+   "ClickToCall": 14,
+   "ClickToEmail": 11,
+   "gtm.dom": 4,
+   "click": 1,
+   "file_download": 1
+  },
+  "form_submit_fires": 0
+ },
+ "lawmatics": {
+  "prospects_total": 2015
+ },
+ "derived": {
+  "lead_to_client_rate": 0.1239,
+  "target_roas": 5.0,
+  "ltv_per_matter": 3085.56,
+  "max_cac_for_target": 617.11,
+  "breakeven_cost_per_conv": 76.46,
+  "current_cost_per_conv": 47.51,
+  "current_cac": 383.45,
+  "current_roas": 8.05,
+  "return_per_1000": 8046.75,
+  "verdict": "above target",
+  "return_per_1000_by_day": {
+   "30": 1934.44,
+   "60": 3258.93,
+   "90": 3930.84,
+   "180": 6455.1,
+   "365": 7968.69
+  }
+ },
+ "_meta": {
+  "generated_at": "2026-08-17T15:58:54",
+  "generated_date": "2026-08-17",
+  "sources": {
+   "gsc": {
+    "status": "ok",
+    "at": "2026-08-17T15:58:44",
+    "secs": 1.1
+   },
+   "lawmatics": {
+    "status": "ok",
+    "at": "2026-08-17T15:58:44",
+    "secs": 0.1
+   },
+   "ga4": {
+    "status": "ok",
+    "at": "2026-08-17T15:58:45",
+    "secs": 1.8
+   },
+   "ads": {
+    "status": "ok",
+    "at": "2026-08-17T15:58:47",
+    "secs": 3.5
+   },
+   "clio": {
+    "status": "ok",
+    "at": "2026-08-17T15:58:54",
+    "secs": 11.3
+   }
+  },
+  "errors": {},
+  "sources_ok": 5,
+  "sources_total": 5,
+  "gbp": "pending Google API access case 7-4790000041264"
+ }
+}
