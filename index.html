@@ -791,8 +791,10 @@
       let filled = 0;
       document.querySelectorAll("[data-m]").forEach(el => {
         const v = dig(m, el.dataset.m);
-        if (v == null || v === 0 || Number.isNaN(v)) return;   // keep published value
         const f = FMT[el.dataset.fmt];
+        // keep the published value unless the live one is genuinely usable
+        if (v == null || v === 0) return;
+        if (f && (typeof v !== "number" || !Number.isFinite(v))) return;
         el.textContent = f ? f(v) : v;
         el.classList.add("hydrated");
         filled++;

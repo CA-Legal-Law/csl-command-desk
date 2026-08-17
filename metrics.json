@@ -29,7 +29,7 @@
    "Hybrid": 1
   },
   "ltv_per_matter": 3085.56,
-  "ltv_cohort_size": "Contribution Credit % 3",
+  "ltv_cohort_size": 102,
   "payback_curve": {
    "30": 741.75,
    "60": 1249.69,
@@ -605,33 +605,33 @@
   }
  },
  "_meta": {
-  "generated_at": "2026-08-17T15:58:54",
+  "generated_at": "2026-08-17T16:01:14",
   "generated_date": "2026-08-17",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-08-17T15:58:44",
+    "at": "2026-08-17T16:01:02",
+    "secs": 1.1
+   },
+   "ga4": {
+    "status": "ok",
+    "at": "2026-08-17T16:01:02",
     "secs": 1.1
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-08-17T15:58:44",
+    "at": "2026-08-17T16:01:02",
     "secs": 0.1
-   },
-   "ga4": {
-    "status": "ok",
-    "at": "2026-08-17T15:58:45",
-    "secs": 1.8
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-17T15:58:47",
-    "secs": 3.5
+    "at": "2026-08-17T16:01:05",
+    "secs": 4.1
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-17T15:58:54",
-    "secs": 11.3
+    "at": "2026-08-17T16:01:14",
+    "secs": 12.4
    }
   },
   "errors": {},
