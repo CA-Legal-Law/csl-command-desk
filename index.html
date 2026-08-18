@@ -694,6 +694,21 @@
       </div>
     </div>
 
+    <div class="card" style="margin-top:14px">
+      <div class="eyebrow">True cost per lead by campaign <span class="rule"></span> <span class="chip live">live · Ads spend ÷ CallRail leads</span></div>
+      <div class="tblwrap">
+        <table id="campecon">
+          <thead><tr><th>Campaign</th><th>Spend 30d</th><th>Google&nbsp;says<br><span style="font-weight:400">$/conversion</span></th><th>Actual<br><span style="font-weight:400">leads</span></th><th>Actual<br><span style="font-weight:400">$/lead</span></th><th>Verdict</th></tr></thead>
+          <tbody>
+            <tr><td class="ch">Inheritance Disputes</td><td>$632</td><td>$63.21</td><td>25</td><td><b>$25.29</b></td><td><span class="pill off">rank-limited — fix quality, not budget</span></td></tr>
+            <tr><td class="ch">Will Litigation</td><td>$620</td><td>$41.33</td><td>20</td><td><b>$31.00</b></td><td><span class="pill ok">starved — add budget</span></td></tr>
+            <tr><td class="ch">Estate Planning</td><td>$697</td><td>$49.82</td><td>6</td><td><b>$116.25</b></td><td><span class="pill crit">expensive — do not add budget</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="foot-note"><b>Google's own conversion count ranks Estate Planning second-best. Actual leads rank it worst by 4×.</b> The difference is the double-counted conversion actions. Estate Planning is 74% budget-limited, but more budget there buys $116 leads while Will Litigation produces them at $31 — so "budget-limited" is only a buy signal once the lead cost is checked. Inheritance Disputes is the cheapest source at $25/lead and is capped by ad rank, not money: its Quality Score reset when the site relaunched in May, and that is the fix.</div>
+    </div>
+
     <div class="alert" style="margin-top:14px">
       <h4>⚠ Don't restore the budget in one move</h4>
       <p>Two things broke in May 2026: the website relaunched (~May 8, resetting Quality Score — CPC doubled from $9.30 to $17.96 at identical spend) and the <b>offline conversion feed died</b> — <code>Won_</code> and <code>Qualified_SyncStream</code> imports ran Feb–Apr, then flat zero. Smart Bidding lost its outcome signal and bid blind for three months. Fix tracking, verify two weeks under $75/conversion, <b>then</b> step $60 → $90 → $120 → $150/day.</p>
@@ -898,6 +913,21 @@
         el.classList.add("hydrated");
         filled++;
       });
+      const ce = (m.derived || {}).campaign_economics;
+      const tb = document.querySelector("#campecon tbody");
+      if (ce && ce.length && tb) {
+        const pill = v => v.startsWith("starved") ? "ok" : v.startsWith("expensive") ? "crit" : "off";
+        const shortName = n => (n.match(/Paid Search_([^_]+)/) || [null, n])[1].replace(/_/g, " ");
+        tb.innerHTML = ce.map(r => `<tr>
+          <td class="ch">${shortName(r.campaign)}</td>
+          <td>${FMT.usd0(r.spend)}</td>
+          <td>${r.ads_cost_per_conv ? FMT.usd2(r.ads_cost_per_conv) : "—"}</td>
+          <td>${r.real_leads}</td>
+          <td><b>${r.real_cost_per_lead ? FMT.usd2(r.real_cost_per_lead) : "—"}</b></td>
+          <td><span class="pill ${pill(r.verdict)}">${r.verdict}</span></td></tr>`).join("");
+        filled += ce.length;
+      }
+
       document.querySelectorAll("[data-mw]").forEach(el => {
         const v = dig(m, el.dataset.mw);
         if (typeof v === "number" && Number.isFinite(v)) {
