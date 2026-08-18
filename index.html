@@ -312,6 +312,7 @@
     <a href="#overview" class="active"><span class="glyph" aria-hidden="true">◆</span>Overview</a>
     <a href="#funnel"><span class="glyph" aria-hidden="true">▼</span>Lead funnel</a>
     <div class="navlbl">Growth</div>
+    <a href="#demand"><span class="glyph" aria-hidden="true">▲</span>Real demand</a>
     <a href="#channels"><span class="glyph" aria-hidden="true">⇄</span>Channels</a>
     <a href="#paid"><span class="glyph" aria-hidden="true">◎</span>Paid search</a>
     <a href="#search"><span class="glyph" aria-hidden="true">¶</span>Search &amp; content</a>
@@ -461,6 +462,40 @@
           <span class="lm"><i style="background:var(--s4)"></i>Other calls</span>
         </div>
         <div class="foot-note">*August projected from first 13 days. Website-tracked leads only (CallRail) — LSA leads flow straight to Lawmatics and are not shown here. The June peak (71) matches full ad spend; the August drop tracks the budget cut.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEMAND -->
+  <section class="zone reveal" id="demand" aria-label="Real lead demand">
+    <div class="zonehead"><h3 class="serif">Real demand</h3><span class="sub">calls + forms actually received — independent of any ad platform's counting</span></div>
+    <div class="alert" style="margin-bottom:14px">
+      <h4>⚠ Lead volume fell 59% after the May site relaunch — and the revenue hit hasn't landed yet</h4>
+      <p>Two independent systems agree. CallRail counted <b>146 real leads in April, 34 by June</b>. Google's conversions fell the same way, and cost per conversion went <b>$48 → $148</b> on more spend, not less. This is not a tracking artifact: the phone genuinely stopped ringing. Because half a matter's cash arrives after day 90, collections have held up so far — <b>the shortfall lands roughly August 2026 through January 2027</b>.</p>
+      <a class="act" href="#unit">See what it costs →</a>
+    </div>
+    <div class="row r-2">
+      <div class="card">
+        <div class="eyebrow">Real leads per month <span class="rule"></span> <span class="chip live">live · CallRail</span></div>
+        <div class="chart">
+          <svg viewBox="0 0 760 220" role="img" aria-label="Real leads per month: 39 in January rising to 146 in April, collapsing to 46 in May and 34 in June, recovering to 51 in July and 63 in August.">
+            <line x1="46" y1="176" x2="740" y2="176" stroke="var(--line)"/>
+            <line x1="46" y1="58" x2="740" y2="58" stroke="var(--s3)" stroke-dasharray="4 4" opacity=".7"/>
+            <text x="52" y="52" font-size="10.5" fill="var(--s3)" font-weight="650">capability 118/mo</text>
+            <g id="demandbars"></g>
+          </svg>
+        </div>
+        <div class="legend"><span>■ calls</span><span style="opacity:.6">■ forms</span></div>
+        <div class="foot-note">The mix shifted too: calls were <b data-m="derived.demand.call_share_before" data-fmt="pct1">68%</b> of leads before the relaunch and are <b data-m="derived.demand.call_share_now" data-fmt="pct1">47%</b> now. Calls fell from 113/month to about 20 while forms held. <b>The new site converts to forms but has largely stopped producing phone calls</b> — worth checking phone prominence and click-to-call on mobile.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">What the gap costs <span class="rule"></span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="derived.demand.baseline_leads_per_month" data-fmt="int">118</div><div class="l">demonstrated capability / mo</div></div>
+          <div class="ministat"><div class="v" data-m="derived.demand.current_leads_per_month" data-fmt="int">49</div><div class="l">current / mo</div></div>
+          <div class="ministat"><div class="v down" data-m="derived.demand.monthly_revenue_at_risk" data-fmt="usd0">$24,051</div><div class="l">eventual revenue / mo at risk</div></div>
+        </div>
+        <div class="foot-note"><b>Three keywords that worked were switched off in May.</b> "lawyers for inheritance disputes" produced 84 conversions at $41 in Jan–Apr and now gets <b>$0</b>; "family inheritance disputes" 23 at $43, now $0; "Probate Litigation Attorney" 9 at $69, now $0. Meanwhile "Inheritance Disputes" went from $42 to $630 per conversion on the same spend. Restoring the three costs nothing to try and is the fastest lever on this page.</div>
       </div>
     </div>
   </section>
@@ -913,6 +948,36 @@
         el.classList.add("hydrated");
         filled++;
       });
+      const lbm = (m.callrail || {}).leads_by_month;
+      const g = document.getElementById("demandbars");
+      if (lbm && g) {
+        const ms = Object.keys(lbm).filter(k => lbm[k].leads >= 5).slice(-8);
+        const max = Math.max(...ms.map(k => lbm[k].leads), 1);
+        const w = 660 / ms.length, bw = Math.min(w - 14, 54);
+        const NS = "http://www.w3.org/2000/svg";
+        g.textContent = "";
+        ms.forEach((k, i) => {
+          const x = 46 + i * w + (w - bw) / 2;
+          const d = lbm[k];
+          const h = v => (v / max) * 118;
+          const mk = (tag, at) => { const e = document.createElementNS(NS, tag);
+            for (const p in at) e.setAttribute(p, at[p]); return e; };
+          const fh = h(d.forms), ch = h(d.calls);
+          g.appendChild(mk("rect", {x, y: 176 - fh, width: bw, height: fh,
+                                    fill: "var(--s1)", opacity: ".45", rx: 2}));
+          g.appendChild(mk("rect", {x, y: 176 - fh - ch, width: bw, height: ch,
+                                    fill: "var(--s1)", rx: 2}));
+          const t = mk("text", {x: x + bw / 2, y: 176 - fh - ch - 6, "font-size": 11,
+                                fill: "var(--ink)", "text-anchor": "middle",
+                                "font-weight": 650});
+          t.textContent = d.leads; g.appendChild(t);
+          const l = mk("text", {x: x + bw / 2, y: 194, "font-size": 10.5,
+                                fill: "var(--ink-3)", "text-anchor": "middle"});
+          l.textContent = k.slice(5); g.appendChild(l);
+        });
+        filled++;
+      }
+
       const ce = (m.derived || {}).campaign_economics;
       const tb = document.querySelector("#campecon tbody");
       if (ce && ce.length && tb) {
@@ -962,7 +1027,7 @@
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];
   const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
-  const spyTargets = ["overview","funnel","channels","paid","search","local","unit","practice","ops","coverage"]
+  const spyTargets = ["overview","funnel","demand","channels","paid","search","local","unit","practice","ops","coverage"]
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
