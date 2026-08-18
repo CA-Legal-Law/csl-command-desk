@@ -257,6 +257,15 @@
   footer.pagefoot { border-top: 1px solid var(--line); margin-top: 6px; padding-top: 14px; font-size: 11.5px; color: var(--ink-3); display: flex; gap: 18px; flex-wrap: wrap; }
   footer.pagefoot b { color: var(--ink-2); }
   #freshness.stale { color: var(--serious); }
+  .goalwrap { display: grid; grid-template-columns: minmax(190px,auto) 1fr; gap: 20px; align-items: center; }
+  .goalval { font-size: 40px; font-weight: 650; letter-spacing: -.02em; font-variant-numeric: tabular-nums; line-height: 1.05; }
+  .goallbl { font-size: 11.5px; color: var(--ink-2); margin-top: 2px; }
+  .goaltrack { height: 14px; border-radius: 7px; background: var(--card-inset); position: relative; overflow: hidden; }
+  .goaltrack > span { position: absolute; inset: 0 auto 0 0; border-radius: 7px; background: linear-gradient(90deg, var(--s3), var(--brass)); }
+  .goaltrack > i { position: absolute; top: -3px; bottom: -3px; width: 2px; background: var(--ink); }
+  .goalscale { display: flex; justify-content: space-between; font-size: 10.5px; color: var(--ink-3); margin-top: 5px; font-variant-numeric: tabular-nums; }
+  .goalscale span:nth-child(2) { color: var(--serious); font-weight: 650; }
+  @media (max-width: 760px) { .goalwrap { grid-template-columns: 1fr; gap: 12px; } .goalval { font-size: 34px; } }
   .hydrated { animation: hy .5s ease; }
   @keyframes hy { from { background: var(--brass-soft); } to { background: transparent; } }
   @media (prefers-reduced-motion: reduce) { .hydrated { animation: none; } }
@@ -568,6 +577,26 @@
   <section class="zone reveal" id="unit" aria-label="Unit economics and return on ad spend">
     <div class="zonehead"><h3 class="serif">Unit economics</h3><span class="sub">what a client is worth, and when the money arrives</span></div>
 
+    <div class="card" style="margin-bottom:14px">
+      <div class="eyebrow">The number this firm is run on <span class="rule"></span> <span class="chip live">live · goal $10,000</span></div>
+      <div class="goalwrap">
+        <div class="goalnow">
+          <div class="goalval" data-m="derived.return_per_1000" data-fmt="usd0">$7,144</div>
+          <div class="goallbl">returned per $1,000 of ad spend</div>
+        </div>
+        <div class="goalbar">
+          <div class="goaltrack"><span style="width:71%" data-mw="derived.goal_progress"></span><i style="left:100%"></i></div>
+          <div class="goalscale"><span>$0</span><span>gap <b data-m="derived.gap_to_goal" data-fmt="usd0">$2,856</b></span><span>$10,000 goal</span></div>
+        </div>
+      </div>
+      <div class="stat3" style="margin-top:14px">
+        <div class="ministat"><div class="v" data-m="derived.goal_route_cost_per_conv" data-fmt="usd0">$34</div><div class="l">route A — cost per conversion (from <b data-m="ads.cost_per_conv_30d" data-fmt="usd0">$48</b>)</div></div>
+        <div class="ministat"><div class="v" data-m="derived.goal_route_close_rate" data-fmt="pct1">15.4%</div><div class="l">route B — lead→client rate (from <b data-m="derived.lead_to_client_rate" data-fmt="pct1">11.0%</b>)</div></div>
+        <div class="ministat"><div class="v" data-m="derived.goal_route_ltv" data-fmt="usd0">$4,319</div><div class="l">route C — value per matter (from <b data-m="clio.ltv_per_matter" data-fmt="usd0">$3,086</b>)</div></div>
+      </div>
+      <div class="foot-note"><b>Each route alone is a 29–40% swing — a blend is the realistic path.</b> Cost per conversion to <b>$40</b> and close rate to <b>13%</b> lands at 10.03:1, and both are within reach of work already scoped: deduplicating the conversion actions and restoring the offline conversion feed pull CPA down; speed-to-lead and same-day consult logging pull the close rate up. <b>Raising budget does not move this number</b> — it buys more volume at whatever ratio already exists, which is why the infrastructure work comes first.</div>
+    </div>
+
     <div class="kpis">
       <div class="kpi">
         <div class="lbl">Lifetime value <span class="chip live">measured</span></div>
@@ -869,6 +898,14 @@
         el.classList.add("hydrated");
         filled++;
       });
+      document.querySelectorAll("[data-mw]").forEach(el => {
+        const v = dig(m, el.dataset.mw);
+        if (typeof v === "number" && Number.isFinite(v)) {
+          el.style.width = Math.max(0, Math.min(v, 1)) * 100 + "%";
+          filled++;
+        }
+      });
+
       const meta = m._meta || {};
       const stamp = document.getElementById("freshness");
       if (stamp) {
