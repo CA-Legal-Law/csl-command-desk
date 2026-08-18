@@ -95,13 +95,16 @@
    "2026-05": 31,
    "2026-06": 38,
    "2026-07": 51,
-   "2026-08": 18,
+   "2026-08": 19,
    "2026-09": 1
   },
-  "matters_total": 530,
-  "matters_open": 80,
-  "matters_pending": 171,
-  "ar_total": 51553.44,
+  "new_matters_last_month": 51,
+  "collected_last_month": 60464.4,
+  "last_complete_month": "2026-07",
+  "matters_total": 531,
+  "matters_open": 81,
+  "matters_pending": 170,
+  "ar_total": 49053.44,
   "ar_over_90": 15535.55,
   "ar_buckets": {
    "180+": {
@@ -117,8 +120,8 @@
     "bills": 6
    },
    "0-30": {
-    "amount": 28950.08,
-    "bills": 16
+    "amount": 26450.08,
+    "bills": 15
    }
   },
   "revenue_by_practice": {
@@ -178,9 +181,9 @@
     "per_matter": 3999.0
    },
    "Real Estate": {
-    "matters": 20,
+    "matters": 21,
     "collected": 3987.0,
-    "per_matter": 199.35
+    "per_matter": 189.86
    },
    "Probate-Small Estate Affidavit": {
     "matters": 3,
@@ -205,6 +208,45 @@
   }
  },
  "ads": {
+  "impression_share": [
+   {
+    "campaign": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
+    "impression_share": 0.14095238095238094,
+    "lost_to_budget": 0.2766137566137566,
+    "lost_to_rank": 0.5824338624338624,
+    "cost": 694.93,
+    "constraint": "rank"
+   },
+   {
+    "campaign": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
+    "impression_share": 0.0999,
+    "lost_to_budget": 0.7366013346203887,
+    "lost_to_rank": 0.19557644688798423,
+    "cost": 685.36,
+    "constraint": "budget"
+   },
+   {
+    "campaign": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
+    "impression_share": 0.0999,
+    "lost_to_budget": 0.6834604576475312,
+    "lost_to_rank": 0.23263749498193498,
+    "cost": 615.29,
+    "constraint": "budget"
+   }
+  ],
+  "lost_to_budget_weighted": 0.56,
+  "lost_to_rank_weighted": 0.3417,
+  "conversion_actions_30d": {
+   "Form Capture": 24.0,
+   "Contact Form Submit - Primary": 20.0,
+   "Calls from ads - Google Search Results": 13.0,
+   "First Time Phone Call": 7.0,
+   "First Time Phone Call (not sure)": 6.0,
+   "ClickToCall - Website": 3.0,
+   "Local actions - Other engagements": 3.0,
+   "Clicks to call": 2.0,
+   "Repeat Phone Call": 1.0
+  },
   "last_30d": {
    "cost": 1995.58,
    "conversions": 42.0,
@@ -583,55 +625,75 @@
   "form_submit_fires": 0
  },
  "lawmatics": {
-  "prospects_total": 2015
+  "prospects_total": 2016,
+  "prospects_sampled": 1000,
+  "leads_last_30d": 348,
+  "leads_prev_30d": 287,
+  "statuses": {
+   "pnc": 890,
+   "hired": 110
+  },
+  "hired": 110,
+  "lead_to_client_measured": 0.11,
+  "attribution_populated": {
+   "utm_source": 0,
+   "utm_medium": 0,
+   "utm_campaign": 0,
+   "gclid": 0
+  },
+  "attribution_health": 0.0
  },
  "derived": {
-  "lead_to_client_rate": 0.1239,
+  "lead_to_client_rate": 0.11,
+  "lead_to_client_source": "measured (Lawmatics hired/total)",
   "target_roas": 5.0,
   "ltv_per_matter": 3085.56,
   "max_cac_for_target": 617.11,
-  "breakeven_cost_per_conv": 76.46,
+  "breakeven_cost_per_conv": 67.88,
   "current_cost_per_conv": 47.51,
-  "current_cac": 383.45,
-  "current_roas": 8.05,
-  "return_per_1000": 8046.75,
+  "current_cac": 431.91,
+  "current_roas": 7.14,
+  "return_per_1000": 7144.0,
   "verdict": "above target",
   "return_per_1000_by_day": {
-   "30": 1934.44,
-   "60": 3258.93,
-   "90": 3930.84,
-   "180": 6455.1,
-   "365": 7968.69
-  }
+   "30": 1717.42,
+   "60": 2893.32,
+   "90": 3489.85,
+   "180": 5730.92,
+   "365": 7074.71
+  },
+  "budget_lost_impression_share": 0.56,
+  "monthly_spend_headroom": 2539.83,
+  "monthly_revenue_forfeited": 18144.55
  },
  "_meta": {
-  "generated_at": "2026-08-17T16:01:14",
+  "generated_at": "2026-08-17T17:21:36",
   "generated_date": "2026-08-17",
   "sources": {
-   "gsc": {
-    "status": "ok",
-    "at": "2026-08-17T16:01:02",
-    "secs": 1.1
-   },
    "ga4": {
     "status": "ok",
-    "at": "2026-08-17T16:01:02",
+    "at": "2026-08-17T17:21:25",
     "secs": 1.1
    },
-   "lawmatics": {
+   "gsc": {
     "status": "ok",
-    "at": "2026-08-17T16:01:02",
-    "secs": 0.1
+    "at": "2026-08-17T17:21:26",
+    "secs": 1.4
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-17T16:01:05",
-    "secs": 4.1
+    "at": "2026-08-17T17:21:29",
+    "secs": 4.5
+   },
+   "lawmatics": {
+    "status": "ok",
+    "at": "2026-08-17T17:21:34",
+    "secs": 8.7
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-17T16:01:14",
-    "secs": 12.4
+    "at": "2026-08-17T17:21:36",
+    "secs": 12.1
    }
   },
   "errors": {},

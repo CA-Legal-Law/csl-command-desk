@@ -311,6 +311,7 @@
     <a href="#unit"><span class="glyph" aria-hidden="true">∑</span>Unit economics</a>
     <a href="#practice"><span class="glyph" aria-hidden="true">§</span>Practice economics</a>
     <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
+    <a href="#coverage"><span class="glyph" aria-hidden="true">◑</span>Data coverage</a>
   </nav>
   <div class="sfoot"><b>August 2026 · MTD</b>data as of Aug 17, 2026</div>
 </aside>
@@ -352,33 +353,33 @@
     <div class="kpis">
       <div class="kpi">
         <div class="lbl">New clients <span class="chip live">live</span></div>
-        <div class="val" data-count="14">14</div>
-        <div class="sub">paid $999 case assessments · July · Clio + Lawmatics agree</div>
+        <div class="val" data-count="14" data-m="clio.new_matters_last_month">14</div>
+        <div class="sub">new matters opened last complete month · Clio</div>
       </div>
       <div class="kpi">
         <div class="lbl">Cash collected <span class="chip live">live</span></div>
-        <div class="val" data-count="64.5" data-pre="$" data-suf="K" data-dec="1">$64.5K</div>
-        <div class="sub">40 paid invoices, Jun 29 – Jul 31 · Clio</div>
+        <div class="val" data-count="64.5" data-pre="$" data-suf="K" data-dec="1" data-m="clio.monthly_run_rate" data-scale="0.001">$64.5K</div>
+        <div class="sub">monthly run-rate, trailing 12 mo · Clio</div>
       </div>
       <div class="kpi">
-        <div class="lbl">Leads / month <span class="chip live">live</span></div>
-        <div class="val" data-count="179">179</div>
-        <div class="sub">all sources · 12.4% become clients · Lawmatics</div>
+        <div class="lbl">Leads / 30 days <span class="chip live">live</span></div>
+        <div class="val" data-count="179" data-m="lawmatics.leads_last_30d">179</div>
+        <div class="sub">prospects created · <span data-m="derived.lead_to_client_rate" data-fmt="pct1">11.0%</span> hire (conservative) · Lawmatics</div>
       </div>
       <div class="kpi">
-        <div class="lbl">Cost per client <span class="chip live">live</span></div>
-        <div class="val" data-count="185" data-pre="$">$185</div>
-        <div class="sub">blended · <span class="up">~18× return on collected cash</span></div>
+        <div class="lbl">Cost per client, paid <span class="chip live">live</span></div>
+        <div class="val" data-count="185" data-pre="$" data-m="derived.current_cac">$185</div>
+        <div class="sub">paid search · <span class="up" data-m="derived.current_roas" data-fmt="ratio">7.1:1</span> on measured LTV</div>
       </div>
       <div class="kpi">
         <div class="lbl">Cost per lead <span class="chip live">live</span></div>
-        <div class="val" data-count="53" data-pre="$">$53</div>
-        <div class="sub">30-day paid search · was $138 at full spend</div>
+        <div class="val" data-count="53" data-pre="$" data-m="ads.cost_per_conv_30d">$53</div>
+        <div class="sub">30-day paid search · ceiling is <span data-m="derived.breakeven_cost_per_conv" data-fmt="usd0">$68</span></div>
       </div>
       <div class="kpi">
         <div class="lbl">Pipeline <span class="chip live">live</span></div>
         <div class="val" data-count="5.8" data-pre="$" data-suf="M" data-dec="1">$5.8M</div>
-        <div class="sub">open matter value · Lawmatics</div>
+        <div class="sub">open matter value · Lawmatics dashboard (not in API)</div>
       </div>
     </div>
   </section>
@@ -635,6 +636,35 @@
       </div>
     </div>
 
+    <div class="row r-2" style="margin-top:14px">
+      <div class="card">
+        <div class="eyebrow">What the budget cap is costing <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="derived.budget_lost_impression_share" data-fmt="pct1">56.0%</div><div class="l">impressions lost to budget</div></div>
+          <div class="ministat"><div class="v" data-m="derived.monthly_spend_headroom" data-fmt="usd0">$2,540</div><div class="l">reachable extra spend / mo</div></div>
+          <div class="ministat"><div class="v" data-m="derived.monthly_revenue_forfeited" data-fmt="usd0">$18,145</div><div class="l">revenue forfeited / mo</div></div>
+        </div>
+        <div class="foot-note"><b>Not every campaign has the same problem.</b> Will Litigation (68% lost to budget) and Estate Planning (74%) are starved — more money buys more impressions directly. Inheritance Disputes loses 58% to <em>ad rank</em>, not budget: raising its budget will not fix it, and that is the campaign whose Quality Score reset in May.</div>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Conversion counting is double-counting <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="tblwrap">
+          <table>
+            <thead><tr><th>Conversion action</th><th>30 d</th></tr></thead>
+            <tbody>
+              <tr><td class="ch">Form Capture<span class="note">secondary — overlaps the primary</span></td><td>24</td></tr>
+              <tr><td class="ch">Contact Form Submit<span class="note">primary</span></td><td>20</td></tr>
+              <tr><td class="ch">Calls from ads</td><td>13</td></tr>
+              <tr><td class="ch">First Time Phone Call<span class="note">two actions, same event</span></td><td>7 + 6</td></tr>
+              <tr class="rowdim"><td class="ch">ClickToCall · Clicks to call · Local · Repeat</td><td>9</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="foot-note">Two pairs measure the same thing. Real lead counts are lower than recorded, so real cost-per-conversion is <b>higher</b> than it looks — treat the break-even ceiling as a hard limit, not a target. Cleanup needs Ads Standard access (M3).</div>
+      </div>
+    </div>
+
     <div class="alert" style="margin-top:14px">
       <h4>⚠ Don't restore the budget in one move</h4>
       <p>Two things broke in May 2026: the website relaunched (~May 8, resetting Quality Score — CPC doubled from $9.30 to $17.96 at identical spend) and the <b>offline conversion feed died</b> — <code>Won_</code> and <code>Qualified_SyncStream</code> imports ran Feb–Apr, then flat zero. Smart Bidding lost its outcome signal and bid blind for three months. Fix tracking, verify two weeks under $75/conversion, <b>then</b> step $60 → $90 → $120 → $150/day.</p>
@@ -676,6 +706,35 @@
       <div class="op"><span class="l">Form-lead response time</span><span class="v">—</span><span class="t"><span class="st warn">unmeasured (GA4 fix)</span></span></div>
       <div class="op"><span class="l">Refer-out queue (Clio pending)</span><span class="v">171</span><span class="t"><span class="st warn">monetize via referral fees</span></span></div>
       <div class="op"><span class="l">Google reviews unanswered</span><span class="v">2</span><span class="t"><span class="st warn">reply today</span></span></div>
+    </div>
+  </section>
+
+  <!-- COVERAGE -->
+  <section class="zone reveal" id="coverage" aria-label="Data coverage and known gaps">
+    <div class="zonehead"><h3 class="serif">What this desk can and cannot see</h3><span class="sub">honest coverage, so no number here is trusted further than it deserves</span></div>
+    <div class="card">
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Business question</th><th>Status</th><th>Source</th><th>What it needs</th></tr></thead>
+          <tbody>
+            <tr><td class="ch">What is a client worth?</td><td><span class="pill ok">live</span></td><td>Clio ledger</td><td>—</td></tr>
+            <tr><td class="ch">When does the money arrive?</td><td><span class="pill ok">live</span></td><td>Clio cohorts</td><td>—</td></tr>
+            <tr><td class="ch">Are ads profitable overall?</td><td><span class="pill ok">live</span></td><td>Ads + Clio</td><td>—</td></tr>
+            <tr><td class="ch">What's the spend ceiling?</td><td><span class="pill ok">live</span></td><td>Ads + Clio</td><td>—</td></tr>
+            <tr><td class="ch">What is the budget cap costing?</td><td><span class="pill ok">live</span></td><td>Ads impression share</td><td>—</td></tr>
+            <tr><td class="ch">Do leads become clients?</td><td><span class="pill ok">live</span></td><td>Lawmatics</td><td>—</td></tr>
+            <tr><td class="ch">Are we collecting?</td><td><span class="pill ok">live</span></td><td>Clio billing</td><td>—</td></tr>
+            <tr><td class="ch">What's the referral book worth?</td><td><span class="pill ok">live</span></td><td>Clio custom fields</td><td>—</td></tr>
+            <tr><td class="ch">Which <em>channel</em> returns best?</td><td><span class="pill crit">blocked</span></td><td>—</td><td>UTM/gclid into the CRM (M9). Fields exist in Clio <em>and</em> Lawmatics; both are 0% populated</td></tr>
+            <tr><td class="ch">Which <em>campaign</em> returns best?</td><td><span class="pill crit">blocked</span></td><td>—</td><td>same as above</td></tr>
+            <tr><td class="ch">Organic vs paid conversions</td><td><span class="pill crit">blocked</span></td><td>—</td><td>GA4 <code>form_submit</code> never fires — 0 events in 28 days (M9)</td></tr>
+            <tr><td class="ch">Total marketing ROAS</td><td><span class="pill crit">blocked</span></td><td>—</td><td>LSA account transfer into MCC 439-649-2093 (M4) — $22,971 of spend and 45 clients sit outside every number here</td></tr>
+            <tr><td class="ch">Calls, lead sources, speed-to-lead</td><td><span class="pill crit">blocked</span></td><td>—</td><td>CallRail API key — needs kp@ promoted to Administrator (M5)</td></tr>
+            <tr><td class="ch">Local visibility &amp; reviews</td><td><span class="pill off">waiting</span></td><td>—</td><td>Google Business Profile API access, case 7-4790000041264</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="foot-note"><b>Eight of fourteen questions are live and self-refreshing.</b> Of the six that aren't, four unblock with one dev ticket (M9) and one email (M4); one needs a single permission change (M5); one is Google's clock. Nothing here is blocked on tooling that hasn't been built.</div>
     </div>
   </section>
 
@@ -760,13 +819,15 @@
     el.textContent = (el.dataset.pre || "") + n.toFixed(dec) + (el.dataset.suf || "");
   };
   document.querySelectorAll("[data-count]").forEach(el => {
-    const target = parseFloat(el.dataset.count);
-    if (reduced) { fmt(el, target); return; }
+    if (reduced) { fmt(el, parseFloat(el.dataset.count)); return; }
     const t0 = performance.now(), dur = 750;
+    // target is re-read every frame: live hydration can retarget mid-animation
     const step = t => {
+      const target = parseFloat(el.dataset.count);
       const p = Math.min((t - t0) / dur, 1);
       fmt(el, target * (1 - Math.pow(1 - p, 3)));
       if (p < 1) requestAnimationFrame(step);
+      else fmt(el, target);
     };
     requestAnimationFrame(step);
   });
@@ -794,8 +855,14 @@
         const f = FMT[el.dataset.fmt];
         // keep the published value unless the live one is genuinely usable
         if (v == null || v === 0) return;
-        if (f && (typeof v !== "number" || !Number.isFinite(v))) return;
-        el.textContent = f ? f(v) : v;
+        if (typeof v === "number" && !Number.isFinite(v)) return;
+        if (f && typeof v !== "number") return;
+        if (el.hasAttribute("data-count")) {
+          // count-up tile: retarget the animation rather than fight it
+          el.dataset.count = v * parseFloat(el.dataset.scale || 1);
+        } else {
+          el.textContent = f ? f(v) : v;
+        }
         el.classList.add("hydrated");
         filled++;
       });
@@ -818,7 +885,7 @@
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];
   const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
-  const spyTargets = ["overview","funnel","channels","paid","search","local","unit","practice","ops"]
+  const spyTargets = ["overview","funnel","channels","paid","search","local","unit","practice","ops","coverage"]
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
