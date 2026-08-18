@@ -939,12 +939,19 @@
       const meta = m._meta || {};
       const stamp = document.getElementById("freshness");
       if (stamp) {
-        const failed = Object.keys(meta.errors || {});
+        const src = meta.sources || {};
+        const stale = Object.entries(src).filter(([, v]) => v.status === "stale");
+        const dead = Object.entries(src).filter(([, v]) => v.status === "failed");
+        let note = "";
+        if (stale.length) {
+          note = " · showing last good data for "
+            + stale.map(([k, v]) => `${k} (${v.age_hours ?? "?"}h old)`).join(", ");
+        }
+        if (dead.length) note += ` · unavailable: ${dead.map(([k]) => k).join(", ")}`;
         stamp.textContent = `Live data refreshed ${meta.generated_at || "—"} · `
           + `${meta.sources_ok}/${meta.sources_total} sources`
-          + (failed.length ? ` · degraded: ${failed.join(", ")}` : "")
-          + ` · ${filled} live values`;
-        stamp.classList.toggle("stale", failed.length > 0);
+          + note + ` · ${filled} live values`;
+        stamp.classList.toggle("stale", stale.length + dead.length > 0);
       }
     })
     .catch(() => {

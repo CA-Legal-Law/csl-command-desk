@@ -95,15 +95,15 @@
    "2026-05": 31,
    "2026-06": 38,
    "2026-07": 51,
-   "2026-08": 20,
+   "2026-08": 21,
    "2026-09": 1
   },
   "new_matters_last_month": 51,
   "collected_last_month": 60464.4,
   "last_complete_month": "2026-07",
-  "matters_total": 532,
-  "matters_open": 81,
-  "matters_pending": 171,
+  "matters_total": 533,
+  "matters_open": 83,
+  "matters_pending": 170,
   "ar_total": 49053.44,
   "ar_over_90": 15535.55,
   "ar_buckets": {
@@ -150,9 +150,9 @@
     "per_matter": 1410.82
    },
    "General Civil Litigation": {
-    "matters": 21,
+    "matters": 22,
     "collected": 21295.85,
-    "per_matter": 1014.09
+    "per_matter": 967.99
    },
    "General Counsel": {
     "matters": 10,
@@ -630,16 +630,16 @@
   "form_submit_fires": 0
  },
  "lawmatics": {
-  "prospects_total": 2026,
+  "prospects_total": 2027,
   "prospects_sampled": 1000,
-  "leads_last_30d": 351,
+  "leads_last_30d": 352,
   "leads_prev_30d": 287,
   "statuses": {
-   "pnc": 889,
-   "hired": 111
+   "pnc": 888,
+   "hired": 112
   },
-  "hired": 111,
-  "lead_to_client_measured": 0.111,
+  "hired": 112,
+  "lead_to_client_measured": 0.112,
   "attribution_populated": {
    "utm_source": 0,
    "utm_medium": 0,
@@ -650,12 +650,12 @@
  },
  "callrail": {
   "window_days": 30,
-  "calls": 27,
+  "calls": 28,
   "forms": 59,
-  "leads_total": 86,
-  "answer_rate": 0.963,
-  "first_time_caller_rate": 0.8519,
-  "gclid_coverage": 0.8519,
+  "leads_total": 87,
+  "answer_rate": 0.9643,
+  "first_time_caller_rate": 0.8214,
+  "gclid_coverage": 0.8214,
   "by_campaign": {
    "(unattributed)": {
     "calls": 4,
@@ -668,9 +668,9 @@
     "leads": 25
    },
    "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE": {
-    "calls": 10,
+    "calls": 11,
     "forms": 10,
-    "leads": 20
+    "leads": 21
    },
    "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE": {
     "calls": 2,
@@ -690,7 +690,7 @@
   },
   "by_source": {
    "Website pool": 23,
-   "Google My Business": 2,
+   "Google My Business": 3,
    "Other": 1,
    "Google Ads Assets": 1
   },
@@ -700,6 +700,7 @@
    "\"Estate Litigation Lawyer\"": 2,
    "Inheritance Disputes": 2,
    "\"Inheritance Dispute Lawyer\"": 2,
+   "\"Probate Litigation Lawyer\"": 1,
    "inheritance disputes": 1,
    "inheritance dispute attorney": 1,
    "\"estate attorney\"": 1,
@@ -712,12 +713,12 @@
   }
  },
  "derived": {
-  "lead_to_client_rate": 0.111,
+  "lead_to_client_rate": 0.112,
   "lead_to_client_source": "measured (Lawmatics hired/total)",
   "target_roas": 5.0,
   "ltv_per_matter": 3075.02,
   "max_cac_for_target": 615.0,
-  "breakeven_cost_per_conv": 68.27,
+  "breakeven_cost_per_conv": 68.88,
   "campaign_economics": [
    {
     "campaign": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
@@ -734,8 +735,8 @@
     "spend": 619.94,
     "ads_conversions": 15.0,
     "ads_cost_per_conv": 41.33,
-    "real_leads": 20,
-    "real_cost_per_lead": 31.0,
+    "real_leads": 21,
+    "real_cost_per_lead": 29.52,
     "constraint": "budget",
     "verdict": "starved \u2014 cheap leads, add budget"
    },
@@ -751,66 +752,67 @@
    }
   ],
   "current_cost_per_conv": 49.99,
-  "current_cac": 450.36,
-  "current_roas": 6.83,
-  "return_per_1000": 6827.91,
+  "current_cac": 446.34,
+  "current_roas": 6.89,
+  "return_per_1000": 6889.42,
   "verdict": "above target",
   "return_per_1000_by_day": {
-   "30": 1652.35,
-   "60": 2791.25,
-   "90": 3357.28,
-   "180": 5486.23,
-   "365": 6761.68
+   "30": 1667.24,
+   "60": 2816.4,
+   "90": 3387.53,
+   "180": 5535.65,
+   "365": 6822.6
   },
   "goal_return_per_1000": 10000.0,
   "goal_roas": 10.0,
-  "gap_to_goal": 3172.09,
+  "gap_to_goal": 3110.58,
   "goal_required_cac": 307.5,
-  "goal_route_cost_per_conv": 34.13,
+  "goal_route_cost_per_conv": 34.44,
   "goal_route_close_rate": 0.1626,
-  "goal_route_ltv": 4503.6,
-  "goal_progress": 0.6828,
+  "goal_route_ltv": 4463.39,
+  "goal_progress": 0.6889,
   "budget_lost_impression_share": 0.5993,
   "monthly_spend_headroom": 2915.81,
-  "monthly_revenue_forfeited": 19908.89
+  "monthly_revenue_forfeited": 20088.25
  },
  "_meta": {
-  "generated_at": "2026-08-18T12:41:56",
+  "generated_at": "2026-08-18T12:57:59",
   "generated_date": "2026-08-18",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-08-18T12:41:37",
-    "secs": 1.1
+    "at": "2026-08-18T12:57:42",
+    "secs": 1.0
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-08-18T12:41:37",
-    "secs": 1.7
+    "at": "2026-08-18T12:57:43",
+    "secs": 1.1
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-08-18T12:41:38",
-    "secs": 1.2
+    "at": "2026-08-18T12:57:44",
+    "secs": 1.1
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-18T12:41:41",
-    "secs": 5.6
+    "at": "2026-08-18T12:57:46",
+    "secs": 4.8
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-08-18T12:41:46",
-    "secs": 9.0
+    "at": "2026-08-18T12:57:51",
+    "secs": 8.7
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-18T12:41:56",
-    "secs": 20.6
+    "at": "2026-08-18T12:57:59",
+    "secs": 17.7
    }
   },
   "errors": {},
   "sources_ok": 6,
+  "sources_stale": 0,
   "sources_total": 6,
   "gbp": "pending Google API access case 7-4790000041264"
  }
