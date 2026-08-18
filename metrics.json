@@ -208,6 +208,12 @@
   }
  },
  "ads": {
+  "accessible_customers": [
+   "5415990070",
+   "4396492093"
+  ],
+  "lsa": {},
+  "lsa_status": "not accessible \u2014 Local Services account sits under an external manager; transfer to MCC 439-649-2093 (action M4)",
   "impression_share": [
    {
     "campaign": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
@@ -667,33 +673,33 @@
   "monthly_revenue_forfeited": 18144.55
  },
  "_meta": {
-  "generated_at": "2026-08-17T17:21:36",
+  "generated_at": "2026-08-17T17:28:26",
   "generated_date": "2026-08-17",
   "sources": {
-   "ga4": {
-    "status": "ok",
-    "at": "2026-08-17T17:21:25",
-    "secs": 1.1
-   },
    "gsc": {
     "status": "ok",
-    "at": "2026-08-17T17:21:26",
-    "secs": 1.4
+    "at": "2026-08-17T17:28:15",
+    "secs": 1.1
+   },
+   "ga4": {
+    "status": "ok",
+    "at": "2026-08-17T17:28:16",
+    "secs": 1.5
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-17T17:21:29",
-    "secs": 4.5
+    "at": "2026-08-17T17:28:20",
+    "secs": 5.4
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-08-17T17:21:34",
-    "secs": 8.7
+    "at": "2026-08-17T17:28:24",
+    "secs": 8.4
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-17T17:21:36",
-    "secs": 12.1
+    "at": "2026-08-17T17:28:26",
+    "secs": 11.6
    }
   },
   "errors": {},
