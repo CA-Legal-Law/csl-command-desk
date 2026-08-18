@@ -193,7 +193,7 @@
   .fbar span { position: absolute; inset: 0 auto 0 0; background: var(--s1); border-radius: 4px 0 0 4px; }
   .fstage .n { font-size: 15px; font-weight: 650; text-align: right; font-variant-numeric: tabular-nums; }
   .fconv { display: grid; grid-template-columns: 118px 1fr; gap: 10px; }
-  .fconv div { font-size: 10.5px; color: var(--ink-3); padding-left: 6px; border-left: 1px dotted var(--line); margin-left: 4px; height: 13px; }
+  .fconv div { font-size: 10.5px; color: var(--ink-3); padding-left: 6px; border-left: 1px dotted var(--line); margin-left: 4px; min-height: 13px; line-height: 1.35; padding-block: 1px; }
   .leadmix { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--line-soft); }
   .lm { font-size: 11.5px; color: var(--ink-2); display: flex; align-items: center; gap: 6px; }
   .lm i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }
@@ -413,15 +413,15 @@
         </div>
         <div class="fconv"><div>+ leads arriving off-site via LSA &amp; direct intake</div></div>
         <div class="fstage">
-          <div class="nm"><b>All leads</b>Lawmatics, every source</div>
+          <div class="nm"><b>All leads</b>Lawmatics, 30 days</div>
           <div class="fbar"><span style="width:34%; background: var(--s1)"></span></div>
-          <div class="n">179</div>
+          <div class="n" data-m="lawmatics.leads_last_30d" data-fmt="int">179</div>
         </div>
-        <div class="fconv"><div>12.4% convert · Lawmatics</div></div>
+        <div class="fconv"><div><span data-m="derived.lead_to_client_rate" data-fmt="pct1">12.4%</span> hire · Lawmatics</div></div>
         <div class="fstage">
-          <div class="nm"><b>New clients</b>paid $999 assessments</div>
+          <div class="nm"><b>New clients</b>new matters, last full month</div>
           <div class="fbar"><span style="width:11%; background: var(--brass)"></span></div>
-          <div class="n">14</div>
+          <div class="n" data-m="clio.new_matters_last_month" data-fmt="int">14</div>
         </div>
         <div class="fconv"><div>engagements follow: $2,201–$4,356 bills · Clio</div></div>
         <div class="fstage">
