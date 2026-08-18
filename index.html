@@ -858,8 +858,11 @@
         if (typeof v === "number" && !Number.isFinite(v)) return;
         if (f && typeof v !== "number") return;
         if (el.hasAttribute("data-count")) {
-          // count-up tile: retarget the animation rather than fight it
-          el.dataset.count = v * parseFloat(el.dataset.scale || 1);
+          // count-up tile: retarget the animation, and repaint in case it already
+          // finished before this fetch resolved (the common case)
+          const scaled = v * parseFloat(el.dataset.scale || 1);
+          el.dataset.count = scaled;
+          fmt(el, scaled);
         } else {
           el.textContent = f ? f(v) : v;
         }
