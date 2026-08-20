@@ -314,6 +314,7 @@
     <div class="navlbl">Growth</div>
     <a href="#demand"><span class="glyph" aria-hidden="true">▲</span>Real demand</a>
     <a href="#channels"><span class="glyph" aria-hidden="true">⇄</span>Channels</a>
+    <a href="#paidmix"><span class="glyph" aria-hidden="true">◈</span>Paid mix &amp; LSA</a>
     <a href="#paid"><span class="glyph" aria-hidden="true">◎</span>Paid search</a>
     <a href="#search"><span class="glyph" aria-hidden="true">¶</span>Search &amp; content</a>
     <a href="#local"><span class="glyph" aria-hidden="true">★</span>Local &amp; reviews</a>
@@ -545,6 +546,50 @@
         </table>
       </div>
       <div class="foot-note">*Search-ads ROI reads −100% in Lawmatics only because website leads aren't mapped to campaigns — CallRail proves the leads exist. Fix the mapping before judging (or cutting) this channel. LSA figures are lifetime; monthly split pending account access.</div>
+    </div>
+  </section>
+
+  <!-- PAID MIX -->
+  <section class="zone reveal" id="paidmix" aria-label="Paid channel mix including Local Services">
+    <div class="zonehead"><h3 class="serif">The paid picture, complete</h3><span class="sub">Local Services Ads became visible 2026-08-20 — it was 38% of spend and nobody could see it</span></div>
+    <div class="row r-2">
+      <div class="card">
+        <div class="eyebrow">Search vs Local Services <span class="rule"></span> <span class="chip live">live · 2026 YTD</span></div>
+        <div class="tblwrap">
+          <table>
+            <thead><tr><th>Channel</th><th>Spend YTD</th><th>Leads YTD</th><th>Cost / lead</th></tr></thead>
+            <tbody>
+              <tr><td class="ch">Local Services<span class="note">phone + message leads · never cut</span></td>
+                  <td data-m="derived.paid_blended.lsa_spend_ytd" data-fmt="usd0">$19,082</td>
+                  <td data-m="derived.paid_blended.lsa_leads_ytd" data-fmt="int">874</td>
+                  <td><b class="up" data-m="derived.paid_blended.lsa_cost_per_lead" data-fmt="usd2">$21.83</b></td></tr>
+              <tr><td class="ch">Paid search<span class="note">three campaigns · cut Aug 1</span></td>
+                  <td data-m="derived.paid_blended.search_spend_ytd" data-fmt="usd0">$31,123</td>
+                  <td data-m="derived.paid_blended.tracked_web_leads_ytd" data-fmt="int">596</td>
+                  <td><b data-m="derived.paid_blended.search_cost_per_lead" data-fmt="usd2">$52.22</b></td></tr>
+              <tr><td class="ch"><b>Blended</b></td>
+                  <td><b data-m="derived.paid_blended.total_paid_spend_ytd" data-fmt="usd0">$50,205</b></td>
+                  <td><b data-m="derived.paid_blended.all_paid_leads_ytd" data-fmt="int">1,470</b></td>
+                  <td><b data-m="derived.paid_blended.blended_cost_per_lead" data-fmt="usd2">$34.15</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="foot-note"><b>Local Services delivers leads at 2.4× the efficiency of paid search — and its budget was never touched.</b> While search fell from ~$150/day to $60/day on Aug 1, LSA continued at <b data-m="ads.lsa.3284547403.daily_budget" data-fmt="usd2">$89.29</b>/day. That is why matters opened held at 31–51 per month while website-tracked leads fell from 146 to 34: LSA was carrying the firm, invisibly. Every marketing figure produced before Aug 20 understated spend by 38% and leads by 59%.</div>
+      </div>
+
+      <div class="card">
+        <div class="eyebrow">Local Services detail <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="ads.lsa.3284547403.last_30d.cost_per_conv" data-fmt="usd0">$25</div><div class="l">per conversion, 30d</div></div>
+          <div class="ministat"><div class="v" data-m="ads.lsa.3284547403.last_30d.conversions" data-fmt="int">105</div><div class="l">conversions, 30d</div></div>
+          <div class="ministat"><div class="v" data-m="ads.lsa.3284547403.leads_charged" data-fmt="int">1,488</div><div class="l">charged leads, all time</div></div>
+        </div>
+        <div class="bullet">
+          <div class="blbl"><span>Lead type — phone calls vs messages</span><b>72% calls</b></div>
+          <div class="btrack"><span style="width:72%; background:var(--s3)"></span></div>
+        </div>
+        <div class="foot-note">1,249 phone calls and 482 messages all-time. Licence verification <b>PASSED</b>. LSA converts at <b>$25</b> against paid search's <b>$61</b> — the cheapest acquisition the firm has. <b>This is the channel to scale first</b>, and unlike search it needs no tracking repair to be trusted: Google charges per lead, so the count is the invoice.</div>
+      </div>
     </div>
   </section>
 
@@ -1027,7 +1072,7 @@
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];
   const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
-  const spyTargets = ["overview","funnel","demand","channels","paid","search","local","unit","practice","ops","coverage"]
+  const spyTargets = ["overview","funnel","demand","channels","paidmix","paid","search","local","unit","practice","ops","coverage"]
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
