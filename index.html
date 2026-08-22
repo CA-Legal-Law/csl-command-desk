@@ -1,5 +1,3 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL Command Desk</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>CSL Command Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -849,11 +847,11 @@
             <tr><td class="ch">Do leads become clients?</td><td><span class="pill ok">live</span></td><td>Lawmatics</td><td>—</td></tr>
             <tr><td class="ch">Are we collecting?</td><td><span class="pill ok">live</span></td><td>Clio billing</td><td>—</td></tr>
             <tr><td class="ch">What's the referral book worth?</td><td><span class="pill ok">live</span></td><td>Clio custom fields</td><td>—</td></tr>
-            <tr><td class="ch">Which <em>channel</em> returns best?</td><td><span class="pill crit">blocked</span></td><td>—</td><td>UTM/gclid into the CRM (M9). Fields exist in Clio <em>and</em> Lawmatics; both are 0% populated</td></tr>
-            <tr><td class="ch">Which <em>campaign</em> returns best?</td><td><span class="pill crit">blocked</span></td><td>—</td><td>same as above</td></tr>
-            <tr><td class="ch">Organic vs paid conversions</td><td><span class="pill crit">blocked</span></td><td>—</td><td>GA4 <code>form_submit</code> never fires — 0 events in 28 days (M9)</td></tr>
-            <tr><td class="ch">Total marketing ROAS</td><td><span class="pill crit">blocked</span></td><td>—</td><td>LSA account transfer into MCC 439-649-2093 (M4) — $22,971 of spend and 45 clients sit outside every number here</td></tr>
-            <tr><td class="ch">Calls, lead sources, speed-to-lead</td><td><span class="pill crit">blocked</span></td><td>—</td><td>CallRail API key — needs kp@ promoted to Administrator (M5)</td></tr>
+            <tr><td class="ch">Which <em>channel</em> returns best?</td><td><span class="pill warn">partial</span></td><td>Lawmatics custom fields</td><td><strong>Repaired 2026-08-05</strong> — gclid/UTM now write to Lawmatics (<span data-m="lawmatics.attribution_pre_fix.populated">0</span>/<span data-m="lawmatics.attribution_pre_fix.n">801</span> before, <span data-m="lawmatics.attribution_post_fix.populated">10</span>/<span data-m="lawmatics.attribution_post_fix.n">199</span> after). Form leads only; phone leads still need the CallRail join. Clio still unpopulated</td></tr>
+            <tr><td class="ch">Which <em>campaign</em> returns best?</td><td><span class="pill warn">partial</span></td><td>Lawmatics custom fields</td><td>Same feed as above; <code>utm_campaign</code> on <span data-m="lawmatics.attribution_populated.utm_campaign">2</span> records so far. Needs volume before it is decision-grade</td></tr>
+            <tr><td class="ch">Organic vs paid conversions</td><td><span class="pill ok">live</span></td><td>GA4 via GTM</td><td>GTM-MCDWKR7B fires <code>consultation_request</code>, <code>ClickToCall</code>, <code>ClickToEmail</code>. <code>form_submit</code> was a phantom key event and is not used</td></tr>
+            <tr><td class="ch">Total marketing ROAS</td><td><span class="pill ok">live</span></td><td>Ads + LSA + Clio</td><td>LSA account 328-454-7403 accessible since 2026-08-20 and included</td></tr>
+            <tr><td class="ch">Calls, lead sources, speed-to-lead</td><td><span class="pill ok">live</span></td><td>CallRail</td><td>API live; gclid on 85% of calls, utm_source on 99%</td></tr>
             <tr><td class="ch">Local visibility &amp; reviews</td><td><span class="pill off">waiting</span></td><td>—</td><td>Google Business Profile API access, case 7-4790000041264</td></tr>
           </tbody>
         </table>
@@ -1089,5 +1087,3 @@
     a.classList.add("active");
   }));
 </script>
-
-</body></html>

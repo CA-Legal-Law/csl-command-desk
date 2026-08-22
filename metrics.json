@@ -21,11 +21,11 @@
    "15%": 1
   },
   "fee_structure": {
-   "Flat-Fee - ICA": 112,
-   "Hourly": 21,
+   "Flat-Fee - ICA": 116,
+   "Hourly": 22,
    "Pure Contingency": 19,
    "Flat-Fee - Other": 7,
-   "Flat-Fee - Trust Drafting": 2,
+   "Flat-Fee - Trust Drafting": 3,
    "Hybrid": 1
   },
   "ltv_per_matter": 3045.45,
@@ -44,7 +44,7 @@
    "180": 0.8035,
    "365": 0.9903
   },
-  "collected_all_time": 827023.23,
+  "collected_all_time": 829012.23,
   "collected_by_month": {
    "2023-07": 3996.0,
    "2023-11": 4995.0,
@@ -68,11 +68,12 @@
    "2026-05": 54391.62,
    "2026-06": 46849.45,
    "2026-07": 60464.4,
-   "2026-08": 63173.91
+   "2026-08": 65162.91
   },
   "collected_last_12mo": 640571.62,
   "monthly_run_rate": 53380.97,
   "new_matters_by_month": {
+   "2023-12": 1,
    "2024-01": 1,
    "2024-03": 1,
    "2024-04": 2,
@@ -95,16 +96,15 @@
    "2026-05": 31,
    "2026-06": 38,
    "2026-07": 51,
-   "2026-08": 26,
-   "2026-09": 1
+   "2026-08": 30
   },
   "new_matters_last_month": 51,
   "collected_last_month": 60464.4,
   "last_complete_month": "2026-07",
-  "matters_total": 538,
-  "matters_open": 86,
-  "matters_pending": 170,
-  "ar_total": 50353.44,
+  "matters_total": 541,
+  "matters_open": 80,
+  "matters_pending": 176,
+  "ar_total": 47853.44,
   "ar_over_90": 15535.55,
   "ar_buckets": {
    "180+": {
@@ -124,20 +124,20 @@
     "bills": 3
    },
    "0-30": {
-    "amount": 27750.08,
-    "bills": 14
+    "amount": 25250.08,
+    "bills": 13
    }
   },
   "revenue_by_practice": {
    "Wills, Estates, & Probate (Administration, Beneficiary Rights, Etc.)": {
-    "matters": 243,
-    "collected": 508797.84,
-    "per_matter": 2093.82
+    "matters": 244,
+    "collected": 510786.84,
+    "per_matter": 2093.39
    },
    "Trust/Estate Plan Drafting": {
-    "matters": 76,
+    "matters": 77,
     "collected": 115079.0,
-    "per_matter": 1514.2
+    "per_matter": 1494.53
    },
    "Probate or Trust Litigation": {
     "matters": 79,
@@ -185,9 +185,9 @@
     "per_matter": 3999.0
    },
    "Real Estate": {
-    "matters": 21,
+    "matters": 22,
     "collected": 3987.0,
-    "per_matter": 189.86
+    "per_matter": 181.23
    },
    "Probate-Small Estate Affidavit": {
     "matters": 3,
@@ -725,26 +725,41 @@
   "form_submit_fires": 0
  },
  "lawmatics": {
-  "prospects_total": 2052,
+  "prospects_total": 2066,
   "prospects_sampled": 1000,
-  "leads_last_30d": 357,
-  "leads_prev_30d": 295,
+  "leads_last_30d": 336,
+  "leads_prev_30d": 314,
   "statuses": {
-   "pnc": 883,
-   "hired": 117
+   "pnc": 881,
+   "hired": 119
   },
-  "hired": 117,
-  "lead_to_client_measured": 0.117,
+  "hired": 119,
+  "lead_to_client_measured": 0.119,
   "attribution_populated": {
-   "utm_source": 0,
-   "utm_medium": 0,
-   "utm_campaign": 0,
-   "gclid": 0
+   "gclid": 7,
+   "utm_source": 9,
+   "utm_medium": 7,
+   "utm_campaign": 2,
+   "fbclid": 1,
+   "msclkid": 1,
+   "wbraid": 1,
+   "gbraid": 6
   },
-  "attribution_health": 0.0
+  "attribution_health": 0.0503,
+  "attribution_fix_date": "2026-08-05",
+  "attribution_post_fix": {
+   "n": 199,
+   "populated": 10,
+   "rate": 0.0503
+  },
+  "attribution_pre_fix": {
+   "n": 801,
+   "populated": 0,
+   "rate": 0.0
+  }
  },
  "callrail": {
-  "leads_ytd": 597,
+  "leads_ytd": 600,
   "leads_by_month": {
    "2025-10": {
     "calls": 1,
@@ -787,92 +802,81 @@
     "leads": 51
    },
    "2026-08": {
-    "calls": 27,
-    "forms": 45,
-    "leads": 72
+    "calls": 29,
+    "forms": 46,
+    "leads": 75
    }
   },
   "window_days": 30,
-  "calls": 33,
-  "forms": 59,
+  "calls": 34,
+  "forms": 58,
   "leads_total": 92,
-  "answer_rate": 0.9394,
-  "first_time_caller_rate": 0.7273,
-  "gclid_coverage": 0.7273,
+  "answer_rate": 0.9412,
+  "first_time_caller_rate": 0.7059,
+  "gclid_coverage": 0.7353,
   "by_campaign": {
    "(unattributed)": {
-    "calls": 7,
+    "calls": 6,
     "forms": 30,
-    "leads": 37
+    "leads": 36
    },
    "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE": {
-    "calls": 12,
-    "forms": 14,
-    "leads": 26
+    "calls": 13,
+    "forms": 15,
+    "leads": 28
    },
    "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE": {
-    "calls": 13,
+    "calls": 14,
     "forms": 8,
-    "leads": 21
+    "leads": 22
    },
    "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE": {
     "calls": 1,
     "forms": 4,
     "leads": 5
    },
-   "23424232954": {
-    "calls": 0,
-    "forms": 1,
-    "leads": 1
-   },
-   "23420100449": {
-    "calls": 0,
-    "forms": 1,
-    "leads": 1
-   },
-   "23911381348": {
+   "gmb": {
     "calls": 0,
     "forms": 1,
     "leads": 1
    }
   },
   "by_source": {
-   "Website pool": 23,
+   "Website pool": 24,
    "Google My Business": 8,
    "Other": 1,
    "Google Ads Assets": 1
   },
   "top_keywords": {
-   "Inheritance Dispute Attorney": 4,
+   "Inheritance Dispute Attorney": 6,
+   "\"Estate Litigation Lawyer\"": 4,
+   "Inheritance Disputes": 4,
    "Trust Dispute Law Firm": 4,
    "\"Probate Litigation Lawyer\"": 3,
-   "\"Estate Litigation Lawyer\"": 3,
-   "inheritance disputes": 2,
-   "Inheritance Disputes": 2,
-   "\"Inheritance Dispute Lawyer\"": 2,
    "inheritance dispute attorney": 1,
    "\"estate attorney\"": 1,
    "estate litigation law firm": 1,
+   "\"Inheritance Dispute Lawyer\"": 1,
    "\"Inheritance Disputes\"": 1,
    "\"Trust Dispute Lawyer\"": 1,
    "Estate Litigation Lawyer": 1
   }
  },
  "derived": {
-  "lead_to_client_rate": 0.117,
+  "lead_to_client_rate": 0.119,
   "lead_to_client_source": "measured (Lawmatics hired/total)",
   "target_roas": 5.0,
   "ltv_per_matter": 3045.45,
   "max_cac_for_target": 609.09,
-  "breakeven_cost_per_conv": 71.26,
+  "breakeven_cost_per_conv": 72.48,
   "campaign_economics": [
    {
     "campaign": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
     "spend": 607.09,
     "ads_conversions": 10.0,
     "ads_cost_per_conv": 60.71,
-    "real_leads": 26,
-    "real_cost_per_lead": 23.35,
+    "real_leads": 28,
+    "real_cost_per_lead": 21.68,
     "constraint": "rank",
     "verdict": "rank-limited \u2014 fix quality, not budget"
    },
@@ -881,8 +885,8 @@
     "spend": 625.84,
     "ads_conversions": 14.0,
     "ads_cost_per_conv": 44.7,
-    "real_leads": 21,
-    "real_cost_per_lead": 29.8,
+    "real_leads": 22,
+    "real_cost_per_lead": 28.45,
     "constraint": "budget",
     "verdict": "starved \u2014 cheap leads, add budget"
    },
@@ -907,10 +911,10 @@
     "current_to": "2026-08"
    },
    "peak_leads_per_month": 146,
-   "current_leads_per_month": 50.8,
-   "change_vs_baseline": -0.5711,
-   "monthly_revenue_at_risk": 24081.13,
-   "call_share_now": 0.4828,
+   "current_leads_per_month": 51.5,
+   "change_vs_baseline": -0.5648,
+   "monthly_revenue_at_risk": 24220.97,
+   "call_share_now": 0.4854,
    "call_share_before": 0.6777
   },
   "paid_blended": {
@@ -920,73 +924,80 @@
    "lsa_share_of_spend": 0.3807,
    "lsa_leads_ytd": 877,
    "lsa_cost_per_lead": 21.82,
-   "tracked_web_leads_ytd": 597,
-   "search_cost_per_lead": 52.14,
-   "all_paid_leads_ytd": 1474,
-   "blended_cost_per_lead": 34.1
+   "tracked_web_leads_ytd": 600,
+   "search_cost_per_lead": 51.88,
+   "all_paid_leads_ytd": 1477,
+   "blended_cost_per_lead": 34.03
   },
   "current_cost_per_conv": 48.92,
-  "current_cac": 418.12,
-  "current_roas": 7.28,
-  "return_per_1000": 7283.68,
+  "current_cac": 411.09,
+  "current_roas": 7.41,
+  "return_per_1000": 7408.19,
   "verdict": "above target",
   "return_per_1000_by_day": {
-   "30": 1762.65,
-   "60": 2977.57,
-   "90": 3581.39,
-   "180": 5852.44,
-   "365": 7213.03
+   "30": 1792.78,
+   "60": 3028.47,
+   "90": 3642.61,
+   "180": 5952.48,
+   "365": 7336.33
   },
   "goal_return_per_1000": 10000.0,
   "goal_roas": 10.0,
-  "gap_to_goal": 2716.32,
+  "gap_to_goal": 2591.81,
   "goal_required_cac": 304.54,
-  "goal_route_cost_per_conv": 35.63,
+  "goal_route_cost_per_conv": 36.24,
   "goal_route_close_rate": 0.1606,
-  "goal_route_ltv": 4181.2,
-  "goal_progress": 0.7284,
+  "goal_route_ltv": 4110.92,
+  "goal_progress": 0.7408,
   "budget_lost_impression_share": 0.6306,
   "monthly_spend_headroom": 3173.74,
-  "monthly_revenue_forfeited": 23116.52
+  "monthly_revenue_forfeited": 23511.67
  },
  "_meta": {
-  "generated_at": "2026-08-20T15:13:15",
-  "generated_date": "2026-08-20",
+  "generated_at": "2026-08-22T09:36:42",
+  "generated_date": "2026-08-22",
   "sources": {
-   "gsc": {
-    "status": "ok",
-    "at": "2026-08-20T15:13:00",
-    "secs": 1.1
-   },
    "ga4": {
-    "status": "ok",
+    "status": "stale",
     "at": "2026-08-20T15:13:01",
-    "secs": 1.7
+    "age_hours": 42.4,
+    "reason": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem re"
+   },
+   "gsc": {
+    "status": "stale",
+    "at": "2026-08-20T15:13:00",
+    "age_hours": 42.4,
+    "reason": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem re"
+   },
+   "ads": {
+    "status": "stale",
+    "at": "2026-08-20T15:13:08",
+    "age_hours": 42.4,
+    "reason": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem re"
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-08-20T15:13:05",
-    "secs": 4.4
-   },
-   "ads": {
-    "status": "ok",
-    "at": "2026-08-20T15:13:08",
-    "secs": 9.5
-   },
-   "lawmatics": {
-    "status": "ok",
-    "at": "2026-08-20T15:13:09",
-    "secs": 8.9
+    "at": "2026-08-22T09:36:34",
+    "secs": 3.7
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-20T15:13:15",
-    "secs": 15.9
+    "at": "2026-08-22T09:36:41",
+    "secs": 12.2
+   },
+   "lawmatics": {
+    "status": "ok",
+    "at": "2026-08-22T09:36:42",
+    "secs": 12.2
    }
   },
-  "errors": {},
-  "sources_ok": 6,
-  "sources_stale": 0,
+  "errors": {
+   "ga4": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem refreshing your current auth tokens: Reauthentication failed. cannot prompt during non-interactive execution.\nPlease run",
+   "gsc": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem refreshing your current auth tokens: Reauthentication failed. cannot prompt during non-interactive execution.\nPlease run",
+   "ads": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem refreshing your current auth tokens: Reauthentication failed. cannot prompt during non-interactive execution.\nPlease run"
+  },
+  "sources_ok": 3,
+  "sources_stale": 3,
   "sources_total": 6,
   "gbp": "pending Google API access case 7-4790000041264"
  }
