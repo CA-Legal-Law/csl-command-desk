@@ -1,0 +1,564 @@
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Corcoran Smith Probate Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --ground:#F5F6F3; --surface:#FCFCFB; --surface-2:#EEF0EB;
+  --ink:#16211D; --ink-2:#3C4944; --muted:#5F6B65;
+  --rule:#DDE1DA; --rule-strong:#C3CAC1;
+  --pine:#10312A; --net:#0F7A56; --cost:#C77E1E;
+  --flag:#A33B2A;
+  --serif:'Instrument Serif',Georgia,'Times New Roman',serif;
+  --sans:'IBM Plex Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,'SF Mono',Menlo,monospace;
+  --wrap:1080px;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --ground:#0D1310; --surface:#121916; --surface-2:#182120;
+    --ink:#E6EAE6; --ink-2:#B9C2BC; --muted:#8A968F;
+    --rule:#26302C; --rule-strong:#3A4642;
+    --pine:#CFE0D8; --net:#3FA87F; --cost:#C0842C;
+    --flag:#D97A63;
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0D1310; --surface:#121916; --surface-2:#182120;
+  --ink:#E6EAE6; --ink-2:#B9C2BC; --muted:#8A968F;
+  --rule:#26302C; --rule-strong:#3A4642;
+  --pine:#CFE0D8; --net:#3FA87F; --cost:#C0842C;
+  --flag:#D97A63;
+}
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:var(--sans); font-size:16.5px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--wrap); margin-inline:auto; padding-inline:28px}
+section{padding-block:76px; border-top:1px solid var(--rule)}
+section:first-of-type{border-top:0}
+.band{background:var(--surface)}
+h1,h2,h3{text-wrap:balance; margin:0}
+h1{font-family:var(--serif); font-weight:400; font-size:clamp(2.7rem,6.4vw,4.6rem); line-height:1.02; letter-spacing:-.015em; color:var(--pine)}
+h2{font-family:var(--serif); font-weight:400; font-size:clamp(1.9rem,3.6vw,2.7rem); line-height:1.1; letter-spacing:-.01em; color:var(--pine)}
+h3{font-family:var(--sans); font-weight:600; font-size:1.02rem; letter-spacing:.005em}
+p{margin:0; max-width:64ch}
+.eyebrow{
+  font-family:var(--mono); font-size:.7rem; font-weight:500;
+  text-transform:uppercase; letter-spacing:.16em; color:var(--muted);
+}
+.stack{display:flex; flex-direction:column; gap:20px}
+.stack-sm{display:flex; flex-direction:column; gap:11px}
+.stack-lg{display:flex; flex-direction:column; gap:38px}
+.lede{font-size:1.16rem; line-height:1.55; color:var(--ink-2); max-width:60ch}
+strong{font-weight:600; color:var(--ink)}
+em{font-style:italic}
+.num{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+/* hero */
+.hero{padding-block:96px 68px}
+.thesis{
+  font-family:var(--serif); font-size:clamp(1.35rem,2.6vw,1.85rem);
+  line-height:1.32; color:var(--ink-2); max-width:30ch; margin:0;
+}
+.kpis{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:8px}
+.kpi{background:var(--surface); padding:22px 20px; display:flex; flex-direction:column; gap:7px}
+.kpi .v{font-family:var(--mono); font-variant-numeric:tabular-nums; font-size:1.72rem; line-height:1; letter-spacing:-.02em; color:var(--net)}
+.kpi .v.plain{color:var(--pine)}
+.kpi .k{font-size:.82rem; color:var(--muted); line-height:1.35}
+
+/* tables */
+.scroller{overflow-x:auto; border:1px solid var(--rule); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:640px; font-size:.87rem}
+caption{text-align:left; padding:16px 18px 0; font-size:.82rem; color:var(--muted)}
+th,td{padding:10px 14px; text-align:right; border-bottom:1px solid var(--rule); white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{
+  font-family:var(--mono); font-size:.68rem; font-weight:500; text-transform:uppercase;
+  letter-spacing:.1em; color:var(--muted); border-bottom:1px solid var(--rule-strong);
+  position:sticky; top:0; background:var(--surface);
+}
+tbody td{font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--ink-2)}
+tbody td:first-child{font-family:var(--sans); color:var(--ink); font-weight:500}
+tbody tr:last-child td{border-bottom:0}
+tbody tr.total td{border-top:1px solid var(--rule-strong); font-weight:500; color:var(--ink)}
+td.pos{color:var(--net); font-weight:500}
+td.tail{color:var(--muted)}
+.wide-only{display:none}
+@media (min-width:860px){.wide-only{display:table-cell}}
+
+
+/* P&L — line items down, years across; sized to fit without scrolling */
+.pnl-wrap{border:1px solid var(--rule); background:var(--surface); padding-bottom:4px}
+table.pnl{
+  border-collapse:collapse; width:100%; min-width:0; table-layout:fixed;
+  font-size:clamp(.66rem,1.02vw,.8rem);
+}
+table.pnl caption{padding:16px 16px 12px}
+table.pnl th,table.pnl td{
+  padding:7px 8px; white-space:nowrap; text-align:right;
+  border-bottom:1px solid var(--rule); overflow:hidden; text-overflow:ellipsis;
+}
+table.pnl thead th{
+  font-family:var(--mono); font-size:.66rem; font-weight:500; text-transform:uppercase;
+  letter-spacing:.06em; color:var(--muted); border-bottom:1px solid var(--rule-strong);
+  padding-bottom:9px; position:static; background:none;
+}
+table.pnl thead th:first-child{width:17%}
+table.pnl .tl{display:block; font-size:.58rem; letter-spacing:.1em; color:var(--muted); opacity:.72; text-transform:none}
+table.pnl tbody th{
+  text-align:left; font-family:var(--sans); font-weight:400;
+  color:var(--ink-2); font-size:.82em;
+}
+table.pnl tbody td{
+  font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--ink-2);
+}
+table.pnl tbody tr.sub th{padding-left:20px; color:var(--muted)}
+table.pnl tbody tr.unit td{font-size:.95em}
+table.pnl tbody tr.dim th,table.pnl tbody tr.dim td{color:var(--muted)}
+table.pnl tbody tr.sec th,table.pnl tbody tr.sec td{border-top:1px solid var(--rule-strong)}
+table.pnl tbody tr.rule th,table.pnl tbody tr.rule td{border-top:1px solid var(--rule-strong)}
+table.pnl tbody tr.strong th{color:var(--ink); font-weight:600}
+table.pnl tbody tr.strong td{color:var(--ink); font-weight:500}
+table.pnl tbody tr.pos td{color:var(--net); font-weight:600}
+table.pnl tbody tr.pos th{color:var(--net)}
+table.pnl tbody tr:last-child th,table.pnl tbody tr:last-child td{border-bottom:0}
+table.pnl td.tail{color:var(--muted); opacity:.85}
+/* Narrow screens: never truncate a figure — let the wrapper scroll instead.
+   At presentation widths the table fits and this never engages. */
+@media (max-width:719px){
+  .pnl-wrap{overflow-x:auto}
+  table.pnl{table-layout:auto; min-width:660px; font-size:.7rem}
+  table.pnl th,table.pnl td{overflow:visible; text-overflow:clip}
+}
+
+/* closing summary */
+.close{background:var(--surface)}
+.sum-grid{display:grid; grid-template-columns:1fr; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+@media (min-width:720px){.sum-grid{grid-template-columns:1fr 1fr}}
+.sum{background:var(--surface); padding:26px 24px; display:flex; flex-direction:column; gap:10px}
+.sum .lbl{font-family:var(--mono); font-size:.68rem; text-transform:uppercase; letter-spacing:.14em; color:var(--cost)}
+.sum p{font-size:.92rem; color:var(--ink-2); max-width:46ch}
+.sum h3{color:var(--pine); font-family:var(--serif); font-weight:400; font-size:1.35rem; line-height:1.2}
+.bottomline{
+  border:1px solid var(--rule-strong); background:var(--surface-2);
+  padding:30px 28px; display:flex; flex-direction:column; gap:12px;
+}
+.bottomline p{font-size:1.02rem; color:var(--ink); max-width:72ch}
+
+/* chart */
+.chart-card{background:var(--surface); border:1px solid var(--rule); padding:24px 22px 18px}
+.legend{display:flex; gap:20px; flex-wrap:wrap; align-items:center; margin-bottom:20px}
+.lg{display:flex; align-items:center; gap:8px; font-size:.82rem; color:var(--ink-2)}
+.sw{width:11px; height:11px; border-radius:2px; flex:none}
+figure{margin:0}
+.tip{
+  position:fixed; pointer-events:none; opacity:0; transition:opacity .12s;
+  background:var(--pine); color:var(--ground); padding:9px 12px; font-size:.78rem;
+  font-family:var(--mono); line-height:1.5; z-index:20; white-space:nowrap;
+  box-shadow:0 4px 16px rgb(0 0 0 / .18);
+}
+:root[data-theme="dark"] .tip,
+:root:not([data-theme="light"]) .tip{color:var(--ground)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tip{background:var(--surface-2); color:var(--ink); border:1px solid var(--rule-strong)}}
+.tip.on{opacity:1}
+.bar-g rect{transition:opacity .12s}
+.bar-g:hover rect{opacity:.82}
+
+/* split panels */
+.two{display:grid; grid-template-columns:1fr; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+@media (min-width:760px){.two{grid-template-columns:1fr 1fr}}
+.panel{background:var(--surface); padding:26px 24px; display:flex; flex-direction:column; gap:13px}
+.panel.accent{background:var(--surface-2)}
+.panel h3{color:var(--pine)}
+.panel .big{font-family:var(--mono); font-size:1.45rem; letter-spacing:-.015em; font-variant-numeric:tabular-nums}
+.dl{display:flex; flex-direction:column; gap:9px; margin:0; font-size:.88rem}
+.dl div{display:flex; justify-content:space-between; gap:18px; padding-bottom:9px; border-bottom:1px solid var(--rule)}
+.dl div:last-child{border-bottom:0; padding-bottom:0}
+.dl dt{color:var(--muted)}
+.dl dd{margin:0; font-family:var(--mono); font-variant-numeric:tabular-nums; text-align:right; color:var(--ink)}
+
+/* fee ladder */
+.ladder{display:flex; flex-direction:column; gap:2px; margin-top:4px}
+.rung{display:grid; grid-template-columns:1fr auto; align-items:center; gap:16px; padding:12px 16px; background:var(--surface-2); font-size:.88rem}
+.rung .amt{font-family:var(--mono); font-variant-numeric:tabular-nums; color:var(--ink)}
+.rung .rate{font-family:var(--mono); color:var(--cost); font-size:.8rem; margin-left:10px}
+.rung.sum{background:var(--pine); color:var(--ground)}
+.rung.sum .amt{color:var(--ground); font-size:1.1rem}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .rung.sum{background:var(--surface-2); color:var(--ink); outline:1px solid var(--rule-strong)}
+:root:not([data-theme="light"]) .rung.sum .amt{color:var(--net)}}
+:root[data-theme="dark"] .rung.sum{background:var(--surface-2); color:var(--ink); outline:1px solid var(--rule-strong)}
+:root[data-theme="dark"] .rung.sum .amt{color:var(--net)}
+
+/* risk list */
+.risks{display:flex; flex-direction:column; gap:1px; background:var(--rule); border:1px solid var(--rule)}
+.risk{background:var(--surface); padding:18px 22px; display:grid; grid-template-columns:auto 1fr; gap:16px; align-items:start}
+.dot{width:9px; height:9px; border-radius:50%; margin-top:8px; flex:none}
+.d-hi{background:var(--flag)} .d-md{background:var(--cost)} .d-lo{background:var(--muted)}
+.risk p{font-size:.89rem; color:var(--ink-2); max-width:none}
+.risk h3{font-size:.95rem; margin-bottom:4px}
+
+/* phases */
+.phase{display:grid; grid-template-columns:1fr; gap:14px; padding:24px 0; border-top:1px solid var(--rule)}
+@media (min-width:760px){.phase{grid-template-columns:150px 1fr; gap:32px}}
+.phase-n{font-family:var(--mono); font-size:.74rem; text-transform:uppercase; letter-spacing:.12em; color:var(--cost); padding-top:3px}
+.phase ul{margin:0; padding-left:19px; display:flex; flex-direction:column; gap:8px; font-size:.93rem; color:var(--ink-2)}
+.phase li::marker{color:var(--rule-strong)}
+
+.note{font-size:.83rem; color:var(--muted); max-width:70ch; font-style:italic}
+footer{padding-block:44px 60px; border-top:1px solid var(--rule); font-size:.83rem; color:var(--muted)}
+footer p{max-width:70ch}
+a{color:var(--net); text-decoration-thickness:1px; text-underline-offset:2px}
+:focus-visible{outline:2px solid var(--cost); outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+</style>
+
+<div class="tip" id="tip"></div>
+
+<section class="hero">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">Corcoran Smith Law Corp · Sacramento · August 2026</span>
+      <h1>Keep the large<br>estates. Refer<br>the rest.</h1>
+      <p class="thesis">A probate practice sized to its delivery capacity — so the firm never carries a case it cannot staff, and never needs outside capital to grow.</p>
+    </div>
+    <div class="kpis">
+      <div class="kpi"><span class="v">+$42,702</span><span class="k">Year&nbsp;1 net — profitable from the first year</span></div>
+      <div class="kpi"><span class="v">$0</span><span class="k">Peak working capital required</span></div>
+      <div class="kpi"><span class="v plain">$11.8M</span><span class="k">Year&nbsp;5 revenue</span></div>
+      <div class="kpi"><span class="v plain">~17&times;</span><span class="k">Growth on today's $700,000 practice</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">The mechanism</span>
+      <h2>Referred cases are cash-positive on day one</h2>
+      <p class="lede">A referred case pays a <strong>$2,500 assessment fee at intake</strong>, costs roughly <strong>$300</strong> to place, and consumes <strong>no paralegal capacity</strong>. The referral arm funds the retention arm — which is why no year in this plan requires financing.</p>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <span class="eyebrow">Retained · top 53% by fee</span>
+        <span class="big" style="color:var(--net)">$29,555</span>
+        <dl class="dl">
+          <div><dt>Upfront</dt><dd>$999 ICA</dd></div>
+          <div><dt>Interim &sect;&nbsp;10830</dt><dd>45% @ mo 10–13</dd></div>
+          <div><dt>Final fee</dt><dd>55% @ mo 15–20</dd></div>
+          <div><dt>Delivery cost</dt><dd>~$3,400</dd></div>
+          <div><dt>Capacity used</dt><dd>1 paralegal slot</dd></div>
+        </dl>
+      </div>
+      <div class="panel accent">
+        <span class="eyebrow">Referred · the remainder</span>
+        <span class="big" style="color:var(--cost)">$4,194</span>
+        <dl class="dl">
+          <div><dt>Upfront</dt><dd>$2,500 assessment</dd></div>
+          <div><dt>Referral fee</dt><dd>25% @ mo 15–20</dd></div>
+          <div><dt>Delivery cost</dt><dd>~$300</dd></div>
+          <div><dt>Capacity used</dt><dd>none</dd></div>
+        </dl>
+      </div>
+    </div>
+    <p class="note">Referring is not more profitable per case — a small file retained nets $3,375 against $1,394 referred. It is the correct allocation of scarce capacity: the same paralegal slot spent on a $28,556 file returns seven times more.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">Five-year projection</span>
+      <h2>Profitable in every year</h2>
+      <p class="lede">Cost and net stack to total revenue. Years 6–7 show the statutory fee tail after case intake stops — an artifact of the five-year horizon, not a steady state.</p>
+    </div>
+
+    <figure class="chart-card">
+      <div class="legend">
+        <span class="lg"><span class="sw" style="background:var(--net)"></span>Net profit</span>
+        <span class="lg"><span class="sw" style="background:var(--cost)"></span>Operating cost</span>
+        <span class="lg" style="color:var(--muted)">Bars total to revenue</span>
+      </div>
+      <svg id="chart" viewBox="0 0 760 340" role="img" aria-label="Stacked bar chart of operating cost and net profit by year, totalling revenue. Year 1 $1.07M revenue with $42,702 net, rising to $11.77M revenue with $7.02M net in Year 5."></svg>
+    </figure>
+
+    <div class="pnl-wrap">
+      <table class="pnl">
+        <caption>Cases signed, revenue by source, and net &mdash; the single authoritative P&amp;L.</caption>
+        <thead><tr id="pnl-head"></tr></thead>
+        <tbody id="pnl-body"></tbody>
+      </table>
+    </div>
+    <p class="note">Base practice held flat at $700,000 revenue and $700,000 cost throughout — deliberately conservative, since attention genuinely shifts.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">The build</span>
+      <h2>Year one is three hires</h2>
+      <p class="lede">Retention is capped by paralegal capacity. Mark, Nicholas and Seth absorb supervision of 100 retained files — roughly 330 hours between them — with <strong>no dedicated probate attorney until Year 2</strong>.</p>
+    </div>
+    <div class="scroller">
+      <table>
+        <caption>Probate team, on top of the existing three attorneys.</caption>
+        <thead><tr><th>Year</th><th>Paralegals</th><th>Attorneys</th><th>Case managers</th><th>Intake</th><th>Total</th><th>Cases per paralegal</th></tr></thead>
+        <tbody>
+          <tr><td>Year 1</td><td>2</td><td>0</td><td>0</td><td>1</td><td class="pos">3</td><td>50</td></tr>
+          <tr><td>Year 2</td><td>5</td><td>2</td><td>1</td><td>2</td><td class="pos">10</td><td>58</td></tr>
+          <tr><td>Year 3</td><td>8</td><td>3</td><td>2</td><td>3</td><td class="pos">16</td><td>64</td></tr>
+          <tr><td>Year 4</td><td>11</td><td>5</td><td>3</td><td>4</td><td class="pos">23</td><td>70</td></tr>
+          <tr><td>Year 5</td><td>14</td><td>6</td><td>4</td><td>5</td><td class="pos">29</td><td>75</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="two">
+      <div class="panel">
+        <h3>Automation earns the throughput</h3>
+        <p style="font-size:.9rem;color:var(--ink-2)">Cases per paralegal rise from 50 to 75 — a 50% gain worth roughly <strong>five paralegals, ~$475,000 a year</strong>, at Year-5 volume. It comes from document assembly, a client document portal, statutory deadline automation in Clio, and intake auto-routing.</p>
+      </div>
+      <div class="panel">
+        <h3>Delegation is lawful, and the fee is fixed</h3>
+        <p style="font-size:.9rem;color:var(--ink-2)"><strong>B&amp;P &sect;&nbsp;6450</strong> permits paralegals to draft, research and interview under attorney supervision. <strong>Probate Code &sect;&nbsp;10810</strong> fixes the fee by estate value, not hours — so every hour moved to a supervised paralegal is retained margin. No other practice line has this shape.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">Probate Code &sect; 10810</span>
+      <h2>The fee is set by statute</h2>
+      <p class="lede">Ordinary attorney compensation is a percentage of the <em>gross</em> estate — identical whether the file takes sixty attorney hours or fifteen attorney hours plus forty-five paralegal hours. On a $500,000 estate, the median reported by the firm's own leads:</p>
+    </div>
+    <div class="ladder">
+      <div class="rung"><span>First $100,000<span class="rate">4%</span></span><span class="amt">$4,000</span></div>
+      <div class="rung"><span>Next $100,000<span class="rate">3%</span></span><span class="amt">$3,000</span></div>
+      <div class="rung"><span>Next $300,000<span class="rate">2%</span></span><span class="amt">$6,000</span></div>
+      <div class="rung sum"><span>Attorney fee on a $500,000 estate</span><span class="amt">$13,000</span></div>
+    </div>
+    <p class="note">The personal representative earns the same amount separately; this plan counts only the attorney half. Extraordinary fees under &sect;&nbsp;10811 — real property sales, tax matters, contested issues — are billable on top, but are discretionary and hourly, so they are modelled conservatively at 30% of cases &times; 20% of the ordinary fee.</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">Preconditions</span>
+      <h2>What has to be true</h2>
+      <p class="lede">Three of these are load-bearing. The plan does not function without them, and none is expensive.</p>
+    </div>
+    <div class="risks">
+      <div class="risk"><span class="dot d-hi"></span><div>
+        <h3>Estate value captured on every lead, at intake</h3>
+        <p>The entire model is a routing decision made before a case is accepted. It is recorded on <strong>104 of 1,000</strong> leads today. A probate fee calculator on the website solves this and the organic-search problem in one build.</p></div></div>
+      <div class="risk"><span class="dot d-hi"></span><div>
+        <h3>A receiving network of 15–30 firms</h3>
+        <p>517 placements in Year 5 is a standing operational function, not a favour. The firm refers to 11 firms today and does so sporadically — <strong>18 referrals have sat unassigned for a median of 168 days</strong>.</p></div></div>
+      <div class="risk"><span class="dot d-hi"></span><div>
+        <h3>&sect; 10830 interim petitions filed as standard</h3>
+        <p>An allowance on account may be sought any time after four months from issuance of Letters. It pulls 45% of every fee forward by roughly six months and carries <strong>$3.98M of Year-5 revenue</strong>. Without it the cash curve reverts to a far worse shape.</p></div></div>
+      <div class="risk"><span class="dot d-md"></span><div>
+        <h3>Completion rate — the largest uncertainty</h3>
+        <p>Modelled at <strong>65%</strong> of signed cases reaching a statutory fee. Break-even is <strong>38–48%</strong>, so there is real margin of safety — but the figure is estimated, not observed. The first true reading arrives as the 2026 cohort matures, around Q2 2027.</p></div></div>
+      <div class="risk"><span class="dot d-md"></span><div>
+        <h3>Rule 1.5.1 compliance at volume</h3>
+        <p>Every referral needs a written agreement between the lawyers <em>and</em> written client consent after full disclosure. At hundreds a year that is a templated, tracked workflow — non-compliance makes the fee unenforceable. Note also that <strong>B&amp;P &sect;&nbsp;6152 makes paying a non-lawyer per case a misdemeanor</strong>, which forecloses lead-vendor and finder's-fee arrangements entirely.</p></div></div>
+      <div class="risk"><span class="dot d-lo"></span><div>
+        <h3>Whether the volume exists</h3>
+        <p>Year-5 volume of 1,100 signed cases is roughly <strong>2.6% of all California probate filings</strong> (41,985 in FY2024–25). The measured search market supports the attempt — 12,000–15,000 distinct high-intent monthly searches at <em>low</em> competition — but Year 5 is a target, not a forecast.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">Year one</span>
+      <h2>The operating plan</h2>
+      <p class="lede">Sequenced deliberately: the cheapest volume first, capacity before demand, and a measured completion rate before any step up.</p>
+    </div>
+    <div>
+      <div class="phase">
+        <span class="phase-n">Weeks 1–4</span>
+        <ul>
+          <li>Raise Local Services Ads from <strong>$89.29/day toward $200</strong> — already statewide, already the cheapest lead in the firm at <strong>$21.69</strong>, throttled only by a budget setting.</li>
+          <li>Reactivate the paused Probate PMax campaign — it historically ran at $9–10 per conversion.</li>
+          <li><strong>Make estate value a required intake field.</strong> Nothing else works without it.</li>
+          <li>Move probate onto its own pipeline in Clio.</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="phase-n">Months 2–4</span>
+        <ul>
+          <li>Hire probate paralegals #1 and #2, and the intake and referral coordinator.</li>
+          <li>Build the probate fee calculator and the first ten county pages.</li>
+          <li>Stand up the Rule 1.5.1 referral workflow; sign the first five receiving firms.</li>
+          <li>Launch the probate administration search campaign — <em>“probate attorney”</em> draws 6,600 California searches a month at low competition, and the firm currently bids on none of it.</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <span class="phase-n">Months 5–12</span>
+        <ul>
+          <li>Scale to 200 signed cases — retain 100, place 100.</li>
+          <li>File the first &sect;&nbsp;10830 interim petitions at months 10–13, and <strong>verify the timing assumption against reality</strong>.</li>
+          <li>Complete all 58 county pages.</li>
+          <li>Build the document portal and deadline automation <em>before</em> Year-2 volume arrives.</li>
+        </ul>
+      </div>
+      <div class="phase" style="border-bottom:1px solid var(--rule)">
+        <span class="phase-n">Exit test</span>
+        <ul>
+          <li>200 signed, 100 retained, 100 placed, first interim fees collected, and a <strong>measured</strong> completion rate. Only then does the Year-2 step to 450 begin.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="close">
+  <div class="wrap stack-lg">
+    <div class="stack">
+      <span class="eyebrow">In summary</span>
+      <h2>What this plan is</h2>
+    </div>
+
+    <div class="bottomline">
+      <p><strong>Corcoran Smith Law already originates more probate work than it can deliver.</strong> The firm signs the case, collects the $999 assessment, and then refers much of it away for a fraction of its value &mdash; or lets it lapse. Probate administration collects <strong>$2,125 per matter</strong> against litigation&rsquo;s $913, yet the entire advertising budget points at litigation, and only <strong>seven of 276</strong> probate matters have ever collected a statutory-scale fee.</p>
+      <p>This plan keeps the estates worth keeping, places the rest for a fee, and grows the delivery capacity in step with demand rather than ahead of it.</p>
+    </div>
+
+    <div class="sum-grid">
+      <div class="sum">
+        <span class="lbl">The model</span>
+        <h3>Capacity sets the line</h3>
+        <p>Retain the top 53% of estates by fee &mdash; a <strong>$28,556</strong> mean statutory fee &mdash; and refer everything below it for a 25% split. Retention never exceeds what the paralegal team can carry, so no case is taken that cannot be delivered.</p>
+      </div>
+      <div class="sum">
+        <span class="lbl">Why it self-funds</span>
+        <h3>The referred half pays first</h3>
+        <p>A referred case brings <strong>$2,500 at intake</strong>, costs about $300 to place, and uses no capacity. That cash covers the build while retained cases mature toward their statutory fees 15 to 20 months out.</p>
+      </div>
+      <div class="sum">
+        <span class="lbl">Why the margin holds</span>
+        <h3>The fee is fixed, the cost is not</h3>
+        <p>Probate Code &sect;&nbsp;10810 sets compensation by estate value, not hours. Every hour shifted to a supervised paralegal under B&amp;P &sect;&nbsp;6450 is retained margin &mdash; and automation lifts throughput from 50 cases per paralegal to 75.</p>
+      </div>
+      <div class="sum">
+        <span class="lbl">What it costs to start</span>
+        <h3>Three hires and a budget setting</h3>
+        <p>Year one is two paralegals and an intake coordinator. The existing three attorneys supervise 100 files. The cheapest lead in the firm &mdash; Local Services Ads at <strong>$21.69</strong>, already statewide &mdash; is throttled by a $89.29 daily cap.</p>
+      </div>
+      <div class="sum">
+        <span class="lbl">Where it lands</span>
+        <h3>$11.8M by year five</h3>
+        <p>Profitable in every year, peaking at <strong>$7.0M net</strong> on 1,100 signed cases, with a probate team of 29 alongside the existing practice &mdash; which this model deliberately holds flat at $700,000 rather than crediting it with growth.</p>
+      </div>
+      <div class="sum">
+        <span class="lbl">What would break it</span>
+        <h3>One number, not yet observed</h3>
+        <p>The plan assumes <strong>65%</strong> of signed cases reach a statutory fee. Break-even is 38&ndash;48%, so the margin of safety is real &mdash; but the figure is estimated. Capturing estate value at intake replaces it with fact, and the first true reading arrives around Q2 2027.</p>
+      </div>
+    </div>
+
+    <p class="note">Prepared by BizRnR. Every figure traces to a live API &mdash; Clio Manage, Lawmatics and Google Ads &mdash; pulled 20 August 2026. Statutory citations are to California law as published; this is business analysis, not legal advice, and the fee-division, solicitation and delegation rules should be confirmed by the firm before it acts on them.</p>
+  </div>
+</section>
+
+<script>
+const DATA=[
+ {y:"Year 1",signed:200,keep:100,refer:100,up:349900,int:23202,fin:0,ext:0,ref:0,rev:1073102,cost:1030400,net:42702,cum:42702},
+ {y:"Year 2",signed:450,keep:238,refer:212,up:767012,int:844196,fin:510439,ext:55684,ref:55047,rev:2932377,cost:2150400,net:781977,cum:824678},
+ {y:"Year 3",signed:700,keep:371,refer:329,up:1193129,int:1990710,fin:1727834,ext:188491,ref:171471,rev:5971636,cost:2994880,net:2976756,cum:3801434},
+ {y:"Year 4",signed:900,keep:477,refer:423,up:1534023,int:3092677,fin:3111123,ext:339395,ref:297528,rev:9074746,cost:4001760,net:5072986,cum:8874420},
+ {y:"Year 5",signed:1100,keep:583,refer:517,up:1874917,int:3984205,fin:4328518,ext:472202,ref:413953,rev:11773795,cost:4752160,net:7021635,cum:15896055},
+ {y:"Year 6",tail:1,rev:11928064,cost:1192800,net:10735264,cum:26631319,up:0,int:4709723,fin:5410648,ext:590253,ref:517441},
+ {y:"Year 7",tail:1,rev:4420354,cost:700000,net:3720354,cum:30351673,up:0,int:135266,fin:2975856,ext:324639,ref:284592}
+];
+const money=n=>"$"+Math.round(n).toLocaleString("en-US");
+const compact=n=>n>=1e6?"$"+(n/1e6).toFixed(1)+"M":"$"+Math.round(n/1e3)+"k";
+
+/* ---- P&L: line items down, years across, so it fits without scrolling ---- */
+(function(){
+  const head=document.getElementById("pnl-head");
+  head.innerHTML='<th scope="col"></th>'+DATA.map(d=>
+    `<th scope="col">${d.y}${d.tail?'<span class="tl">tail</span>':''}</th>`).join("");
+  const ROWS=[
+    {k:"Cases signed",   f:d=>d.tail?"\u2014":d.signed,        cls:"unit"},
+    {k:"Retained",       f:d=>d.tail?"\u2014":d.keep,          cls:"unit sub"},
+    {k:"Referred",       f:d=>d.tail?"\u2014":d.refer,         cls:"unit sub"},
+    {k:"Upfront fees",   f:d=>d.up?money(d.up):"\u2014",       sec:1},
+    {k:"Interim \u00a7\u202f10830", f:d=>money(d.int)},
+    {k:"Final fees",     f:d=>d.fin?money(d.fin):"\u2014"},
+    {k:"Extraordinary",  f:d=>d.ext?money(d.ext):"\u2014"},
+    {k:"Referral fees",  f:d=>d.ref?money(d.ref):"\u2014"},
+    {k:"Base practice",  f:()=>money(700000),                   cls:"dim"},
+    {k:"Total revenue",  f:d=>money(d.rev),                     cls:"rule strong"},
+    {k:"Operating cost", f:d=>money(d.cost)},
+    {k:"Net",            f:d=>money(d.net),                     cls:"rule strong pos"},
+    {k:"Cumulative",     f:d=>money(d.cum),                     cls:"dim"}
+  ];
+  document.getElementById("pnl-body").innerHTML=ROWS.map(r=>
+    `<tr class="${r.cls||''}${r.sec?' sec':''}"><th scope="row">${r.k}</th>`+
+    DATA.map(d=>`<td${d.tail?' class="tail"':''}>${r.f(d)}</td>`).join("")+`</tr>`).join("");
+})();
+
+/* ---- stacked bar chart ---- */
+(function(){
+  const rows=DATA.slice(0,5);
+  const W=760,H=340,mL=58,mR=14,mT=16,mB=46;
+  const pw=W-mL-mR, ph=H-mT-mB;
+  const max=12_000_000, ticks=[0,3e6,6e6,9e6,12e6];
+  const bw=Math.min(74, pw/rows.length*0.56);
+  const step=pw/rows.length;
+  const yOf=v=>mT+ph-(v/max)*ph;
+  let s="";
+  ticks.forEach(t=>{
+    const y=yOf(t);
+    s+=`<line x1="${mL}" x2="${W-mR}" y1="${y}" y2="${y}" stroke="var(--rule)" stroke-width="1"/>`;
+    s+=`<text x="${mL-10}" y="${y+4}" text-anchor="end" font-family="var(--mono)" font-size="10.5" fill="var(--muted)">${t?compact(t):"0"}</text>`;
+  });
+  rows.forEach((d,i)=>{
+    const cx=mL+step*i+step/2, x=cx-bw/2;
+    const costH=(d.cost/max)*ph, netH=(d.net/max)*ph;
+    const costY=mT+ph-costH;
+    const netY=costY-netH-2;                     /* 2px surface gap between segments */
+    s+=`<g class="bar-g" data-i="${i}">`;
+    s+=`<rect x="${x}" y="${costY}" width="${bw}" height="${Math.max(costH,1)}" fill="var(--cost)" rx="0"/>`;
+    const r=Math.min(4,netH/2);                  /* no radius on a sliver — avoids a degenerate path */
+    s+=netH>=1.5
+      ? `<path d="M${x},${netY+netH} L${x},${netY+r} Q${x},${netY} ${x+r},${netY} L${x+bw-r},${netY} Q${x+bw},${netY} ${x+bw},${netY+r} L${x+bw},${netY+netH} Z" fill="var(--net)"/>`
+      : `<rect x="${x}" y="${netY}" width="${bw}" height="2" fill="var(--net)"/>`;
+    s+=`<rect x="${x}" y="${mT}" width="${bw}" height="${ph}" fill="transparent"/>`;
+    s+=`</g>`;
+    s+=`<text x="${cx}" y="${netY-9}" text-anchor="middle" font-family="var(--mono)" font-size="11" font-weight="500" fill="var(--ink)">${compact(d.rev)}</text>`;
+    s+=`<text x="${cx}" y="${H-mB+20}" text-anchor="middle" font-family="var(--sans)" font-size="11.5" fill="var(--ink-2)">${d.y}</text>`;
+    s+=`<text x="${cx}" y="${H-mB+35}" text-anchor="middle" font-family="var(--mono)" font-size="10" fill="var(--muted)">${d.signed} cases</text>`;
+  });
+  s+=`<line x1="${mL}" x2="${W-mR}" y1="${mT+ph}" y2="${mT+ph}" stroke="var(--rule-strong)" stroke-width="1"/>`;
+  const svg=document.getElementById("chart");
+  svg.innerHTML=s;
+  const tip=document.getElementById("tip");
+  svg.querySelectorAll(".bar-g").forEach(g=>{
+    const d=rows[+g.dataset.i];
+    const show=e=>{
+      tip.innerHTML=`${d.y} · ${d.signed} signed<br>Revenue ${money(d.rev)}<br>Cost ${money(d.cost)}<br>Net ${money(d.net)}`;
+      tip.classList.add("on");
+      const pad=14;
+      let x=e.clientX+pad, y=e.clientY+pad;
+      const r=tip.getBoundingClientRect();
+      if(x+r.width>innerWidth-8) x=e.clientX-r.width-pad;
+      if(y+r.height>innerHeight-8) y=e.clientY-r.height-pad;
+      tip.style.left=x+"px"; tip.style.top=y+"px";
+    };
+    g.addEventListener("mousemove",show);
+    g.addEventListener("mouseleave",()=>tip.classList.remove("on"));
+  });
+})();
+</script>
