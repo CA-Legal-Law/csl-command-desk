@@ -219,20 +219,21 @@
   ],
   "lsa": {
    "3284547403": {
-    "leads_all_time": 1734,
-    "leads_charged": 1491,
-    "leads_ytd": 877,
-    "ytd_spend": 19132.2,
-    "cost_per_lead_ytd": 21.82,
+    "leads_all_time": 1740,
+    "leads_charged": 1493,
+    "leads_ytd": 883,
+    "ytd_spend": 19177.56,
+    "cost_per_lead_ytd": 21.72,
     "by_status": {
-     "WIPED_OUT": 1497,
-     "ACTIVE": 226,
-     "NEW": 9,
+     "WIPED_OUT": 1504,
+     "ACTIVE": 222,
+     "NEW": 12,
      "CONSUMER_DECLINED": 2
     },
     "by_type": {
-     "MESSAGE": 485,
-     "PHONE_CALL": 1249
+     "MESSAGE": 486,
+     "PHONE_CALL": 1253,
+     "UNKNOWN": 1
     },
     "leads_by_month": {
      "2025-02": 14,
@@ -253,7 +254,7 @@
      "2026-05": 122,
      "2026-06": 128,
      "2026-07": 120,
-     "2026-08": 79
+     "2026-08": 85
     },
     "monthly_spend": [
      {
@@ -286,15 +287,15 @@
      },
      {
       "month": "2026-08",
-      "cost": 1836.86
+      "cost": 1882.22
      }
     ],
     "last_30d": {
-     "cost": 2658.63,
-     "conversions": 105.0,
-     "clicks": 1951,
-     "impressions": 19733,
-     "cost_per_conv": 25.32
+     "cost": 2507.0,
+     "conversions": 104.0,
+     "clicks": 1779,
+     "impressions": 18444,
+     "cost_per_conv": 24.11
     },
     "daily_budget": 89.29,
     "verification": [
@@ -308,52 +309,52 @@
   "lsa_status": "live",
   "impression_share": [
    {
-    "campaign": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
-    "impression_share": 0.0999,
-    "lost_to_budget": 0.7185157972079353,
-    "lost_to_rank": 0.22288758265980896,
-    "cost": 626.22,
-    "constraint": "budget"
+    "campaign": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
+    "impression_share": 0.1018450184501845,
+    "lost_to_budget": 0.37859778597785976,
+    "lost_to_rank": 0.5195571955719557,
+    "cost": 599.61,
+    "constraint": "rank"
    },
    {
     "campaign": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
     "impression_share": 0.0999,
-    "lost_to_budget": 0.7572517995866296,
-    "lost_to_rank": 0.1774641864443019,
-    "cost": 625.84,
+    "lost_to_budget": 0.7682110426194737,
+    "lost_to_rank": 0.16736263007887586,
+    "cost": 594.45,
     "constraint": "budget"
    },
    {
-    "campaign": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
-    "impression_share": 0.10874271440466278,
-    "lost_to_budget": 0.4094920899250625,
-    "lost_to_rank": 0.48176519567027476,
-    "cost": 607.09,
-    "constraint": "rank"
+    "campaign": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
+    "impression_share": 0.0999,
+    "lost_to_budget": 0.6519794229478864,
+    "lost_to_rank": 0.2912100201297249,
+    "cost": 588.25,
+    "constraint": "budget"
    }
   ],
-  "lost_to_budget_weighted": 0.6306,
-  "lost_to_rank_weighted": 0.2921,
+  "lost_to_budget_weighted": 0.5988,
+  "lost_to_rank_weighted": 0.3267,
   "conversion_actions_30d": {
-   "Form Capture": 21.0,
-   "Contact Form Submit - Primary": 16.0,
+   "Form Capture": 18.0,
    "Calls from ads - Google Search Results": 14.0,
-   "First Time Phone Call": 9.0,
-   "First Time Phone Call (not sure)": 5.0,
+   "Contact Form Submit - Primary": 14.0,
+   "First Time Phone Call": 11.0,
+   "Local actions - Other engagements": 6.0,
+   "First Time Phone Call (not sure)": 4.0,
    "ClickToCall - Website": 3.0,
    "Hired Client - Lawmatics": 3.0,
-   "Local actions - Other engagements": 3.0,
-   "Clicks to call": 2.0,
-   "Repeat Phone Call": 1.0
+   "Repeat Phone Call": 2.0,
+   "Clicks to call": 2.0
   },
   "last_30d": {
-   "cost": 1859.15,
-   "conversions": 38.0,
+   "cost": 1782.3,
+   "conversions": 35.0,
    "clicks": 266,
-   "impressions": 3782
+   "impressions": 3852
   },
-  "cost_per_conv_30d": 48.92,
-  "cpc_30d": 6.99,
+  "cost_per_conv_30d": 50.92,
+  "cpc_30d": 6.7,
   "monthly": [
    {
     "month": "2025-03",
@@ -510,82 +511,88 @@
    },
    {
     "month": "2026-08",
-    "cost": 1228.29,
+    "cost": 1284.41,
     "conversions": 20.0,
-    "clicks": 189,
-    "cpc": 6.5,
-    "cost_per_conv": 61.41,
+    "clicks": 201,
+    "cpc": 6.39,
+    "cost_per_conv": 64.22,
     "impression_share": 0.0999
    }
   ],
   "campaigns_30d": [
    {
-    "name": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
+    "name": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
     "status": "ENABLED",
     "daily_budget": 20.0,
-    "cost": 626.22,
-    "conversions": 14.0,
-    "clicks": 93,
-    "cost_per_conv": 44.73
+    "cost": 599.61,
+    "conversions": 9.0,
+    "clicks": 86,
+    "cost_per_conv": 66.62
    },
    {
     "name": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
     "status": "ENABLED",
     "daily_budget": 20.0,
-    "cost": 625.84,
-    "conversions": 14.0,
-    "clicks": 91,
-    "cost_per_conv": 44.7
+    "cost": 594.45,
+    "conversions": 13.0,
+    "clicks": 88,
+    "cost_per_conv": 45.73
    },
    {
-    "name": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
+    "name": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
     "status": "ENABLED",
     "daily_budget": 20.0,
-    "cost": 607.09,
-    "conversions": 10.0,
-    "clicks": 82,
-    "cost_per_conv": 60.71
+    "cost": 588.25,
+    "conversions": 13.0,
+    "clicks": 92,
+    "cost_per_conv": 45.25
    }
   ]
  },
  "gsc": {
-  "window": "2026-07-21 to 2026-08-17",
+  "window": "2026-07-23 to 2026-08-19",
   "clicks": 74,
-  "impressions": 5509,
-  "brand_clicks": 59,
-  "nonbrand_clicks": 15,
-  "nonbrand_share": 0.2027,
+  "impressions": 5537,
+  "brand_clicks": 60,
+  "nonbrand_clicks": 14,
+  "nonbrand_share": 0.1892,
   "ctr": 0.0134,
   "top_queries": [
    {
     "query": "corcoran smith law",
     "clicks": 38,
-    "impressions": 134,
-    "position": 1.0
+    "impressions": 147,
+    "position": 1.1
    },
    {
     "query": "corcoran smith law corp.",
     "clicks": 14,
-    "impressions": 39,
+    "impressions": 41,
     "position": 1.3
    },
    {
     "query": "seth steward",
-    "clicks": 8,
-    "impressions": 39,
+    "clicks": 7,
+    "impressions": 37,
     "position": 1.9
    },
    {
     "query": "corcoran smith",
     "clicks": 2,
-    "impressions": 10,
-    "position": 6.4
+    "impressions": 11,
+    "position": 6
+   },
+   {
+    "query": "corcoran smith law reviews",
+    "clicks": 2,
+    "impressions": 41,
+    "position": 1.8
    },
    {
     "query": "california",
     "clicks": 1,
-    "impressions": 13,
-    "position": 6.3
+    "impressions": 12,
+    "position": 6.2
    },
    {
     "query": "corcoran law",
@@ -596,50 +603,44 @@
    {
     "query": "corcoran law firm",
     "clicks": 1,
-    "impressions": 15,
-    "position": 6.3
+    "impressions": 17,
+    "position": 5.4
    },
    {
     "query": "corcoran law group",
     "clicks": 1,
-    "impressions": 4,
-    "position": 4
+    "impressions": 3,
+    "position": 4.3
    },
    {
     "query": "corcoran law office",
     "clicks": 1,
-    "impressions": 2,
-    "position": 6
-   },
-   {
-    "query": "corcoran smith law reviews",
-    "clicks": 1,
-    "impressions": 29,
-    "position": 1.8
+    "impressions": 3,
+    "position": 5.3
    },
    {
     "query": "mark c. smith",
     "clicks": 1,
-    "impressions": 13,
-    "position": 4.8
+    "impressions": 9,
+    "position": 6.1
    },
    {
-    "query": "mark smith attorney at law",
+    "query": "mark smith",
     "clicks": 1,
-    "impressions": 11,
-    "position": 8.5
+    "impressions": 9,
+    "position": 7.7
    },
    {
     "query": "need contingency attorney for inheritance theft",
     "clicks": 1,
     "impressions": 15,
-    "position": 10.7
+    "position": 10.8
    },
    {
     "query": "step up property tax",
     "clicks": 1,
-    "impressions": 8,
-    "position": 10
+    "impressions": 10,
+    "position": 9.8
    },
    {
     "query": "trustee refuses to give accounting",
@@ -653,34 +654,29 @@
   "window": "last 28 days",
   "channels": [
    {
+    "channel": "Direct",
+    "sessions": 185,
+    "conversions": 4.0
+   },
+   {
     "channel": "Organic Search",
-    "sessions": 218,
+    "sessions": 172,
     "conversions": 8.0
    },
    {
-    "channel": "Direct",
-    "sessions": 212,
-    "conversions": 2.0
-   },
-   {
     "channel": "Paid Search",
-    "sessions": 161,
+    "sessions": 149,
     "conversions": 3.0
    },
    {
     "channel": "Referral",
-    "sessions": 8,
-    "conversions": 0.0
-   },
-   {
-    "channel": "Paid Social",
-    "sessions": 6,
+    "sessions": 7,
     "conversions": 0.0
    },
    {
     "channel": "AI Assistant",
-    "sessions": 5,
-    "conversions": 0.0
+    "sessions": 6,
+    "conversions": 1.0
    },
    {
     "channel": "Organic Social",
@@ -688,13 +684,18 @@
     "conversions": 1.0
    },
    {
+    "channel": "Paid Social",
+    "sessions": 5,
+    "conversions": 0.0
+   },
+   {
     "channel": "Unassigned",
-    "sessions": 2,
-    "conversions": 11.0
+    "sessions": 4,
+    "conversions": 14.0
    },
    {
     "channel": "Cross-network",
-    "sessions": 1,
+    "sessions": 2,
     "conversions": 0.0
    },
    {
@@ -703,24 +704,23 @@
     "conversions": 0.0
    }
   ],
-  "sessions_total": 619,
+  "sessions_total": 536,
   "events": {
-   "page_view": 840,
-   "session_start": 620,
-   "first_visit": 452,
-   "user_engagement": 406,
-   "scroll": 159,
-   "view_search_results": 138,
-   "consultation_request": 121,
-   "form": 55,
-   "phone_call": 30,
-   "form_start": 27,
-   "ClickToCall": 14,
+   "page_view": 714,
+   "session_start": 534,
+   "first_visit": 390,
+   "user_engagement": 331,
+   "scroll": 144,
+   "consultation_request": 127,
+   "view_search_results": 126,
+   "form": 57,
+   "phone_call": 32,
+   "form_start": 23,
+   "ClickToCall": 15,
    "ClickToEmail": 11,
    "gtm.dom": 4,
-   "click": 1,
-   "file_download": 1,
-   "sms": 1
+   "sms": 2,
+   "file_download": 1
   },
   "form_submit_fires": 0
  },
@@ -872,31 +872,31 @@
   "campaign_economics": [
    {
     "campaign": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
-    "spend": 607.09,
-    "ads_conversions": 10.0,
-    "ads_cost_per_conv": 60.71,
+    "spend": 599.61,
+    "ads_conversions": 9.0,
+    "ads_cost_per_conv": 66.62,
     "real_leads": 28,
-    "real_cost_per_lead": 21.68,
+    "real_cost_per_lead": 21.41,
     "constraint": "rank",
     "verdict": "rank-limited \u2014 fix quality, not budget"
    },
    {
     "campaign": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
-    "spend": 625.84,
-    "ads_conversions": 14.0,
-    "ads_cost_per_conv": 44.7,
+    "spend": 594.45,
+    "ads_conversions": 13.0,
+    "ads_cost_per_conv": 45.73,
     "real_leads": 22,
-    "real_cost_per_lead": 28.45,
+    "real_cost_per_lead": 27.02,
     "constraint": "budget",
     "verdict": "starved \u2014 cheap leads, add budget"
    },
    {
     "campaign": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
-    "spend": 626.22,
-    "ads_conversions": 14.0,
-    "ads_cost_per_conv": 44.73,
+    "spend": 588.25,
+    "ads_conversions": 13.0,
+    "ads_cost_per_conv": 45.25,
     "real_leads": 5,
-    "real_cost_per_lead": 125.24,
+    "real_cost_per_lead": 117.65,
     "constraint": "budget",
     "verdict": "expensive leads \u2014 do not add budget"
    }
@@ -918,86 +918,79 @@
    "call_share_before": 0.6777
   },
   "paid_blended": {
-   "search_spend_ytd": 31128.08,
-   "lsa_spend_ytd": 19132.2,
-   "total_paid_spend_ytd": 50260.28,
-   "lsa_share_of_spend": 0.3807,
-   "lsa_leads_ytd": 877,
-   "lsa_cost_per_lead": 21.82,
+   "search_spend_ytd": 31184.2,
+   "lsa_spend_ytd": 19177.56,
+   "total_paid_spend_ytd": 50361.76,
+   "lsa_share_of_spend": 0.3808,
+   "lsa_leads_ytd": 883,
+   "lsa_cost_per_lead": 21.72,
    "tracked_web_leads_ytd": 600,
-   "search_cost_per_lead": 51.88,
-   "all_paid_leads_ytd": 1477,
-   "blended_cost_per_lead": 34.03
+   "search_cost_per_lead": 51.97,
+   "all_paid_leads_ytd": 1483,
+   "blended_cost_per_lead": 33.96
   },
-  "current_cost_per_conv": 48.92,
-  "current_cac": 411.09,
-  "current_roas": 7.41,
-  "return_per_1000": 7408.19,
+  "current_cost_per_conv": 50.92,
+  "current_cac": 427.9,
+  "current_roas": 7.12,
+  "return_per_1000": 7117.21,
   "verdict": "above target",
   "return_per_1000_by_day": {
-   "30": 1792.78,
-   "60": 3028.47,
-   "90": 3642.61,
-   "180": 5952.48,
-   "365": 7336.33
+   "30": 1722.37,
+   "60": 2909.52,
+   "90": 3499.53,
+   "180": 5718.68,
+   "365": 7048.18
   },
   "goal_return_per_1000": 10000.0,
   "goal_roas": 10.0,
-  "gap_to_goal": 2591.81,
+  "gap_to_goal": 2882.79,
   "goal_required_cac": 304.54,
   "goal_route_cost_per_conv": 36.24,
-  "goal_route_close_rate": 0.1606,
-  "goal_route_ltv": 4110.92,
-  "goal_progress": 0.7408,
-  "budget_lost_impression_share": 0.6306,
-  "monthly_spend_headroom": 3173.74,
-  "monthly_revenue_forfeited": 23511.67
+  "goal_route_close_rate": 0.1672,
+  "goal_route_ltv": 4278.99,
+  "goal_progress": 0.7117,
+  "budget_lost_impression_share": 0.5988,
+  "monthly_spend_headroom": 2660.12,
+  "monthly_revenue_forfeited": 18932.66
  },
  "_meta": {
-  "generated_at": "2026-08-22T09:36:42",
+  "generated_at": "2026-08-22T09:52:27",
   "generated_date": "2026-08-22",
   "sources": {
-   "ga4": {
-    "status": "stale",
-    "at": "2026-08-20T15:13:01",
-    "age_hours": 42.4,
-    "reason": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem re"
-   },
    "gsc": {
-    "status": "stale",
-    "at": "2026-08-20T15:13:00",
-    "age_hours": 42.4,
-    "reason": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem re"
+    "status": "ok",
+    "at": "2026-08-22T09:52:15",
+    "secs": 0.5
    },
-   "ads": {
-    "status": "stale",
-    "at": "2026-08-20T15:13:08",
-    "age_hours": 42.4,
-    "reason": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem re"
+   "ga4": {
+    "status": "ok",
+    "at": "2026-08-22T09:52:16",
+    "secs": 1.5
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-08-22T09:36:34",
-    "secs": 3.7
+    "at": "2026-08-22T09:52:20",
+    "secs": 3.8
    },
-   "clio": {
+   "ads": {
     "status": "ok",
-    "at": "2026-08-22T09:36:41",
-    "secs": 12.2
+    "at": "2026-08-22T09:52:23",
+    "secs": 8.2
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-08-22T09:36:42",
-    "secs": 12.2
+    "at": "2026-08-22T09:52:26",
+    "secs": 11.0
+   },
+   "clio": {
+    "status": "ok",
+    "at": "2026-08-22T09:52:27",
+    "secs": 12.0
    }
   },
-  "errors": {
-   "ga4": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem refreshing your current auth tokens: Reauthentication failed. cannot prompt during non-interactive execution.\nPlease run",
-   "gsc": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem refreshing your current auth tokens: Reauthentication failed. cannot prompt during non-interactive execution.\nPlease run",
-   "ads": "RuntimeError: gcloud ADC unavailable: ERROR: (gcloud.auth.application-default.print-access-token) There was a problem refreshing your current auth tokens: Reauthentication failed. cannot prompt during non-interactive execution.\nPlease run"
-  },
-  "sources_ok": 3,
-  "sources_stale": 3,
+  "errors": {},
+  "sources_ok": 6,
+  "sources_stale": 0,
   "sources_total": 6,
   "gbp": "pending Google API access case 7-4790000041264"
  }
