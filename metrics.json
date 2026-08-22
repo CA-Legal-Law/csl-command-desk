@@ -21,7 +21,7 @@
    "15%": 1
   },
   "fee_structure": {
-   "Flat-Fee - ICA": 116,
+   "Flat-Fee - ICA": 117,
    "Hourly": 22,
    "Pure Contingency": 19,
    "Flat-Fee - Other": 7,
@@ -96,12 +96,12 @@
    "2026-05": 31,
    "2026-06": 38,
    "2026-07": 51,
-   "2026-08": 30
+   "2026-08": 31
   },
   "new_matters_last_month": 51,
   "collected_last_month": 60464.4,
   "last_complete_month": "2026-07",
-  "matters_total": 541,
+  "matters_total": 542,
   "matters_open": 80,
   "matters_pending": 176,
   "ar_total": 47853.44,
@@ -130,9 +130,9 @@
   },
   "revenue_by_practice": {
    "Wills, Estates, & Probate (Administration, Beneficiary Rights, Etc.)": {
-    "matters": 244,
+    "matters": 245,
     "collected": 510786.84,
-    "per_matter": 2093.39
+    "per_matter": 2084.84
    },
    "Trust/Estate Plan Drafting": {
     "matters": 77,
@@ -225,8 +225,8 @@
     "ytd_spend": 19177.56,
     "cost_per_lead_ytd": 21.72,
     "by_status": {
-     "WIPED_OUT": 1504,
-     "ACTIVE": 222,
+     "WIPED_OUT": 1505,
+     "ACTIVE": 221,
      "NEW": 12,
      "CONSUMER_DECLINED": 2
     },
@@ -954,38 +954,38 @@
   "monthly_revenue_forfeited": 18932.66
  },
  "_meta": {
-  "generated_at": "2026-08-22T09:52:27",
+  "generated_at": "2026-08-22T17:18:41",
   "generated_date": "2026-08-22",
   "sources": {
-   "gsc": {
-    "status": "ok",
-    "at": "2026-08-22T09:52:15",
-    "secs": 0.5
-   },
    "ga4": {
     "status": "ok",
-    "at": "2026-08-22T09:52:16",
-    "secs": 1.5
+    "at": "2026-08-22T17:18:23",
+    "secs": 0.4
+   },
+   "gsc": {
+    "status": "ok",
+    "at": "2026-08-22T17:18:23",
+    "secs": 0.4
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-08-22T09:52:20",
-    "secs": 3.8
+    "at": "2026-08-22T17:18:25",
+    "secs": 2.5
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-22T09:52:23",
-    "secs": 8.2
-   },
-   "lawmatics": {
-    "status": "ok",
-    "at": "2026-08-22T09:52:26",
-    "secs": 11.0
+    "at": "2026-08-22T17:18:28",
+    "secs": 5.9
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-22T09:52:27",
-    "secs": 12.0
+    "at": "2026-08-22T17:18:32",
+    "secs": 9.6
+   },
+   "lawmatics": {
+    "status": "ok",
+    "at": "2026-08-22T17:18:41",
+    "secs": 18.3
    }
   },
   "errors": {},
