@@ -1070,12 +1070,19 @@
       const pill = document.getElementById("fieldpill");
       if (pill) {
         const n = Object.keys(((m.lawmatics || {}).field_delivery) || {}).length;
+        const pend = Object.keys(((m.lawmatics || {}).pending_fields) || {});
         if (dead.length) {
           pill.className = "src issue";
           pill.querySelector("b").textContent = dead.length + " field" +
             (dead.length > 1 ? "s" : "") + " dropped";
           pill.title = "Lawmatics is discarding: " + dead.join(", ") +
             " — the field exists but is not attached to the intake form";
+        } else if (pend.length) {
+          // Repaired, but no lead has exercised it yet. Not a fault.
+          pill.querySelector("b").textContent = (n - pend.length) + " of " + n +
+            " form fields live";
+          pill.title = "Awaiting a first lead: " + pend.join(", ") +
+            " — repaired, not yet exercised";
         } else if (n) {
           pill.querySelector("b").textContent = n + " form fields live";
         }
