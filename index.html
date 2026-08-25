@@ -1,6 +1,3 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL Command Desk</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>CSL Command Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -342,6 +339,10 @@
       <span class="src live"><span class="dot"></span><b>Clio</b></span>
       <span class="src live"><span class="dot"></span><b>GA4</b></span>
       <span class="src live"><span class="dot"></span><b>LSA</b></span>
+      <!-- Lawmatics answers 200 and silently drops any custom field not attached
+           to the submitted form, so a broken mapping looks like "no traffic".
+           This pill names any the website sends that never arrive. -->
+      <span class="src live" id="fieldpill" title="Website form fields arriving in Lawmatics"><span class="dot"></span><b>Form fields</b></span>
     </div>
   </div>
 
@@ -1064,6 +1065,22 @@
         el.classList.add("hydrated");
         filled++;
       });
+      // Silent-discard watch: name any mapped field Lawmatics is dropping.
+      const dead = ((m.lawmatics || {}).dead_fields) || [];
+      const pill = document.getElementById("fieldpill");
+      if (pill) {
+        const n = Object.keys(((m.lawmatics || {}).field_delivery) || {}).length;
+        if (dead.length) {
+          pill.className = "src issue";
+          pill.querySelector("b").textContent = dead.length + " field" +
+            (dead.length > 1 ? "s" : "") + " dropped";
+          pill.title = "Lawmatics is discarding: " + dead.join(", ") +
+            " — the field exists but is not attached to the intake form";
+        } else if (n) {
+          pill.querySelector("b").textContent = n + " form fields live";
+        }
+      }
+
       const lbm = (m.callrail || {}).leads_by_month;
       const g = document.getElementById("demandbars");
       if (lbm && g) {
@@ -1160,5 +1177,3 @@
     a.classList.add("active");
   }));
 </script>
-
-</body></html>
