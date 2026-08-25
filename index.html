@@ -1,7 +1,5 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL Command Desk</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>CSL Command Desk</title>
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
   /* ---------- tokens: light (default) ---------- */
@@ -322,6 +320,7 @@
     <div class="navlbl">Business</div>
     <a href="#unit"><span class="glyph" aria-hidden="true">∑</span>Unit economics</a>
     <a href="#practice"><span class="glyph" aria-hidden="true">§</span>Practice economics</a>
+    <a href="#probate"><span class="glyph" aria-hidden="true">⚖</span>Probate build-out</a>
     <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
     <a href="#coverage"><span class="glyph" aria-hidden="true">◑</span>Data coverage</a>
   </nav>
@@ -819,6 +818,68 @@
     </div>
   </section>
 
+
+  <!-- PROBATE -->
+  <section class="zone reveal" id="probate" aria-label="Probate build-out">
+    <div class="zonehead"><h3 class="serif">Probate build-out</h3><span class="sub">the path to 100+ administrations a year</span></div>
+
+    <div class="card">
+      <div class="eyebrow">Inbound probate demand · rolling sample <span class="rule"></span> <span class="chip live">live · Lawmatics</span></div>
+      <div class="grid4">
+        <div class="stat"><div class="lab">Administration leads</div><div class="val" data-m="lawmatics.probate.leads_admin" data-count>56</div><div class="note">statutory-fee eligible</div></div>
+        <div class="stat"><div class="lab">Contest / dispute leads</div><div class="val" data-m="lawmatics.probate.leads_contest" data-count>65</div><div class="note">hourly or contingency</div></div>
+        <div class="stat"><div class="lab">Referral book, placed</div><div class="val" data-m="clio.referrals_out_total" data-count>107</div><div class="note">11 firms, 15–25% splits</div></div>
+        <div class="stat"><div class="lab">Awaiting placement</div><div class="val warn" data-m="clio.referrals_pending_firm" data-count>18</div><div class="note">median age 168 days</div></div>
+      </div>
+      <div class="foot-note">Probate is the largest inbound category and converts best — <b>36.3%</b> hired against 27.5% across all practice areas. Administration earns the § 10810 statutory fee; contests bill hourly or on contingency. The two are routed differently, which is what the estate-value field below decides.</div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">Retain-vs-refer routing <span class="rule"></span> <span class="chip warn">filling since Aug 24</span></div>
+      <div class="grid4">
+        <div class="stat"><div class="lab">Estate values captured</div><div class="val" data-m="lawmatics.probate.estate_value_captured" data-count>1</div><div class="note">required at intake</div></div>
+        <div class="stat"><div class="lab">Would retain</div><div class="val" data-m="lawmatics.probate.retain_count" data-count>0</div><div class="note">fee ≥ $13,000</div></div>
+        <div class="stat"><div class="lab">Would refer</div><div class="val" data-m="lawmatics.probate.refer_count" data-count>1</div><div class="note">below the threshold</div></div>
+        <div class="stat"><div class="lab">Statutory fee in pipeline</div><div class="val ok" data-m="lawmatics.probate.pipeline_fee_total" data-fmt="usd0">$40</div><div class="note">§ 10810, from stated estates</div></div>
+      </div>
+      <div class="foot-note"><b>These fill from 24 Aug forward and do not backfill.</b> The intake form began asking for estate value on that date; every figure here grows as submissions accumulate. Retention is capped at what the paralegal team can carry — everything above the line is referred for a 25% split, which is what lets lead generation scale ahead of delivery capacity.</div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">The gap between demand and capture <span class="rule"></span> <span class="chip">measured</span></div>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Measure</th><th>Today</th><th>What it implies</th></tr></thead>
+          <tbody>
+            <tr><td class="ch">Probate administration matters, all time</td><td>276</td><td>the firm already originates the demand</td></tr>
+            <tr><td class="ch">…that ever collected a statutory-scale fee</td><td><b>7</b></td><td>almost all stop at the $999 assessment</td></tr>
+            <tr><td class="ch">Median collected per probate matter</td><td>$2,900</td><td>vs a <b>$13,000</b> median statutory fee</td></tr>
+            <tr><td class="ch">Matters sitting at "Referred to outside firm"</td><td>115</td><td>the single most-used stage in Clio</td></tr>
+            <tr><td class="ch">Matters at "Pre-Petition Phase"</td><td><b>3</b></td><td>probate runs on the litigation pipeline, not its own</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="foot-note">The constraint is not demand. It is that probate work is being originated, assessed, and then referred away or left on the wrong pipeline — so the statutory fee is rarely reached. Capturing estate value at intake is what turns that from an impression into a routing decision.</div>
+    </div>
+
+    <div class="card">
+      <div class="eyebrow">What 100+ administrations a year requires <span class="rule"></span> <span class="chip">plan</span></div>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Lever</th><th>Position today</th><th>Move</th></tr></thead>
+          <tbody>
+            <tr><td class="ch">Local Services Ads</td><td>$89.29/day cap · <b>$21.69</b>/lead · statewide</td><td>cheapest lead in the firm and budget-throttled — raise it</td></tr>
+            <tr><td class="ch">Probate search terms</td><td><b>$0 spent</b></td><td>"probate attorney" = 6,600 CA searches/mo at <b>LOW</b> competition</td></tr>
+            <tr><td class="ch">Paused Probate PMax</td><td>off, ran at $9–10/conversion</td><td>reactivate</td></tr>
+            <tr><td class="ch">Budget headroom</td><td><span data-m="derived.budget_lost_impression_share" data-fmt="pct1">58.8%</span> of impressions lost</td><td><span data-m="derived.monthly_revenue_forfeited" data-fmt="usd0">$18,050</span>/mo forfeited</td></tr>
+            <tr><td class="ch">Delivery capacity</td><td>0 dedicated paralegals</td><td>1 paralegal ≈ 50 administrations/yr</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="foot-note">Statutory fees are fixed by estate value, not hours, so every hour moved to a supervised paralegal is retained margin — the one practice line where leverage raises profit without lowering revenue. <b>Capacity before demand:</b> the firm is already closing $75,000 of statutory-fee matters at the consultation stage and referring $18,180 more away.</div>
+    </div>
+  </section>
+
   <!-- OPS -->
   <section class="zone reveal" id="ops" aria-label="Intake and operations">
     <div class="zonehead"><h3 class="serif">Intake &amp; operations</h3><span class="sub">the handoff from marketing to revenue</span></div>
@@ -1073,7 +1134,7 @@
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];
   const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
-  const spyTargets = ["overview","funnel","demand","channels","paidmix","paid","search","local","unit","practice","ops","coverage"]
+  const spyTargets = ["overview","funnel","demand","channels","paidmix","paid","search","local","unit","practice","probate","ops","coverage"]
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
@@ -1090,5 +1151,3 @@
     a.classList.add("active");
   }));
 </script>
-
-</body></html>
