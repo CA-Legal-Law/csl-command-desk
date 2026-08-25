@@ -322,6 +322,7 @@
     <a href="#practice"><span class="glyph" aria-hidden="true">§</span>Practice economics</a>
     <a href="#probate"><span class="glyph" aria-hidden="true">⚖</span>Probate build-out</a>
     <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
+    <a href="#next"><span class="glyph" aria-hidden="true">➜</span>What to do next</a>
     <a href="#coverage"><span class="glyph" aria-hidden="true">◑</span>Data coverage</a>
   </nav>
   <div class="sfoot"><b>August 2026 · MTD</b>data as of Aug 17, 2026</div>
@@ -337,35 +338,18 @@
       <span class="src live"><span class="dot"></span><b>CallRail</b></span>
       <span class="src live"><span class="dot"></span><b>Lawmatics</b></span>
       <span class="src live"><span class="dot"></span><b>Clio</b></span>
-      <span class="src issue"><span class="dot"></span><b>GA4</b> forms</span>
-      <span class="src off"><span class="dot"></span><b>LSA</b> locate</span>
+      <span class="src live"><span class="dot"></span><b>GA4</b></span>
+      <span class="src live"><span class="dot"></span><b>LSA</b></span>
     </div>
   </div>
 
   <!-- OVERVIEW -->
   <section class="zone reveal" id="overview" aria-label="Overview">
-    <div class="alerts">
-      <div class="alert">
-        <h4><span aria-hidden="true">⛔</span> Ad budgets still cut — awaiting restore decision</h4>
-        <p>Spend fell from ~$150/day to a $60/day cap on Aug 1 — likely prompted by Lawmatics mis-scoring search ads at −100% ROI on broken lead mapping. Fix attribution, then restore.</p>
-        <a class="act" href="#paid">Review paid search →</a>
-      </div>
-      <div class="alert warn">
-        <h4><span aria-hidden="true">▲</span> Best channel has no owner: locate the LSA account</h4>
-        <p>Local Services Ads spent $22,972 and signed 45 clients at ~$510 each (214% ROI) — from a separate Google account nobody has surfaced. Find the login; audit and scale it.</p>
-        <a class="act" href="#channels">See channel economics →</a>
-      </div>
-      <div class="alert warn">
-        <h4><span aria-hidden="true">▲</span> Attribution plumbing: two breaks to fix</h4>
-        <p>GA4's form_submit event records nothing (organic leads invisible), and Lawmatics doesn't map website leads to ad campaigns. Both must be fixed before scaling spend.</p>
-        <a class="act" href="#ops">See intake tracking →</a>
-      </div>
-    </div>
     <div class="kpis">
       <div class="kpi">
-        <div class="lbl">New clients <span class="chip live">live</span></div>
-        <div class="val" data-count="14" data-m="clio.new_matters_last_month">14</div>
-        <div class="sub">new matters opened last complete month · Clio</div>
+        <div class="lbl">New paying clients <span class="chip live">live</span></div>
+        <div class="val" data-count="18" data-m="clio.new_paying_clients_30d">18</div>
+        <div class="sub">matters opened in the last 30 days that have collected · Clio</div>
       </div>
       <div class="kpi">
         <div class="lbl">Cash collected <span class="chip live">live</span></div>
@@ -895,6 +879,29 @@
     </div>
   </section>
 
+
+  <!-- WHAT TO DO NEXT -->
+  <section class="zone reveal" id="next" aria-label="What to do next">
+    <div class="zonehead"><h3 class="serif">What to do next</h3><span class="sub">the three moves with the most revenue behind them</span></div>
+    <div class="alerts">
+      <div class="alert">
+        <h4><span aria-hidden="true">⛔</span> Probate: 7 of 276 matters ever reached a statutory fee</h4>
+        <p>The firm originates probate demand, sells the $999 assessment, then refers it away or leaves it on the litigation pipeline. Median collected is <b>$2,900</b> against a <b>$13,000</b> median statutory fee. 115 matters sit at &ldquo;referred out&rdquo;; three are at Pre-Petition.</p>
+        <a class="act" href="#probate">See the probate build-out →</a>
+      </div>
+      <div class="alert warn">
+        <h4><span aria-hidden="true">▲</span> <span data-m="derived.budget_lost_impression_share" data-fmt="pct1">58.8%</span> of impressions lost to budget</h4>
+        <p><span data-m="derived.monthly_revenue_forfeited" data-fmt="usd0">$17,899</span> a month forfeited at a measured <span data-m="derived.current_roas" data-fmt="ratio">7.4:1</span>. Local Services Ads is the cheapest lead in the firm at <b>$21.69</b>, already covers all of California, and is capped at <b>$89.29/day</b>. Cost per conversion is <span data-m="derived.current_cost_per_conv" data-fmt="usd0">$49</span> against a <span data-m="derived.breakeven_cost_per_conv" data-fmt="usd0">$72</span> break-even.</p>
+        <a class="act" href="#paidmix">See paid mix &amp; LSA →</a>
+      </div>
+      <div class="alert warn">
+        <h4><span aria-hidden="true">▲</span> Tag Manager is not forwarding the conversion parameters</h4>
+        <p>The site sends practice area, estate value and a statutory-fee value on every consultation. The GA4 tag forwards only <code>user_data</code>, so the dimensions stay empty and no lead carries a value. Five minutes in GTM; the GA4 dimensions are already registered.</p>
+        <a class="act" href="#coverage">See metric coverage →</a>
+      </div>
+    </div>
+  </section>
+
   <!-- COVERAGE -->
   <section class="zone reveal" id="coverage" aria-label="Data coverage and known gaps">
     <div class="zonehead"><h3 class="serif">What this desk can and cannot see</h3><span class="sub">honest coverage, so no number here is trusted further than it deserves</span></div>
@@ -1134,7 +1141,7 @@
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];
   const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
-  const spyTargets = ["overview","funnel","demand","channels","paidmix","paid","search","local","unit","practice","probate","ops","coverage"]
+  const spyTargets = ["overview","funnel","demand","channels","paidmix","paid","search","local","unit","practice","probate","ops","next","coverage"]
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
