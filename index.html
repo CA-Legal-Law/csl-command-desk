@@ -342,6 +342,10 @@
       <!-- Lawmatics answers 200 and silently drops any custom field not attached
            to the submitted form, so a broken mapping looks like "no traffic".
            This pill names any the website sends that never arrive. -->
+      <!-- GA4 fires consultation_request once per trigger, and tag 7 has two
+           unfiltered triggers. Until that is filtered the raw event count
+           overstates leads, so say so rather than letting it read as truth. -->
+      <span class="src live" id="convpill" title="GA4 conversion counting"><span class="dot"></span><b>Conversion count</b></span>
       <span class="src live" id="fieldpill" title="Website form fields arriving in Lawmatics"><span class="dot"></span><b>Form fields</b></span>
     </div>
   </div>
@@ -898,8 +902,9 @@
         <a class="act" href="#paidmix">See paid mix &amp; LSA →</a>
       </div>
       <div class="alert warn">
-        <h4><span aria-hidden="true">▲</span> Tag Manager is not forwarding the conversion parameters</h4>
-        <p>The site sends practice area, estate value and a statutory-fee value on every consultation. The GA4 tag forwards only <code>user_data</code>, so the dimensions stay empty and no lead carries a value. Five minutes in GTM; the GA4 dimensions are already registered.</p>
+        <h4><span aria-hidden="true">⛔</span> Tag Manager is counting every lead <span data-m="ga4.conversion_events_per_session" data-fmt="mult">3.2</span> times &mdash; and dropping the parameters</h4>
+        <p><b>The conversion count is not a lead count.</b> <span data-m="ga4.conversion_events" data-fmt="int">142</span> <code>consultation_request</code> events came from just <span data-m="ga4.conversion_sessions" data-fmt="int">45</span> sessions, because the GA4 tag hangs off two unfiltered triggers &mdash; a &ldquo;form submission&rdquo; trigger that fires on any form on any page, and a custom-event trigger with no <code>form_id</code> condition, so lead-magnet claims count as consultations too.</p>
+        <p>The same tag forwards only <code>user_data</code>, so practice area, estate value and the statutory-fee value die at the boundary and no lead carries a monetary value. <b>Two filters and four parameters, one sitting in GTM.</b></p>
         <a class="act" href="#coverage">See metric coverage →</a>
       </div>
     </div>
@@ -1039,6 +1044,7 @@
     int:   n => Math.round(n).toLocaleString("en-US"),
     pct1:  n => (n * 100).toFixed(1) + "%",
     ratio: n => n.toFixed(1) + ":1",
+    mult:  n => n.toFixed(1) + "\u00d7",
   };
   const dig = (o, path) => path.split(".").reduce((a, k) => (a == null ? a : a[k]), o);
 
@@ -1065,6 +1071,23 @@
         el.classList.add("hydrated");
         filled++;
       });
+      // Conversion double-count watch.
+      const ga4 = m.ga4 || {};
+      const cp = document.getElementById("convpill");
+      if (cp) {
+        const per = ga4.conversion_events_per_session;
+        if (ga4.conversion_double_counted && per) {
+          cp.className = "src issue";
+          cp.querySelector("b").textContent = "Conversions " + per.toFixed(1) + "\u00d7 inflated";
+          cp.title = ga4.conversion_events + " events from " + ga4.conversion_sessions +
+            " sessions — GA4 counts each submission " + per.toFixed(1) +
+            " times until the GTM triggers are filtered";
+        } else if (per) {
+          cp.querySelector("b").textContent = "Conversions 1:1";
+          cp.title = "GA4 records one conversion per submitting session";
+        }
+      }
+
       // Silent-discard watch: name any mapped field Lawmatics is dropping.
       const dead = ((m.lawmatics || {}).dead_fields) || [];
       const pill = document.getElementById("fieldpill");
