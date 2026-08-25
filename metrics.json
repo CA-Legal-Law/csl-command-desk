@@ -225,11 +225,11 @@
     "leads_all_time": 1758,
     "leads_charged": 1508,
     "leads_ytd": 901,
-    "ytd_spend": 19532.97,
-    "cost_per_lead_ytd": 21.68,
+    "ytd_spend": 19560.97,
+    "cost_per_lead_ytd": 21.71,
     "by_status": {
-     "WIPED_OUT": 1518,
-     "ACTIVE": 222,
+     "WIPED_OUT": 1519,
+     "ACTIVE": 221,
      "NEW": 15,
      "CONSUMER_DECLINED": 3
     },
@@ -290,7 +290,7 @@
      },
      {
       "month": "2026-08",
-      "cost": 2237.63
+      "cost": 2265.63
      }
     ],
     "last_30d": {
@@ -720,10 +720,17 @@
    "sms": 2
   },
   "form_submit_fires": 0,
-  "conversion_events": 142,
-  "conversion_sessions": 45,
-  "conversion_events_per_session": 3.16,
-  "conversion_double_counted": true
+  "conversion_events": 145,
+  "conversion_sessions": 47,
+  "conversion_events_per_session": 3.09,
+  "conversion_double_counted": false,
+  "conversion_fix_date": "2026-08-25",
+  "conversion_since_fix": {
+   "events": 3,
+   "sessions": 2,
+   "per_session": 1.5
+  },
+  "conversion_ratio_verified": false
  },
  "lawmatics": {
   "prospects_total": 2121,
@@ -965,15 +972,15 @@
   },
   "paid_blended": {
    "search_spend_ytd": 31408.57,
-   "lsa_spend_ytd": 19532.97,
-   "total_paid_spend_ytd": 50941.54,
-   "lsa_share_of_spend": 0.3834,
+   "lsa_spend_ytd": 19560.97,
+   "total_paid_spend_ytd": 50969.54,
+   "lsa_share_of_spend": 0.3838,
    "lsa_leads_ytd": 901,
-   "lsa_cost_per_lead": 21.68,
+   "lsa_cost_per_lead": 21.71,
    "tracked_web_leads_ytd": 621,
    "search_cost_per_lead": 50.58,
    "all_paid_leads_ytd": 1522,
-   "blended_cost_per_lead": 33.47
+   "blended_cost_per_lead": 33.49
   },
   "current_cost_per_conv": 51.44,
   "current_cac": 435.93,
@@ -1000,38 +1007,38 @@
   "monthly_revenue_forfeited": 17089.25
  },
  "_meta": {
-  "generated_at": "2026-08-25T15:35:04",
+  "generated_at": "2026-08-25T15:53:43",
   "generated_date": "2026-08-25",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-08-25T15:34:50",
+    "at": "2026-08-25T15:53:26",
     "secs": 0.4
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-08-25T15:34:51",
-    "secs": 1.7
+    "at": "2026-08-25T15:53:28",
+    "secs": 1.8
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-08-25T15:34:55",
-    "secs": 4.2
+    "at": "2026-08-25T15:53:32",
+    "secs": 4.0
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-25T15:34:57",
-    "secs": 8.1
+    "at": "2026-08-25T15:53:34",
+    "secs": 7.9
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-08-25T15:35:02",
-    "secs": 12.2
+    "at": "2026-08-25T15:53:37",
+    "secs": 10.8
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-25T15:35:04",
-    "secs": 15.2
+    "at": "2026-08-25T15:53:43",
+    "secs": 17.2
    }
   },
   "errors": {},
