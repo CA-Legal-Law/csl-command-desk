@@ -899,15 +899,14 @@
       <div class="alert warn">
         <h4><span aria-hidden="true">▲</span> <span data-m="derived.budget_lost_impression_share" data-fmt="pct1">58.8%</span> of impressions lost to budget</h4>
         <p><span data-m="derived.monthly_revenue_forfeited" data-fmt="usd0">$17,899</span> a month forfeited at a measured <span data-m="derived.current_roas" data-fmt="ratio">7.4:1</span>. Local Services Ads is the cheapest lead in the firm at <b>$21.69</b>, already covers all of California, and is capped at <b>$89.29/day</b>. Cost per conversion is <span data-m="derived.current_cost_per_conv" data-fmt="usd0">$49</span> against a <span data-m="derived.breakeven_cost_per_conv" data-fmt="usd0">$72</span> break-even.</p>
+        <p><b>The measurement precondition is now met.</b> Conversions count once (25 Aug), leads cannot vanish silently (PR #6), and profit is visible at <b>41.9% margin</b> on <b>$8.72</b> of revenue per marketing dollar. This is the highest-value open decision.</p>
         <a class="act" href="#paidmix">See paid mix &amp; LSA →</a>
       </div>
       <div class="alert warn">
-        <h4><span aria-hidden="true">✅</span> Conversion counting fixed &mdash; container version 18</h4>
-        <p><b>Every lead was being counted three times, and on submit <em>attempts</em> rather than successes.</b> The GA4 and Meta lead tags hung off &ldquo;Conversion - Booked Appointment&rdquo;, a form-submission trigger with no conditions: it fired on any form on any page, three times per submit, whether or not the submission succeeded. Verified on the live site &mdash; a bare submit event with no successful post produced three conversions.</p>
-        <p>Both tags now fire only on the <code>conversion</code> event our own handler pushes <em>after</em> the server accepts the lead, filtered to <code>form_id=consultation</code>. Re-tested on production: <b>one conversion per submit</b>, carrying practice area, estate band and the statutory-fee value. Lead-magnet claims got their own <code>lead_magnet_claim</code> event instead of masquerading as consultations.</p>
-        <p class="note">Historic GA4 conversion counts before 25 Aug are inflated roughly 3&times; and should not be compared with figures after it.</p>
-        <a class="act" href="#coverage">See metric coverage →</a>
-      </div>
+        <h4><span aria-hidden="true">✅</span> Measurement is fixed and shipped</h4>
+        <p><b>Conversion counting</b> (GTM v18, 25 Aug): every lead was counted three times, and on submit <em>attempts</em> rather than successes. Both lead tags now fire once, on the post-success event only, carrying practice area, estate band and the statutory-fee value.</p>
+        <p><b>Lead delivery</b> (PR #6, merged 25 Aug): two consultations reached the site on 24 Aug and never reached Lawmatics, with nothing recording it. The CRM call now retries, writes its outcome to the durable log, and emails <b>ACTION NEEDED</b> if it ultimately fails. <b>CallRail session id is confirmed arriving on live leads.</b></p>
+        <p class="note">GA4 conversion counts before 25 Aug are inflated roughly 3&times; and should not be compared with anything after it.</p></div>
     </div>
   </section>
 
