@@ -1,5 +1,74 @@
 {
  "clio": {
+  "probate_goal": {
+   "goal_total": 200,
+   "goal_retained": 100,
+   "goal_referred": 100,
+   "window": "trailing 12 months",
+   "opened": 233,
+   "retained": 201,
+   "referred": 32,
+   "pct_of_goal": 1.165,
+   "retained_vs_goal": 101,
+   "referred_vs_goal": -68,
+   "run_rate_per_month": 19.4,
+   "required_per_month": 16.7,
+   "retained_collecting_nothing": 111,
+   "retained_at_10k_plus": 4,
+   "retained_collected_total": 343619.79,
+   "retained_median_when_earning": 3200.0,
+   "referred_collected_total": 12448.13,
+   "by_month": {
+    "2025-09": {
+     "retained": 9,
+     "referred": 1
+    },
+    "2025-10": {
+     "retained": 9,
+     "referred": 2
+    },
+    "2025-11": {
+     "retained": 5,
+     "referred": 0
+    },
+    "2025-12": {
+     "retained": 15,
+     "referred": 8
+    },
+    "2026-01": {
+     "retained": 20,
+     "referred": 1
+    },
+    "2026-02": {
+     "retained": 15,
+     "referred": 2
+    },
+    "2026-03": {
+     "retained": 25,
+     "referred": 7
+    },
+    "2026-04": {
+     "retained": 15,
+     "referred": 3
+    },
+    "2026-05": {
+     "retained": 10,
+     "referred": 2
+    },
+    "2026-06": {
+     "retained": 18,
+     "referred": 4
+    },
+    "2026-07": {
+     "retained": 33,
+     "referred": 2
+    },
+    "2026-08": {
+     "retained": 26,
+     "referred": 0
+    }
+   }
+  },
   "referrals_out_total": 107,
   "referrals_out_by_firm": {
    "BelleBurdy (Andrew Stilwell)": 42,
@@ -734,9 +803,9 @@
   "conversion_ratio_verified": false
  },
  "lawmatics": {
-  "prospects_total": 2127,
+  "prospects_total": 2125,
   "prospects_sampled": 1000,
-  "leads_last_30d": 366,
+  "leads_last_30d": 364,
   "leads_prev_30d": 323,
   "statuses": {
    "pnc": 883,
@@ -754,17 +823,17 @@
    "wbraid": 4,
    "gbraid": 13
   },
-  "attribution_health": 0.1385,
+  "attribution_health": 0.1395,
   "attribution_fix_date": "2026-08-05",
   "attribution_post_fix": {
-   "n": 260,
+   "n": 258,
    "populated": 36,
-   "rate": 0.1385
+   "rate": 0.1395
   },
   "attribution_pre_fix": {
-   "n": 740,
+   "n": 742,
    "populated": 32,
-   "rate": 0.0432
+   "rate": 0.0431
   },
   "field_delivery": {
    "address": 17,
@@ -807,7 +876,7 @@
   }
  },
  "callrail": {
-  "leads_ytd": 621,
+  "leads_ytd": 622,
   "leads_by_month": {
    "2025-10": {
     "calls": 1,
@@ -850,23 +919,23 @@
     "leads": 51
    },
    "2026-08": {
-    "calls": 39,
+    "calls": 40,
     "forms": 57,
-    "leads": 96
+    "leads": 97
    }
   },
   "window_days": 30,
-  "calls": 43,
+  "calls": 44,
   "forms": 68,
-  "leads_total": 111,
-  "answer_rate": 0.9535,
-  "first_time_caller_rate": 0.7442,
-  "gclid_coverage": 0.6047,
+  "leads_total": 112,
+  "answer_rate": 0.9545,
+  "first_time_caller_rate": 0.75,
+  "gclid_coverage": 0.5909,
   "by_campaign": {
    "(unattributed)": {
-    "calls": 13,
+    "calls": 14,
     "forms": 37,
-    "leads": 50
+    "leads": 51
    },
    "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE": {
     "calls": 15,
@@ -891,7 +960,7 @@
   },
   "by_source": {
    "Website pool": 26,
-   "Google My Business": 15,
+   "Google My Business": 16,
    "Other": 1,
    "Google Ads Assets": 1
   },
@@ -974,10 +1043,10 @@
     "current_to": "2026-08"
    },
    "peak_leads_per_month": 146,
-   "current_leads_per_month": 56.8,
-   "change_vs_baseline": -0.5204,
-   "monthly_revenue_at_risk": 21871.46,
-   "call_share_now": 0.4846,
+   "current_leads_per_month": 57.0,
+   "change_vs_baseline": -0.5183,
+   "monthly_revenue_at_risk": 21782.68,
+   "call_share_now": 0.4868,
    "call_share_before": 0.6777
   },
   "paid_blended": {
@@ -987,10 +1056,10 @@
    "lsa_share_of_spend": 0.384,
    "lsa_leads_ytd": 903,
    "lsa_cost_per_lead": 21.69,
-   "tracked_web_leads_ytd": 621,
-   "search_cost_per_lead": 50.58,
-   "all_paid_leads_ytd": 1524,
-   "blended_cost_per_lead": 33.46
+   "tracked_web_leads_ytd": 622,
+   "search_cost_per_lead": 50.5,
+   "all_paid_leads_ytd": 1525,
+   "blended_cost_per_lead": 33.44
   },
   "current_cost_per_conv": 51.44,
   "current_cac": 439.66,
@@ -1017,43 +1086,43 @@
   "monthly_revenue_forfeited": 16944.43
  },
  "_meta": {
-  "generated_at": "2026-08-25T19:51:10",
+  "generated_at": "2026-08-25T20:05:34",
   "generated_date": "2026-08-25",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-08-25T19:50:56",
-    "secs": 0.4
+    "at": "2026-08-25T20:05:19",
+    "secs": 0.3
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-08-25T19:50:57",
-    "secs": 1.6
+    "at": "2026-08-25T20:05:19",
+    "secs": 0.5
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-08-25T19:51:01",
+    "at": "2026-08-25T20:05:23",
     "secs": 3.9
    },
    "qbo": {
     "status": "ok",
-    "at": "2026-08-25T19:51:01",
+    "at": "2026-08-25T20:05:23",
     "secs": 0.0
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-25T19:51:03",
-    "secs": 7.8
+    "at": "2026-08-25T20:05:25",
+    "secs": 6.5
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-08-25T19:51:08",
+    "at": "2026-08-25T20:05:31",
     "secs": 12.0
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-25T19:51:10",
-    "secs": 14.8
+    "at": "2026-08-25T20:05:34",
+    "secs": 15.5
    }
   },
   "errors": {},

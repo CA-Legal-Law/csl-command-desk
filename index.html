@@ -319,7 +319,8 @@
     <div class="navlbl">Business</div>
     <a href="#unit"><span class="glyph" aria-hidden="true">∑</span>Unit economics</a>
     <a href="#practice"><span class="glyph" aria-hidden="true">§</span>Practice economics</a>
-    <a href="#probate"><span class="glyph" aria-hidden="true">⚖</span>Probate build-out</a>
+    <a href="#goal">The 200 goal</a>
+      <a href="#probate"><span class="glyph" aria-hidden="true">⚖</span>Probate build-out</a>
     <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
     <a href="#next"><span class="glyph" aria-hidden="true">➜</span>What to do next</a>
     <a href="#coverage"><span class="glyph" aria-hidden="true">◑</span>Data coverage</a>
@@ -811,6 +812,46 @@
 
 
   <!-- PROBATE -->
+  <section class="zone reveal" id="goal" aria-label="Probate goal: 200 clients a year">
+    <div class="zonehead"><h3 class="serif">The 200 probate goal</h3><span class="sub">trailing 12 months, counted from Clio matters</span></div>
+    <div class="row r-3">
+      <div class="card">
+        <div class="eyebrow">Probate clients opened <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="clio.probate_goal.opened" data-count>233</div>
+        <div class="note">against a goal of <b>200</b> a year. Run rate <b><span data-m="clio.probate_goal.run_rate_per_month">19.4</span>/month</b> against <b>16.7</b> required. <b>Volume is not the constraint.</b></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Worked in-house <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="clio.probate_goal.retained" data-count>201</div>
+        <div class="note">goal 100. <b>Over by <span data-m="clio.probate_goal.retained_vs_goal">101</span>.</b> The firm is keeping roughly twice the work it set out to keep.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Referred out <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="clio.probate_goal.referred" data-count>32</div>
+        <div class="note">goal 100. <b>Short by 68.</b> This is the half of the model that is not running.</div>
+      </div>
+    </div>
+    <div class="row r-2" style="margin-top:14px">
+      <div class="card">
+        <div class="eyebrow">What the retained work earns <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="clio.probate_goal.retained_collecting_nothing" data-count>111</div><div class="l">retained, collected nothing</div></div>
+          <div class="ministat"><div class="v" data-m="clio.probate_goal.retained_at_10k_plus" data-count>4</div><div class="l">retained at $10k or more</div></div>
+          <div class="ministat"><div class="v" data-m="clio.probate_goal.retained_median_when_earning" data-fmt="usd0">$3,200</div><div class="l">median when it earns</div></div>
+        </div>
+        <div class="note"><b>111 of 201 retained matters have collected nothing at all</b>, and only 4 reached $10,000 against a $13,000 median statutory fee. Total collected across all retained probate work is <b><span data-m="clio.probate_goal.retained_collected_total" data-fmt="usd0">$343,620</span></b>.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">The move <span class="rule"></span> <span class="chip">reading</span></div>
+        <div class="note" style="font-size:15px;line-height:1.65">
+          <p style="margin:0 0 10px"><b>The goal is already met on volume and wrong on split.</b> 233 clients arrived against a target of 200. But 201 were kept and 32 referred, when the model called for 100 and 100.</p>
+          <p style="margin:0 0 10px">The firm is holding roughly <b>100 matters it is not converting</b>. Those are the ones to refer: a referral fee on work that currently earns nothing is the cheapest revenue on this page.</p>
+          <p style="margin:0"><b>Nothing here needs more leads.</b> It needs a routing decision at intake.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="zone reveal" id="probate" aria-label="Probate build-out">
     <div class="zonehead"><h3 class="serif">Probate build-out</h3><span class="sub">the path to 100+ administrations a year</span></div>
 
@@ -1197,7 +1238,7 @@
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];
   const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
-  const spyTargets = ["overview","funnel","demand","channels","paidmix","paid","search","local","unit","practice","probate","ops","next","coverage"]
+  const spyTargets = ["overview","goal","funnel","demand","channels","paidmix","paid","unit","practice","probate","ops","next","coverage"]
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
