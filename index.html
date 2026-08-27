@@ -1,6 +1,3 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL Command Desk</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>CSL Command Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -322,8 +319,10 @@
     <div class="navlbl">Business</div>
     <a href="#unit"><span class="glyph" aria-hidden="true">∑</span>Unit economics</a>
     <a href="#practice"><span class="glyph" aria-hidden="true">§</span>Practice economics</a>
-    <a href="#probate"><span class="glyph" aria-hidden="true">⚖</span>Probate build-out</a>
-    <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
+    <a href="#goal">The 200 goal</a>
+      <a href="#probate"><span class="glyph" aria-hidden="true">⚖</span>Probate build-out</a>
+    <a href="#speed">Follow-up</a>
+      <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
     <a href="#next"><span class="glyph" aria-hidden="true">➜</span>What to do next</a>
     <a href="#coverage"><span class="glyph" aria-hidden="true">◑</span>Data coverage</a>
   </nav>
@@ -342,6 +341,14 @@
       <span class="src live"><span class="dot"></span><b>Clio</b></span>
       <span class="src live"><span class="dot"></span><b>GA4</b></span>
       <span class="src live"><span class="dot"></span><b>LSA</b></span>
+      <!-- Lawmatics answers 200 and silently drops any custom field not attached
+           to the submitted form, so a broken mapping looks like "no traffic".
+           This pill names any the website sends that never arrive. -->
+      <!-- GA4 fires consultation_request once per trigger, and tag 7 has two
+           unfiltered triggers. Until that is filtered the raw event count
+           overstates leads, so say so rather than letting it read as truth. -->
+      <span class="src live" id="convpill" title="GA4 conversion counting"><span class="dot"></span><b>Conversion count</b></span>
+      <span class="src live" id="fieldpill" title="Website form fields arriving in Lawmatics"><span class="dot"></span><b>Form fields</b></span>
     </div>
   </div>
 
@@ -806,6 +813,46 @@
 
 
   <!-- PROBATE -->
+  <section class="zone reveal" id="goal" aria-label="Probate goal: 200 clients a year">
+    <div class="zonehead"><h3 class="serif">The 200 probate goal</h3><span class="sub">trailing 12 months, counted from Clio matters</span></div>
+    <div class="row r-3">
+      <div class="card">
+        <div class="eyebrow">Probate clients opened <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="clio.probate_goal.opened" data-count>233</div>
+        <div class="note">against a goal of <b>200</b> a year. Run rate <b><span data-m="clio.probate_goal.run_rate_per_month">19.4</span>/month</b> against <b>16.7</b> required. <b>Volume is not the constraint.</b></div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Worked in-house <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="clio.probate_goal.retained" data-count>201</div>
+        <div class="note">goal 100. <b>Over by <span data-m="clio.probate_goal.retained_vs_goal">101</span>.</b> The firm is keeping roughly twice the work it set out to keep.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Referred out <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="clio.probate_goal.referred" data-count>32</div>
+        <div class="note">goal 100. <b>Short by 68.</b> This is the half of the model that is not running.</div>
+      </div>
+    </div>
+    <div class="row r-2" style="margin-top:14px">
+      <div class="card">
+        <div class="eyebrow">What the retained work earns <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="clio.probate_goal.retained_collecting_nothing" data-count>111</div><div class="l">retained, collected nothing</div></div>
+          <div class="ministat"><div class="v" data-m="clio.probate_goal.retained_at_10k_plus" data-count>4</div><div class="l">retained at $10k or more</div></div>
+          <div class="ministat"><div class="v" data-m="clio.probate_goal.retained_median_when_earning" data-fmt="usd0">$3,200</div><div class="l">median when it earns</div></div>
+        </div>
+        <div class="note"><b>111 of 201 retained matters have collected nothing at all</b>, and only 4 reached $10,000 against a $13,000 median statutory fee. Total collected across all retained probate work is <b><span data-m="clio.probate_goal.retained_collected_total" data-fmt="usd0">$343,620</span></b>.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">The move <span class="rule"></span> <span class="chip">reading</span></div>
+        <div class="note" style="font-size:15px;line-height:1.65">
+          <p style="margin:0 0 10px"><b>The goal is already met on volume and wrong on split.</b> 233 clients arrived against a target of 200. But 201 were kept and 32 referred, when the model called for 100 and 100.</p>
+          <p style="margin:0 0 10px">The firm is holding roughly <b>100 matters it is not converting</b>. Those are the ones to refer: a referral fee on work that currently earns nothing is the cheapest revenue on this page.</p>
+          <p style="margin:0"><b>Nothing here needs more leads.</b> It needs a routing decision at intake.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="zone reveal" id="probate" aria-label="Probate build-out">
     <div class="zonehead"><h3 class="serif">Probate build-out</h3><span class="sub">the path to 100+ administrations a year</span></div>
 
@@ -867,6 +914,46 @@
   </section>
 
   <!-- OPS -->
+  <section class="zone reveal" id="speed" aria-label="Speed to follow-up on Local Services leads">
+    <div class="zonehead"><h3 class="serif">Follow-up on the best channel</h3><span class="sub">Local Services leads, last 180 days, from Google&rsquo;s own conversation log</span></div>
+    <div class="row r-3">
+      <div class="card">
+        <div class="eyebrow">Leads with no follow-up <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="ads.lsa.3284547403.responsiveness.no_follow_up" data-count>438</div>
+        <div class="note"><b data-m="ads.lsa.3284547403.responsiveness.no_follow_up_rate" data-fmt="pct1">62.8%</b> of Local Services leads were answered once and never contacted again.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Hours to second touch <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="ads.lsa.3284547403.responsiveness.hours_to_second_touch.median" data-count>37</div>
+        <div class="note">median, among the <span data-m="ads.lsa.3284547403.responsiveness.followed_up">260</span> that got one. 75th percentile is <b data-m="ads.lsa.3284547403.responsiveness.hours_to_second_touch.p75">183</b> hours.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Waited over a week <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="ads.lsa.3284547403.responsiveness.follow_up_bands.over_a_week" data-count>70</div>
+        <div class="note"><b data-m="ads.lsa.3284547403.responsiveness.over_a_week_rate" data-fmt="pct1">26.9%</b> of followed-up leads waited more than seven days for a second contact.</div>
+      </div>
+    </div>
+    <div class="row r-2" style="margin-top:14px">
+      <div class="card">
+        <div class="eyebrow">Where the follow-up lands <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="ads.lsa.3284547403.responsiveness.follow_up_bands.under_1h" data-count>40</div><div class="l">within the hour</div></div>
+          <div class="ministat"><div class="v" data-m="ads.lsa.3284547403.responsiveness.follow_up_bands.same_day" data-count>65</div><div class="l">same day</div></div>
+          <div class="ministat"><div class="v" data-m="ads.lsa.3284547403.responsiveness.follow_up_bands.days_3_7" data-count>34</div><div class="l">three to seven days</div></div>
+        </div>
+        <div class="note">Local Services is the cheapest lead the firm buys at <b>$21.69</b>, and 72% of them arrive as phone calls.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Reading <span class="rule"></span> <span class="chip">note</span></div>
+        <div class="note" style="font-size:15px;line-height:1.65">
+          <p style="margin:0 0 10px">Google logs a conversation for every contact on a lead. For a phone lead the first one <em>is</em> the inbound call, so it always reads zero. <b>The second touch is the firm&rsquo;s response.</b></p>
+          <p style="margin:0 0 10px"><b>438 of 698 leads never got one.</b> They were answered once and dropped. That is not a lead supply problem.</p>
+          <p style="margin:0">Google does not publish call duration or answered/missed, so this measures follow-up timing only.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="zone reveal" id="ops" aria-label="Intake and operations">
     <div class="zonehead"><h3 class="serif">Intake &amp; operations</h3><span class="sub">the handoff from marketing to revenue</span></div>
     <div class="card">
@@ -894,13 +981,14 @@
       <div class="alert warn">
         <h4><span aria-hidden="true">▲</span> <span data-m="derived.budget_lost_impression_share" data-fmt="pct1">58.8%</span> of impressions lost to budget</h4>
         <p><span data-m="derived.monthly_revenue_forfeited" data-fmt="usd0">$17,899</span> a month forfeited at a measured <span data-m="derived.current_roas" data-fmt="ratio">7.4:1</span>. Local Services Ads is the cheapest lead in the firm at <b>$21.69</b>, already covers all of California, and is capped at <b>$89.29/day</b>. Cost per conversion is <span data-m="derived.current_cost_per_conv" data-fmt="usd0">$49</span> against a <span data-m="derived.breakeven_cost_per_conv" data-fmt="usd0">$72</span> break-even.</p>
+        <p><b>The measurement precondition is now met.</b> Conversions count once (25 Aug), leads cannot vanish silently (PR #6), and profit is visible at <b>41.9% margin</b> on <b>$8.72</b> of revenue per marketing dollar. This is the highest-value open decision.</p>
         <a class="act" href="#paidmix">See paid mix &amp; LSA →</a>
       </div>
       <div class="alert warn">
-        <h4><span aria-hidden="true">▲</span> Tag Manager is not forwarding the conversion parameters</h4>
-        <p>The site sends practice area, estate value and a statutory-fee value on every consultation. The GA4 tag forwards only <code>user_data</code>, so the dimensions stay empty and no lead carries a value. Five minutes in GTM; the GA4 dimensions are already registered.</p>
-        <a class="act" href="#coverage">See metric coverage →</a>
-      </div>
+        <h4><span aria-hidden="true">✅</span> Measurement is fixed and shipped</h4>
+        <p><b>Conversion counting</b> (GTM v18, 25 Aug): every lead was counted three times, and on submit <em>attempts</em> rather than successes. Both lead tags now fire once, on the post-success event only, carrying practice area, estate band and the statutory-fee value.</p>
+        <p><b>Lead delivery</b> (PR #6, merged 25 Aug): two consultations reached the site on 24 Aug and never reached Lawmatics, with nothing recording it. The CRM call now retries, writes its outcome to the durable log, and emails <b>ACTION NEEDED</b> if it ultimately fails. <b>CallRail session id is confirmed arriving on live leads.</b></p>
+        <p class="note">GA4 conversion counts before 25 Aug are inflated roughly 3&times; and should not be compared with anything after it.</p></div>
     </div>
   </section>
 
@@ -1038,6 +1126,7 @@
     int:   n => Math.round(n).toLocaleString("en-US"),
     pct1:  n => (n * 100).toFixed(1) + "%",
     ratio: n => n.toFixed(1) + ":1",
+    mult:  n => n.toFixed(1) + "\u00d7",
   };
   const dig = (o, path) => path.split(".").reduce((a, k) => (a == null ? a : a[k]), o);
 
@@ -1064,6 +1153,53 @@
         el.classList.add("hydrated");
         filled++;
       });
+      // Conversion double-count watch.
+      const ga4 = m.ga4 || {};
+      const cp = document.getElementById("convpill");
+      if (cp) {
+        const per = ga4.conversion_events_per_session;
+        const sf = ga4.conversion_since_fix || {};
+        if (ga4.conversion_double_counted) {
+          cp.className = "src issue";
+          cp.querySelector("b").textContent = "Conversions " + sf.per_session.toFixed(1) + "\u00d7 inflated";
+          cp.title = "GA4 is counting each submission " + sf.per_session.toFixed(1) + " times";
+        } else if (ga4.conversion_ratio_verified) {
+          cp.querySelector("b").textContent = "Conversions 1:1";
+          cp.title = "One GA4 conversion per submitting session — verified on " +
+            sf.sessions + " sessions since " + ga4.conversion_fix_date;
+        } else if (per) {
+          // Repaired, but not yet enough traffic to confirm it. Say that
+          // rather than showing the pre-fix ratio as if it still applied.
+          cp.querySelector("b").textContent = "Conversions: confirming";
+          cp.title = "Trigger fixed " + ga4.conversion_fix_date + " — " +
+            (sf.sessions || 0) + " submitting session(s) since, need 5 to confirm. " +
+            "The 28-day ratio (" + per.toFixed(1) + "\u00d7) still contains pre-fix data.";
+        }
+      }
+
+      // Silent-discard watch: name any mapped field Lawmatics is dropping.
+      const dead = ((m.lawmatics || {}).dead_fields) || [];
+      const pill = document.getElementById("fieldpill");
+      if (pill) {
+        const n = Object.keys(((m.lawmatics || {}).field_delivery) || {}).length;
+        const pend = Object.keys(((m.lawmatics || {}).pending_fields) || {});
+        if (dead.length) {
+          pill.className = "src issue";
+          pill.querySelector("b").textContent = dead.length + " field" +
+            (dead.length > 1 ? "s" : "") + " dropped";
+          pill.title = "Lawmatics is discarding: " + dead.join(", ") +
+            " — the field exists but is not attached to the intake form";
+        } else if (pend.length) {
+          // Repaired, but no lead has exercised it yet. Not a fault.
+          pill.querySelector("b").textContent = (n - pend.length) + " of " + n +
+            " form fields live";
+          pill.title = "Awaiting a first lead: " + pend.join(", ") +
+            " — repaired, not yet exercised";
+        } else if (n) {
+          pill.querySelector("b").textContent = n + " form fields live";
+        }
+      }
+
       const lbm = (m.callrail || {}).leads_by_month;
       const g = document.getElementById("demandbars");
       if (lbm && g) {
@@ -1143,7 +1279,7 @@
   /* ---- scroll-spy ---- */
   const links = [...document.querySelectorAll("nav a")];
   const byId = Object.fromEntries(links.map(a => [a.getAttribute("href").slice(1), a]));
-  const spyTargets = ["overview","funnel","demand","channels","paidmix","paid","search","local","unit","practice","probate","ops","next","coverage"]
+  const spyTargets = ["overview","goal","funnel","demand","channels","paidmix","paid","unit","practice","probate","speed","ops","next","coverage"]
     .map(id => document.getElementById(id)).filter(Boolean);
   const spy = new IntersectionObserver(es => {
     es.forEach(e => {
@@ -1160,5 +1296,3 @@
     a.classList.add("active");
   }));
 </script>
-
-</body></html>
