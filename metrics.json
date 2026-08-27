@@ -1,74 +1,5 @@
 {
  "clio": {
-  "probate_goal": {
-   "goal_total": 200,
-   "goal_retained": 100,
-   "goal_referred": 100,
-   "window": "trailing 12 months",
-   "opened": 235,
-   "retained": 203,
-   "referred": 32,
-   "pct_of_goal": 1.175,
-   "retained_vs_goal": 103,
-   "referred_vs_goal": -68,
-   "run_rate_per_month": 19.6,
-   "required_per_month": 16.7,
-   "retained_collecting_nothing": 113,
-   "retained_at_10k_plus": 4,
-   "retained_collected_total": 343619.79,
-   "retained_median_when_earning": 3200.0,
-   "referred_collected_total": 12448.13,
-   "by_month": {
-    "2025-09": {
-     "retained": 9,
-     "referred": 1
-    },
-    "2025-10": {
-     "retained": 9,
-     "referred": 2
-    },
-    "2025-11": {
-     "retained": 5,
-     "referred": 0
-    },
-    "2025-12": {
-     "retained": 15,
-     "referred": 8
-    },
-    "2026-01": {
-     "retained": 20,
-     "referred": 1
-    },
-    "2026-02": {
-     "retained": 15,
-     "referred": 2
-    },
-    "2026-03": {
-     "retained": 25,
-     "referred": 7
-    },
-    "2026-04": {
-     "retained": 15,
-     "referred": 3
-    },
-    "2026-05": {
-     "retained": 10,
-     "referred": 2
-    },
-    "2026-06": {
-     "retained": 18,
-     "referred": 4
-    },
-    "2026-07": {
-     "retained": 33,
-     "referred": 2
-    },
-    "2026-08": {
-     "retained": 28,
-     "referred": 0
-    }
-   }
-  },
   "referrals_out_total": 107,
   "referrals_out_by_firm": {
    "BelleBurdy (Andrew Stilwell)": 42,
@@ -375,29 +306,7 @@
       "type": "LICENSE",
       "status": "PASSED"
      }
-    ],
-    "responsiveness": {
-     "window": "last 180 days",
-     "measures": "MESSAGE leads only",
-     "phone_leads_not_measurable": 458,
-     "message_leads": 238,
-     "replied": 207,
-     "reply_rate": 0.8697,
-     "no_reply": 31,
-     "hours_to_firm_reply": {
-      "median": 70.8,
-      "p75": 515.4,
-      "p90": 1109.4
-     },
-     "reply_bands": {
-      "under_1h": 2,
-      "same_day": 53,
-      "days_1_3": 49,
-      "days_3_7": 28,
-      "over_a_week": 75
-     },
-     "over_a_week_rate": 0.3623
-    }
+    ]
    }
   },
   "lsa_status": "live",
@@ -606,11 +515,11 @@
    },
    {
     "month": "2026-08",
-    "cost": 1632.93,
+    "cost": 1638.15,
     "conversions": 25.0,
-    "clicks": 269,
-    "cpc": 6.07,
-    "cost_per_conv": 65.32,
+    "clicks": 271,
+    "cpc": 6.04,
+    "cost_per_conv": 65.53,
     "impression_share": 0.0999
    }
   ],
@@ -801,18 +710,7 @@
    "gtm.dom": 4,
    "sms": 2
   },
-  "form_submit_fires": 0,
-  "conversion_events": 138,
-  "conversion_sessions": 47,
-  "conversion_events_per_session": 2.94,
-  "conversion_double_counted": false,
-  "conversion_fix_date": "2026-08-25",
-  "conversion_since_fix": {
-   "events": 7,
-   "sessions": 3,
-   "per_session": 2.33
-  },
-  "conversion_ratio_verified": false
+  "form_submit_fires": 0
  },
  "lawmatics": {
   "prospects_total": 2145,
@@ -847,29 +745,6 @@
    "populated": 31,
    "rate": 0.0429
   },
-  "field_delivery": {
-   "address": 18,
-   "utm_placement": 4,
-   "utm_source": 36,
-   "comment": 37,
-   "gclid": 30,
-   "fbc": 4,
-   "utm_term": 4,
-   "utm_medium": 33,
-   "utm_campaign": 9,
-   "msclkid": 4,
-   "fbp": 37,
-   "wbraid": 4,
-   "fbclid": 4,
-   "gbraid": 15,
-   "user_agent": 39,
-   "ip_address": 39,
-   "practice_area": 75,
-   "estate_value": 4,
-   "calltrk_session_id": 5
-  },
-  "dead_fields": [],
-  "pending_fields": {},
   "probate": {
    "leads_admin": 58,
    "leads_contest": 65,
@@ -993,20 +868,6 @@
    "\"Trust Dispute Lawyer\"": 1
   }
  },
- "qbo": {
-  "mode": "snapshot",
-  "basis": "Cash",
-  "period_ytd": "2026-01-01 to 2026-08-25",
-  "captured_at": "2026-08-25",
-  "days_since_capture": 2,
-  "revenue_ytd": 579858.5,
-  "expenses_ytd": 325700.09,
-  "net_income_ytd": 242876.59,
-  "net_margin_ytd": 0.4189,
-  "marketing_spend_ytd": 66489.29,
-  "revenue_per_marketing_dollar": 8.72,
-  "unclassified_income_and_expense": 36046.99
- },
  "derived": {
   "lead_to_client_rate": 0.117,
   "lead_to_client_source": "measured (Lawmatics hired/total)",
@@ -1063,14 +924,14 @@
    "call_share_before": 0.6777
   },
   "paid_blended": {
-   "search_spend_ytd": 31532.72,
+   "search_spend_ytd": 31537.94,
    "lsa_spend_ytd": 19671.08,
-   "total_paid_spend_ytd": 51203.8,
-   "lsa_share_of_spend": 0.3842,
+   "total_paid_spend_ytd": 51209.02,
+   "lsa_share_of_spend": 0.3841,
    "lsa_leads_ytd": 909,
    "lsa_cost_per_lead": 21.64,
    "tracked_web_leads_ytd": 633,
-   "search_cost_per_lead": 49.81,
+   "search_cost_per_lead": 49.82,
    "all_paid_leads_ytd": 1542,
    "blended_cost_per_lead": 33.21
   },
@@ -1099,49 +960,44 @@
   "monthly_revenue_forfeited": 15685.7
  },
  "_meta": {
-  "generated_at": "2026-08-27T15:55:35",
+  "generated_at": "2026-08-27T23:01:20",
   "generated_date": "2026-08-27",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-08-27T15:55:18",
-    "secs": 0.4
+    "at": "2026-08-27T23:00:55",
+    "secs": 0.5
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-08-27T15:55:19",
-    "secs": 1.4
+    "at": "2026-08-27T23:00:56",
+    "secs": 1.1
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-08-27T15:55:23",
-    "secs": 3.9
-   },
-   "qbo": {
-    "status": "ok",
-    "at": "2026-08-27T15:55:23",
-    "secs": 0.0
+    "at": "2026-08-27T23:00:59",
+    "secs": 3.3
    },
    "ads": {
     "status": "ok",
-    "at": "2026-08-27T15:55:28",
-    "secs": 10.8
-   },
-   "lawmatics": {
-    "status": "ok",
-    "at": "2026-08-27T15:55:30",
-    "secs": 12.6
+    "at": "2026-08-27T23:01:03",
+    "secs": 7.9
    },
    "clio": {
     "status": "ok",
-    "at": "2026-08-27T15:55:35",
-    "secs": 17.7
+    "at": "2026-08-27T23:01:12",
+    "secs": 17.8
+   },
+   "lawmatics": {
+    "status": "ok",
+    "at": "2026-08-27T23:01:20",
+    "secs": 24.8
    }
   },
   "errors": {},
-  "sources_ok": 7,
+  "sources_ok": 6,
   "sources_stale": 0,
-  "sources_total": 7,
+  "sources_total": 6,
   "gbp": "pending Google API access case 7-4790000041264"
  }
 }
