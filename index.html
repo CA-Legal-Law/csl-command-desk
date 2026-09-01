@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL Command Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>CSL Command Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -351,6 +350,7 @@
            unfiltered triggers. Until that is filtered the raw event count
            overstates leads, so say so rather than letting it read as truth. -->
       <span class="src live" id="convpill" title="GA4 conversion counting"><span class="dot"></span><b>Conversion count</b></span>
+      <span class="src live" id="pvpill" title="GA4 page_view tracking"><span class="dot"></span><b>Traffic tracking</b></span>
       <span class="src live" id="fieldpill" title="Website form fields arriving in Lawmatics"><span class="dot"></span><b>Form fields</b></span>
     </div>
   </div>
@@ -1178,6 +1178,27 @@
           cp.title = "Trigger fixed " + ga4.conversion_fix_date + " — " +
             (sf.sessions || 0) + " submitting session(s) since, need 5 to confirm. " +
             "The 28-day ratio (" + per.toFixed(1) + "\u00d7) still contains pre-fix data.";
+        }
+      }
+
+      // page_view tripwire. GTM v10 (2026-07-31) pointed the GA4 base tag at
+      // an id Google 404s, so page_view stopped while event tags kept firing.
+      // Conversions stayed healthy and the outage hid for four weeks. Every
+      // session must contain at least one page view, so anything under 1.0 is
+      // broken regardless of what the conversion numbers say.
+      const pv = document.getElementById("pvpill");
+      if (pv) {
+        const per = ga4.page_views_per_session;
+        if (ga4.pageview_tracking_ok) {
+          pv.querySelector("b").textContent = "Traffic tracking live";
+          pv.title = "GA4 is recording " + per + " page views per session";
+        } else if (per !== null && per !== undefined) {
+          pv.className = "src issue";
+          pv.querySelector("b").textContent = "Traffic not tracked";
+          pv.title = "GA4 base tag is not sending page_view: " + ga4.page_views +
+            " page views across " + ga4.sessions_total + " sessions (" + per +
+            " per session). Conversions are unaffected. Sessions, landing pages " +
+            "and channel mix are not trustworthy until the base tag is repaired.";
         }
       }
 
