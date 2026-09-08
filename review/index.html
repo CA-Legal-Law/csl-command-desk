@@ -1,0 +1,282 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL 30-Day Review</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  :root{
+    color-scheme:light;
+    --page:#f6f6f1; --card:#fbfbf8; --card-inset:#f1f1ea;
+    --ink:#161815; --ink-2:#565b53; --ink-3:#8a8d84;
+    --line:#e2e2d8; --line-soft:#ecece3;
+    --brass:#8a6d2f; --brass-soft:rgba(138,109,47,.12);
+    --good:#0ca30c; --good-text:#006300;
+    --crit:#d03b3b; --crit-wash:rgba(208,59,59,.07);
+    --warn:#fab219; --warn-wash:rgba(250,178,25,.10);
+    --shadow:0 1px 2px rgba(20,22,18,.05);
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --mono:ui-monospace,SFMono-Regular,"SF Mono",Menlo,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root:where(:not([data-theme="light"])){
+      color-scheme:dark;
+      --page:#101210; --card:#191b19; --card-inset:#202320;
+      --ink:#f0f1ea; --ink-2:#b7bcb0; --ink-3:#848b80;
+      --line:#2b2e2a; --line-soft:#242723;
+      --brass:#c9a55c; --brass-soft:rgba(201,165,92,.14);
+      --good-text:#0ca30c; --crit:#e06060; --crit-wash:rgba(208,59,59,.12);
+      --warn-wash:rgba(250,178,25,.14);
+      --shadow:0 1px 2px rgba(0,0,0,.4);
+    }
+  }
+  :root[data-theme="dark"]{
+    color-scheme:dark;
+    --page:#101210; --card:#191b19; --card-inset:#202320;
+    --ink:#f0f1ea; --ink-2:#b7bcb0; --ink-3:#848b80;
+    --line:#2b2e2a; --line-soft:#242723;
+    --brass:#c9a55c; --brass-soft:rgba(201,165,92,.14);
+    --good-text:#0ca30c; --crit:#e06060; --crit-wash:rgba(208,59,59,.12);
+    --warn-wash:rgba(250,178,25,.14);
+    --shadow:0 1px 2px rgba(0,0,0,.4);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--page);color:var(--ink);
+    font:15px/1.62 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .serif{font-family:var(--serif)}
+  .wrap{max-width:1040px;margin:0 auto;padding:30px 22px 80px}
+  a{color:var(--brass)}
+  a:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+
+  .top{display:flex;flex-wrap:wrap;gap:12px;align-items:flex-end;justify-content:space-between;
+    border-bottom:2px solid var(--ink);padding-bottom:16px;margin-bottom:8px}
+  .top h1{font-family:var(--serif);font-size:clamp(26px,3.6vw,36px);margin:6px 0 4px;letter-spacing:-.01em}
+  .kicker{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+  .win{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+  .back{font-size:13px;text-decoration:none;white-space:nowrap;
+    border:1px solid var(--line);border-radius:4px;padding:7px 12px;background:var(--card)}
+
+  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin:20px 0 6px}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:15px 16px;box-shadow:var(--shadow)}
+  .kpi .l{font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:8px}
+  .kpi .v{font-family:var(--serif);font-size:30px;line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;display:block}
+  .kpi .n{font-size:12.5px;color:var(--ink-2);margin-top:7px;display:block;line-height:1.45}
+  .v.bad{color:var(--crit)} .v.good{color:var(--good-text)}
+
+  h2{font-family:var(--serif);font-size:21px;margin:40px 0 4px;letter-spacing:-.005em}
+  h2 + .sub{font-size:13px;color:var(--ink-3);margin:0 0 14px}
+  .lede{font-family:var(--serif);font-size:18px;line-height:1.55;color:var(--ink-2);max-width:64ch;margin:10px 0 0}
+
+  .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:780px){.grid.two{grid-template-columns:1fr 1fr}.grid.three{grid-template-columns:repeat(3,1fr)}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:5px;padding:17px 18px;box-shadow:var(--shadow)}
+  .card h3{font-size:12px;font-family:var(--mono);letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-3);margin:0 0 12px;font-weight:500}
+  .card.win{border-left:3px solid var(--good)}
+  .card.gap{border-left:3px solid var(--crit)}
+  ul.pts{list-style:none;margin:0;padding:0}
+  ul.pts li{padding:11px 0;border-top:1px solid var(--line-soft);font-size:14px;line-height:1.5;color:var(--ink-2)}
+  ul.pts li:first-child{border-top:0;padding-top:0}
+  ul.pts b.fig{display:block;font-family:var(--serif);font-size:22px;line-height:1.1;color:var(--ink);
+    font-variant-numeric:tabular-nums;margin-bottom:2px}
+  .win b.fig{color:var(--good-text)} .gap b.fig{color:var(--crit)}
+
+  .bars{margin-top:4px}
+  .brow{display:grid;grid-template-columns:118px 1fr;gap:12px;align-items:center;margin-bottom:9px}
+  .blab{font-size:12.5px;color:var(--ink-2);text-align:right;line-height:1.25}
+  .btrack{position:relative;height:28px;background:var(--card-inset);border-radius:3px}
+  .bfill{position:absolute;inset:0 auto 0 0;border-radius:3px;display:flex;align-items:center;padding:0 10px;
+    font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
+  .b-all{background:var(--ink)} .b-mid{background:var(--brass)} .b-end{background:var(--good)}
+  .baxis{border-top:1px solid var(--line);margin:12px 0 0 130px;padding-top:6px;display:flex;
+    justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+
+  table{border-collapse:collapse;width:100%;font-size:14px;min-width:460px}
+  .tw{overflow-x:auto;border:1px solid var(--line);border-radius:5px;background:var(--card);margin-top:12px}
+  th,td{padding:10px 14px;text-align:left;border-top:1px solid var(--line-soft)}
+  thead th{border-top:0;background:var(--card-inset);font-family:var(--mono);font-size:10px;
+    letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);font-weight:500;white-space:nowrap}
+  td.n,th.n{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+  td.who{font-family:var(--mono);font-size:12px;color:var(--ink-3);white-space:nowrap}
+  td.rk{font-family:var(--mono);font-weight:600;color:var(--brass);width:30px}
+
+  .note{border-left:3px solid var(--brass);background:var(--brass-soft);padding:14px 17px;border-radius:0 4px 4px 0;margin-top:16px}
+  .note.crit{border-left-color:var(--crit);background:var(--crit-wash)}
+  .note.hold{border-left-color:var(--warn);background:var(--warn-wash)}
+  .note p{margin:0;font-size:14.5px;line-height:1.58}
+  .caveats{border:1px dashed var(--line);border-radius:5px;padding:15px 18px;margin-top:16px}
+  .caveats dt{font-weight:600;font-size:14px;margin-top:10px}
+  .caveats dt:first-of-type{margin-top:0}
+  .caveats dd{margin:2px 0 0;color:var(--ink-2);font-size:13.5px;line-height:1.5}
+  footer{margin-top:44px;padding-top:16px;border-top:1px solid var(--line);
+    font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
+  .hydrated{}
+  @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<div class="wrap">
+
+<div class="top">
+  <div>
+    <div class="kicker">Corcoran Smith Law &middot; Command Desk</div>
+    <h1 class="serif">The last 30 days</h1>
+    <div class="win">Rolling <span data-m="intake.window_days">30</span> days &middot; refreshed daily 06:30 PT &middot; last refresh <span data-m="_meta.generated_date">2026-09-08</span></div>
+  </div>
+  <a class="back" href="../">&larr; Full command desk</a>
+</div>
+
+<div class="strip">
+  <div class="kpi"><span class="l">Collected, <span data-m="clio.last_complete_month">2026-08</span></span><span class="v good" data-m="clio.collected_last_month" data-fmt="usd0">$85,094</span><span class="n">Best month of 2026</span></div>
+  <div class="kpi"><span class="l">Advertising spend</span><span class="v" data-m="derived.paid_30d" data-fmt="usd0">$4,437</span><span class="n">Local Services plus paid search</span></div>
+  <div class="kpi"><span class="l">Real leads</span><span class="v" data-m="intake.leads" data-count>321</span><span class="n"><b data-m="intake.leads_per_day">10.7</b> a day, after removing <span data-m="intake.lsa_duplicates">51</span> resync duplicates</span></div>
+  <div class="kpi"><span class="l">Never called</span><span class="v bad" data-m="intake.never_called" data-count>241</span><span class="n"><b data-m="intake.never_called_share" data-fmt="pct0">75%</b> of leads got no outbound call</span></div>
+</div>
+
+<h2 class="serif">The month in one line</h2>
+<p class="lede">The firm spent about <b data-m="derived.paid_30d" data-fmt="usd0">$4,437</b> on advertising,
+received <b data-m="intake.leads" data-count>321</b> leads, placed an outbound call to
+<b data-m="intake.called" data-count>80</b> of them, and opened
+<b data-m="clio.new_matters_30d" data-count>46</b> matters. The constraint is not demand and it is not budget.
+It is the gap between a lead arriving and someone dialling.</p>
+
+<h2 class="serif">Where the leads went</h2>
+<p class="sub">One scale, 0 to the full lead count. Outbound calls only: email and text outreach live in the Lawmatics activity log, which is too large to pull daily, so the call line is a floor.</p>
+<div class="card bars">
+  <div class="brow"><div class="blab">Real leads</div><div class="btrack"><div class="bfill b-all" style="width:100%"><span data-m="intake.leads">321</span></div></div></div>
+  <div class="brow"><div class="blab">Called by a person</div><div class="btrack"><div class="bfill b-mid" style="width:24.9%"><span data-m="intake.called">80</span></div></div></div>
+  <div class="brow"><div class="blab">Called within 72h</div><div class="btrack"><div class="bfill b-mid" style="width:6.5%"><span data-m="intake.called_within_72h">21</span></div></div></div>
+  <div class="brow"><div class="blab">Matters opened</div><div class="btrack"><div class="bfill b-end" style="width:14.3%"><span data-m="clio.new_matters_30d">46</span></div></div></div>
+  <div class="brow"><div class="blab">Matters that paid</div><div class="btrack"><div class="bfill b-end" style="width:2.8%"><span data-m="clio.new_paying_clients_30d">9</span></div></div></div>
+  <div class="baxis"><span>0</span><span>25%</span><span>50%</span><span>75%</span><span>all leads</span></div>
+</div>
+<div class="note crit"><p><b>Median time to an outbound call is <span data-m="intake.median_hours_to_call">167</span> hours</b>, and only
+<b data-m="intake.called_within_24h">6</b> leads were called within a day. Every client signed in the period came from a lead somebody worked.</p></div>
+
+<h2 class="serif">Going well, and needing work</h2>
+<div class="grid two">
+  <div class="card win">
+    <h3>Strengths &middot; hold these</h3>
+    <ul class="pts">
+      <li><b class="fig"><span data-m="ads.lsa.3284547403.last_30d.cost_per_conv" data-fmt="usd2">$24.75</span></b>
+        per Local Services lead, on <span data-m="ads.lsa.3284547403.last_30d.conversions">106</span> leads. Paid search costs
+        <b data-m="derived.paid_blended.search_cost_per_lead" data-fmt="usd2">$47.38</b> a lead for far fewer.</li>
+      <li><b class="fig"><span data-m="callrail.answer_rate" data-fmt="pct0">92%</span></b>
+        of tracked calls answered, on <span data-m="callrail.calls">73</span> calls plus <span data-m="callrail.forms">58</span> form submissions.</li>
+      <li><b class="fig"><span data-m="smith.calls_per_day">12.8</span> a day</b>
+        answered by Smith.ai, <b data-m="smith.new_lead_share" data-fmt="pct0">71%</b> of them new leads. The front door is covered.</li>
+      <li><b class="fig"><span data-m="derived.current_roas" data-fmt="mult">6.1&times;</span></b>
+        return on advertising against a 5.0&times; target, at
+        <b data-m="derived.paid_blended.blended_cost_per_lead" data-fmt="usd2">$32.46</b> blended per lead.</li>
+    </ul>
+  </div>
+  <div class="card gap">
+    <h3>Gaps &middot; act on these</h3>
+    <ul class="pts">
+      <li><b class="fig"><span data-m="intake.never_called_share" data-fmt="pct0">75%</span></b>
+        of leads received no outbound call. Median wait for those who did: <b data-m="intake.median_hours_to_call">167</b> hours.</li>
+      <li><b class="fig"><span data-m="smith.trailing_3mo_intakes_filled">0</span> intakes, <span data-m="smith.trailing_3mo_calls_transferred">12</span> transfers</b>
+        from Smith.ai in three months, against <span data-m="smith.trailing_3mo_appointments_scheduled">417</span> appointments booked. The handoff is entirely asynchronous.</li>
+      <li><b class="fig"><span data-m="clio.new_paying_clients_30d">9</span> of <span data-m="clio.new_matters_30d">46</span></b>
+        new matters have collected anything yet.</li>
+      <li><b class="fig"><span data-m="smith.last_full_month_calls">412</span> vs <span data-m="smith.plan_calls_included">350</span></b>
+        calls against the Smith.ai plan last month, <b data-m="smith.last_full_month_over_plan">62</b> in overage.</li>
+      <li><b class="fig"><span data-m="gsc.clicks">311</span> clicks</b>
+        from <span data-m="gsc.impressions">22,994</span> organic impressions, at average position
+        <span data-m="gsc.avg_position">12.6</span>. Almost all of it brand searches.</li>
+    </ul>
+  </div>
+</div>
+
+<h2 class="serif">How callers say they found the firm</h2>
+<p class="sub">Smith.ai asks every caller and records the answer on <span data-m="smith.source_coverage" data-fmt="pct0">71%</span> of calls. This is better source coverage than the CRM carries.</p>
+<div class="grid three">
+  <div class="card"><h3>Named Google</h3><div style="font-family:var(--serif);font-size:34px;line-height:1" data-m="smith.source_google" data-count>167</div></div>
+  <div class="card"><h3>Online, unspecified</h3><div style="font-family:var(--serif);font-size:34px;line-height:1" data-m="smith.source_online_unspecified" data-count>100</div></div>
+  <div class="card"><h3>ChatGPT or other AI</h3><div style="font-family:var(--serif);font-size:34px;line-height:1" data-m="smith.source_ai" data-count>6</div></div>
+</div>
+<div class="note"><p>The AI line went from nothing to <b data-m="smith.source_ai">6</b> callers in five weeks. It is small, and it is the fastest-moving row in the table.</p></div>
+
+<h2 class="serif">Who is doing the calling</h2>
+<p class="sub"><span data-m="intake.outbound_calls">368</span> outbound calls in the window, attributed from the caller line inside each Dialpad note rather than the Lawmatics owner field, which credits every call to the integration owner.</p>
+<div class="tw"><table>
+  <thead><tr><th>Person</th><th class="n">Outbound calls</th></tr></thead>
+  <tbody id="callers">
+    <tr><td>Nick Jacobs</td><td class="n">148</td></tr>
+    <tr><td>Richard Dixon</td><td class="n">144</td></tr>
+    <tr><td>Seth Steward</td><td class="n">42</td></tr>
+    <tr><td>Julie Griffin-Smith</td><td class="n">19</td></tr>
+    <tr><td>Mark Smith</td><td class="n">9</td></tr>
+  </tbody>
+</table></div>
+
+<h2 class="serif">What to do, in order</h2>
+<div class="tw"><table>
+  <thead><tr><th class="n">#</th><th>Action</th><th>Owner</th><th>Effort</th></tr></thead>
+  <tbody>
+    <tr><td class="rk">1</td><td><b>Trigger the follow-up sequence on lead arrival</b> instead of on a manual intake-form send. It currently starts only when one person acts, and never at weekends.</td><td class="who">JL</td><td class="who">One setting</td></tr>
+    <tr><td class="rk">2</td><td><b>Turn on Smith.ai call transfer and intake completion.</b> Both are already paid for and unused, and they convert the handoff from a note into a live conversation.</td><td class="who">Mark</td><td class="who">Config</td></tr>
+    <tr><td class="rk">3</td><td><b>Assign every new lead to a named person on arrival</b>, with a same-day callback target. Two people make the great majority of calls with no queue feeding them.</td><td class="who">Mark</td><td class="who">Process</td></tr>
+    <tr><td class="rk">4</td><td><b>Add a cancelled and no-show branch</b> back into the follow-up sequence.</td><td class="who">JL</td><td class="who">One branch</td></tr>
+    <tr><td class="rk">5</td><td><b>Hold consultations inside 72 hours.</b> The current wait is what drives the cancellations.</td><td class="who">Richard / Nick</td><td class="who">Scheduling</td></tr>
+    <tr><td class="rk">6</td><td><b>Review the Smith.ai plan tier</b> against the overage being paid each month.</td><td class="who">Mark</td><td class="who">One call</td></tr>
+    <tr><td class="rk">7</td><td><b>Capture estate value at intake</b>, so retain-versus-refer can be decided on data.</td><td class="who">Mark / Joy</td><td class="who">Form field</td></tr>
+  </tbody>
+</table></div>
+<div class="note hold"><p><b>One thing to hold.</b> Paid search is above target and losing roughly half its available impression share to budget. Do not increase it yet: with three quarters of leads never called, more volume raises cost per client rather than lowering it. Revisit once items 1 to 3 are done.</p></div>
+
+<h2 class="serif">Two numbers not to rely on</h2>
+<div class="caveats"><dl>
+  <dt>Google Analytics traffic figures</dt>
+  <dd>The base tag has been pointed at an ID Google no longer serves since 31 July, so <span data-m="ga4.page_views_per_session">0.31</span> page views are recorded per session when it cannot be below 1.0. Conversion tracking is unaffected and correct. Sessions, sources and landing pages are not.</dd>
+  <dt>QuickBooks profit and margin</dt>
+  <dd>The Trust account was importing twice, and trust money was recorded as income before reaching the operating account. Every collections figure on this page comes from Clio and is unaffected.</dd>
+</dl></div>
+
+<footer>
+  Sources: Clio, Google Ads, Local Services, Search Console, GA4, CallRail, Lawmatics, Smith.ai, QuickBooks snapshot.<br>
+  Call coverage counts outbound Dialpad calls only and is therefore a floor on total contact. Lead counts exclude Local Services resync duplicates and development test records.
+</footer>
+</div>
+
+<script>
+(function(){
+  var FMT={
+    usd0:function(n){return "$"+Math.round(n).toLocaleString("en-US")},
+    usd2:function(n){return "$"+n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})},
+    int:function(n){return Math.round(n).toLocaleString("en-US")},
+    pct0:function(n){return Math.round(n*100)+"%"},
+    pct1:function(n){return (n*100).toFixed(1)+"%"},
+    mult:function(n){return n.toFixed(1)+"×"}
+  };
+  function dig(o,path){return path.split(".").reduce(function(a,k){return a==null?a:a[k]},o)}
+  fetch("../metrics.json",{cache:"no-store"})
+    .then(function(r){return r.ok?r.json():Promise.reject()})
+    .then(function(m){
+      document.querySelectorAll("[data-m]").forEach(function(el){
+        var v=dig(m,el.dataset.m), f=FMT[el.dataset.fmt];
+        if(v==null||v===0&&el.dataset.m.indexOf("intakes_filled")<0) return;
+        if(typeof v==="number"&&!isFinite(v)) return;
+        if(f&&typeof v!=="number") return;
+        el.textContent=f?f(v):(typeof v==="number"?FMT.int(v):v);
+        el.classList.add("hydrated");
+      });
+      // funnel bars: redraw to the live counts on one shared scale
+      var leads=dig(m,"intake.leads");
+      if(leads){
+        [["intake.called",1],["intake.called_within_72h",2],["clio.new_matters_30d",3],["clio.new_paying_clients_30d",4]]
+          .forEach(function(pair){
+            var v=dig(m,pair[0]);
+            var bar=document.querySelectorAll(".bars .bfill")[pair[1]];
+            if(v!=null&&bar) bar.style.width=Math.max(v/leads*100,3).toFixed(1)+"%";
+          });
+      }
+      // callers table, live
+      var c=dig(m,"intake.callers"), tb=document.getElementById("callers");
+      if(c&&tb){
+        var rows=Object.keys(c).map(function(k){return [k,c[k]]}).sort(function(a,b){return b[1]-a[1]}).slice(0,6);
+        if(rows.length) tb.innerHTML=rows.map(function(r){
+          return "<tr><td>"+r[0].replace(/[<>&]/g,"")+"</td><td class='n'>"+r[1]+"</td></tr>"}).join("");
+      }
+    })
+    .catch(function(){/* published values stand */});
+})();
+</script>
+
+</body></html>
