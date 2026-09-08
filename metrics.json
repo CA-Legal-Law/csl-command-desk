@@ -1176,6 +1176,7 @@
   "trailing_3mo_calls_transferred": 12,
   "trailing_3mo_intakes_filled": 0
  },
+ "intake": {},
  "qbo": {
   "mode": "snapshot",
   "basis": "Cash",
@@ -1289,54 +1290,60 @@
   "monthly_revenue_forfeited": 9434.21
  },
  "_meta": {
-  "generated_at": "2026-09-08T16:35:40",
+  "generated_at": "2026-09-08T16:37:42",
   "generated_date": "2026-09-08",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-09-08T16:35:05",
-    "secs": 0.7
+    "at": "2026-09-08T16:37:00",
+    "secs": 0.6
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-09-08T16:35:05",
-    "secs": 0.8
+    "at": "2026-09-08T16:37:01",
+    "secs": 1.4
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-09-08T16:35:10",
+    "at": "2026-09-08T16:37:05",
     "secs": 4.6
    },
    "ads": {
     "status": "ok",
-    "at": "2026-09-08T16:35:13",
-    "secs": 8.6
-   },
-   "qbo": {
-    "status": "ok",
-    "at": "2026-09-08T16:35:13",
-    "secs": 0.0
+    "at": "2026-09-08T16:37:10",
+    "secs": 10.4
    },
    "clio": {
     "status": "ok",
-    "at": "2026-09-08T16:35:18",
-    "secs": 13.9
+    "at": "2026-09-08T16:37:13",
+    "secs": 13.7
+   },
+   "qbo": {
+    "status": "ok",
+    "at": "2026-09-08T16:37:13",
+    "secs": 0.0
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-09-08T16:35:19",
-    "secs": 14.0
+    "at": "2026-09-08T16:37:24",
+    "secs": 24.0
    },
    "smith": {
     "status": "ok",
-    "at": "2026-09-08T16:35:40",
-    "secs": 30.3
+    "at": "2026-09-08T16:37:35",
+    "secs": 29.7
+   },
+   "intake": {
+    "status": "failed",
+    "at": "2026-09-08T16:37:42"
    }
   },
-  "errors": {},
+  "errors": {
+   "intake": "NameError: name 'lawmatics_notes' is not defined"
+  },
   "sources_ok": 8,
   "sources_stale": 0,
-  "sources_total": 8,
+  "sources_total": 9,
   "gbp": "pending Google API access case 7-4790000041264"
  }
 }
