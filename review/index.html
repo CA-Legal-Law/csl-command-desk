@@ -83,8 +83,13 @@
   .blab{font-size:12.5px;color:var(--ink-2);text-align:right;line-height:1.25}
   .btrack{position:relative;height:28px;background:var(--card-inset);border-radius:3px}
   .bfill{position:absolute;inset:0 auto 0 0;border-radius:3px;display:flex;align-items:center;padding:0 10px;
-    font-family:var(--mono);font-size:12px;font-weight:600;color:#fff;font-variant-numeric:tabular-nums}
-  .b-all{background:var(--ink)} .b-mid{background:var(--brass)} .b-end{background:var(--good)}
+    font-family:var(--mono);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums;
+    /* a 3% bar is ~20px wide, which cannot hold a label: floor the box, not the meaning */
+    min-width:46px;color:#fff}
+  /* --ink is near-white in dark mode, so white-on-ink is invisible there.
+     Take the label colour from the page ground, which is always its opposite. */
+  .b-all{background:var(--ink);color:var(--page)}
+  .b-mid{background:var(--brass)} .b-end{background:var(--good)}
   .baxis{border-top:1px solid var(--line);margin:12px 0 0 130px;padding-top:6px;display:flex;
     justify-content:space-between;font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
 
