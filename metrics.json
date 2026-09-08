@@ -1176,7 +1176,53 @@
   "trailing_3mo_calls_transferred": 12,
   "trailing_3mo_intakes_filled": 0
  },
- "intake": {},
+ "intake": {
+  "window_days": 30,
+  "records": 377,
+  "lsa_duplicates": 51,
+  "test_records": 5,
+  "leads": 321,
+  "leads_per_day": 10.7,
+  "called": 80,
+  "call_coverage": 0.2492,
+  "called_within_24h": 6,
+  "called_within_72h": 21,
+  "never_called": 241,
+  "never_called_share": 0.7508,
+  "median_hours_to_call": 166.8,
+  "callers": {
+   "Nick Jacobs": 148,
+   "Richard Dixon": 145,
+   "Seth Steward": 42,
+   "Julie Griffin-Smith": 19,
+   "Mark Smith": 9,
+   "Angie Caporale": 2,
+   "Joy Erawan": 2,
+   "Lydia Jacobs": 2
+  },
+  "outbound_calls": 369,
+  "outcomes": {
+   "Lead Disqualified": 70,
+   "(no stage)": 53,
+   "Not Scheduled - Closed Lost": 46,
+   "Rapid Intake Form Sent - Needs Phone Call": 27,
+   "Held - Pending Engagement": 25,
+   "Scheduled-Firm Canceled": 23,
+   "Scheduled - No Show": 19,
+   "Held - Low Value Follow Up": 13,
+   "Scheduled - Client Canceled": 12,
+   "Signed & Paid-Engagement Agmt & Initial Invoice": 8,
+   "Rapid Intake Form Submitted": 5,
+   "Held - Firm Rejected": 5,
+   "Held - High Value Follow Up": 5,
+   "Sent-Engagement Agmt & Initial Invoice": 4,
+   "Held - Client Rejected": 4,
+   "Held - Referred Out": 2
+  },
+  "signed": 8,
+  "pending_engagement": 25,
+  "referred_out": 2
+ },
  "qbo": {
   "mode": "snapshot",
   "basis": "Cash",
@@ -1290,58 +1336,57 @@
   "monthly_revenue_forfeited": 9434.21
  },
  "_meta": {
-  "generated_at": "2026-09-08T16:37:42",
+  "generated_at": "2026-09-08T16:38:50",
   "generated_date": "2026-09-08",
   "sources": {
-   "gsc": {
-    "status": "ok",
-    "at": "2026-09-08T16:37:00",
-    "secs": 0.6
-   },
    "ga4": {
     "status": "ok",
-    "at": "2026-09-08T16:37:01",
-    "secs": 1.4
+    "at": "2026-09-08T16:38:11",
+    "secs": 0.6
+   },
+   "gsc": {
+    "status": "ok",
+    "at": "2026-09-08T16:38:11",
+    "secs": 0.6
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-09-08T16:37:05",
+    "at": "2026-09-08T16:38:16",
     "secs": 4.6
    },
    "ads": {
     "status": "ok",
-    "at": "2026-09-08T16:37:10",
-    "secs": 10.4
-   },
-   "clio": {
-    "status": "ok",
-    "at": "2026-09-08T16:37:13",
-    "secs": 13.7
-   },
-   "qbo": {
-    "status": "ok",
-    "at": "2026-09-08T16:37:13",
-    "secs": 0.0
+    "at": "2026-09-08T16:38:20",
+    "secs": 9.7
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-09-08T16:37:24",
-    "secs": 24.0
+    "at": "2026-09-08T16:38:23",
+    "secs": 11.5
+   },
+   "qbo": {
+    "status": "ok",
+    "at": "2026-09-08T16:38:23",
+    "secs": 0.0
+   },
+   "clio": {
+    "status": "ok",
+    "at": "2026-09-08T16:38:24",
+    "secs": 13.4
    },
    "smith": {
     "status": "ok",
-    "at": "2026-09-08T16:37:35",
+    "at": "2026-09-08T16:38:46",
     "secs": 29.7
    },
    "intake": {
-    "status": "failed",
-    "at": "2026-09-08T16:37:42"
+    "status": "ok",
+    "at": "2026-09-08T16:38:50",
+    "secs": 29.9
    }
   },
-  "errors": {
-   "intake": "NameError: name 'lawmatics_notes' is not defined"
-  },
-  "sources_ok": 8,
+  "errors": {},
+  "sources_ok": 9,
   "sources_stale": 0,
   "sources_total": 9,
   "gbp": "pending Google API access case 7-4790000041264"
