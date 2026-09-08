@@ -1,6 +1,5 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL Command Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
 <title>CSL Command Desk</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -324,12 +323,13 @@
     <a href="#practice"><span class="glyph" aria-hidden="true">§</span>Practice economics</a>
     <a href="#goal">The 200 goal</a>
       <a href="#probate"><span class="glyph" aria-hidden="true">⚖</span>Probate build-out</a>
+    <a href="#smith"><span class="glyph" aria-hidden="true">☎</span>Smith.ai front door</a>
     <a href="#speed">Reply speed</a>
       <a href="#ops"><span class="glyph" aria-hidden="true">✓</span>Intake &amp; operations</a>
     <a href="#next"><span class="glyph" aria-hidden="true">➜</span>What to do next</a>
     <a href="#coverage"><span class="glyph" aria-hidden="true">◑</span>Data coverage</a>
   </nav>
-  <div class="sfoot"><b>August 2026 · MTD</b>data as of Aug 17, 2026</div>
+  <div class="sfoot"><b>Live</b><span data-m="_meta.generated_date">refreshed daily 06:30 PT</span></div>
 </aside>
 
 <main>
@@ -344,6 +344,7 @@
       <span class="src live"><span class="dot"></span><b>Clio</b></span>
       <span class="src live"><span class="dot"></span><b>GA4</b></span>
       <span class="src live"><span class="dot"></span><b>LSA</b></span>
+      <span class="src live"><span class="dot"></span><b>Smith.ai</b></span>
       <!-- Lawmatics answers 200 and silently drops any custom field not attached
            to the submitted form, so a broken mapping looks like "no traffic".
            This pill names any the website sends that never arrive. -->
@@ -954,6 +955,48 @@
           <p style="margin:0 0 10px"><b><span data-m="ads.lsa.3284547403.responsiveness.phone_leads_not_measurable">458</span> phone leads are therefore not measurable here</b>, and should not be read as unanswered.</p>
           <p style="margin:0">Duration and answered/missed are not published by Google on either channel.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone reveal" id="smith" aria-label="Smith.ai, the front door">
+    <div class="zonehead"><h3 class="serif">Smith.ai &mdash; the front door</h3><span class="sub">who actually answers the phone, read from the call notes Smith.ai writes into Lawmatics</span></div>
+    <div class="row r-3">
+      <div class="card">
+        <div class="eyebrow">Calls answered <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="val" data-m="smith.calls" data-count>446</div>
+        <div class="note"><b data-m="smith.calls_per_day">12.7</b> a day over the last <span data-m="smith.window_days">35</span> days. <b data-m="smith.new_lead_share" data-fmt="pct0">71%</b> are new leads, the rest repeat or existing clients.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Against the plan <span class="rule"></span> <span class="chip">snapshot</span></div>
+        <div class="val" data-m="smith.last_full_month_calls" data-count>412</div>
+        <div class="note">calls in <span data-m="smith.last_full_month">2026-08</span> against a <b data-m="smith.plan_calls_included">350</b> call plan. <b class="bad"><span data-m="smith.last_full_month_over_plan">62</span> over</b>, so the firm is paying overage.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">Spam and blocked <span class="rule"></span> <span class="chip">snapshot</span></div>
+        <div class="val" data-m="smith.month_to_date_spam_blocked" data-count>20</div>
+        <div class="note">screened out so far this month, and never reaching Lawmatics. Smith.ai is absorbing this, which is the service working.</div>
+      </div>
+    </div>
+
+    <div class="row r-2" style="margin-top:14px">
+      <div class="card">
+        <div class="eyebrow">How callers say they found the firm <span class="rule"></span> <span class="chip live">live</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="smith.source_google" data-count>166</div><div class="l">named Google</div></div>
+          <div class="ministat"><div class="v" data-m="smith.source_online_unspecified" data-count>100</div><div class="l">online, unspecified</div></div>
+          <div class="ministat"><div class="v" data-m="smith.source_ai" data-count>6</div><div class="l">ChatGPT or other AI</div></div>
+        </div>
+        <div class="note">Smith.ai asks, and records an answer on <b data-m="smith.source_coverage" data-fmt="pct0">71%</b> of calls. <b>Lawmatics carries a source on far fewer</b>, so this is the better attribution signal the firm already owns. Plus <span data-m="smith.source_referral">13</span> word-of-mouth referrals.</div>
+      </div>
+      <div class="card">
+        <div class="eyebrow">What Smith.ai does with the call <span class="rule"></span> <span class="chip">snapshot</span></div>
+        <div class="stat3">
+          <div class="ministat"><div class="v" data-m="smith.trailing_3mo_appointments_scheduled" data-count>417</div><div class="l">appointments booked</div></div>
+          <div class="ministat"><div class="v" data-m="smith.trailing_3mo_calls_transferred" data-count>12</div><div class="l">calls transferred</div></div>
+          <div class="ministat"><div class="v bad" data-m="smith.trailing_3mo_intakes_filled" data-count>0</div><div class="l">intakes filled</div></div>
+        </div>
+        <div class="note" style="margin-top:10px"><b>The handoff is entirely asynchronous.</b> Over three months Smith.ai transferred twelve callers to a person at the firm and completed no intake forms at all. Every other caller was written up as a note for someone to pick up later.</div>
       </div>
     </div>
   </section>
