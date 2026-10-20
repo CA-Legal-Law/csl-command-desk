@@ -5,15 +5,15 @@
    "goal_retained": 100,
    "goal_referred": 100,
    "window": "trailing 12 months",
-   "opened": 281,
-   "retained": 250,
+   "opened": 282,
+   "retained": 251,
    "referred": 31,
-   "pct_of_goal": 1.405,
-   "retained_vs_goal": 150,
+   "pct_of_goal": 1.41,
+   "retained_vs_goal": 151,
    "referred_vs_goal": -69,
-   "run_rate_per_month": 23.4,
+   "run_rate_per_month": 23.5,
    "required_per_month": 16.7,
-   "retained_collecting_nothing": 144,
+   "retained_collecting_nothing": 145,
    "retained_at_10k_plus": 5,
    "retained_collected_total": 412536.13,
    "retained_median_when_earning": 3400.0,
@@ -64,7 +64,7 @@
      "referred": 0
     },
     "2026-10": {
-     "retained": 18,
+     "retained": 19,
      "referred": 0
     }
    }
@@ -91,21 +91,21 @@
    "15%": 1
   },
   "fee_structure": {
-   "Flat-Fee - ICA": 211,
+   "Flat-Fee - ICA": 212,
    "Hourly": 24,
    "Pure Contingency": 22,
    "Flat-Fee - Other": 14,
    "Flat-Fee - Trust Drafting": 4,
    "Hybrid": 1
   },
-  "ltv_per_matter": 2895.87,
-  "ltv_cohort_size": 140,
+  "ltv_per_matter": 2875.33,
+  "ltv_cohort_size": 141,
   "payback_curve": {
-   "30": 735.0,
-   "60": 1155.82,
-   "90": 1381.25,
-   "180": 2235.29,
-   "365": 2853.87
+   "30": 729.78,
+   "60": 1147.62,
+   "90": 1371.45,
+   "180": 2219.43,
+   "365": 2833.63
   },
   "payback_pct": {
    "30": 0.2538,
@@ -167,18 +167,18 @@
    "2026-07": 51,
    "2026-08": 42,
    "2026-09": 69,
-   "2026-10": 30
+   "2026-10": 33
   },
   "new_matters_last_month": 69,
-  "new_matters_30d": 69,
+  "new_matters_30d": 72,
   "new_paying_clients_30d": 19,
   "new_matters_prev_30d": 49,
   "collected_last_month": 104810.07,
   "last_complete_month": "2026-09",
-  "matters_total": 653,
+  "matters_total": 656,
   "matters_open": 94,
-  "matters_pending": 192,
-  "ar_total": 102331.99,
+  "matters_pending": 194,
+  "ar_total": 109233.99,
   "ar_over_90": 20350.68,
   "ar_buckets": {
    "180+": {
@@ -198,15 +198,15 @@
     "bills": 5
    },
    "0-30": {
-    "amount": 62884.23,
-    "bills": 21
+    "amount": 69786.23,
+    "bills": 23
    }
   },
   "revenue_by_practice": {
    "Wills, Estates, & Probate (Administration, Beneficiary Rights, Etc.)": {
-    "matters": 311,
+    "matters": 312,
     "collected": 646055.63,
-    "per_matter": 2077.35
+    "per_matter": 2070.69
    },
    "Trust/Estate Plan Drafting": {
     "matters": 79,
@@ -219,14 +219,14 @@
     "per_matter": 1061.92
    },
    "(unassigned)": {
-    "matters": 41,
+    "matters": 42,
     "collected": 50789.42,
-    "per_matter": 1238.77
+    "per_matter": 1209.27
    },
    "General Civil Litigation": {
-    "matters": 31,
+    "matters": 32,
     "collected": 33115.35,
-    "per_matter": 1068.24
+    "per_matter": 1034.85
    },
    "General Counsel": {
     "matters": 9,
@@ -666,39 +666,39 @@
   ]
  },
  "gsc": {
-  "window": "2026-09-19 to 2026-10-16",
-  "clicks": 383,
-  "impressions": 18535,
-  "ctr": 0.0207,
-  "avg_position": 9.2,
-  "named_clicks": 128,
-  "named_share_of_clicks": 0.3342,
-  "brand_clicks": 115,
+  "window": "2026-09-20 to 2026-10-17",
+  "clicks": 378,
+  "impressions": 18458,
+  "ctr": 0.0205,
+  "avg_position": 9.3,
+  "named_clicks": 124,
+  "named_share_of_clicks": 0.328,
+  "brand_clicks": 111,
   "nonbrand_clicks": 13,
-  "nonbrand_share": 0.1016,
+  "nonbrand_share": 0.1048,
   "top_queries": [
    {
     "query": "corcoran smith law",
-    "clicks": 56,
-    "impressions": 153,
+    "clicks": 55,
+    "impressions": 152,
     "position": 1.1
    },
    {
     "query": "corcoran smith law corp",
-    "clicks": 27,
-    "impressions": 68,
-    "position": 1.1
+    "clicks": 25,
+    "impressions": 63,
+    "position": 1
    },
    {
     "query": "corcoran smith law corp.",
-    "clicks": 24,
-    "impressions": 37,
+    "clicks": 23,
+    "impressions": 36,
     "position": 1
    },
    {
     "query": "seth steward",
     "clicks": 6,
-    "impressions": 30,
+    "impressions": 29,
     "position": 1.0
    },
    {
@@ -716,8 +716,8 @@
    {
     "query": "california probate code section 16062",
     "clicks": 1,
-    "impressions": 22,
-    "position": 8.2
+    "impressions": 21,
+    "position": 8.3
    },
    {
     "query": "corcoran law",
@@ -734,7 +734,7 @@
    {
     "query": "corcoran smith law reviews",
     "clicks": 1,
-    "impressions": 25,
+    "impressions": 24,
     "position": 1.8
    },
    {
@@ -752,8 +752,8 @@
    {
     "query": "lawyer for inheritance dispute",
     "clicks": 1,
-    "impressions": 25,
-    "position": 23.5
+    "impressions": 28,
+    "position": 25.2
    },
    {
     "query": "mark smith attorney",
@@ -771,93 +771,93 @@
   "top_pages": [
    {
     "page": "https://www.corcoransmithlaw.com/",
-    "clicks": 138,
-    "impressions": 955,
-    "position": 8.6
-   },
-   {
-    "page": "https://www.corcoransmithlaw.com/blog/your-trustee-won-t-provide-a-trust-accounting-here-s-what-california-law-says-you-can-do-about-it/",
-    "clicks": 40,
-    "impressions": 4726,
-    "position": 6.3
+    "clicks": 133,
+    "impressions": 927,
+    "position": 8.1
    },
    {
     "page": "https://www.corcoransmithlaw.com/?utm_campaign=gmb",
-    "clicks": 37,
-    "impressions": 2175,
+    "clicks": 38,
+    "impressions": 2121,
     "position": 5.1
+   },
+   {
+    "page": "https://www.corcoransmithlaw.com/blog/your-trustee-won-t-provide-a-trust-accounting-here-s-what-california-law-says-you-can-do-about-it/",
+    "clicks": 38,
+    "impressions": 4690,
+    "position": 6.3
    },
    {
     "page": "https://www.corcoransmithlaw.com/about/seth-steward/",
     "clicks": 27,
-    "impressions": 229,
-    "position": 5.9
+    "impressions": 228,
+    "position": 6.0
    },
    {
     "page": "https://www.corcoransmithlaw.com/about/nicholas-jacobs/",
-    "clicks": 23,
-    "impressions": 524,
-    "position": 5.7
+    "clicks": 22,
+    "impressions": 527,
+    "position": 5.9
    },
    {
     "page": "https://www.corcoransmithlaw.com/blog/transferring-a-business-interest-into-a-trust-an-overview/",
-    "clicks": 23,
-    "impressions": 1896,
+    "clicks": 22,
+    "impressions": 1903,
     "position": 6.6
    },
    {
     "page": "https://www.corcoransmithlaw.com/about/mark-smith/",
-    "clicks": 22,
-    "impressions": 1086,
+    "clicks": 21,
+    "impressions": 1091,
     "position": 6.0
    },
    {
     "page": "https://www.corcoransmithlaw.com/blog/california-step-up-in-basis-avoiding-costly-capital-gains-taxes/",
     "clicks": 17,
-    "impressions": 2161,
-    "position": 7.3
+    "impressions": 2192,
+    "position": 7.4
    },
    {
     "page": "https://www.corcoransmithlaw.com/disputes/inheritance-disputes/",
     "clicks": 15,
-    "impressions": 1161,
-    "position": 12.0
+    "impressions": 1158,
+    "position": 12.1
+   },
+   {
+    "page": "https://www.corcoransmithlaw.com/blog/california-trustee-fiduciary-duties-beneficiary-rights/",
+    "clicks": 11,
+    "impressions": 797,
+    "position": 8.2
    },
    {
     "page": "https://www.corcoransmithlaw.com/about/",
     "clicks": 10,
-    "impressions": 721,
-    "position": 4.5
-   },
-   {
-    "page": "https://www.corcoransmithlaw.com/blog/california-trustee-fiduciary-duties-beneficiary-rights/",
-    "clicks": 10,
-    "impressions": 803,
-    "position": 8.1
+    "impressions": 707,
+    "position": 4.4
    },
    {
     "page": "https://www.corcoransmithlaw.com/contact/",
     "clicks": 6,
-    "impressions": 447,
-    "position": 8.6
+    "impressions": 440,
+    "position": 8.5
    },
    {
     "page": "https://www.corcoransmithlaw.com/disputes/employment-disputes/",
     "clicks": 5,
-    "impressions": 118,
-    "position": 5.4
+    "impressions": 114,
+    "position": 5.3
    },
    {
     "page": "https://www.corcoransmithlaw.com/disputes/trust-estate-litigation/",
     "clicks": 4,
-    "impressions": 140,
-    "position": 30.5
+    "impressions": 145,
+    "position": 30.2
    },
    {
     "page": "https://www.corcoransmithlaw.com/results/",
     "clicks": 4,
-    "impressions": 134,
-    "position": 5.5
+    "impressions": 127,
+    "position": 5.1
    }
   ]
  },
@@ -871,23 +871,23 @@
    },
    {
     "channel": "Organic Search",
-    "sessions": 35,
-    "conversions": 39.0
+    "sessions": 34,
+    "conversions": 38.0
    },
    {
     "channel": "Direct",
-    "sessions": 18,
-    "conversions": 30.0
+    "sessions": 21,
+    "conversions": 38.0
    },
    {
     "channel": "AI Assistant",
-    "sessions": 8,
-    "conversions": 8.0
+    "sessions": 6,
+    "conversions": 6.0
    },
    {
     "channel": "Unassigned",
     "sessions": 6,
-    "conversions": 72.0
+    "conversions": 70.0
    },
    {
     "channel": "Referral",
@@ -903,41 +903,41 @@
    "session_start": 110,
    "first_visit": 102,
    "form": 73,
-   "phone_call": 69,
+   "phone_call": 67,
    "consultation_request": 58,
    "ClickToCall": 37,
-   "StartConversation": 16,
+   "StartConversation": 18,
+   "WidgetOpen": 13,
    "page_view": 13,
    "ClickToEmail": 12,
-   "WidgetOpen": 12,
    "view_search_results": 11,
-   "EmailCaptured": 4,
-   "PhoneCaptured": 4,
-   "ChatCompleted": 3,
-   "WidgetClose": 3,
+   "EmailCaptured": 6,
+   "PhoneCaptured": 5,
+   "ChatCompleted": 4,
+   "WidgetClose": 4,
    "lead_magnet_claim": 1
   },
   "form_submit_fires": 0,
-  "conversion_events": 58,
-  "conversion_sessions": 58,
+  "conversion_events": 59,
+  "conversion_sessions": 59,
   "conversion_events_per_session": 1.0,
   "conversion_double_counted": false,
   "conversion_fix_date": "2026-08-25",
   "conversion_since_fix": {
-   "events": 99,
-   "sessions": 95,
+   "events": 104,
+   "sessions": 100,
    "per_session": 1.04
   },
   "conversion_ratio_verified": true
  },
  "lawmatics": {
-  "prospects_total": 2817,
+  "prospects_total": 2833,
   "prospects_sampled": 1000,
-  "leads_last_30d": 397,
-  "leads_prev_30d": 384,
+  "leads_last_30d": 410,
+  "leads_prev_30d": 372,
   "statuses": {
-   "pnc": 246,
-   "lost": 640,
+   "pnc": 248,
+   "lost": 638,
    "hired": 114
   },
   "hired": 114,
@@ -946,66 +946,66 @@
    "gclid": 54,
    "utm_source": 76,
    "utm_medium": 58,
-   "utm_campaign": 20,
+   "utm_campaign": 19,
    "fbclid": 4,
    "msclkid": 4,
    "wbraid": 4,
    "gbraid": 34
   },
-  "attribution_health": 0.0903,
+  "attribution_health": 0.0899,
   "attribution_fix_date": "2026-08-05",
   "attribution_post_fix": {
-   "n": 952,
-   "populated": 86,
-   "rate": 0.0903
+   "n": 968,
+   "populated": 87,
+   "rate": 0.0899
   },
   "attribution_pre_fix": {
-   "n": 48,
-   "populated": 2,
-   "rate": 0.0417
+   "n": 32,
+   "populated": 1,
+   "rate": 0.0312
   },
   "field_delivery": {
-   "address": 64,
+   "address": 65,
    "utm_placement": 4,
-   "utm_source": 74,
-   "comment": 119,
-   "gclid": 52,
+   "utm_source": 75,
+   "comment": 121,
+   "gclid": 53,
    "fbc": 4,
    "utm_term": 4,
-   "utm_medium": 56,
+   "utm_medium": 57,
    "utm_campaign": 17,
    "msclkid": 4,
-   "fbp": 116,
+   "fbp": 118,
    "wbraid": 4,
    "fbclid": 4,
    "gbraid": 34,
-   "user_agent": 127,
-   "ip_address": 127,
-   "practice_area": 289,
+   "user_agent": 129,
+   "ip_address": 129,
+   "practice_area": 295,
    "estate_value": 39,
-   "calltrk_session_id": 91
+   "calltrk_session_id": 93
   },
   "dead_fields": [],
   "pending_fields": {},
   "probate": {
    "leads_admin": 69,
-   "leads_contest": 88,
+   "leads_contest": 89,
    "estate_value_captured": 39,
    "estate_value_coverage": 0.039,
    "estate_median": 15000.0,
    "statutory_fee_median": 600,
-   "statutory_fee_mean": 701,
-   "pipeline_fee_total": 27320,
+   "statutory_fee_mean": 729,
+   "pipeline_fee_total": 28420,
    "retain_count": 0,
    "refer_count": 39,
    "retain_fee_total": 0,
    "retain_fee_mean": null,
-   "refer_fee_mean": 701,
-   "referral_value_at_25pct": 6830
+   "refer_fee_mean": 729,
+   "referral_value_at_25pct": 7105
   }
  },
  "callrail": {
-  "leads_ytd": 894,
+  "leads_ytd": 899,
   "leads_by_month": {
    "2025-10": {
     "calls": 1,
@@ -1058,32 +1058,32 @@
     "leads": 141
    },
    "2026-10": {
-    "calls": 49,
-    "forms": 53,
-    "leads": 102
+    "calls": 51,
+    "forms": 56,
+    "leads": 107
    }
   },
   "window_days": 30,
-  "calls": 74,
-  "forms": 79,
-  "leads_total": 153,
-  "answer_rate": 0.973,
-  "first_time_caller_rate": 0.8649,
-  "gclid_coverage": 0.3649,
+  "calls": 76,
+  "forms": 80,
+  "leads_total": 156,
+  "answer_rate": 0.9737,
+  "first_time_caller_rate": 0.8421,
+  "gclid_coverage": 0.3684,
   "by_campaign": {
    "(unattributed)": {
-    "calls": 45,
+    "calls": 46,
     "forms": 54,
-    "leads": 99
+    "leads": 100
    },
    "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE": {
     "calls": 12,
-    "forms": 10,
-    "leads": 22
+    "forms": 11,
+    "leads": 23
    },
    "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE": {
-    "calls": 12,
-    "forms": 8,
+    "calls": 13,
+    "forms": 7,
     "leads": 20
    },
    "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE": {
@@ -1093,17 +1093,17 @@
    },
    "gmb": {
     "calls": 0,
-    "forms": 5,
-    "leads": 5
+    "forms": 6,
+    "leads": 6
    }
   },
   "by_source": {
-   "Google My Business": 46,
-   "Website pool": 27,
+   "Google My Business": 47,
+   "Website pool": 28,
    "Other": 1
   },
   "top_keywords": {
-   "Inheritance Disputes": 10,
+   "Inheritance Disputes": 11,
    "Estate Litigation Lawyer": 5,
    "trust attorney san francisco": 4,
    "Probate Litigation Attorney": 3,
@@ -1118,18 +1118,18 @@
   "window_days": 35,
   "calls": 470,
   "calls_per_day": 13.4,
-  "inbound": 456,
-  "outbound": 14,
+  "inbound": 457,
+  "outbound": 13,
   "by_month": {
-   "2026-09": 216,
-   "2026-10": 254
+   "2026-09": 191,
+   "2026-10": 279
   },
   "caller_type": {
-   "New Lead": 359,
-   "Repeat Caller": 82,
-   "Existing Client": 29
+   "New Lead": 358,
+   "Repeat Caller": 81,
+   "Existing Client": 31
   },
-  "new_lead_share": 0.7638,
+  "new_lead_share": 0.7617,
   "priority": {
    "Normal": 461,
    "Urgent": 8,
@@ -1138,23 +1138,24 @@
   "urgent": 8,
   "classification_coverage": 1.0,
   "referral_source": {
-   "Google": 197,
+   "Google": 195,
    "Online, unspecified": 98,
-   "Unknown": 31,
-   "AI assistant": 19,
+   "Unknown": 33,
+   "AI assistant": 17,
    "Referral": 7,
+   "Facebook / social": 1,
    "Legal directory": 1,
    "Repeat caller": 1
   },
-  "source_coverage": 0.7532,
-  "source_named_channel": 225,
-  "source_google": 197,
+  "source_coverage": 0.7511,
+  "source_named_channel": 222,
+  "source_google": 195,
   "source_online_unspecified": 98,
-  "source_ai": 19,
+  "source_ai": 17,
   "source_referral": 7,
-  "source_google_share": 0.5565,
+  "source_google_share": 0.5524,
   "snapshot_captured_at": "2026-09-08",
-  "snapshot_age_days": 41,
+  "snapshot_age_days": 42,
   "plan_calls_included": 350,
   "plan_addons": 4,
   "last_full_month": "2026-08",
@@ -1176,50 +1177,51 @@
  },
  "intake": {
   "window_days": 30,
-  "records": 397,
-  "lsa_duplicates": 4,
+  "records": 410,
+  "lsa_duplicates": 7,
   "test_records": 0,
-  "leads": 393,
-  "leads_per_day": 13.1,
-  "called": 104,
-  "call_coverage": 0.2646,
-  "called_within_24h": 15,
-  "called_within_72h": 21,
-  "never_called": 289,
-  "never_called_share": 0.7354,
-  "median_hours_to_call": 123.0,
+  "leads": 403,
+  "leads_per_day": 13.4,
+  "called": 111,
+  "call_coverage": 0.2754,
+  "called_within_24h": 16,
+  "called_within_72h": 22,
+  "never_called": 292,
+  "never_called_share": 0.7246,
+  "median_hours_to_call": 123.2,
   "callers": {
    "Richard Dixon": 149,
-   "Nick Jacobs": 144,
-   "Seth Steward": 83,
-   "Julie Griffin-Smith": 43,
-   "Joy Erawan": 25,
+   "Nick Jacobs": 141,
+   "Seth Steward": 81,
+   "Julie Griffin-Smith": 44,
+   "Joy Erawan": 21,
    "Mark Smith": 12,
    "Lydia Jacobs": 2,
    "Angie Caporale": 1
   },
-  "outbound_calls": 460,
+  "outbound_calls": 452,
   "outcomes": {
-   "Not Scheduled - Closed Lost": 179,
-   "(no stage)": 86,
-   "Rapid Intake Form Sent - Needs Phone Call": 27,
-   "Scheduled - No Show": 20,
+   "Not Scheduled - Closed Lost": 181,
+   "(no stage)": 80,
+   "Rapid Intake Form Sent - Needs Phone Call": 30,
+   "Scheduled - No Show": 22,
    "Replied - Staff Follow-Up": 17,
+   "Held - Pending Engagement": 12,
    "Held - Closed Lost": 12,
-   "Held - Pending Engagement": 10,
    "Signed & Paid-Engagement Agmt & Initial Invoice": 10,
-   "Held - Low Value Follow Up": 8,
+   "Held - Low Value Follow Up": 9,
+   "Lead Disqualified": 8,
    "Rapid Intake Form Submitted": 7,
-   "Scheduled - Client Canceled": 4,
-   "Voided Docusign": 4,
+   "Voided Docusign": 5,
    "Scheduled-Firm Canceled": 3,
-   "Lead Disqualified": 3,
+   "Scheduled - Client Canceled": 3,
    "Scheduled HOT LEAD": 1,
    "Held - High Value Follow Up": 1,
+   "Held - Firm Rejected": 1,
    "Held - Referred Out": 1
   },
   "signed": 10,
-  "pending_engagement": 10,
+  "pending_engagement": 12,
   "referred_out": 1
  },
  "qbo": {
@@ -1227,7 +1229,7 @@
   "basis": "Cash",
   "period_ytd": "2026-01-01 to 2026-08-25",
   "captured_at": "2026-08-25",
-  "days_since_capture": 55,
+  "days_since_capture": 56,
   "revenue_ytd": 579858.5,
   "expenses_ytd": 325700.09,
   "net_income_ytd": 242876.59,
@@ -1240,21 +1242,21 @@
   "lead_to_client_rate": 0.114,
   "lead_to_client_source": "measured (Lawmatics hired/total)",
   "target_roas": 5.0,
-  "ltv_per_matter": 2895.87,
-  "lead_to_paying_client_rate": 0.0479,
-  "lead_to_matter_rate": 0.1738,
-  "paying_share_of_new_matters": 0.2754,
-  "conversion_window_note": "397 leads, 69 matters opened, 19 collected (30 days; recent matters may still convert)",
-  "max_cac_for_target": 579.17,
-  "breakeven_cost_per_conv": 66.03,
+  "ltv_per_matter": 2875.33,
+  "lead_to_paying_client_rate": 0.0463,
+  "lead_to_matter_rate": 0.1756,
+  "paying_share_of_new_matters": 0.2639,
+  "conversion_window_note": "410 leads, 72 matters opened, 19 collected (30 days; recent matters may still convert)",
+  "max_cac_for_target": 575.07,
+  "breakeven_cost_per_conv": 65.56,
   "campaign_economics": [
    {
     "campaign": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
     "spend": 570.19,
     "ads_conversions": 24.999008,
     "ads_cost_per_conv": 22.81,
-    "real_leads": 22,
-    "real_cost_per_lead": 25.92,
+    "real_leads": 23,
+    "real_cost_per_lead": 24.79,
     "constraint": "rank",
     "verdict": "rank-limited \u2014 fix quality, not budget"
    },
@@ -1289,10 +1291,10 @@
     "current_to": "2026-10"
    },
    "peak_leads_per_month": 146,
-   "current_leads_per_month": 105.0,
-   "change_vs_baseline": -0.1127,
-   "monthly_revenue_at_risk": 4401.72,
-   "call_share_now": 0.4952,
+   "current_leads_per_month": 106.2,
+   "change_vs_baseline": -0.1021,
+   "monthly_revenue_at_risk": 3960.77,
+   "call_share_now": 0.4941,
    "call_share_before": 0.6688
   },
   "paid_30d": 5450.55,
@@ -1305,88 +1307,91 @@
    "lsa_share_of_spend": 0.4296,
    "lsa_leads_ytd": 1104,
    "lsa_cost_per_lead": 23.68,
-   "tracked_web_leads_ytd": 894,
-   "search_cost_per_lead": 38.82,
-   "all_paid_leads_ytd": 1998,
-   "blended_cost_per_lead": 30.45
+   "tracked_web_leads_ytd": 899,
+   "search_cost_per_lead": 38.6,
+   "all_paid_leads_ytd": 2003,
+   "blended_cost_per_lead": 30.38
   },
   "current_cost_per_conv": 30.68,
   "current_cac": 269.12,
-  "current_roas": 10.76,
-  "return_per_1000": 10760.4,
+  "current_roas": 10.68,
+  "return_per_1000": 10684.08,
   "verdict": "above target",
   "return_per_1000_by_day": {
-   "30": 2730.99,
-   "60": 4294.48,
-   "90": 5132.71,
-   "180": 8305.96,
-   "365": 10604.38
+   "30": 2711.62,
+   "60": 4264.02,
+   "90": 5096.31,
+   "180": 8247.04,
+   "365": 10529.16
   },
   "goal_return_per_1000": 10000.0,
   "goal_roas": 10.0,
-  "gap_to_goal": -760.4,
-  "goal_required_cac": 289.59,
-  "goal_route_cost_per_conv": 33.01,
-  "goal_route_close_rate": 0.1059,
+  "gap_to_goal": -684.08,
+  "goal_required_cac": 287.53,
+  "goal_route_cost_per_conv": 32.78,
+  "goal_route_close_rate": 0.1067,
   "goal_route_ltv": 2691.23,
   "goal_progress": 1,
   "budget_lost_impression_share": 0.3923,
   "monthly_spend_headroom": 1128.81,
-  "monthly_revenue_forfeited": 12146.48
+  "monthly_revenue_forfeited": 12060.33
  },
  "_meta": {
-  "generated_at": "2026-10-19T19:26:09",
-  "generated_date": "2026-10-19",
+  "generated_at": "2026-10-20T18:05:16",
+  "generated_date": "2026-10-20",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-10-19T19:24:39",
-    "secs": 0.8
+    "at": "2026-10-20T18:03:36",
+    "secs": 0.7
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-10-19T19:24:40",
-    "secs": 1.9
+    "at": "2026-10-20T18:03:37",
+    "secs": 2.1
+   },
+   "ads": {
+    "status": "stale",
+    "at": "2026-10-19T19:24:46",
+    "age_hours": 22.7,
+    "reason": "HTTPError: HTTP Error 400: Bad Request"
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-10-19T19:24:44",
-    "secs": 4.6
-   },
-   "ads": {
-    "status": "ok",
-    "at": "2026-10-19T19:24:46",
-    "secs": 8.5
-   },
-   "clio": {
-    "status": "ok",
-    "at": "2026-10-19T19:24:57",
-    "secs": 19.3
-   },
-   "qbo": {
-    "status": "ok",
-    "at": "2026-10-19T19:24:57",
-    "secs": 0.0
+    "at": "2026-10-20T18:03:46",
+    "secs": 8.4
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-10-19T19:25:01",
-    "secs": 22.8
+    "at": "2026-10-20T18:03:56",
+    "secs": 20.2
    },
-   "intake": {
+   "qbo": {
     "status": "ok",
-    "at": "2026-10-19T19:26:09",
-    "secs": 83.1
+    "at": "2026-10-20T18:03:56",
+    "secs": 0.0
+   },
+   "clio": {
+    "status": "ok",
+    "at": "2026-10-20T18:04:00",
+    "secs": 24.7
    },
    "smith": {
     "status": "ok",
-    "at": "2026-10-19T19:26:09",
-    "secs": 85.1
+    "at": "2026-10-20T18:04:37",
+    "secs": 57.3
+   },
+   "intake": {
+    "status": "ok",
+    "at": "2026-10-20T18:05:16",
+    "secs": 90.3
    }
   },
-  "errors": {},
-  "sources_ok": 9,
-  "sources_stale": 0,
+  "errors": {
+   "ads": "HTTPError: HTTP Error 400: Bad Request"
+  },
+  "sources_ok": 8,
+  "sources_stale": 1,
   "sources_total": 9,
   "gbp": "pending Google API access case 7-4790000041264"
  }
