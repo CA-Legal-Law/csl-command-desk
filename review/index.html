@@ -1,5 +1,7 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><title>CSL 30-Day Review</title>
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><title>CSL 30-Day Review</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="../data-status.css">
+<script src="../data-status.js"></script>
 <style>
   :root{
     color-scheme:light;
@@ -114,7 +116,7 @@
     font-family:var(--mono);font-size:11.5px;color:var(--ink-3);line-height:1.7}
   .hydrated{}
   @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-</style>
+</style></head><body>
 
 <div class="wrap">
 
@@ -122,10 +124,12 @@
   <div>
     <div class="kicker">Corcoran Smith Law &middot; Command Desk</div>
     <h1 class="serif">The last 30 days</h1>
-    <div class="win">Rolling <span data-m="intake.window_days">30</span> days &middot; refreshed daily 06:30 PT &middot; last refresh <span data-m="_meta.generated_date">2026-09-08</span></div>
+    <div class="win">Rolling <span data-m="intake.window_days">30</span> days &middot; daily refresh &middot; last refresh <span data-m="_meta.generated_date">2026-09-08</span></div>
   </div>
   <a class="back" href="../">&larr; Full command desk</a>
 </div>
+
+<section id="data-status" class="data-status" aria-label="Data freshness" aria-live="polite"><p class="data-summary">Checking source dates…</p></section>
 
 <div class="strip">
   <div class="kpi"><span class="l">Collected, <span data-m="clio.last_complete_month">2026-08</span></span><span class="v good" data-m="clio.collected_last_month" data-fmt="usd0">$85,094</span><span class="n">Best month of 2026</span></div>
@@ -242,46 +246,33 @@ It is the gap between a lead arriving and someone dialling.</p>
 
 <script>
 (function(){
-  var FMT={
-    usd0:function(n){return "$"+Math.round(n).toLocaleString("en-US")},
-    usd2:function(n){return "$"+n.toLocaleString("en-US",{minimumFractionDigits:2,maximumFractionDigits:2})},
-    int:function(n){return Math.round(n).toLocaleString("en-US")},
-    pct0:function(n){return Math.round(n*100)+"%"},
-    pct1:function(n){return (n*100).toFixed(1)+"%"},
-    mult:function(n){return n.toFixed(1)+"×"}
-  };
-  function dig(o,path){return path.split(".").reduce(function(a,k){return a==null?a:a[k]},o)}
+  var FMT=CSLData.FMT, dig=CSLData.dig;
+  document.querySelectorAll("[data-m]").forEach(function(el){el.textContent="—"});
   fetch("../metrics.json",{cache:"no-store"})
     .then(function(r){return r.ok?r.json():Promise.reject()})
     .then(function(m){
-      document.querySelectorAll("[data-m]").forEach(function(el){
-        var v=dig(m,el.dataset.m), f=FMT[el.dataset.fmt];
-        if(v==null||v===0&&el.dataset.m.indexOf("intakes_filled")<0) return;
-        if(typeof v==="number"&&!isFinite(v)) return;
-        if(f&&typeof v!=="number") return;
-        el.textContent=f?f(v):(typeof v==="number"?FMT.int(v):v);
-        el.classList.add("hydrated");
-      });
+      CSLData.renderStatus(m);
+      CSLData.hydrate(m);
       // funnel bars: redraw to the live counts on one shared scale
       var leads=dig(m,"intake.leads");
-      if(leads){
+      if(typeof leads === "number" && Number.isFinite(leads)){
+        document.querySelector(".bars .bfill").style.width=leads > 0 ? "100%" : "0%";
         [["intake.called",1],["intake.called_within_72h",2],["clio.new_matters_30d",3],["clio.new_paying_clients_30d",4]]
           .forEach(function(pair){
             var v=dig(m,pair[0]);
             var bar=document.querySelectorAll(".bars .bfill")[pair[1]];
-            if(v!=null&&bar) bar.style.width=Math.max(v/leads*100,3).toFixed(1)+"%";
+            if(v!=null&&bar) bar.style.width=Math.max(0,Math.min(100,leads > 0 ? v/leads*100 : 0)).toFixed(1)+"%";
           });
       }
       // callers table, live
       var c=dig(m,"intake.callers"), tb=document.getElementById("callers");
       if(c&&tb){
         var rows=Object.keys(c).map(function(k){return [k,c[k]]}).sort(function(a,b){return b[1]-a[1]}).slice(0,6);
-        if(rows.length) tb.innerHTML=rows.map(function(r){
+        tb.innerHTML=rows.map(function(r){
           return "<tr><td>"+r[0].replace(/[<>&]/g,"")+"</td><td class='n'>"+r[1]+"</td></tr>"}).join("");
       }
     })
-    .catch(function(){/* published values stand */});
+    .catch(function(){CSLData.fail()});
 })();
 </script>
-
 </body></html>
