@@ -1223,16 +1223,29 @@
 
       const ce = (m.derived || {}).campaign_economics;
       const tb = document.querySelector("#campecon tbody");
-      if (ce && ce.length && tb) {
+      if (tb && (!Array.isArray(ce) || !ce.length)) {
+        tb.replaceChildren();
+        const row = tb.insertRow(), cell = row.insertCell();
+        cell.colSpan = 6;
+        cell.textContent = "No campaign economics available in this snapshot.";
+      }
+      if (Array.isArray(ce) && ce.length && tb) {
         const pill = v => v.startsWith("starved") ? "ok" : v.startsWith("expensive") ? "crit" : "off";
         const shortName = n => (n.match(/Paid Search_([^_]+)/) || [null, n])[1].replace(/_/g, " ");
-        tb.innerHTML = ce.map(r => `<tr>
-          <td class="ch">${shortName(r.campaign)}</td>
-          <td>${FMT.usd0(r.spend)}</td>
-          <td>${r.ads_cost_per_conv != null ? FMT.usd2(r.ads_cost_per_conv) : "—"}</td>
-          <td>${r.real_leads}</td>
-          <td><b>${r.real_cost_per_lead != null ? FMT.usd2(r.real_cost_per_lead) : "—"}</b></td>
-          <td><span class="pill ${pill(r.verdict)}">${r.verdict}</span></td></tr>`).join("");
+        tb.replaceChildren();
+        ce.forEach(r => {
+          const row = tb.insertRow();
+          const values = [shortName(r.campaign), FMT.usd0(r.spend),
+            r.ads_cost_per_conv != null ? FMT.usd2(r.ads_cost_per_conv) : "—",
+            r.real_leads, r.real_cost_per_lead != null ? FMT.usd2(r.real_cost_per_lead) : "—"];
+          values.forEach((value, index) => {
+            const cell = row.insertCell(); cell.textContent = value;
+            if (index === 0) cell.className = "ch";
+          });
+          const verdict = document.createElement("span");
+          verdict.className = "pill " + pill(r.verdict); verdict.textContent = r.verdict;
+          row.insertCell().append(verdict);
+        });
         filled += ce.length;
       }
 
@@ -1241,7 +1254,7 @@
         if (typeof v === "number" && Number.isFinite(v)) {
           el.style.width = Math.max(0, Math.min(v, 1)) * 100 + "%";
           filled++;
-        }
+        } else el.style.width = "0%";
       });
 
     })
