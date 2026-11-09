@@ -8,6 +8,7 @@
     usd0: n => "$" + Math.round(n).toLocaleString("en-US"),
     usd2: n => "$" + n.toLocaleString("en-US", {minimumFractionDigits: 2, maximumFractionDigits: 2}),
     int: n => Math.round(n).toLocaleString("en-US"),
+    decimal1: n => n.toLocaleString("en-US", {minimumFractionDigits:1, maximumFractionDigits:1}),
     pct0: n => (n * 100).toFixed(0) + "%", pct1: n => (n * 100).toFixed(1) + "%",
     ratio: n => n.toFixed(1) + ":1", mult: n => n.toFixed(1) + "×"
   };

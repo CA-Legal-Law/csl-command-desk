@@ -1,0 +1,100 @@
+/* Current-data views for the firm dashboard and the operating review. */
+(function () {
+  'use strict';
+  const {FMT, dig, sourceState} = CSLData;
+  const $ = id => document.getElementById(id);
+  const esc = value => String(value ?? '—').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const n = value => Number.isFinite(value) ? FMT.int(value) : '—';
+  const money = value => Number.isFinite(value) ? FMT.usd0(value) : '—';
+  const usd2 = value => Number.isFinite(value) ? FMT.usd2(value) : '—';
+  const pct = value => Number.isFinite(value) ? FMT.pct1(value) : '—';
+  const ratio = (a,b) => Number.isFinite(a) && Number.isFinite(b) && b > 0 ? a/b : null;
+  const short = name => (String(name).match(/Paid Search_([^_]+)/) || [null,name])[1];
+  const table = (headers, rows, empty='No rows available in this snapshot.') => `<div class="table-scroll"><table><thead><tr>${headers.map(h=>`<th scope="col">${esc(h)}</th>`).join('')}</tr></thead><tbody>${rows.length ? rows.map(row=>`<tr>${row.map(cell=>`<td>${esc(cell)}</td>`).join('')}</tr>`).join('') : `<tr><td colspan="${headers.length}">${esc(empty)}</td></tr>`}</tbody></table></div>`;
+  const card = (label, value, note, path, format) => `<article class="metric"><p class="label">${esc(label)}</p><strong ${path ? `data-m="${esc(path)}" data-fmt="${esc(format || 'int')}"` : ''}>${esc(value)}</strong><p>${esc(note)}</p></article>`;
+  const change = (current, previous) => !Number.isFinite(current) || !Number.isFinite(previous) ? 'Comparison unavailable' : previous === 0 ? `Prior period ${n(previous)}; change not defined` : `${((current-previous)/previous*100).toFixed(1)}% vs prior period`;
+  const win = group => group.window || (group.start_date && group.end_date ? `${group.start_date} to ${group.end_date}` : 'Reporting window unavailable');
+  function bars(id, entries, currency=false) {
+    const max = Math.max(1,...entries.map(([,v])=>Number(v)||0));
+    $(id).innerHTML = entries.length ? entries.map(([label,v])=>`<div class="bar-row"><span>${esc(label)}</span><div class="track"><i style="width:${Math.max(0,(Number(v)||0)/max*100)}%"></i></div><b>${esc(currency?money(v):n(v))}</b></div>`).join('') : '<p class="muted">No series available.</p>';
+  }
+  function render(m) {
+    const group = key => sourceState(m,key).status === 'unavailable' ? {} : m[key] || {};
+    const g=group('gsc'), a=group('ga4'), ads=group('ads'), c=group('clio'), intake=group('intake');
+    const lm=group('lawmatics'), cr=group('callrail'), smith=group('smith');
+    const d=m.derived || {}, now=(m._meta || {}).generated_date || '', month=now.slice(0,7), year=now.slice(0,4);
+    const collected=Object.entries(c.collected_by_month || {}), ytd=collected.filter(([k])=>k.startsWith(year)).reduce((t,[,v])=>t+v,0);
+    const months=collected.filter(([k])=>k<month).slice(-6), last=c.collected_last_month;
+    const priorMonth=months.length>1 ? months[months.length-2][1] : undefined;
+    const leadChange=change(lm.leads_last_30d,lm.leads_prev_30d);
+    $('asof').textContent=`As of ${now || 'date unavailable'} · first-party source snapshot`;
+    CSLData.renderStatus(m);
+    const warnings=[];
+    if(a.pageview_tracking_ok === false) warnings.push(`GA4 traffic measurement needs repair: ${n(a.page_views)} recorded page views and ${n(a.sessions_total)} sessions. Traffic, engagement and landing-page figures are incomplete. Event counts describe recorded activity, not unique leads.`);
+    if(a.conversion_double_counted) warnings.push('GA4 consultation events are elevated relative to submitting sessions. Check duplicate triggers before using conversion totals.');
+    if(Object.values((m._meta || {}).sources || {}).some(s=>s.status==='stale'||s.status==='failed')) warnings.push('Some sources are showing older data or are unavailable. Source dates above apply to every affected section.');
+    $('measurement-alerts').innerHTML=warnings.length ? warnings.map(text=>`<p class="notice">${esc(text)}</p>`).join('') : '<p class="notice good">Source pulls and recorded GA4 page-view coverage pass the current checks. Attribution limits still apply.</p>';
+    $('scorecard').innerHTML=[
+      card('Collected last full month',money(last),`${c.last_complete_month || 'Month unavailable'} · Clio allocations`, 'clio.collected_last_month','usd0'),
+      card('New matters that have paid',n(c.new_paying_clients_30d),`Of ${n(c.new_matters_30d)} matters opened in the rolling 30-day Clio cohort`,'clio.new_paying_clients_30d'),
+      card('New intake leads',n(intake.leads),'Rolling 30 days · CRM records after duplicates and test exclusions','intake.leads'),
+      card('Paid search spend',money((ads.last_30d || {}).cost),`${win(ads)} · LSA shown separately`,'ads.last_30d.cost','usd0')].join('');
+    $('business-summary').textContent=`${c.last_complete_month || 'Last month'} collections were ${money(last)} (${change(last,priorMonth)}). Lawmatics recorded ${n(intake.leads)} intake leads; ${n(intake.called)} have a recorded outbound Dialpad call after arrival. Clio opened ${n(c.new_matters_30d)} matters in its rolling 30-day cohort, and ${n(c.new_paying_clients_30d)} have collected money so far. These systems use different cohorts and definitions; this is an operating scorecard, not a joined customer-conversion rate.`;
+    $('cash-summary').textContent=`${year || 'Year'} collections to the snapshot: ${c.collected_by_month ? money(ytd) : '—'}. Last 12 complete calendar months: ${money(c.collected_last_12mo)}. Outstanding bills: ${money(c.ar_total)}, including ${money(c.ar_over_90)} over 90 days. Collections are receipts applied to matters; they do not establish net profit.`;
+    bars('collections-chart',months,true);
+    $('collections-caption').textContent=`Complete months only. Current partial month ${month || '—'}: ${money((c.collected_by_month || {})[month])}. No extrapolation of a partial month.`;
+    $('gsc-window').textContent=`${win(g)} · finalized data · ${g.reporting_lag_days ?? 3}-day reporting lag`;
+    $('gsc-metrics').innerHTML=[card('Search clicks',n(g.clicks),change(g.clicks,(g.previous||{}).clicks),'gsc.clicks'),card('Impressions',n(g.impressions),change(g.impressions,(g.previous||{}).impressions),'gsc.impressions'),card('Click-through rate',pct(g.ctr),'Clicks ÷ impressions','gsc.ctr','pct1'),card('Average position',g.avg_position,'Property-wide Google Search average','gsc.avg_position','decimal1')].join('');
+    $('gsc-analysis').textContent=`Google discloses the query for ${n(g.named_clicks)} of ${n(g.clicks)} clicks (${pct(g.named_share_of_clicks)}). Among disclosed queries, ${n(g.brand_clicks)} clicks match firm or attorney names and ${n(g.nonbrand_clicks)} do not. Hidden queries prevent a firm-wide branded/nonbranded traffic split. Use the page and query tables to prioritize high-impression pages with weak CTR; verify commercial intent before rewriting.`;
+    $('gsc-queries').innerHTML=table(['Search query','Clicks','Impressions','CTR','Position'],(g.top_queries||[]).map(r=>[r.query,n(r.clicks),n(r.impressions),pct(r.ctr),r.position]));
+    $('gsc-pages').innerHTML=table(['Landing page','Clicks','Impressions','CTR','Position'],(g.top_pages||[]).map(r=>[r.page,n(r.clicks),n(r.impressions),pct(r.ctr),r.position]));
+    $('ga4-window').textContent=`${win(a)} · recorded events and traffic`;
+    $('ga4-metrics').innerHTML=[card('Recorded sessions',n(a.sessions_total),a.pageview_tracking_ok?'Page-view coverage passes':'Incomplete while page-view coverage fails','ga4.sessions_total'),card('Recorded page views',n(a.page_views),'Zero is a measured value, not a fallback','ga4.page_views'),card('Consultation events',n(a.conversion_events),`${n(a.conversion_sessions)} submitting sessions; repeat events are possible`,'ga4.conversion_events'),card('Recorded key events',n(a.key_events_total),'All configured key events; not unique clients','ga4.key_events_total')].join('');
+    $('ga4-analysis').textContent=a.pageview_tracking_ok ? 'The API reports page-view coverage consistent with the session count. Key events still include multiple actions and should not be equated with unique qualified leads or collected revenue.' : 'The API is current, but the website traffic instrument is incomplete. Restore the intended Google tag and automatic page_view delivery, verify one controlled form submission, and compare client-side events with GA4 DebugView. Do not evaluate channel traffic or landing-page conversion rates from this incomplete dataset.';
+    $('ga4-channels').innerHTML=table(['Recorded channel','Sessions','Key events'],(a.channels||[]).map(r=>[r.channel,n(r.sessions),n(r.key_events ?? r.conversions)]));
+    $('ga4-events').innerHTML=table(['Recorded event','Count'],Object.entries(a.events||{}).map(([k,v])=>[k,n(v)]));
+    $('ga4-landings').innerHTML=table(['Recorded landing page','Sessions','Key events'],(a.top_landing_pages||[]).map(r=>[r.page,n(r.sessions),n(r.key_events)]));
+    $('ads-window').textContent=`${win(ads)} · completed 30 days · account ${ads.account_time_zone || 'time zone not supplied'}`;
+    const totalAds=ads.last_30d || {};
+    $('ads-metrics').innerHTML=[card('Search spend',money(totalAds.cost),'Media spend only','ads.last_30d.cost','usd0'),card('Ad-reported conversions',n(totalAds.conversions),'Platform events; not signed or paying clients','ads.last_30d.conversions'),card('Cost / reported conversion',usd2(ads.cost_per_conv_30d),'Undefined when there are no conversions','ads.cost_per_conv_30d','usd2'),card('Average CPC',usd2(ads.cpc_30d),`${n(totalAds.clicks)} clicks; ${n(totalAds.impressions)} impressions`,'ads.cpc_30d','usd2')].join('');
+    $('ads-analysis').textContent=`Spend-weighted lost impression share is ${pct(ads.lost_to_rank_weighted)} from rank and ${pct(ads.lost_to_budget_weighted)} from budget. ${ads.lost_to_rank_weighted>ads.lost_to_budget_weighted?'Rank is the larger constraint; review relevance, landing pages and bidding before increasing budgets.':'Review campaign-level constraints before changing budgets.'} Conversion actions overlap, and the repository does not provide a joined campaign-to-collected-cash model. No campaign ROAS or profit claim is supported by these counts.`;
+    $('ads-campaigns').innerHTML=table(['Campaign','Daily budget','Spend','Clicks','Reported conversions','Cost / conversion'],(ads.campaigns_30d||[]).map(r=>[short(r.name),usd2(r.daily_budget),usd2(r.cost),n(r.clicks),Number.isFinite(r.conversions)?r.conversions.toFixed(2):'—',usd2(r.cost_per_conv)]));
+    $('ads-actions').innerHTML=table(['Conversion action','All conversions'],Object.entries(ads.conversion_actions_30d||{}).map(([k,v])=>[k,Number.isFinite(v)?v.toFixed(2):'—']));
+    const economics=d.campaign_economics||[];
+    $('campecon').innerHTML=table(['Campaign','Spend','Tracked CallRail leads','Cost / tracked lead'],economics.map(r=>[short(r.campaign),usd2(r.spend),n(r.real_leads),usd2(r.real_cost_per_lead)]),'No campaign economics available in this snapshot.');
+    $('campaign-note').textContent='Campaign matching uses the existing CallRail campaign-name join. Counts can include repeat contacts and do not establish qualified-lead or paying-client acquisition cost.';
+    const lsa=Object.entries(ads.lsa||{});
+    $('lsa-table').innerHTML=table(['LSA account','Spend / 30d','Reported conversions / 30d','YTD leads','YTD spend','YTD cost / lead'],lsa.map(([key,r])=>[key,usd2((r.last_30d||{}).cost),n((r.last_30d||{}).conversions),n(r.leads_ytd),money(r.ytd_spend),usd2(r.cost_per_lead_ytd)]));
+    $('lsa-response').innerHTML=lsa.map(([key,r])=>{const v=r.responsiveness||{};return `<p class="notice">LSA ${esc(key)} · ${esc(v.window||'response window unavailable')}: ${esc(n(v.replied))}/${esc(n(v.message_leads))} message leads received a firm reply; median first reply ${esc(v.hours_to_firm_reply?.median ?? '—')} hours among replies. ${esc(n(v.no_reply))} had no recorded reply. This measure excludes phone leads.</p>`;}).join('');
+    $('funnel').innerHTML=[['New intake leads',intake.leads,'CRM cohort; duplicates removed'],['Recorded outbound call',intake.called,'Dialpad call after lead creation'],['Call within 24 hours',intake.called_within_24h,'Of all new intake leads'],['Call within 72 hours',intake.called_within_72h,'Of all new intake leads'],['Signed and paid stage',intake.signed,'Lawmatics stage label; not an accounting receipt']].map(([label,v,note])=>`<div class="funnel-row"><span>${esc(label)}<small>${esc(note)}</small></span><strong>${esc(n(v))}</strong><div class="track"><i style="width:${Math.max(0,Math.min(100,(ratio(v,intake.leads)||0)*100))}%"></i></div></div>`).join('');
+    $('intake-analysis').textContent=`${n(intake.never_called)} of ${n(intake.leads)} leads have no recorded outbound Dialpad callback (${pct(intake.never_called_share)}). Median delay among those called: ${n(intake.median_hours_to_call)} hours. This does not mean no contact: inbound conversations, email and SMS are outside this measure. Recent leads have had less time to mature. Lawmatics lead-record volume changed ${leadChange}.`;
+    $('outcomes').innerHTML=table(['Current intake stage','Leads'],Object.entries(intake.outcomes||{}).map(([k,v])=>[k,n(v)]));
+    $('callers').innerHTML=table(['Recorded caller','Outbound calls'],Object.entries(intake.callers||{}).map(([k,v])=>[k,n(v)]));
+    $('caller-note').textContent=`Caller activity spans ${intake.outbound_calls_window_days || 35} days. The lead callback cohort spans ${intake.window_days || 30} days. Callers are parsed from the note body; integration ownership is not used as caller identity.`;
+    const paidShare=ratio(c.new_paying_clients_30d,c.new_matters_30d);
+    $('close-metrics').innerHTML=[card('New matters opened',n(c.new_matters_30d),'Rolling 30 days; Clio cohort','clio.new_matters_30d'),card('New matters with receipts',n(c.new_paying_clients_30d),`${pct(paidShare)} of new matters; recent matters are still maturing`,'clio.new_paying_clients_30d'),card('Outstanding bills',money(c.ar_total),'Current live balances; not all overdue','clio.ar_total','usd0'),card('Over 90 days',money(c.ar_over_90),'Priority collection queue','clio.ar_over_90','usd0')].join('');
+    $('ar-table').innerHTML=table(['Invoice age','Balance','Bills'],Object.entries(c.ar_buckets||{}).map(([k,v])=>[k,money(v.amount),n(v.bills)]));
+    $('practice-table').innerHTML=table(['Practice area','Matters','All-time collections','Collected / matter'],Object.entries(c.revenue_by_practice||{}).map(([k,v])=>[k,n(v.matters),money(v.collected),money(v.per_matter)]));
+    $('probate-note').textContent=`${n(c.probate_goal?.opened)} probate-administration matters opened in the trailing 12 months: ${n(c.probate_goal?.retained)} retained and ${n(c.probate_goal?.referred)} referred by the current stage-based classifier. ${n(c.probate_goal?.retained_collecting_nothing)} retained matters have no receipts yet. Deferred statutory fees and young matters may explain some of this; investigate file age and milestones before treating it as lost revenue. ${n(c.referrals_pending_firm)} referrals are awaiting a firm assignment.`;
+    $('delivery-note').textContent=`Current Clio inventory: ${n(c.matters_open)} open and ${n(c.matters_pending)} pending matters. The documented workflow runs from consultation and conflict clearance to engagement, invoice/payment, the Initial Case Assessment, and then substantive representation or a referral. The August rate card lists a $999 assessment; current pricing is not refreshed by this feed. Work closes after delivery or settlement, final invoicing, receipts, and any required trust reconciliation.`;
+    const practice=Object.entries(c.revenue_by_practice||{}), top=practice[0];
+    $('practice-note').textContent=top ? `${top[0]} leads all-time collections at ${money(top[1].collected)}. Matter counts include work at different ages and fee structures, so per-matter collections are not practice profitability.` : 'Practice collections are unavailable.';
+    $('model-note').textContent=`The legacy mature-cohort average is ${money(c.ltv_per_matter)} across ${n(c.ltv_cohort_size)} matters opened at least 365 days ago. The legacy ${d.current_roas ?? '—'}:1 ROAS estimate combines that older cohort with a separate Lawmatics sample and current ad events. It is a model, not measured campaign attribution. Current net profit is unavailable: the retained QuickBooks report is dated August 25 and carries unresolved reconciliation caveats.`;
+    const noShows=Object.entries(intake.outcomes||{}).filter(([k])=>/no show|cancel/i.test(k)).reduce((t,[,v])=>t+v,0);
+    $('priorities').innerHTML=[
+      ['01','Make first response a queue with an owner',`${n(intake.never_called)} new leads lack a recorded outbound callback; ${n(noShows)} are in no-show or cancellation stages.`, 'Intake lead + Mark', '1–3 working days to configure; validate over two weeks', 'Assign every eligible new lead, create a same-business-day callback task, escalate overdue tasks, and put cancellations/no-shows into a reviewed recovery queue. Keep conflict/disqualification rules and existing outreach preferences.', 'Every eligible lead has an owner and next action; review callback coverage and median delay daily. A 90% same-business-day target is proposed, not a measured baseline.'],
+      ['02','Repair measurement and join source to receipts',`${n(a.page_views)} GA4 page views recorded; ${pct(lm.attribution_health)} of the sampled prospects carry attribution.`, 'Website developer + Mark', '1–2 days for tag verification; 3–5 days for a tested CRM join', 'Repair the intended GA4 configuration and page_view delivery, verify one form produces one intended key event, persist source/campaign identifiers into Lawmatics and Clio, then validate conversion uploads against actual signed and paid outcomes.', 'A controlled test survives website → CRM → matter → receipt. GA4 page views return, duplicate submissions are excluded, and channel costs use matched customer IDs.'],
+      ['03','Run engagement and collections from a weekly cash queue',`${n(c.new_paying_clients_30d)} of ${n(c.new_matters_30d)} new matters have paid so far; ${money(c.ar_over_90)} is over 90 days.`, 'Mark + billing/accounting lead', '2–5 working days for the first reconciled queue', 'Review signed-but-unpaid engagements, overdue bills, pending matters and unassigned referrals with a named owner, next date and reason. Separate probate fees not yet due from overdue invoices. Use the existing QuickBooks snapshot as historical context.', 'Every aged bill and signed-unpaid engagement has a disposition. Report receipts, aging and paid-matter share weekly; do not assume the entire balance is collectible or currently due.']
+    ].map(([rank,title,evidence,owner,effort,action,done])=>`<article class="priority"><span class="rank">${rank}</span><h3>${esc(title)}</h3><p class="evidence">${esc(evidence)}</p><p><b>Owner:</b> ${esc(owner)}<br><b>Estimated setup:</b> ${esc(effort)}</p><p>${esc(action)}</p><p class="done"><b>Completion test:</b> ${esc(done)}</p></article>`).join('');
+    $('tracking-evidence').textContent=`CallRail recorded ${n(cr.leads_total)} calls/forms with ${pct(cr.answer_rate)} call answer rate in its rolling window. Smith.ai notes show ${n(smith.calls)} calls over ${n(smith.window_days)} days, with ${pct(smith.source_coverage)} recorded source coverage. These populations overlap: do not add them to CRM, LSA or Google conversion totals.`;
+    CSLData.hydrate(m);
+    document.body.dataset.loaded='true';
+  }
+  const base = window.CSL_ASSET_BASE || '';
+  fetch(base+'metrics.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw new Error('metrics unavailable');return r.json();}).then(render).catch(error=>{
+    console.error('Dashboard metrics could not be rendered:',error.message);
+    CSLData.fail();
+    document.querySelectorAll('[data-dynamic]').forEach(el=>el.replaceChildren());
+    $('business-summary').textContent='Current figures cannot be verified. Reload to retry.';
+  });
+})();
