@@ -1,5 +1,154 @@
 {
  "clio": {
+  "allocation_audit": {
+   "definition": "Non-voided Payment allocations; credits, write-offs and voided records excluded",
+   "months": {
+    "2024-02": {
+     "gross_allocations": 2997.0,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 2997.0
+    },
+    "2024-04": {
+     "gross_allocations": 4509.8,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 4509.8
+    },
+    "2024-05": {
+     "gross_allocations": 1747.1,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 1747.1
+    },
+    "2025-03": {
+     "gross_allocations": 3987.0,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 3987.0
+    },
+    "2025-04": {
+     "gross_allocations": 12907.5,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 12907.5
+    },
+    "2025-05": {
+     "gross_allocations": 19597.0,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 2.0,
+     "payment_allocations": 19595.0
+    },
+    "2025-06": {
+     "gross_allocations": 39433.5,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 39433.5
+    },
+    "2025-07": {
+     "gross_allocations": 29107.8,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 401.0,
+     "payment_allocations": 28706.8
+    },
+    "2025-08": {
+     "gross_allocations": 83691.37,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 83691.37
+    },
+    "2025-09": {
+     "gross_allocations": 54891.55,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 2410.5,
+     "payment_allocations": 52481.05
+    },
+    "2025-10": {
+     "gross_allocations": 47038.17,
+     "voided_allocations": 800.0,
+     "nonpayment_allocations": 2.0,
+     "payment_allocations": 46236.17
+    },
+    "2025-11": {
+     "gross_allocations": 28537.5,
+     "voided_allocations": 800.0,
+     "nonpayment_allocations": 2500.0,
+     "payment_allocations": 25237.5
+    },
+    "2025-12": {
+     "gross_allocations": 44709.71,
+     "voided_allocations": 13106.59,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 31603.12
+    },
+    "2026-01": {
+     "gross_allocations": 49109.55,
+     "voided_allocations": 1542.5,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 47567.05
+    },
+    "2026-02": {
+     "gross_allocations": 44490.15,
+     "voided_allocations": 743.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 43747.15
+    },
+    "2026-03": {
+     "gross_allocations": 81677.7,
+     "voided_allocations": 5142.63,
+     "nonpayment_allocations": 999.0,
+     "payment_allocations": 75536.07
+    },
+    "2026-04": {
+     "gross_allocations": 44720.45,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 44720.45
+    },
+    "2026-05": {
+     "gross_allocations": 54391.62,
+     "voided_allocations": 870.25,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 53521.37
+    },
+    "2026-06": {
+     "gross_allocations": 46849.45,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 46849.45
+    },
+    "2026-07": {
+     "gross_allocations": 60464.4,
+     "voided_allocations": 4356.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 56108.4
+    },
+    "2026-08": {
+     "gross_allocations": 85093.61,
+     "voided_allocations": 0.0,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 85093.61
+    },
+    "2026-09": {
+     "gross_allocations": 105019.87,
+     "voided_allocations": 10392.71,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 94627.16
+    },
+    "2026-10": {
+     "gross_allocations": 149247.51,
+     "voided_allocations": 37681.38,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 111566.13
+    },
+    "2026-11": {
+     "gross_allocations": 94637.38,
+     "voided_allocations": 27742.29,
+     "nonpayment_allocations": 0.0,
+     "payment_allocations": 66895.09
+    }
+   }
+  },
   "probate_goal": {
    "goal_total": 200,
    "goal_retained": 100,
@@ -13,9 +162,9 @@
    "referred_vs_goal": -69,
    "run_rate_per_month": 24.5,
    "required_per_month": 16.7,
-   "retained_collecting_nothing": 154,
+   "retained_collecting_nothing": 156,
    "retained_at_10k_plus": 6,
-   "retained_collected_total": 533068.19,
+   "retained_collected_total": 469350.35,
    "retained_median_when_earning": 3500.0,
    "referred_collected_total": 9748.13,
    "by_month": {
@@ -98,56 +247,56 @@
    "Flat-Fee - Trust Drafting": 5,
    "Hybrid": 1
   },
-  "ltv_per_matter": 2793.1,
+  "ltv_per_matter": 2724.08,
   "ltv_cohort_size": 152,
   "payback_curve": {
-   "30": 711.82,
-   "60": 1130.35,
-   "90": 1337.99,
-   "180": 2141.05,
-   "365": 2710.8
+   "30": 711.8,
+   "60": 1125.06,
+   "90": 1307.69,
+   "180": 2081.42,
+   "365": 2641.77
   },
   "payback_pct": {
-   "30": 0.2548,
-   "60": 0.4047,
-   "90": 0.479,
-   "180": 0.7665,
-   "365": 0.9705
+   "30": 0.2613,
+   "60": 0.413,
+   "90": 0.48,
+   "180": 0.7641,
+   "365": 0.9698
   },
-  "collected_all_time": 1197847.69,
+  "collected_all_time": 1088355.84,
   "collected_by_month": {
    "2024-02": 2997.0,
    "2024-04": 4509.8,
    "2024-05": 1747.1,
    "2025-03": 3987.0,
    "2025-04": 12907.5,
-   "2025-05": 19597.0,
+   "2025-05": 19595.0,
    "2025-06": 39433.5,
-   "2025-07": 29107.8,
+   "2025-07": 28706.8,
    "2025-08": 83691.37,
-   "2025-09": 54891.55,
-   "2025-10": 47038.17,
-   "2025-11": 28537.5,
-   "2025-12": 44709.71,
-   "2026-01": 49109.55,
-   "2026-02": 44490.15,
-   "2026-03": 81677.7,
+   "2025-09": 52481.05,
+   "2025-10": 46236.17,
+   "2025-11": 25237.5,
+   "2025-12": 31603.12,
+   "2026-01": 47567.05,
+   "2026-02": 43747.15,
+   "2026-03": 75536.07,
    "2026-04": 44720.45,
-   "2026-05": 54391.62,
+   "2026-05": 53521.37,
    "2026-06": 46849.45,
-   "2026-07": 60464.4,
+   "2026-07": 56108.4,
    "2026-08": 85093.61,
-   "2026-09": 105019.87,
-   "2026-10": 149247.51,
-   "2026-11": 94637.38
+   "2026-09": 94627.16,
+   "2026-10": 111566.13,
+   "2026-11": 66895.09
   },
   "collections_window": {
    "start_month": "2025-11",
    "end_month": "2026-10",
    "months": 12
   },
-  "collected_last_12mo": 794311.52,
-  "monthly_run_rate": 66192.63,
+  "collected_last_12mo": 716177.46,
+  "monthly_run_rate": 59681.45,
   "new_matters_by_month": {
    "2024-04": 2,
    "2024-11": 1,
@@ -182,11 +331,12 @@
   },
   "new_matters_30d": 61,
   "new_paying_clients_30d": 11,
+  "new_matter_collected_30d": 35089.0,
   "new_matters_prev_30d": 71,
-  "collected_last_month": 149247.51,
+  "collected_last_month": 111566.13,
   "last_complete_month": "2026-10",
   "matters_total": 726,
-  "matters_open": 85,
+  "matters_open": 84,
   "matters_pending": 135,
   "ar_total": 131226.45,
   "ar_over_90": 27068.26,
@@ -211,48 +361,48 @@
   "revenue_by_practice": {
    "Wills, Estates, & Probate (Administration, Beneficiary Rights, Etc.)": {
     "matters": 334,
-    "collected": 774886.69,
-    "per_matter": 2320.02
-   },
-   "Probate or Trust Litigation": {
-    "matters": 85,
-    "collected": 127374.43,
-    "per_matter": 1498.52
+    "collected": 708266.85,
+    "per_matter": 2120.56
    },
    "Trust/Estate Plan Drafting": {
     "matters": 82,
-    "collected": 119414.5,
-    "per_matter": 1456.27
+    "collected": 115915.5,
+    "per_matter": 1413.6
    },
-   "(unassigned)": {
-    "matters": 78,
-    "collected": 50789.42,
-    "per_matter": 651.15
+   "Probate or Trust Litigation": {
+    "matters": 85,
+    "collected": 107941.64,
+    "per_matter": 1269.9
    },
    "General Civil Litigation": {
     "matters": 35,
-    "collected": 45711.35,
-    "per_matter": 1306.04
+    "collected": 43211.35,
+    "per_matter": 1234.61
+   },
+   "(unassigned)": {
+    "matters": 78,
+    "collected": 36146.2,
+    "per_matter": 463.41
    },
    "Employment Litigation": {
     "matters": 18,
-    "collected": 24833.0,
-    "per_matter": 1379.61
+    "collected": 24239.0,
+    "per_matter": 1346.61
    },
    "General Counsel": {
     "matters": 11,
     "collected": 17186.0,
     "per_matter": 1562.36
    },
-   "Probate- Real Property Succession": {
-    "matters": 11,
-    "collected": 7693.95,
-    "per_matter": 699.45
-   },
    "Real Estate": {
     "matters": 30,
     "collected": 6007.0,
     "per_matter": 200.23
+   },
+   "Probate- Real Property Succession": {
+    "matters": 11,
+    "collected": 5490.95,
+    "per_matter": 499.18
    },
    "Corcoran Smith Law - Personal Development": {
     "matters": 1,
@@ -305,19 +455,19 @@
   ],
   "lsa": {
    "3284547403": {
-    "leads_all_time": 2003,
+    "leads_all_time": 2004,
     "leads_charged": 1725,
-    "leads_ytd": 1146,
+    "leads_ytd": 1147,
     "ytd_spend": 28044.23,
-    "cost_per_lead_ytd": 24.47,
+    "cost_per_lead_ytd": 24.45,
     "by_status": {
      "WIPED_OUT": 1820,
      "ACTIVE": 179,
-     "NEW": 4
+     "NEW": 5
     },
     "by_type": {
      "MESSAGE": 524,
-     "PHONE_CALL": 1476,
+     "PHONE_CALL": 1477,
      "UNKNOWN": 3
     },
     "leads_by_month": {
@@ -342,7 +492,7 @@
      "2026-08": 125,
      "2026-09": 110,
      "2026-10": 92,
-     "2026-11": 21
+     "2026-11": 22
     },
     "monthly_spend": [
      {
@@ -394,7 +544,7 @@
      "cost": 2910.74,
      "conversions": 59.0,
      "clicks": 1380,
-     "impressions": 13553,
+     "impressions": 13552,
      "cost_per_conv": 49.33
     },
     "daily_budget": 114.29,
@@ -407,7 +557,7 @@
     "responsiveness": {
      "window": "last 180 days",
      "measures": "MESSAGE leads only",
-     "phone_leads_not_measurable": 471,
+     "phone_leads_not_measurable": 472,
      "message_leads": 194,
      "replied": 160,
      "reply_rate": 0.8247,
@@ -473,7 +623,7 @@
    "cost": 1690.25,
    "conversions": 58.0,
    "clicks": 266,
-   "impressions": 4280
+   "impressions": 4279
   },
   "cost_per_conv_30d": 29.14,
   "cpc_30d": 6.35,
@@ -1322,13 +1472,13 @@
   "conversion_ratio_verified": true
  },
  "lawmatics": {
-  "prospects_total": 3030,
+  "prospects_total": 3031,
   "prospects_sampled": 1000,
-  "leads_last_30d": 339,
+  "leads_last_30d": 340,
   "leads_prev_30d": 389,
   "statuses": {
-   "pnc": 254,
-   "lost": 714,
+   "pnc": 255,
+   "lost": 713,
    "hired": 32
   },
   "hired": 32,
@@ -1372,7 +1522,7 @@
    "gbraid": 40,
    "user_agent": 141,
    "ip_address": 141,
-   "practice_area": 311,
+   "practice_area": 312,
    "estate_value": 57,
    "calltrk_session_id": 128
   },
@@ -1380,7 +1530,7 @@
   "pending_fields": {},
   "probate": {
    "leads_admin": 78,
-   "leads_contest": 93,
+   "leads_contest": 94,
    "estate_value_captured": 57,
    "estate_value_coverage": 0.057,
    "estate_median": 15000.0,
@@ -1521,28 +1671,28 @@
  },
  "smith": {
   "window_days": 35,
-  "calls": 457,
+  "calls": 458,
   "calls_per_day": 13.1,
-  "inbound": 448,
+  "inbound": 449,
   "outbound": 9,
   "by_month": {
    "2026-10": 344,
-   "2026-11": 113
+   "2026-11": 114
   },
   "caller_type": {
-   "New Lead": 331,
+   "New Lead": 332,
    "Repeat Caller": 85,
    "Existing Client": 41
   },
-  "new_lead_share": 0.7243,
+  "new_lead_share": 0.7249,
   "priority": {
-   "Normal": 437,
+   "Normal": 438,
    "Urgent": 20
   },
   "urgent": 20,
   "classification_coverage": 1.0,
   "referral_source": {
-   "Google": 174,
+   "Google": 175,
    "Online, unspecified": 94,
    "Unknown": 32,
    "AI assistant": 10,
@@ -1551,13 +1701,13 @@
    "Legal directory": 3,
    "Repeat caller": 2
   },
-  "source_coverage": 0.7133,
-  "source_named_channel": 200,
-  "source_google": 174,
+  "source_coverage": 0.714,
+  "source_named_channel": 201,
+  "source_google": 175,
   "source_online_unspecified": 94,
   "source_ai": 10,
   "source_referral": 7,
-  "source_google_share": 0.5337,
+  "source_google_share": 0.5352,
   "snapshot_captured_at": "2026-09-08",
   "snapshot_age_days": 62,
   "snapshot_fields": [
@@ -1604,21 +1754,21 @@
   "start_date": "2026-10-10",
   "end_date": "2026-11-09",
   "current_day_partial": true,
-  "records": 339,
+  "records": 340,
   "lsa_duplicates": 4,
   "test_records": 0,
-  "leads": 335,
+  "leads": 336,
   "leads_per_day": 11.2,
   "called": 59,
-  "call_coverage": 0.1761,
+  "call_coverage": 0.1756,
   "called_within_24h": 13,
   "called_within_72h": 22,
-  "never_called": 276,
-  "never_called_share": 0.8239,
+  "never_called": 277,
+  "never_called_share": 0.8244,
   "median_hours_to_call": 169.5,
   "callers": {
    "Richard Dixon": 134,
-   "Nick Jacobs": 130,
+   "Nick Jacobs": 131,
    "Seth Steward": 98,
    "Julie Griffin-Smith": 26,
    "Joy Erawan": 19,
@@ -1626,12 +1776,12 @@
    "Angie Caporale": 2,
    "Lydia Jacobs": 1
   },
-  "outbound_calls": 418,
+  "outbound_calls": 419,
   "outbound_calls_window_days": 35,
   "call_coverage_note": "Recorded outbound Dialpad calls after lead creation only; excludes inbound conversations, email and SMS. Current leads have unequal follow-up time.",
   "outcomes": {
    "Not Scheduled - Closed Lost": 139,
-   "(no stage)": 57,
+   "(no stage)": 58,
    "Rapid Intake Form Sent - Needs Phone Call": 26,
    "Held - Closed Lost": 24,
    "Scheduled - No Show": 19,
@@ -1669,13 +1819,13 @@
   "lead_to_client_rate": 0.032,
   "lead_to_client_source": "measured (Lawmatics hired/total)",
   "target_roas": 5.0,
-  "ltv_per_matter": 2793.1,
+  "ltv_per_matter": 2724.08,
   "lead_to_paying_client_rate": 0.0324,
-  "lead_to_matter_rate": 0.1799,
+  "lead_to_matter_rate": 0.1794,
   "paying_share_of_new_matters": 0.1803,
-  "conversion_window_note": "339 leads, 61 matters opened, 11 collected (30 days; recent matters may still convert)",
-  "max_cac_for_target": 558.62,
-  "breakeven_cost_per_conv": 17.88,
+  "conversion_window_note": "340 leads, 61 matters opened, 11 collected (30 days; recent matters may still convert)",
+  "max_cac_for_target": 544.82,
+  "breakeven_cost_per_conv": 17.43,
   "campaign_economics": [
    {
     "campaign": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
@@ -1720,7 +1870,7 @@
    "peak_leads_per_month": 146,
    "current_leads_per_month": 116.0,
    "change_vs_baseline": -0.0197,
-   "monthly_revenue_at_risk": 208.55,
+   "monthly_revenue_at_risk": 203.4,
    "call_share_now": 0.5065,
    "call_share_before": 0.6438
   },
@@ -1732,87 +1882,87 @@
    "lsa_spend_ytd": 28044.23,
    "total_paid_spend_ytd": 63992.73,
    "lsa_share_of_spend": 0.4382,
-   "lsa_leads_ytd": 1146,
-   "lsa_cost_per_lead": 24.47,
+   "lsa_leads_ytd": 1147,
+   "lsa_cost_per_lead": 24.45,
    "tracked_web_leads_ytd": 989,
    "search_cost_per_lead": 36.35,
-   "all_paid_leads_ytd": 2135,
-   "blended_cost_per_lead": 29.97
+   "all_paid_leads_ytd": 2136,
+   "blended_cost_per_lead": 29.96
   },
   "current_cost_per_conv": 29.14,
   "current_cac": 910.62,
-  "current_roas": 3.07,
-  "return_per_1000": 3067.23,
+  "current_roas": 2.99,
+  "return_per_1000": 2991.44,
   "verdict": "below target",
   "return_per_1000_by_day": {
-   "30": 781.53,
-   "60": 1241.31,
-   "90": 1469.21,
-   "180": 2351.03,
-   "365": 2976.75
+   "30": 781.66,
+   "60": 1235.46,
+   "90": 1435.89,
+   "180": 2285.76,
+   "365": 2901.1
   },
   "goal_return_per_1000": 10000.0,
   "goal_roas": 10.0,
-  "gap_to_goal": 6932.77,
-  "goal_required_cac": 279.31,
-  "goal_route_cost_per_conv": 8.94,
-  "goal_route_close_rate": 0.1043,
+  "gap_to_goal": 7008.56,
+  "goal_required_cac": 272.41,
+  "goal_route_cost_per_conv": 8.72,
+  "goal_route_close_rate": 0.107,
   "goal_route_ltv": 9106.25,
-  "goal_progress": 0.3067,
+  "goal_progress": 0.2991,
   "budget_lost_impression_share": 0.3739,
   "monthly_spend_headroom": 1009.4,
-  "monthly_revenue_forfeited": 3096.06
+  "monthly_revenue_forfeited": 3019.56
  },
  "_meta": {
-  "generated_at": "2026-11-09T21:03:28+00:00",
+  "generated_at": "2026-11-09T21:36:56+00:00",
   "generated_date": "2026-11-09",
   "sources": {
    "ga4": {
     "status": "ok",
-    "at": "2026-11-09T21:02:06+00:00",
-    "secs": 3.8
+    "at": "2026-11-09T21:35:51+00:00",
+    "secs": 1.5
    },
    "gsc": {
     "status": "ok",
-    "at": "2026-11-09T21:02:07+00:00",
-    "secs": 4.3
-   },
-   "ads": {
-    "status": "ok",
-    "at": "2026-11-09T21:02:10+00:00",
-    "secs": 7.7
+    "at": "2026-11-09T21:35:52+00:00",
+    "secs": 2.0
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-11-09T21:02:12+00:00",
-    "secs": 5.2
+    "at": "2026-11-09T21:36:00+00:00",
+    "secs": 7.8
    },
-   "clio": {
+   "ads": {
     "status": "ok",
-    "at": "2026-11-09T21:02:26+00:00",
-    "secs": 24.1
+    "at": "2026-11-09T21:36:00+00:00",
+    "secs": 10.3
+   },
+   "lawmatics": {
+    "status": "ok",
+    "at": "2026-11-09T21:36:10+00:00",
+    "secs": 19.1
    },
    "qbo": {
     "status": "snapshot",
-    "at": "2026-11-09T21:02:27+00:00",
+    "at": "2026-11-09T21:36:10+00:00",
     "secs": 0.0,
     "captured_at": "2026-08-25",
     "period": "2026-01-01 to 2026-08-25"
    },
-   "lawmatics": {
+   "clio": {
     "status": "ok",
-    "at": "2026-11-09T21:02:33+00:00",
-    "secs": 26.3
+    "at": "2026-11-09T21:36:11+00:00",
+    "secs": 20.7
    },
    "intake": {
     "status": "ok",
-    "at": "2026-11-09T21:03:28+00:00",
-    "secs": 76.2
+    "at": "2026-11-09T21:36:56+00:00",
+    "secs": 55.6
    },
    "smith": {
     "status": "ok",
-    "at": "2026-11-09T21:03:28+00:00",
-    "secs": 77.9,
+    "at": "2026-11-09T21:36:56+00:00",
+    "secs": 56.2,
     "snapshot_captured_at": "2026-09-08"
    }
   },
