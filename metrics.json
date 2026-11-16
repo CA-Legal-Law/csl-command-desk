@@ -1685,8 +1685,8 @@
   "inbound": 439,
   "outbound": 8,
   "by_month": {
-   "2026-10": 241,
-   "2026-11": 206
+   "2026-10": 240,
+   "2026-11": 207
   },
   "caller_type": {
    "New Lead": 319,
@@ -1701,8 +1701,8 @@
   "urgent": 20,
   "classification_coverage": 1.0,
   "referral_source": {
-   "Google": 161,
-   "Online, unspecified": 90,
+   "Google": 162,
+   "Online, unspecified": 89,
    "Unknown": 33,
    "AI assistant": 9,
    "Referral": 8,
@@ -1711,12 +1711,12 @@
    "Legal directory": 3
   },
   "source_coverage": 0.7025,
-  "source_named_channel": 191,
-  "source_google": 161,
-  "source_online_unspecified": 90,
+  "source_named_channel": 192,
+  "source_google": 162,
+  "source_online_unspecified": 89,
   "source_ai": 9,
   "source_referral": 8,
-  "source_google_share": 0.5127,
+  "source_google_share": 0.5159,
   "snapshot_captured_at": "2026-09-08",
   "snapshot_age_days": 69,
   "snapshot_fields": [
@@ -1776,7 +1776,7 @@
   "never_called_share": 0.8669,
   "median_hours_to_call": 24.8,
   "callers": {
-   "Richard Dixon": 129,
+   "Richard Dixon": 130,
    "Nick Jacobs": 99,
    "Seth Steward": 72,
    "Julie Griffin-Smith": 18,
@@ -1784,7 +1784,7 @@
    "Mark Smith": 10,
    "Angie Caporale": 3
   },
-  "outbound_calls": 347,
+  "outbound_calls": 348,
   "outbound_calls_window_days": 35,
   "call_coverage_note": "Recorded outbound Dialpad calls after lead creation only; excludes inbound conversations, email and SMS. Current leads have unequal follow-up time.",
   "outcomes": {
@@ -1823,8 +1823,30 @@
   "revenue_per_marketing_dollar": 8.72,
   "unclassified_income_and_expense": 36046.99
  },
- "gsc_cil": {},
- "gsc_ell": {},
+ "gsc_cil": {
+  "clicks": 141,
+  "impressions": 16882,
+  "ctr": 0.008352090984480512,
+  "avg_position": 21.2,
+  "start_date": "2026-10-17",
+  "end_date": "2026-11-13",
+  "days": 28,
+  "window": "2026-10-17 to 2026-11-13",
+  "data_state": "final",
+  "reporting_lag_days": 3
+ },
+ "gsc_ell": {
+  "clicks": 3,
+  "impressions": 1308,
+  "ctr": 0.0022935779816513763,
+  "avg_position": 66.6,
+  "start_date": "2026-10-17",
+  "end_date": "2026-11-13",
+  "days": 28,
+  "window": "2026-10-17 to 2026-11-13",
+  "data_state": "final",
+  "reporting_lag_days": 3
+ },
  "derived": {
   "lead_to_client_rate": 0.039,
   "lead_to_client_source": "measured (Lawmatics hired/total)",
@@ -1924,71 +1946,70 @@
   "monthly_revenue_forfeited": 3425.22
  },
  "_meta": {
-  "generated_at": "2026-11-16T21:29:26+00:00",
+  "generated_at": "2026-11-16T21:40:27+00:00",
   "generated_date": "2026-11-16",
   "sources": {
-   "ga4": {
-    "status": "ok",
-    "at": "2026-11-16T21:28:37+00:00",
-    "secs": 2.6
-   },
    "gsc": {
     "status": "ok",
-    "at": "2026-11-16T21:28:39+00:00",
-    "secs": 4.2
+    "at": "2026-11-16T21:39:18+00:00",
+    "secs": 1.5
+   },
+   "ga4": {
+    "status": "ok",
+    "at": "2026-11-16T21:39:19+00:00",
+    "secs": 2.7
    },
    "ads": {
     "status": "ok",
-    "at": "2026-11-16T21:28:45+00:00",
-    "secs": 10.7
+    "at": "2026-11-16T21:39:26+00:00",
+    "secs": 10.2
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-11-16T21:28:46+00:00",
-    "secs": 7.1
+    "at": "2026-11-16T21:39:28+00:00",
+    "secs": 9.3
    },
    "lawmatics": {
     "status": "ok",
-    "at": "2026-11-16T21:28:50+00:00",
-    "secs": 12.4
+    "at": "2026-11-16T21:39:36+00:00",
+    "secs": 18.2
    },
    "qbo": {
     "status": "snapshot",
-    "at": "2026-11-16T21:28:50+00:00",
+    "at": "2026-11-16T21:39:36+00:00",
     "secs": 0.0,
     "captured_at": "2026-08-25",
     "period": "2026-01-01 to 2026-08-25"
    },
-   "gsc_cil": {
-    "status": "failed",
-    "at": "2026-11-16T21:28:50+00:00"
-   },
-   "gsc_ell": {
-    "status": "failed",
-    "at": "2026-11-16T21:28:50+00:00"
-   },
    "clio": {
     "status": "ok",
-    "at": "2026-11-16T21:28:54+00:00",
-    "secs": 19.2
+    "at": "2026-11-16T21:39:38+00:00",
+    "secs": 21.3
+   },
+   "gsc_ell": {
+    "status": "ok",
+    "at": "2026-11-16T21:39:41+00:00",
+    "secs": 3.2
+   },
+   "gsc_cil": {
+    "status": "ok",
+    "at": "2026-11-16T21:40:11+00:00",
+    "secs": 34.9
    },
    "intake": {
     "status": "ok",
-    "at": "2026-11-16T21:29:26+00:00",
-    "secs": 40.0
+    "at": "2026-11-16T21:40:27+00:00",
+    "secs": 58.5
    },
    "smith": {
     "status": "ok",
-    "at": "2026-11-16T21:29:26+00:00",
-    "secs": 40.6,
+    "at": "2026-11-16T21:40:27+00:00",
+    "secs": 60.3,
     "snapshot_captured_at": "2026-09-08"
    }
   },
-  "errors": {
-   "gsc_cil": "HTTPError: HTTP Error 403: Forbidden",
-   "gsc_ell": "HTTPError: HTTP Error 403: Forbidden"
-  },
-  "sources_ok": 8,
+  "errors": {},
+  "sources_ok": 10,
   "sources_snapshot": 1,
   "google_ads_api_version": "v26",
   "sources_stale": 0,
