@@ -42,7 +42,7 @@
     const snapshot = data.snapshot_captured_at || info.snapshot_captured_at;
     return {status: stale ? "stale" : "current", label: stale ? "Needs refresh" : "Current",
       detail: `Last successful pull ${stamp(info.at)}` + (stale ? ` · ${ageDays(info.at, now) ?? "unknown"} days old` : "") +
-        (snapshot ? ` · Plan and usage snapshot ${stamp(snapshot)} (${ageDays(snapshot, now) ?? "unknown"} days old)` : "")};
+        (snapshot ? ` · Smith.ai export ${stamp(snapshot)} (${ageDays(snapshot, now) ?? "unknown"} days old)` : "")};
   }
   function metricState(m, path) {
     const [group, field] = path.split(".");

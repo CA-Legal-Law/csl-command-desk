@@ -77,6 +77,26 @@
     $('outcomes').innerHTML=table(['Current intake stage','Leads'],Object.entries(intake.outcomes||{}).map(([k,v])=>[k,n(v)]));
     $('callers').innerHTML=table(['Recorded caller','Outbound calls'],Object.entries(intake.callers||{}).map(([k,v])=>[k,n(v)]));
     $('caller-note').textContent=`Caller activity spans ${intake.outbound_calls_window_days || 35} days. The lead callback cohort spans ${intake.window_days || 30} days. Callers are parsed from the note body; integration ownership is not used as caller identity.`;
+    $('smith-window').textContent=`Lawmatics API · rolling ${n(smith.window_days)} days`;
+    $('smith-metrics').innerHTML=[
+      card('Smith.ai notes in Lawmatics',n(smith.calls),'Call notes linked to the CRM','smith.calls'),
+      card('Inbound call notes',n(smith.inbound),'Receptionist call summaries','smith.inbound'),
+      card('Outbound call notes',n(smith.outbound),'Callbacks recorded by the integration','smith.outbound'),
+      card('Urgent call notes',n(smith.urgent),'Priority recorded by Smith.ai','smith.urgent')].join('');
+    const provider = smith.provider_results;
+    const providerMetrics = [
+      ['Call records', 'call_records'],
+      ['Blocked or spam', 'blocked_or_spam'],
+      ['New lead calls', 'new_lead_calls'],
+      ['Qualified', 'qualified'],
+      ['Not qualified', 'not_qualified'],
+      ['No qualification recorded', 'no_qualification_recorded'],
+      ['Appointments reported', 'appointments_scheduled'],
+      ['Calls transferred', 'calls_transferred']
+    ];
+    $('smith-results').innerHTML=table(['Smith.ai Call History', 'Count'], provider ? providerMetrics.map(([label,key])=>[label,n(provider[key])]) : [],'No Smith.ai call export in this snapshot.');
+    $('smith-export-window').textContent=provider ? `${win(provider)} · Smith.ai export captured ${smith.snapshot_captured_at?.slice(0,10) || 'on an unknown date'}` : '';
+    $('smith-result-note').textContent='The export counts call records, including separate attempts for the same lead. Qualification and appointment results come from Smith.ai. Use the Lawmatics calendar to verify that each reported appointment is attached to the correct matter.';
     const paidShare=ratio(c.new_paying_clients_30d,c.new_matters_30d);
     $('close-metrics').innerHTML=[card('New matters opened',n(c.new_matters_30d),'Rolling 30 days; Clio cohort','clio.new_matters_30d'),card('New matters with receipts',n(c.new_paying_clients_30d),`${pct(paidShare)} of new matters; recent matters are still maturing`,'clio.new_paying_clients_30d'),card('Outstanding bills',money(c.ar_total),'Current live balances; not all overdue','clio.ar_total','usd0'),card('Over 90 days',money(c.ar_over_90),'Priority collection queue','clio.ar_over_90','usd0')].join('');
     $('ar-table').innerHTML=table(['Invoice age','Balance','Bills'],Object.entries(c.ar_buckets||{}).map(([k,v])=>[k,money(v.amount),n(v.bills)]));
@@ -92,7 +112,7 @@
       ['02','Connect the approved assessment to verified payment',`${n(a.page_views)} GA4 page views recorded. ${pct(lm.attribution_health)} of sampled prospects carry attribution.`, 'Intake, billing and integration owners', 'Test one assessment before expanding', 'Restore GA4 page views, preserve the source through intake, and connect the selected DocuSign agreement, verified $999 payment and Clio file to the Lawmatics lead.', 'One test lead travels from source through booking, signature and payment. Retried events create no duplicate matter or receipt.'],
       ['03','Run engagement and collections from a weekly cash queue',`${n(c.new_paying_clients_30d)} of ${n(c.new_matters_30d)} new matters have paid so far; ${money(c.ar_over_90)} is over 90 days.`, 'Mark + billing/accounting lead', '2–5 working days for the first reconciled queue', 'Review signed-but-unpaid engagements, overdue bills, pending matters and unassigned referrals with a named owner, next date and reason. Separate probate fees not yet due from overdue invoices. Use the existing QuickBooks snapshot as historical context.', 'Every aged bill and signed-unpaid engagement has a disposition. Report receipts, aging and paid-matter share weekly; do not assume the entire balance is collectible or currently due.']
     ].map(([rank,title,evidence,owner,effort,action,done])=>`<article class="priority"><span class="rank">${rank}</span><h3>${esc(title)}</h3><p class="evidence">${esc(evidence)}</p><p><b>Owner:</b> ${esc(owner)}<br><b>Estimated setup:</b> ${esc(effort)}</p><p>${esc(action)}</p><p class="done"><b>Completion test:</b> ${esc(done)}</p></article>`).join('');
-    $('tracking-evidence').textContent=`CallRail recorded ${n(cr.leads_total)} calls/forms with ${pct(cr.answer_rate)} call answer rate in its rolling window. Smith.ai notes show ${n(smith.calls)} calls over ${n(smith.window_days)} days, with ${pct(smith.source_coverage)} recorded source coverage. These populations overlap: do not add them to CRM, LSA or Google conversion totals.`;
+    $('tracking-evidence').textContent=`CallRail recorded ${n(cr.leads_total)} calls/forms with ${pct(cr.answer_rate)} call answer rate in its rolling window. The Smith.ai section shows receptionist activity. CallRail, Smith.ai and Lawmatics can record the same lead.`;
     CSLData.hydrate(m);
     document.body.dataset.loaded='true';
   }
