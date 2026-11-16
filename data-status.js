@@ -75,47 +75,8 @@
     });
     return filled;
   }
-  function node(tag, text, className) {
-    const el = document.createElement(tag); el.textContent = text;
-    if (className) el.className = className;
-    return el;
-  }
-  function renderStatus(m) {
-    const panel = document.getElementById("data-status");
-    if (!panel) return;
-    panel.replaceChildren();
-    const states = Object.keys(names).map(key => ({key, ...sourceState(m, key)}));
-    const count = state => states.filter(s => s.status === state).length;
-    const issues = count("stale") + count("unavailable");
-    panel.dataset.state = issues ? "attention" : "ready";
-    panel.append(node("p", `${count("current")} current · ${count("snapshot")} saved report${count("snapshot") === 1 ? "" : "s"} · ${issues} stale or unavailable`, "data-summary"));
-    const generated = dig(m, "_meta.generated_at");
-    const time = date(generated);
-    panel.append(node("p", "Dashboard generated " + (time ? new Intl.DateTimeFormat("en-US", {dateStyle: "medium", timeStyle: "short", timeZone: "America/Los_Angeles"}).format(time) + " PT" : "date unavailable") + ". Source dates below apply to the figures. Saved reports are historical.", "data-caption"));
-    states.filter(s => s.status === "snapshot").forEach(s => panel.append(node("p", `${names[s.key]}: ${s.detail}`, "data-caption")));
-    const details = document.createElement("details"); details.open = issues > 0;
-    details.append(node("summary", "Source dates and availability"));
-    const list = node("ul", "", "data-source-list");
-    states.forEach(s => {
-      const li = document.createElement("li"); li.dataset.source = s.key; li.dataset.quality = s.status;
-      li.append(node("strong", names[s.key]), node("span", s.label, "data-badge"), node("span", s.detail, "data-source-detail")); list.append(li);
-    });
-    const pending = document.createElement("li"); pending.dataset.quality = "unavailable";
-    pending.append(node("strong", "Business Profile"), node("span", "Not connected", "data-badge"), node("span", "No API feed; local profile figures are historical.", "data-source-detail")); list.append(pending);
-    details.append(list); panel.append(details);
-    document.querySelectorAll("[data-source-pill]").forEach(el => {
-      const key = el.dataset.sourcePill, state = sourceState(m, key);
-      el.classList.toggle("live", state.status === "current"); el.classList.toggle("issue", state.status !== "current");
-      el.title = state.detail; el.querySelector("b").textContent = (names[key] || key) + " · " + state.label;
-    });
-    const footer = document.getElementById("freshness");
-    if (footer) footer.textContent = panel.querySelector(".data-summary").textContent + " · " + stamp(generated);
-  }
   function fail() {
     document.querySelectorAll("[data-m]").forEach(el => { el.textContent = "—"; el.dataset.quality = "unavailable"; });
-    const panel = document.getElementById("data-status");
-    if (panel) { panel.dataset.state = "attention"; panel.replaceChildren(node("p", "Metrics unavailable. Reload to retry; no current figures can be verified.", "data-summary")); }
-    const footer = document.getElementById("freshness"); if (footer) footer.textContent = "Metrics unavailable";
   }
-  window.CSLData = {FMT, dig, sourceState, metricState, hydrate, renderStatus, fail};
+  window.CSLData = {FMT, dig, sourceState, metricState, hydrate, fail};
 })();

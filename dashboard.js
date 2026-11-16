@@ -28,13 +28,6 @@
     const months=collected.filter(([k])=>k<month).slice(-6), last=c.collected_last_month;
     const priorMonth=months.length>1 ? months[months.length-2][1] : undefined;
     const leadChange=change(lm.leads_last_30d,lm.leads_prev_30d);
-    $('asof').textContent=`As of ${now || 'date unavailable'} · first-party source snapshot`;
-    CSLData.renderStatus(m);
-    const warnings=[];
-    if(a.pageview_tracking_ok === false) warnings.push(`GA4 traffic measurement needs repair: ${n(a.page_views)} recorded page views and ${n(a.sessions_total)} sessions. Traffic, engagement and landing-page figures are incomplete. Event counts describe recorded activity, not unique leads.`);
-    if(a.conversion_double_counted) warnings.push('GA4 consultation events are elevated relative to submitting sessions. Check duplicate triggers before using conversion totals.');
-    if(Object.values((m._meta || {}).sources || {}).some(s=>s.status==='stale'||s.status==='failed')) warnings.push('Some sources are showing older data or are unavailable. Source dates above apply to every affected section.');
-    $('measurement-alerts').innerHTML=warnings.length ? warnings.map(text=>`<p class="notice">${esc(text)}</p>`).join('') : '<p class="notice good">Source pulls and recorded GA4 page-view coverage pass the current checks. Attribution limits still apply.</p>';
     $('scorecard').innerHTML=[
       card('Collected last full month',money(last),`${c.last_complete_month || 'Month unavailable'} · Clio allocations`, 'clio.collected_last_month','usd0'),
       card('New matters that have paid',n(c.new_paying_clients_30d),`Of ${n(c.new_matters_30d)} newly opened matters · ${usd2(c.new_matter_collected_30d)} applied · ${cohortWindow(c.recent_matters_window || {})}`,'clio.new_paying_clients_30d'),
@@ -44,8 +37,20 @@
     $('cash-summary').textContent=`${year || 'Year'} collections to the snapshot: ${c.collected_by_month ? money(ytd) : '—'}. Last 12 complete calendar months: ${money(c.collected_last_12mo)}. Outstanding bills: ${money(c.ar_total)}, including ${money(c.ar_over_90)} over 90 days. Collections include active payment allocations only; voided allocations and credit notes are excluded. They do not establish net profit.`;
     bars('collections-chart',months,true);
     $('collections-caption').textContent=`Complete months only. Current partial month ${month || '—'}: ${money((c.collected_by_month || {})[month])}. No extrapolation of a partial month.`;
-    $('gsc-window').textContent=`${win(g)} · finalized data · ${g.reporting_lag_days ?? 3}-day reporting lag`;
+    $('gsc-window').textContent=`Corcoran Smith Law (CSL) · ${win(g)} · finalized data`;
     $('gsc-metrics').innerHTML=[card('Search clicks',n(g.clicks),change(g.clicks,(g.previous||{}).clicks),'gsc.clicks'),card('Impressions',n(g.impressions),change(g.impressions,(g.previous||{}).impressions),'gsc.impressions'),card('Click-through rate',pct(g.ctr),'Clicks ÷ impressions','gsc.ctr','pct1'),card('Average position',g.avg_position,'Property-wide Google Search average','gsc.avg_position','decimal1')].join('');
+    const relatedSites = [
+      ['California Inheritance Law (CIL)', 'gsc_cil'],
+      ['Employment Labor Law (ELL)', 'gsc_ell']
+    ];
+    $('gsc-related-sites').innerHTML = table(['Website', 'Clicks', 'Impressions', 'CTR', 'Avg. position', 'Reporting window'],
+      relatedSites.map(([name, key]) => {
+        const site = group(key);
+        const state = sourceState(m, key);
+        const period = state.status === 'unavailable' ? state.label : win(site) + (state.status === 'stale' ? ' · Needs refresh' : '');
+        const position = Number.isFinite(site.avg_position) ? FMT.decimal1(site.avg_position) : '—';
+        return [name, n(site.clicks), n(site.impressions), pct(site.ctr), position, period];
+      }));
     $('gsc-analysis').textContent=`Google discloses the query for ${n(g.named_clicks)} of ${n(g.clicks)} clicks (${pct(g.named_share_of_clicks)}). Among disclosed queries, ${n(g.brand_clicks)} clicks match firm or attorney names and ${n(g.nonbrand_clicks)} do not. Hidden queries prevent a firm-wide branded/nonbranded traffic split. Use the page and query tables to prioritize high-impression pages with weak CTR; verify commercial intent before rewriting.`;
     $('gsc-queries').innerHTML=table(['Search query','Clicks','Impressions','CTR','Position'],(g.top_queries||[]).map(r=>[r.query,n(r.clicks),n(r.impressions),pct(r.ctr),r.position]));
     $('gsc-pages').innerHTML=table(['Landing page','Clicks','Impressions','CTR','Position'],(g.top_pages||[]).map(r=>[r.page,n(r.clicks),n(r.impressions),pct(r.ctr),r.position]));
@@ -96,6 +101,6 @@
     console.error('Dashboard metrics could not be rendered:',error.message);
     CSLData.fail();
     document.querySelectorAll('[data-dynamic]').forEach(el=>el.replaceChildren());
-    $('business-summary').textContent='Current figures cannot be verified. Reload to retry.';
+    $('business-summary').textContent='Metrics unavailable. Reload to retry.';
   });
 })();
