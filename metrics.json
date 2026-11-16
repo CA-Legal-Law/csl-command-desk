@@ -455,19 +455,19 @@
   ],
   "lsa": {
    "3284547403": {
-    "leads_all_time": 2021,
+    "leads_all_time": 2022,
     "leads_charged": 1742,
-    "leads_ytd": 1164,
+    "leads_ytd": 1165,
     "ytd_spend": 28812.72,
-    "cost_per_lead_ytd": 24.75,
+    "cost_per_lead_ytd": 24.73,
     "by_status": {
      "WIPED_OUT": 1849,
-     "ACTIVE": 169,
+     "ACTIVE": 170,
      "NEW": 3
     },
     "by_type": {
      "MESSAGE": 524,
-     "PHONE_CALL": 1494,
+     "PHONE_CALL": 1495,
      "UNKNOWN": 3
     },
     "leads_by_month": {
@@ -492,7 +492,7 @@
      "2026-08": 125,
      "2026-09": 110,
      "2026-10": 92,
-     "2026-11": 39
+     "2026-11": 40
     },
     "monthly_spend": [
      {
@@ -557,7 +557,7 @@
     "responsiveness": {
      "window": "last 180 days",
      "measures": "MESSAGE leads only",
-     "phone_leads_not_measurable": 473,
+     "phone_leads_not_measurable": 474,
      "message_leads": 184,
      "replied": 150,
      "reply_rate": 0.8152,
@@ -792,11 +792,11 @@
    },
    {
     "month": "2026-11",
-    "cost": 1020.41,
+    "cost": 1024.44,
     "conversions": 23.998474,
-    "clicks": 136,
-    "cpc": 7.5,
-    "cost_per_conv": 42.52,
+    "clicks": 137,
+    "cpc": 7.48,
+    "cost_per_conv": 42.69,
     "impression_share": 0.0999
    }
   ],
@@ -1471,8 +1471,8 @@
   "leads_last_30d": 332,
   "leads_prev_30d": 395,
   "statuses": {
-   "pnc": 304,
-   "lost": 657,
+   "pnc": 303,
+   "lost": 658,
    "hired": 39
   },
   "hired": 39,
@@ -1754,7 +1754,7 @@
   "outbound_calls_window_days": 35,
   "call_coverage_note": "Recorded outbound Dialpad calls after lead creation only; excludes inbound conversations, email and SMS. Current leads have unequal follow-up time.",
   "outcomes": {
-   "Not Scheduled - Closed Lost": 100,
+   "Not Scheduled - Closed Lost": 101,
    "(no stage)": 69,
    "Rapid Intake Form Sent - Needs Phone Call": 25,
    "Held - Low Value Follow Up": 22,
@@ -1768,7 +1768,6 @@
    "Held - High Value Follow Up": 4,
    "Held - Firm Rejected": 3,
    "Rapid Intake Form Submitted": 2,
-   "Scheduled-Firm Canceled": 1,
    "Held - Pending Engagement": 1
   },
   "signed": 10,
@@ -1876,16 +1875,16 @@
   "paid_30d_lsa": 2784.24,
   "paid_30d_search": 1705.13,
   "paid_blended": {
-   "search_spend_ytd": 36394.33,
+   "search_spend_ytd": 36398.36,
    "lsa_spend_ytd": 28812.72,
-   "total_paid_spend_ytd": 65207.05,
-   "lsa_share_of_spend": 0.4419,
-   "lsa_leads_ytd": 1164,
-   "lsa_cost_per_lead": 24.75,
+   "total_paid_spend_ytd": 65211.08,
+   "lsa_share_of_spend": 0.4418,
+   "lsa_leads_ytd": 1165,
+   "lsa_cost_per_lead": 24.73,
    "tracked_web_leads_ytd": 1025,
    "search_cost_per_lead": 35.51,
-   "all_paid_leads_ytd": 2189,
-   "blended_cost_per_lead": 29.79
+   "all_paid_leads_ytd": 2190,
+   "blended_cost_per_lead": 29.78
   },
   "current_cost_per_conv": 36.28,
   "current_cac": 930.26,
@@ -1912,66 +1911,66 @@
   "monthly_revenue_forfeited": 3425.22
  },
  "_meta": {
-  "generated_at": "2026-11-16T22:20:36+00:00",
+  "generated_at": "2026-11-16T22:58:58+00:00",
   "generated_date": "2026-11-16",
   "sources": {
    "ga4": {
     "status": "ok",
-    "at": "2026-11-16T22:19:42+00:00",
-    "secs": 3.1
-   },
-   "ads": {
-    "status": "ok",
-    "at": "2026-11-16T22:19:47+00:00",
-    "secs": 8.8
+    "at": "2026-11-16T22:58:07+00:00",
+    "secs": 4.2
    },
    "gsc": {
     "status": "ok",
-    "at": "2026-11-16T22:19:48+00:00",
-    "secs": 9.4
+    "at": "2026-11-16T22:58:09+00:00",
+    "secs": 5.7
+   },
+   "ads": {
+    "status": "ok",
+    "at": "2026-11-16T22:58:12+00:00",
+    "secs": 8.9
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-11-16T22:19:55+00:00",
-    "secs": 7.5
+    "at": "2026-11-16T22:58:16+00:00",
+    "secs": 7.2
    },
-   "lawmatics": {
+   "clio": {
     "status": "ok",
-    "at": "2026-11-16T22:19:55+00:00",
-    "secs": 13.6
+    "at": "2026-11-16T22:58:19+00:00",
+    "secs": 16.1
    },
    "qbo": {
     "status": "snapshot",
-    "at": "2026-11-16T22:19:55+00:00",
+    "at": "2026-11-16T22:58:19+00:00",
     "secs": 0.0,
     "captured_at": "2026-08-25",
     "period": "2026-01-01 to 2026-08-25"
    },
    "gsc_cil": {
     "status": "ok",
-    "at": "2026-11-16T22:19:56+00:00",
+    "at": "2026-11-16T22:58:20+00:00",
     "secs": 0.4
    },
    "gsc_ell": {
     "status": "ok",
-    "at": "2026-11-16T22:19:56+00:00",
+    "at": "2026-11-16T22:58:20+00:00",
     "secs": 0.4
    },
-   "clio": {
+   "lawmatics": {
     "status": "ok",
-    "at": "2026-11-16T22:19:58+00:00",
-    "secs": 19.8
-   },
-   "smith": {
-    "status": "ok",
-    "at": "2026-11-16T22:20:35+00:00",
-    "secs": 46.9,
-    "snapshot_captured_at": "2026-11-16T14:13:13-08:00"
+    "at": "2026-11-16T22:58:21+00:00",
+    "secs": 14.2
    },
    "intake": {
     "status": "ok",
-    "at": "2026-11-16T22:20:36+00:00",
-    "secs": 40.8
+    "at": "2026-11-16T22:58:58+00:00",
+    "secs": 41.9
+   },
+   "smith": {
+    "status": "ok",
+    "at": "2026-11-16T22:58:58+00:00",
+    "secs": 45.9,
+    "snapshot_captured_at": "2026-11-16T14:13:13-08:00"
    }
   },
   "errors": {},
