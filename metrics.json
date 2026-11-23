@@ -606,26 +606,10 @@
     "lost_to_rank": 0.5388149773693595,
     "cost": 543.96,
     "constraint": "rank"
-   },
-   {
-    "campaign": "CIL | YouTube Views | California | Long videos",
-    "impression_share": 0,
-    "lost_to_budget": 0,
-    "lost_to_rank": 0,
-    "cost": 61.83,
-    "constraint": "rank"
-   },
-   {
-    "campaign": "CIL | YouTube Views | California | Short videos",
-    "impression_share": 0,
-    "lost_to_budget": 0,
-    "lost_to_rank": 0,
-    "cost": 61.52,
-    "constraint": "rank"
    }
   ],
-  "lost_to_budget_weighted": 0.3929,
-  "lost_to_rank_weighted": 0.4551,
+  "lost_to_budget_weighted": 0.4212,
+  "lost_to_rank_weighted": 0.4879,
   "conversion_actions_30d": {
    "Form Capture": 19.965433,
    "Local actions - Other engagements": 19.0,
@@ -639,85 +623,77 @@
    "Repeat Phone Call": 2.0
   },
   "last_30d": {
-   "cost": 1834.83,
+   "cost": 1711.48,
    "conversions": 41.0,
    "clicks": 246,
-   "impressions": 29578
+   "impressions": 4261
   },
-  "cost_per_conv_30d": 44.75,
-  "cpc_30d": 7.46,
+  "cost_per_conv_30d": 41.75,
+  "cpc_30d": 6.96,
   "monthly": [
    {
     "month": "2025-06",
-    "cost": 685.97,
-    "conversions": 139.0,
-    "clicks": 1465,
-    "cpc": 0.47,
-    "cost_per_conv": 4.94,
-    "impression_share": 0.0999
+    "cost": 66.27,
+    "conversions": 4.0,
+    "clicks": 70,
+    "cpc": 0.95,
+    "cost_per_conv": 16.57
    },
    {
     "month": "2025-07",
-    "cost": 684.22,
-    "conversions": 83.0,
-    "clicks": 1609,
-    "cpc": 0.43,
-    "cost_per_conv": 8.24,
-    "impression_share": 0.0999
+    "cost": 169.73,
+    "conversions": 1.0,
+    "clicks": 118,
+    "cpc": 1.44,
+    "cost_per_conv": 169.73
    },
    {
     "month": "2025-08",
-    "cost": 561.18,
-    "conversions": 32.0,
-    "clicks": 450,
-    "cpc": 1.25,
-    "cost_per_conv": 17.54,
-    "impression_share": 0.0999
+    "cost": 460.23,
+    "conversions": 7.0,
+    "clicks": 71,
+    "cpc": 6.48,
+    "cost_per_conv": 65.75
    },
    {
     "month": "2025-09",
-    "cost": 320.5,
-    "conversions": 8.0,
-    "clicks": 159,
-    "cpc": 2.02,
-    "cost_per_conv": 40.06,
-    "impression_share": 0.0999
+    "cost": 218.7,
+    "conversions": 1.0,
+    "clicks": 41,
+    "cpc": 5.33,
+    "cost_per_conv": 218.7
    },
    {
     "month": "2025-10",
-    "cost": 521.76,
-    "conversions": 13.009039,
-    "clicks": 190,
-    "cpc": 2.75,
-    "cost_per_conv": 40.11,
-    "impression_share": 0.0999
+    "cost": 231.47,
+    "conversions": 1.0,
+    "clicks": 43,
+    "cpc": 5.38,
+    "cost_per_conv": 231.47
    },
    {
     "month": "2025-11",
-    "cost": 519.23,
-    "conversions": 15.007607,
-    "clicks": 199,
-    "cpc": 2.61,
-    "cost_per_conv": 34.6,
-    "impression_share": 0.0999
+    "cost": 201.42,
+    "conversions": 2.0,
+    "clicks": 39,
+    "cpc": 5.16,
+    "cost_per_conv": 100.71
    },
    {
     "month": "2025-12",
-    "cost": 388.3,
-    "conversions": 14.983354,
-    "clicks": 255,
-    "cpc": 1.52,
-    "cost_per_conv": 25.92,
-    "impression_share": 0.0999
+    "cost": 77.02,
+    "conversions": 0.0,
+    "clicks": 49,
+    "cpc": 1.57,
+    "cost_per_conv": null
    },
    {
     "month": "2026-01",
-    "cost": 2271.47,
-    "conversions": 48.518397,
-    "clicks": 772,
-    "cpc": 2.94,
-    "cost_per_conv": 46.82,
-    "impression_share": 0.0999
+    "cost": 2027.09,
+    "conversions": 39.031606,
+    "clicks": 626,
+    "cpc": 3.24,
+    "cost_per_conv": 51.93
    },
    {
     "month": "2026-02",
@@ -725,8 +701,7 @@
     "conversions": 54.968394,
     "clicks": 378,
     "cpc": 7.36,
-    "cost_per_conv": 50.64,
-    "impression_share": 0.0999
+    "cost_per_conv": 50.64
    },
    {
     "month": "2026-03",
@@ -734,8 +709,7 @@
     "conversions": 109.0,
     "clicks": 659,
     "cpc": 6.78,
-    "cost_per_conv": 40.97,
-    "impression_share": 0.0999
+    "cost_per_conv": 40.97
    },
    {
     "month": "2026-04",
@@ -743,8 +717,7 @@
     "conversions": 95.0,
     "clicks": 548,
     "cpc": 9.3,
-    "cost_per_conv": 53.62,
-    "impression_share": 0.10248652362329563
+    "cost_per_conv": 53.62
    },
    {
     "month": "2026-05",
@@ -752,8 +725,7 @@
     "conversions": 29.001929,
     "clicks": 267,
     "cpc": 17.96,
-    "cost_per_conv": 165.34,
-    "impression_share": 0.29838915878292
+    "cost_per_conv": 165.34
    },
    {
     "month": "2026-06",
@@ -761,8 +733,7 @@
     "conversions": 21.000796,
     "clicks": 251,
     "cpc": 20.94,
-    "cost_per_conv": 250.32,
-    "impression_share": 0.540010237160894
+    "cost_per_conv": 250.32
    },
    {
     "month": "2026-07",
@@ -770,8 +741,7 @@
     "conversions": 44.0,
     "clicks": 277,
     "cpc": 18.89,
-    "cost_per_conv": 118.92,
-    "impression_share": 0.18560648096770613
+    "cost_per_conv": 118.92
    },
    {
     "month": "2026-08",
@@ -779,8 +749,7 @@
     "conversions": 42.002621,
     "clicks": 294,
     "cpc": 6.2,
-    "cost_per_conv": 43.38,
-    "impression_share": 0.0999
+    "cost_per_conv": 43.38
    },
    {
     "month": "2026-09",
@@ -788,8 +757,7 @@
     "conversions": 43.997069,
     "clicks": 277,
     "cpc": 6.6,
-    "cost_per_conv": 41.56,
-    "impression_share": 0.0999
+    "cost_per_conv": 41.56
    },
    {
     "month": "2026-10",
@@ -797,63 +765,73 @@
     "conversions": 61.999111,
     "clicks": 290,
     "cpc": 6.29,
-    "cost_per_conv": 29.42,
-    "impression_share": 0.0999
+    "cost_per_conv": 29.42
    },
    {
     "month": "2026-11",
-    "cost": 1577.02,
+    "cost": 1445.64,
     "conversions": 29.998474,
     "clicks": 194,
-    "cpc": 8.13,
-    "cost_per_conv": 52.57,
-    "impression_share": 0.0999
+    "cpc": 7.45,
+    "cost_per_conv": 48.19
    }
   ],
   "campaigns_30d": [
    {
-    "name": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
-    "status": "ENABLED",
-    "daily_budget": 20.0,
     "cost": 599.89,
     "conversions": 9.0,
     "clicks": 76,
+    "impressions": 1635,
+    "name": "Google Ads_Paid Search_Estate Planning_English_NonBrand_Conversion_Tier1_AxE",
+    "status": "ENABLED",
+    "channel": "SEARCH",
+    "daily_budget": 20.0,
     "cost_per_conv": 66.65
    },
    {
-    "name": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
-    "status": "ENABLED",
-    "daily_budget": 20.0,
     "cost": 567.62,
     "conversions": 13.998122,
     "clicks": 76,
+    "impressions": 940,
+    "name": "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE",
+    "status": "ENABLED",
+    "channel": "SEARCH",
+    "daily_budget": 20.0,
     "cost_per_conv": 40.55
    },
    {
-    "name": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
-    "status": "ENABLED",
-    "daily_budget": 20.0,
     "cost": 543.96,
     "conversions": 18.0,
     "clicks": 94,
-    "cost_per_conv": 30.22
-   },
-   {
-    "name": "CIL | YouTube Views | California | Long videos",
+    "impressions": 1686,
+    "name": "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE",
     "status": "ENABLED",
-    "daily_budget": 0.0,
+    "channel": "SEARCH",
+    "daily_budget": 20.0,
+    "cost_per_conv": 30.22
+   }
+  ],
+  "other_campaigns_30d": [
+   {
     "cost": 61.83,
     "conversions": 0.0,
     "clicks": 0,
+    "impressions": 18322,
+    "name": "CIL | YouTube Views | California | Long videos",
+    "status": "ENABLED",
+    "channel": "VIDEO",
+    "daily_budget": 0.0,
     "cost_per_conv": null
    },
    {
-    "name": "CIL | YouTube Views | California | Short videos",
-    "status": "ENABLED",
-    "daily_budget": 0.0,
     "cost": 61.52,
     "conversions": 0.0,
     "clicks": 0,
+    "impressions": 6995,
+    "name": "CIL | YouTube Views | California | Short videos",
+    "status": "ENABLED",
+    "channel": "VIDEO",
+    "daily_budget": 0.0,
     "cost_per_conv": null
    }
   ]
@@ -1738,21 +1716,21 @@
   "source_ai": 8,
   "source_referral": 9,
   "source_google_share": 0.5101,
-  "snapshot_captured_at": "2026-11-16T14:13:13-08:00",
-  "snapshot_age_days": 7,
+  "snapshot_captured_at": "2026-11-23T13:17:21-08:00",
+  "snapshot_age_days": 0,
   "snapshot_fields": [
    "provider_results"
   ],
   "provider_results": {
    "start_date": "2026-11-01",
-   "end_date": "2026-11-16",
-   "call_records": 274,
-   "blocked_or_spam": 39,
-   "new_lead_calls": 149,
-   "qualified": 96,
-   "not_qualified": 18,
-   "no_qualification_recorded": 121,
-   "appointments_scheduled": 95,
+   "end_date": "2026-11-22",
+   "call_records": 373,
+   "blocked_or_spam": 56,
+   "new_lead_calls": 201,
+   "qualified": 132,
+   "not_qualified": 24,
+   "no_qualification_recorded": 161,
+   "appointments_scheduled": 131,
    "calls_transferred": 1
   }
  },
@@ -1890,26 +1868,6 @@
     "real_cost_per_lead": 199.96,
     "constraint": "budget",
     "verdict": "expensive leads \u2014 do not add budget"
-   },
-   {
-    "campaign": "CIL | YouTube Views | California | Long videos",
-    "spend": 61.83,
-    "ads_conversions": 0.0,
-    "ads_cost_per_conv": null,
-    "real_leads": 0,
-    "real_cost_per_lead": null,
-    "constraint": "rank",
-    "verdict": "rank-limited \u2014 fix quality, not budget"
-   },
-   {
-    "campaign": "CIL | YouTube Views | California | Short videos",
-    "spend": 61.52,
-    "ads_conversions": 0.0,
-    "ads_cost_per_conv": null,
-    "real_leads": 0,
-    "real_cost_per_lead": null,
-    "constraint": "rank",
-    "verdict": "rank-limited \u2014 fix quality, not budget"
    }
   ],
   "demand": {
@@ -1928,106 +1886,106 @@
    "call_share_now": 0.4915,
    "call_share_before": 0.6438
   },
-  "paid_30d": 4753.46,
+  "paid_30d": 4630.11,
   "paid_30d_lsa": 2918.63,
-  "paid_30d_search": 1834.83,
+  "paid_30d_search": 1711.48,
   "paid_blended": {
-   "search_spend_ytd": 36950.94,
+   "search_spend_ytd": 36575.18,
    "lsa_spend_ytd": 29551.51,
-   "total_paid_spend_ytd": 66502.45,
-   "lsa_share_of_spend": 0.4444,
+   "total_paid_spend_ytd": 66126.69,
+   "lsa_share_of_spend": 0.4469,
    "lsa_leads_ytd": 1181,
    "lsa_cost_per_lead": 25.02,
    "tracked_web_leads_ytd": 1054,
-   "search_cost_per_lead": 35.06,
+   "search_cost_per_lead": 34.7,
    "all_paid_leads_ytd": 2235,
-   "blended_cost_per_lead": 29.76
+   "blended_cost_per_lead": 29.59
   },
-  "current_cost_per_conv": 44.75,
-  "current_cac": 1091.46,
-  "current_roas": 2.62,
-  "return_per_1000": 2620.43,
+  "current_cost_per_conv": 41.75,
+  "current_cac": 1018.29,
+  "current_roas": 2.81,
+  "return_per_1000": 2808.72,
   "verdict": "below target",
   "return_per_1000_by_day": {
-   "30": 708.83,
-   "60": 1085.9,
-   "90": 1242.87,
-   "180": 1937.28,
-   "365": 2551.25
+   "30": 759.76,
+   "60": 1163.93,
+   "90": 1332.18,
+   "180": 2076.49,
+   "365": 2734.57
   },
   "goal_return_per_1000": 10000.0,
   "goal_roas": 10.0,
-  "gap_to_goal": 7379.57,
+  "gap_to_goal": 7191.28,
   "goal_required_cac": 286.01,
   "goal_route_cost_per_conv": 11.73,
-  "goal_route_close_rate": 0.1565,
-  "goal_route_ltv": 10914.63,
-  "goal_progress": 0.262,
-  "budget_lost_impression_share": 0.3929,
-  "monthly_spend_headroom": 1187.46,
-  "monthly_revenue_forfeited": 3111.64
+  "goal_route_close_rate": 0.146,
+  "goal_route_ltv": 10182.93,
+  "goal_progress": 0.2809,
+  "budget_lost_impression_share": 0.4212,
+  "monthly_spend_headroom": 1245.47,
+  "monthly_revenue_forfeited": 3498.16
  },
  "_meta": {
-  "generated_at": "2026-11-23T21:15:30+00:00",
+  "generated_at": "2026-11-23T21:22:25+00:00",
   "generated_date": "2026-11-23",
   "sources": {
    "gsc": {
     "status": "ok",
-    "at": "2026-11-23T21:14:28+00:00",
+    "at": "2026-11-23T21:21:08+00:00",
     "secs": 2.7
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-11-23T21:14:30+00:00",
-    "secs": 4.0
+    "at": "2026-11-23T21:21:09+00:00",
+    "secs": 3.8
    },
    "ads": {
     "status": "ok",
-    "at": "2026-11-23T21:14:35+00:00",
-    "secs": 8.9
+    "at": "2026-11-23T21:21:12+00:00",
+    "secs": 7.3
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-11-23T21:14:38+00:00",
-    "secs": 8.1
+    "at": "2026-11-23T21:21:14+00:00",
+    "secs": 5.3
    },
-   "lawmatics": {
+   "clio": {
     "status": "ok",
-    "at": "2026-11-23T21:14:45+00:00",
-    "secs": 16.2
+    "at": "2026-11-23T21:21:29+00:00",
+    "secs": 24.2
    },
    "qbo": {
     "status": "snapshot",
-    "at": "2026-11-23T21:14:45+00:00",
+    "at": "2026-11-23T21:21:29+00:00",
     "secs": 0.0,
     "captured_at": "2026-08-25",
     "period": "2026-01-01 to 2026-08-25"
    },
    "gsc_cil": {
     "status": "ok",
-    "at": "2026-11-23T21:14:45+00:00",
-    "secs": 0.6
+    "at": "2026-11-23T21:21:30+00:00",
+    "secs": 0.7
    },
    "gsc_ell": {
     "status": "ok",
-    "at": "2026-11-23T21:14:46+00:00",
-    "secs": 0.5
+    "at": "2026-11-23T21:21:30+00:00",
+    "secs": 0.4
    },
-   "clio": {
+   "lawmatics": {
     "status": "ok",
-    "at": "2026-11-23T21:14:57+00:00",
-    "secs": 31.0
+    "at": "2026-11-23T21:21:31+00:00",
+    "secs": 23.7
    },
    "intake": {
     "status": "ok",
-    "at": "2026-11-23T21:15:30+00:00",
-    "secs": 52.2
+    "at": "2026-11-23T21:22:25+00:00",
+    "secs": 70.5
    },
    "smith": {
     "status": "ok",
-    "at": "2026-11-23T21:15:30+00:00",
-    "secs": 55.4,
-    "snapshot_captured_at": "2026-11-16T14:13:13-08:00"
+    "at": "2026-11-23T21:22:25+00:00",
+    "secs": 72.3,
+    "snapshot_captured_at": "2026-11-23T13:17:21-08:00"
    }
   },
   "errors": {},
