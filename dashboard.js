@@ -22,7 +22,7 @@
   function render(m) {
     const group = key => sourceState(m,key).status === 'unavailable' ? {} : m[key] || {};
     const g=group('gsc'), a=group('ga4'), ads=group('ads'), c=group('clio'), intake=group('intake');
-    const lm=group('lawmatics'), cr=group('callrail'), smith=group('smith');
+    const lm=group('lawmatics'), cr=group('callrail'), smith=group('smith'), consult=group('consultations');
     const d=m.derived || {}, now=(m._meta || {}).generated_date || '', month=now.slice(0,7), year=now.slice(0,4);
     const collected=Object.entries(c.collected_by_month || {}), ytd=collected.filter(([k])=>k.startsWith(year)).reduce((t,[,v])=>t+v,0);
     const months=collected.filter(([k])=>k<month).slice(-6), last=c.collected_last_month;
@@ -77,6 +77,16 @@
     $('lsa-response').innerHTML=lsa.map(([key,r])=>{const v=r.responsiveness||{};return `<p class="notice">LSA ${esc(key)} · ${esc(v.window||'response window unavailable')}: ${esc(n(v.replied))}/${esc(n(v.message_leads))} message leads received a firm reply; median first reply ${esc(v.hours_to_firm_reply?.median ?? '—')} hours among replies. ${esc(n(v.no_reply))} had no recorded reply. This measure excludes phone leads.</p>`;}).join('');
     $('funnel').innerHTML=[['New intake leads',intake.leads,'CRM cohort; duplicates removed'],['Recorded outbound call',intake.called,'Dialpad call after lead creation'],['Call within 24 hours',intake.called_within_24h,'Of all new intake leads'],['Call within 72 hours',intake.called_within_72h,'Of all new intake leads'],['Signed and paid stage',intake.signed,'Lawmatics stage label; not an accounting receipt']].map(([label,v,note])=>`<div class="funnel-row"><span>${esc(label)}<small>${esc(note)}</small></span><strong>${esc(n(v))}</strong><div class="track"><i style="width:${Math.max(0,Math.min(100,(ratio(v,intake.leads)||0)*100))}%"></i></div></div>`).join('');
     $('intake-analysis').textContent=`${n(intake.never_called)} of ${n(intake.leads)} leads have no recorded outbound Dialpad callback (${pct(intake.never_called_share)}). Median delay among those called: ${n(intake.median_hours_to_call)} hours. This does not mean no contact: inbound conversations, email and SMS are outside this measure. Recent leads have had less time to mature. Lawmatics lead-record volume changed ${leadChange}.`;
+    const consultState=sourceState(m,'consultations');
+    $('consultation-calendar').innerHTML=table(['Calendar measure','Appointments','Dates'],[
+      ['Scheduled to occur',n(consult.scheduled),win(consult)],
+      ['Canceled',n(consult.canceled),win(consult)],
+      ['Missing an associated record',n(consult.unlinked),win(consult)],
+      ['On today’s calendar, excluding cancellations',n(consult.today_uncanceled),consult.upcoming_start_date],
+      ['On the next seven calendar dates, including today',n(consult.next_7_days_uncanceled),
+        win({start_date:consult.upcoming_start_date,end_date:consult.upcoming_end_date})]
+    ]);
+    $('consultation-window').textContent=`Lawmatics calendar entries by scheduled date. Attendance and payment require separate evidence. ${consultState.status==='ok'?'':consultState.label+'.'}`.trim();
     $('outcomes').innerHTML=table(['Current intake stage','Leads'],Object.entries(intake.outcomes||{}).map(([k,v])=>[k,n(v)]));
     $('callers').innerHTML=table(['Recorded caller','Outbound calls'],Object.entries(intake.callers||{}).map(([k,v])=>[k,n(v)]));
     $('caller-note').textContent=`Caller activity spans ${intake.outbound_calls_window_days || 35} days. The lead callback cohort spans ${intake.window_days || 30} days. Callers are parsed from the note body; integration ownership is not used as caller identity.`;
