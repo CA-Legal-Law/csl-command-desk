@@ -1,7 +1,7 @@
 {
   "source": {
     "kind": "google_sheets",
-    "at": "2026-11-25T21:14:31.036759+00:00",
+    "at": "2026-11-25T21:17:43.377497+00:00",
     "status": "current"
   },
   "period": {
@@ -1689,8 +1689,77 @@
           "signups": 32.25,
           "paid_units": 32.25
         }
+      ],
+      "yearly": [
+        {
+          "start": "2025-01-01",
+          "days": 122,
+          "new_lead_calls": 493,
+          "appointments": 308,
+          "scheduled": null,
+          "held": 63,
+          "signups": 50,
+          "paid_units": 31
+        },
+        {
+          "start": "2026-01-01",
+          "days": 329,
+          "new_lead_calls": 2122,
+          "appointments": 1252,
+          "scheduled": 1015,
+          "held": 901,
+          "signups": 155.25,
+          "paid_units": 148.25
+        }
       ]
     },
+    "attribution": [
+      [
+        "Google LSA",
+        9,
+        8
+      ],
+      [
+        "Google Paid Search",
+        11,
+        10
+      ],
+      [
+        "Organic Search",
+        18,
+        2
+      ],
+      [
+        "ChatGPT Ads",
+        1,
+        1
+      ],
+      [
+        "Referral",
+        4,
+        1
+      ],
+      [
+        "Existing/Former client",
+        2,
+        1
+      ],
+      [
+        "Unknown",
+        1,
+        0
+      ],
+      [
+        "Google Business Profile",
+        2,
+        2
+      ],
+      [
+        "Other or unmapped channels",
+        5,
+        3
+      ]
+    ],
     "intake": {
       "prep_upcoming": 9,
       "prep_past": 482,
