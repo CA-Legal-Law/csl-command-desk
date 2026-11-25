@@ -4,6 +4,7 @@
   --paper: #fffefa;
   --ink: #192c28;
   --secondary: #52645c;
+  --ink-2: var(--secondary);
   --line: #dce4db;
   --green: #256a56;
   --alert: #77501e;
@@ -18,13 +19,19 @@ a:focus-visible, select:focus-visible { outline: 3px solid #b27b30; outline-offs
 .skip { position: absolute; left: 12px; top: -100px; padding: 8px; background: var(--paper); z-index: 5; }
 .skip:focus { top: 8px; }
 .shell { width: min(calc(100% - 56px), 1260px); margin-inline: auto; }
-.site-header { background: var(--paper); border-bottom: 1px solid var(--line); }
+.site-header { position: sticky; top: 0; z-index: 4; background: var(--paper); border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 22px; min-height: 68px; }
 .site-header a { text-decoration: none; }
 .brand { font: 600 20px/1.1 Georgia, serif; color: var(--ink); }
 .brand span { display: block; margin-top: 5px; font: 600 12px/1.2 system-ui, sans-serif; color: var(--secondary); }
 nav { display: flex; gap: clamp(14px, 3vw, 32px); padding-block: 8px; }
 nav a { white-space: nowrap; font-weight: 650; font-size: 13px; }
+nav { align-items: center; }
+.report-menu summary { cursor: pointer; color: var(--green); font-size: 13px; font-weight: 700; white-space: nowrap; }
+.report-menu summary:focus-visible { outline: 3px solid #b27b30; outline-offset: 4px; }
+.report-menu-grid { position: absolute; top: 100%; right: max(14px, calc((100% - 1260px) / 2)); width: min(730px, calc(100vw - 28px)); display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 16px; padding: 18px 20px; background: var(--paper); border: 1px solid var(--line); border-radius: 0 0 12px 12px; box-shadow: 0 12px 25px #192c2826; }
+.report-menu-grid a { display: block; white-space: normal; margin-top: 7px; }
+.report-menu-grid a:hover { text-decoration: underline; }
 main { padding-block: 26px 42px; }
 h1, h2, h3, p { margin: 0; }
 h1, h2 { font-family: Georgia, serif; font-weight: 500; }
@@ -42,7 +49,15 @@ h3 { font-size: 14px; line-height: 1.3; }
 .metric strong { display: block; font-size: clamp(25px, 4vw, 37px); line-height: 1.2; margin-block: 4px; font-variant-numeric: tabular-nums; }
 .split { display: grid; grid-template-columns: 1.25fr 1fr; gap: 17px; margin-top: 17px; }
 .split.secondary { grid-template-columns: 1fr 1fr; }
-.panel { min-width: 0; padding: clamp(16px, 2.2vw, 26px); background: var(--paper); border: 1px solid var(--line); border-radius: 13px; scroll-margin-top: 12px; }
+.panel { min-width: 0; padding: clamp(16px, 2.2vw, 26px); background: var(--paper); border: 1px solid var(--line); border-radius: 13px; }
+main section[id] { scroll-margin-top: 94px; }
+.report-section { margin-top: 17px; }
+.report-detail { margin-top: 14px; }
+.report-detail summary, .trend-days summary { cursor: pointer; font-size: 13px; font-weight: 650; }
+.growth-trend { margin-top: 14px; }
+.trend-days .table-scroll { overflow: auto; }
+.muted { color: var(--secondary); font-size: 13px; }
+.warning { color: var(--alert); font-weight: 650; }
 .panel-heading { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
 .caption { color: var(--secondary); font-size: 13px; margin-top: 6px; }
 .funnel-steps { display: grid; gap: 12px; margin-top: 19px; }
@@ -64,6 +79,8 @@ select { display: block; max-width: 100%; margin-top: 2px; padding: 7px; border:
 .trend-plot .bar-fill { width: min(53%,54px); border-radius: 4px 4px 0 0; min-height: 0; }
 .trend-column .caption { margin: 0; }
 .table-wrap { overflow: auto; margin-top: 12px; }
+.long-table { max-height: 430px; }
+.long-table thead th { position: sticky; top: 0; }
 table { border-collapse: collapse; width: 100%; font-size: 13px; }
 th, td { border-bottom: 1px solid var(--line); padding: 9px 8px; text-align: left; }
 thead th { background: #edf2eb; color: #39564b; font-size: 12px; }
@@ -78,7 +95,10 @@ footer { margin-top: 21px; color: var(--secondary); font-size: 12px; }
 @media (max-width: 565px) {
   .shell { width: calc(100% - 28px); }
   .header-inner { display: block; padding-top: 13px; }
-  nav { overflow: auto; }
+  nav { gap: clamp(9px,3vw,16px); flex-wrap: wrap; }
+  nav > a, .report-menu summary { font-size: 12px; }
+  .report-menu-grid { grid-template-columns: repeat(2, minmax(0,1fr)); max-height: 65vh; overflow: auto; }
+  main section[id] { scroll-margin-top: 118px; }
   .hero-head { display: block; }
   .source-state { margin-top: 8px; text-align: left; }
   .hero { padding: 18px; }

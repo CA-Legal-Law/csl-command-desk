@@ -2,6 +2,7 @@
 (function () {
   'use strict';
   const {FMT, dig, sourceState} = CSLData;
+  const {renderTrend} = CSLTrends;
   const $ = id => document.getElementById(id);
   const esc = value => String(value ?? '—').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const n = value => Number.isFinite(value) ? FMT.int(value) : '—';
@@ -18,53 +19,6 @@
   function bars(id, entries, currency=false) {
     const max = Math.max(1,...entries.map(([,v])=>Number(v)||0));
     $(id).innerHTML = entries.length ? entries.map(([label,v])=>`<div class="bar-row"><span>${esc(label)}</span><div class="track"><i style="width:${Math.max(0,(Number(v)||0)/max*100)}%"></i></div><b>${esc(currency?money(v):n(v))}</b></div>`).join('') : '<p class="muted">No series available.</p>';
-  }
-
-  const displayDay = day => new Intl.DateTimeFormat('en-US', {month:'short', day:'numeric', timeZone:'UTC'})
-    .format(new Date(day + 'T00:00:00Z'));
-
-  function renderTrend(id, title, properties, metrics) {
-    const target = $(id);
-    if (!target) return;
-    const choices = list => list.map(([value,label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
-    target.innerHTML = `<div class="panel growth-trend"><div class="trend-head"><h3>${esc(title)}</h3><div class="trend-controls">
-      ${properties.length > 1 ? `<label>Property<select data-trend-property>${choices(properties.map(([key,label]) => [key,label]))}</select></label>` : ''}
-      <label>Metric<select data-trend-metric>${choices(metrics)}</select></label></div></div><div data-trend-content aria-live="polite"></div></div>`;
-    const propertySelect = target.querySelector('[data-trend-property]');
-    const metricSelect = target.querySelector('[data-trend-metric]');
-    const content = target.querySelector('[data-trend-content]');
-
-    function update() {
-      const [,property,source,state] = properties.find(([key]) => key === propertySelect?.value) || properties[0];
-      const [metric,label] = metrics.find(([key]) => key === metricSelect.value);
-      const first = Date.parse(`${source.start_date}T00:00:00Z`);
-      const last = Date.parse(`${source.end_date}T00:00:00Z`);
-      const days = (last - first) / 86_400_000 + 1;
-      const values = new Map((source.daily || []).map(row => [row.date, row[metric]]));
-      const rows = Number.isInteger(days) && days > 0 && days <= 31 ? Array.from({length:days}, (_,index) => {
-        const day = new Date(first + index * 86_400_000).toISOString().slice(0,10);
-        return [day, values.get(day)];
-      }) : [];
-      const measured = rows.filter(([,value]) => Number.isFinite(value));
-      const status = state.status === 'stale' ? ' · Needs refresh' : '';
-      const measurement = id === 'ga4-trend' && source.pageview_tracking_ok === false ? ' · Incomplete GA4 measurement' : '';
-      const context = `<p class="muted trend-context">${esc(win(source) + status + measurement)}</p>`;
-      if (!measured.length) {
-        content.innerHTML = context + '<p class="muted">Daily data is unavailable for this selection.</p>';
-        return;
-      }
-      const max = Math.max(1,...measured.map(([,value]) => value));
-      const dailyBars = rows.map(([day,value]) => Number.isFinite(value)
-        ? `<i style="height:${Math.max(0,value/max*100)}%" title="${esc(`${displayDay(day)} · ${n(value)} ${label.toLowerCase()}`)}"></i>`
-        : `<i class="missing" title="${esc(`${displayDay(day)} · No data`)}"></i>`).join('');
-      content.innerHTML = `${context}<div class="trend-visual" role="img" aria-label="${esc(`${property} daily ${label.toLowerCase()} from ${source.start_date} through ${source.end_date}`)}">
-        <div class="trend-scale muted"><span>${n(max)}</span><span>0</span></div><div class="trend-bars">${dailyBars}</div>
-        <div class="trend-dates muted"><span>${displayDay(source.start_date)}</span><span>${displayDay(source.end_date)}</span></div>
-        </div><details class="trend-days"><summary>View daily totals</summary>${table(['Date',label],rows.map(([day,value]) => [day,n(value)]))}</details>`;
-    }
-    propertySelect?.addEventListener('change',update);
-    metricSelect.addEventListener('change',update);
-    update();
   }
 
   function actionCards(g, a, ads, lawmatics) {
@@ -159,7 +113,7 @@
     $('ga4-events').innerHTML=table(['Recorded event','Count'],Object.entries(a.events||{}).map(([k,v])=>[k,n(v)]));
     $('ga4-landings').innerHTML=table(['Recorded landing page','Sessions','Key events'],(a.top_landing_pages||[]).map(r=>[r.page,n(r.sessions),n(r.key_events)]));
     renderTrend('ga4-trend','Daily website activity',[['ga4','Google Analytics',a,sourceState(m,'ga4')]],
-      [['sessions','Recorded sessions'],['key_events','Recorded key events'],['page_views','Recorded page views']]);
+      [['sessions','Recorded sessions'],['key_events','Recorded key events'],['page_views','Recorded page views']],true);
     $('ads-window').textContent=`${win(ads)} · completed 30 days · account ${ads.account_time_zone || 'time zone not supplied'}`;
     const totalAds=ads.last_30d || {};
     $('ads-metrics').innerHTML=[card('Search spend',money(totalAds.cost),'Media spend only','ads.last_30d.cost','usd0'),card('Ad-reported conversions',n(totalAds.conversions),'Platform events; not signed or paying clients','ads.last_30d.conversions'),card('Cost / reported conversion',usd2(ads.cost_per_conv_30d),'Undefined when there are no conversions','ads.cost_per_conv_30d','usd2'),card('Average CPC',usd2(ads.cpc_30d),`${n(totalAds.clicks)} clicks; ${n(totalAds.impressions)} impressions`,'ads.cpc_30d','usd2')].join('');
