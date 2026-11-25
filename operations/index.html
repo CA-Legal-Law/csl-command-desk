@@ -1,0 +1,62 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Operating scorecard · Corcoran Smith Law</title>
+<link rel="stylesheet" href="../operations.css?v=aa1d7118bbfd">
+<script src="../data-status.js?v=e63da4d74528" defer></script>
+<script src="../operations.js?v=f7f825207c8a" defer></script>
+<style></style></head><body>
+<a class="skip" href="#main">Skip to scorecard</a>
+<header class="site-header">
+  <div class="shell header-inner">
+    <a class="brand" href="../">Corcoran Smith Law <span>Command Desk</span></a>
+    <nav aria-label="Scorecard sections">
+      <a href="#funnel">Funnel</a><a href="#follow-up">Follow-up</a><a href="#activity">Acquisition</a><a href="#collections">Collections</a>
+    </nav>
+  </div>
+</header>
+<main id="main" class="shell">
+  <section class="hero" aria-labelledby="scorecard-title">
+    <div class="hero-head">
+      <div><h1 id="scorecard-title">Operating scorecard</h1><p id="scorecard-period">Workbook reporting period</p></div>
+      <p id="scorecard-state" class="source-state" role="status">Loading scorecard…</p>
+    </div>
+    <div id="highlights" class="highlights" aria-label="Scorecard highlights"></div>
+  </section>
+  <div class="split">
+    <section id="funnel" class="panel" aria-labelledby="funnel-title">
+      <h2 id="funnel-title">From lead to agreement</h2>
+      <p class="caption">Activity in the selected workbook period. The stages use different event dates and units.</p>
+      <div id="funnel-steps" class="funnel-steps"></div>
+    </section>
+    <section id="follow-up" class="panel" aria-labelledby="follow-up-title">
+      <h2 id="follow-up-title">What to follow up on</h2>
+      <div id="follow-up-items" class="follow-up-items"></div>
+    </section>
+  </div>
+  <div class="split">
+    <section class="panel" aria-labelledby="trend-title">
+      <div class="panel-heading"><h2 id="trend-title">Monthly trend</h2>
+        <label class="trend-picker" for="trend-metric">Metric<select id="trend-metric">
+          <option value="held">Consults held</option><option value="scheduled">Consults on calendar</option><option value="weighted_signups">Weighted sign-ups</option>
+        </select></label>
+      </div>
+      <div id="monthly-trend" aria-live="polite"></div>
+    </section>
+    <section class="panel" aria-labelledby="targets-title">
+      <h2 id="targets-title">Performance against goals</h2>
+      <p class="caption">Latest 28-day indicators from the workbook.</p>
+      <div id="targets" class="table-wrap"></div>
+    </section>
+  </div>
+  <div class="split secondary">
+    <section id="activity" class="panel" aria-labelledby="activity-title">
+      <h2 id="activity-title">Acquisition activity</h2>
+      <p class="caption">KPI Tracker entries. Spend and leads reflect the tracker’s reporting coverage.</p>
+      <div id="activity-table" class="table-wrap"></div>
+    </section>
+    <section id="collections" class="panel" aria-labelledby="collections-title">
+      <h2 id="collections-title">Collections and matters</h2>
+      <p id="clio-date" class="caption" role="status">Loading Clio figures…</p><div id="clio" class="table-wrap"></div>
+    </section>
+  </div>
+  <footer>Sources include the CSL operating workbook and Clio. Weighted engagement and invoice units describe service mix. Clio collections show applied receipts in dollars.</footer>
+</main>
+</body></html>
