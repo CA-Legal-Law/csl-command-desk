@@ -1,7 +1,7 @@
 {
   "source": {
     "kind": "google_sheets",
-    "at": "2026-11-25T20:58:00.597960+00:00",
+    "at": "2026-11-25T21:14:31.036759+00:00",
     "status": "current"
   },
   "period": {
@@ -97,5 +97,1607 @@
       "held": 101,
       "weighted_signups": 13
     }
-  ]
+  ],
+  "reports": {
+    "pace": [
+      [
+        "Total calls (all Smith.ai calls)",
+        "number",
+        375,
+        449,
+        476,
+        427
+      ],
+      [
+        "New leads",
+        "number",
+        228,
+        294,
+        299,
+        268
+      ],
+      [
+        "New leads to booked",
+        "percent",
+        0.618421052631579,
+        0.5884353741496599,
+        0.6,
+        0.6119402985074627
+      ],
+      [
+        "Booked by Smith.ai",
+        "number",
+        141,
+        173,
+        180,
+        164
+      ],
+      [
+        "On the Lawmatics calendar (all booking sources)",
+        "number",
+        161,
+        169,
+        180,
+        194
+      ],
+      [
+        "Booked to held",
+        "percent",
+        0.7888198757763976,
+        0.5976331360946746,
+        0.8,
+        0.7835051546391752
+      ],
+      [
+        "Held",
+        "number",
+        127,
+        101,
+        130,
+        152
+      ],
+      [
+        "Agreements sent (for consults in the period)",
+        "number",
+        66,
+        63,
+        74,
+        79
+      ],
+      [
+        "Held to signed",
+        "percent",
+        0.1515748031496063,
+        0.12871287128712872,
+        0.2,
+        0.13815789473684212
+      ],
+      [
+        "NEW-CLIENT SIGN-UPS",
+        "number",
+        19.25,
+        13,
+        20,
+        21
+      ]
+    ],
+    "rolling": [
+      [
+        "Total calls (all Smith.ai calls)",
+        "number",
+        375,
+        433,
+        860,
+        null
+      ],
+      [
+        "New leads",
+        "number",
+        228,
+        265,
+        549,
+        833
+      ],
+      [
+        "New leads to booked",
+        "percent",
+        0.618421052631579,
+        0.630188679245283,
+        0.6010928961748634,
+        0.5858343337334934
+      ],
+      [
+        "Booked by Smith.ai",
+        "number",
+        141,
+        167,
+        330,
+        488
+      ],
+      [
+        "On the Lawmatics calendar (all booking sources)",
+        "number",
+        161,
+        216,
+        360,
+        464
+      ],
+      [
+        "Booked to held",
+        "percent",
+        0.7888198757763976,
+        0.7453703703703703,
+        0.6972222222222222,
+        0.7607758620689655
+      ],
+      [
+        "Held",
+        "number",
+        127,
+        161,
+        251,
+        353
+      ],
+      [
+        "Agreements sent (for consults in the window)",
+        "number",
+        66,
+        85,
+        144,
+        195
+      ],
+      [
+        "Held to signed",
+        "percent",
+        0.1515748031496063,
+        0.13198757763975155,
+        0.14840637450199204,
+        0.14801699716713881
+      ],
+      [
+        "NEW-CLIENT SIGN-UPS (KPI row 22)",
+        "number",
+        19.25,
+        21.25,
+        37.25,
+        52.25
+      ],
+      [
+        "Sign-ups matched to a consult (by signing date)",
+        "number",
+        13,
+        15,
+        29,
+        44
+      ],
+      [
+        "Avg days, consult held to signed",
+        "number",
+        6.5,
+        6.2,
+        5.2,
+        7.2
+      ],
+      [
+        "Avg days, first agreement sent to signed",
+        "number",
+        7.4,
+        7.4,
+        7.4,
+        7.4
+      ],
+      [
+        "Sign-ups with a send date on file",
+        "number",
+        10,
+        10,
+        10,
+        10
+      ]
+    ],
+    "comparison": [
+      [
+        "New-lead calls",
+        "number",
+        237,
+        255,
+        278,
+        294
+      ],
+      [
+        "Appointments set by Smith.ai",
+        "number",
+        134,
+        135,
+        159,
+        173
+      ],
+      [
+        "Booking rate (appointments set / new-lead calls)",
+        "percent",
+        0.5654008438818565,
+        0.5294117647058824,
+        0.5719424460431655,
+        0.5884353741496599
+      ],
+      [
+        "Consults on the calendar",
+        "number",
+        104,
+        95,
+        132,
+        169
+      ],
+      [
+        "Consults held",
+        "number",
+        98,
+        98,
+        110,
+        101
+      ],
+      [
+        "Show rate (held / on the calendar)",
+        "percent",
+        0.9423076923076923,
+        1.0315789473684212,
+        0.8333333333333334,
+        0.5976331360946746
+      ],
+      [
+        "NEW-CLIENT SIGN-UPS",
+        "number",
+        18,
+        15,
+        20,
+        13
+      ],
+      [
+        "Sign-up goal for the period",
+        "number",
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        "% of goal",
+        "percent",
+        null,
+        null,
+        null,
+        null
+      ],
+      [
+        "Close rate (sign-ups / held)",
+        "percent",
+        0.1836734693877551,
+        0.15306122448979592,
+        0.18181818181818182,
+        0.12871287128712872
+      ],
+      [
+        "Lead-to-client (sign-ups / new-lead calls)",
+        "percent",
+        0.0759493670886076,
+        0.058823529411764705,
+        0.07194244604316546,
+        0.04421768707482993
+      ],
+      [
+        "$999 initial payments",
+        "number",
+        18,
+        15,
+        20,
+        13
+      ],
+      [
+        "Sign-ups per 7 days (levels periods of different length)",
+        "number",
+        4.064516129032258,
+        3.3870967741935485,
+        4.666666666666666,
+        2.935483870967742
+      ]
+    ],
+    "indicators": [
+      [
+        "New-lead calls per week",
+        "number",
+        62.25,
+        68.75,
+        74
+      ],
+      [
+        "Smith.ai booking rate",
+        "percent",
+        0.6305220883534136,
+        0.5781818181818181,
+        0.6
+      ],
+      [
+        "Consults booked for the next 7 days",
+        "number",
+        9,
+        null,
+        41
+      ],
+      [
+        "Show rate (held / scheduled)",
+        "percent",
+        0.7578947368421053,
+        0.6027397260273972,
+        0.8
+      ],
+      [
+        "Agreements sent within 1 day of consult",
+        "percent",
+        0.3958333333333333,
+        0.22580645161290322,
+        0.7
+      ],
+      [
+        "Offer rate (agreements sent / held)",
+        "percent",
+        0.5208333333333334,
+        0.6021505376344086,
+        0.6
+      ],
+      [
+        "Open unsigned agreements (pipeline)",
+        "number",
+        57,
+        null,
+        6
+      ],
+      [
+        "Unknown lead-source share",
+        "percent",
+        0.24855491329479767,
+        0.2937062937062937,
+        0.1
+      ],
+      [
+        "Unassigned-rep share",
+        "percent",
+        0.04046242774566474,
+        0.13286713286713286,
+        0.05
+      ],
+      [
+        "Outcome evidence gap",
+        "percent",
+        0.09826589595375723,
+        0.3146853146853147,
+        0.05
+      ],
+      [
+        "Average Sales Score",
+        "number",
+        48.5,
+        46.4,
+        60
+      ],
+      [
+        "New-client sign-ups MTD as % of prorated goal",
+        "percent",
+        1.1406250000000004,
+        null,
+        1
+      ],
+      [
+        "Projected month-end new-client sign-ups",
+        "number",
+        22.8,
+        13,
+        20
+      ],
+      [
+        "Close rate, all Phase 1 (new-client sign-ups / held)",
+        "percent",
+        0.14756944444444445,
+        0.13636363636363635,
+        0.2
+      ],
+      [
+        "Close rate, core (whiteboard basis)",
+        "percent",
+        0.14756944444444445,
+        0.13636363636363635,
+        0.2
+      ],
+      [
+        "Lead-to-client conversion",
+        "percent",
+        0.0853413654618474,
+        0.04363636363636364,
+        0.096
+      ],
+      [
+        "Paid initial invoices (weighted units)",
+        "number",
+        18.25,
+        13,
+        16
+      ],
+      [
+        "Median days, consult to signed",
+        "number",
+        2,
+        6,
+        3
+      ],
+      [
+        "Paid-media spend per new-client sign-up (Meta + ChatGPT only)",
+        "money",
+        57.63435294117647,
+        null,
+        null
+      ]
+    ],
+    "channels": [
+      [
+        "Google LSA",
+        29,
+        23,
+        1,
+        0.043478260869565216
+      ],
+      [
+        "Google Paid Search",
+        4,
+        3,
+        0,
+        0
+      ],
+      [
+        "Google (self-reported; LSA/Paid/Organic unknown)",
+        36,
+        32,
+        1,
+        0.03125
+      ],
+      [
+        "Online search (self-reported)",
+        18,
+        14,
+        2,
+        0.14285714285714285
+      ],
+      [
+        "Organic Search",
+        2,
+        2,
+        0,
+        0
+      ],
+      [
+        "Meta",
+        6,
+        5,
+        0,
+        0
+      ],
+      [
+        "ChatGPT Ads",
+        0,
+        0,
+        0,
+        null
+      ],
+      [
+        "AI assistant / ChatGPT (self-reported)",
+        6,
+        5,
+        2,
+        0.4
+      ],
+      [
+        "YouTube",
+        0,
+        0,
+        0,
+        null
+      ],
+      [
+        "Referral",
+        9,
+        9,
+        2,
+        0.2222222222222222
+      ],
+      [
+        "Directory",
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        "Existing/Former client",
+        0,
+        0,
+        0,
+        null
+      ],
+      [
+        "Unmapped Lawmatics source ID",
+        4,
+        3,
+        0,
+        0
+      ],
+      [
+        "Unknown",
+        33,
+        29,
+        3,
+        0.10344827586206896
+      ]
+    ],
+    "services": [
+      [
+        "Initial Case Assessment (ICA)",
+        76,
+        70,
+        6,
+        0.08571428571428572
+      ],
+      [
+        "Employee Rights Assessment (ERA)",
+        18,
+        17,
+        3,
+        0.17647058823529413
+      ],
+      [
+        "Litigation Action Plan (LAP)",
+        7,
+        5,
+        0,
+        0
+      ],
+      [
+        "Attorney Strategy Session",
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        "Personnel Records & Lit Hold Letter",
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        "Trust Drafting",
+        4,
+        4,
+        0,
+        0
+      ],
+      [
+        "Will, POA & AHCD",
+        6,
+        4,
+        0,
+        0
+      ],
+      [
+        "Business Document Drafting",
+        0,
+        0,
+        0,
+        null
+      ],
+      [
+        "Real Estate Document Drafting",
+        3,
+        2,
+        0,
+        0
+      ],
+      [
+        "Pre-Filing Case Assessment (legacy)",
+        4,
+        4,
+        0,
+        0
+      ],
+      [
+        "Litigation (Phase 2/3)",
+        0,
+        0,
+        0,
+        null
+      ],
+      [
+        "Referral / no Phase 1 product",
+        8,
+        6,
+        0,
+        0
+      ],
+      [
+        "Pro bono",
+        1,
+        1,
+        0,
+        0
+      ],
+      [
+        "(none)",
+        19,
+        11,
+        2,
+        0.18181818181818182
+      ]
+    ],
+    "signing": [
+      [
+        "Initial Case Assessment (ICA)",
+        8,
+        2,
+        0.6153846153846154,
+        9.5,
+        11,
+        6
+      ],
+      [
+        "Employee Rights Assessment (ERA)",
+        3,
+        0,
+        0.23076923076923078,
+        2.3,
+        2.3,
+        3
+      ],
+      [
+        "Litigation Action Plan (LAP)",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Attorney Strategy Session",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Personnel Records & Lit Hold Letter",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Trust Drafting",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Will, POA & AHCD",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Business Document Drafting",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Real Estate Document Drafting",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Pre-Filing Case Assessment (legacy)",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Litigation (Phase 2/3)",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Referral / no Phase 1 product",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "Pro bono",
+        0,
+        0,
+        null,
+        null,
+        null,
+        0
+      ],
+      [
+        "(none)",
+        2,
+        0,
+        0.15384615384615385,
+        0.5,
+        1,
+        1
+      ],
+      [
+        "Firm",
+        13,
+        2,
+        1,
+        6.5,
+        7.4,
+        10
+      ]
+    ],
+    "audit": [
+      [
+        "Audit rows",
+        996
+      ],
+      [
+        "Skeleton audit rows",
+        451
+      ],
+      [
+        "Skeleton rows older than 7 days",
+        442
+      ],
+      [
+        "Review flags",
+        301
+      ],
+      [
+        "Fail flags",
+        6
+      ],
+      [
+        "Rows updated in latest run",
+        0
+      ],
+      [
+        "Summary-source rows",
+        25
+      ],
+      [
+        "Missed consults without an audit row",
+        4
+      ],
+      [
+        "Off-calendar consults pending review",
+        25
+      ],
+      [
+        "DocuSign and CRM mismatches",
+        4
+      ]
+    ],
+    "tracker": [
+      [
+        "Total Leads (MQL)",
+        323,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "- Organic Search",
+        22,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- Paid Search",
+        91,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- Organic Social Media",
+        0,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- Paid Social Media",
+        1,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- LegalShield",
+        0,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- Will & Trust",
+        0,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- YouTube",
+        0,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- Email Campaigns",
+        0,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "- Other",
+        0,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "Referrals",
+        2,
+        23,
+        "2026-11-23"
+      ],
+      [
+        "Google LSA Leads",
+        64,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Website Form Fill Leads",
+        null,
+        0,
+        null
+      ],
+      [
+        "Website Click to Call Leads",
+        null,
+        0,
+        null
+      ],
+      [
+        "Website Click to Mail Leads",
+        null,
+        0,
+        null
+      ],
+      [
+        "Total Web Traffic",
+        79,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "CallRail Calls",
+        49,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "CallRail Texts",
+        2,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "CallRail Form Submissions",
+        67,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Google LSA Leads (Litigation)",
+        21,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Trust Litigation Engagements Signed",
+        2,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Other Legal Service Contracts",
+        3,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Google LSA (Employment Law)",
+        0,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Intaker Leads",
+        56,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Smith.ai New Lead calls (KPI row 18)",
+        228,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Smith.ai Initial Consult Appointments Set",
+        141,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Initial Consults Scheduled",
+        161,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Initial Consult Held",
+        127,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Initial Engagement Agreements Signed",
+        19.25,
+        25,
+        "2026-11-25"
+      ],
+      [
+        "Initial invoices paid (tracker units)",
+        19.25,
+        25,
+        "2026-11-25"
+      ],
+      [
+        "Meta Ads Spend ($)",
+        555.57,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "ChatGPT Ads Spend ($)",
+        654.65,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "Meta Ads Leads",
+        15,
+        24,
+        "2026-11-24"
+      ],
+      [
+        "ChatGPT Ads Leads",
+        null,
+        0,
+        null
+      ]
+    ],
+    "periods": {
+      "daily": [
+        {
+          "start": "2026-10-29",
+          "days": 1,
+          "new_lead_calls": 5,
+          "appointments": 4,
+          "scheduled": 13,
+          "held": 6,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-10-30",
+          "days": 1,
+          "new_lead_calls": 5,
+          "appointments": 4,
+          "scheduled": 1,
+          "held": 1,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-10-31",
+          "days": 1,
+          "new_lead_calls": 1,
+          "appointments": 1,
+          "scheduled": 3,
+          "held": 1,
+          "signups": 1,
+          "paid_units": 1
+        },
+        {
+          "start": "2026-11-01",
+          "days": 1,
+          "new_lead_calls": 6,
+          "appointments": 1,
+          "scheduled": 8,
+          "held": 6,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-02",
+          "days": 1,
+          "new_lead_calls": 13,
+          "appointments": 6,
+          "scheduled": 9,
+          "held": 8,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-03",
+          "days": 1,
+          "new_lead_calls": 7,
+          "appointments": 5,
+          "scheduled": 3,
+          "held": 2,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-04",
+          "days": 1,
+          "new_lead_calls": 13,
+          "appointments": 6,
+          "scheduled": 6,
+          "held": 5,
+          "signups": 0.75,
+          "paid_units": 0.75
+        },
+        {
+          "start": "2026-11-05",
+          "days": 1,
+          "new_lead_calls": 12,
+          "appointments": 9,
+          "scheduled": 9,
+          "held": 8,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-06",
+          "days": 1,
+          "new_lead_calls": 7,
+          "appointments": 6,
+          "scheduled": 1,
+          "held": 1,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-07",
+          "days": 1,
+          "new_lead_calls": 3,
+          "appointments": 1,
+          "scheduled": 4,
+          "held": 2,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-08",
+          "days": 1,
+          "new_lead_calls": 6,
+          "appointments": 1,
+          "scheduled": 4,
+          "held": 4,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-09",
+          "days": 1,
+          "new_lead_calls": 16,
+          "appointments": 10,
+          "scheduled": 12,
+          "held": 9,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-10",
+          "days": 1,
+          "new_lead_calls": 11,
+          "appointments": 6,
+          "scheduled": 9,
+          "held": 8,
+          "signups": 2,
+          "paid_units": 2
+        },
+        {
+          "start": "2026-11-11",
+          "days": 1,
+          "new_lead_calls": 9,
+          "appointments": 4,
+          "scheduled": 3,
+          "held": 2,
+          "signups": 3,
+          "paid_units": 3
+        },
+        {
+          "start": "2026-11-12",
+          "days": 1,
+          "new_lead_calls": 16,
+          "appointments": 11,
+          "scheduled": 12,
+          "held": 9,
+          "signups": 2,
+          "paid_units": 2
+        },
+        {
+          "start": "2026-11-13",
+          "days": 1,
+          "new_lead_calls": 13,
+          "appointments": 12,
+          "scheduled": 0,
+          "held": 0,
+          "signups": 1,
+          "paid_units": 1
+        },
+        {
+          "start": "2026-11-14",
+          "days": 1,
+          "new_lead_calls": 3,
+          "appointments": 2,
+          "scheduled": 4,
+          "held": 4,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-15",
+          "days": 1,
+          "new_lead_calls": 4,
+          "appointments": 3,
+          "scheduled": 7,
+          "held": 5,
+          "signups": 2,
+          "paid_units": 2
+        },
+        {
+          "start": "2026-11-16",
+          "days": 1,
+          "new_lead_calls": 14,
+          "appointments": 10,
+          "scheduled": 11,
+          "held": 10,
+          "signups": 1,
+          "paid_units": 1
+        },
+        {
+          "start": "2026-11-17",
+          "days": 1,
+          "new_lead_calls": 11,
+          "appointments": 8,
+          "scheduled": 13,
+          "held": 11,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-18",
+          "days": 1,
+          "new_lead_calls": 11,
+          "appointments": 8,
+          "scheduled": 9,
+          "held": 5,
+          "signups": 2,
+          "paid_units": 2
+        },
+        {
+          "start": "2026-11-19",
+          "days": 1,
+          "new_lead_calls": 7,
+          "appointments": 6,
+          "scheduled": 9,
+          "held": 9,
+          "signups": 1.25,
+          "paid_units": 1.25
+        },
+        {
+          "start": "2026-11-20",
+          "days": 1,
+          "new_lead_calls": 7,
+          "appointments": 3,
+          "scheduled": 0,
+          "held": 0,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-21",
+          "days": 1,
+          "new_lead_calls": 8,
+          "appointments": 2,
+          "scheduled": 3,
+          "held": 2,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-22",
+          "days": 1,
+          "new_lead_calls": 4,
+          "appointments": 2,
+          "scheduled": 6,
+          "held": 4,
+          "signups": 0,
+          "paid_units": 0
+        },
+        {
+          "start": "2026-11-23",
+          "days": 1,
+          "new_lead_calls": 15,
+          "appointments": 13,
+          "scheduled": 8,
+          "held": 3,
+          "signups": 1.25,
+          "paid_units": 1.25
+        },
+        {
+          "start": "2026-11-24",
+          "days": 1,
+          "new_lead_calls": 12,
+          "appointments": 6,
+          "scheduled": 11,
+          "held": 10,
+          "signups": 2,
+          "paid_units": 2
+        },
+        {
+          "start": "2026-11-25",
+          "days": 1,
+          "new_lead_calls": null,
+          "appointments": null,
+          "scheduled": null,
+          "held": null,
+          "signups": 1,
+          "paid_units": 1
+        }
+      ],
+      "weekly": [
+        {
+          "start": "2026-09-07",
+          "days": 7,
+          "new_lead_calls": 59,
+          "appointments": 34,
+          "scheduled": 26,
+          "held": 25,
+          "signups": 1,
+          "paid_units": 1
+        },
+        {
+          "start": "2026-09-14",
+          "days": 7,
+          "new_lead_calls": 70,
+          "appointments": 49,
+          "scheduled": 29,
+          "held": 23,
+          "signups": 5,
+          "paid_units": 5
+        },
+        {
+          "start": "2026-09-21",
+          "days": 7,
+          "new_lead_calls": 65,
+          "appointments": 35,
+          "scheduled": 36,
+          "held": 28,
+          "signups": 6,
+          "paid_units": 6
+        },
+        {
+          "start": "2026-09-28",
+          "days": 7,
+          "new_lead_calls": 61,
+          "appointments": 30,
+          "scheduled": 36,
+          "held": 24,
+          "signups": 6,
+          "paid_units": 6
+        },
+        {
+          "start": "2026-10-05",
+          "days": 7,
+          "new_lead_calls": 84,
+          "appointments": 46,
+          "scheduled": 36,
+          "held": 19,
+          "signups": 2,
+          "paid_units": 2
+        },
+        {
+          "start": "2026-10-12",
+          "days": 7,
+          "new_lead_calls": 72,
+          "appointments": 49,
+          "scheduled": 30,
+          "held": 19,
+          "signups": 6,
+          "paid_units": 6
+        },
+        {
+          "start": "2026-10-19",
+          "days": 7,
+          "new_lead_calls": 61,
+          "appointments": 34,
+          "scheduled": 35,
+          "held": 21,
+          "signups": 2,
+          "paid_units": 2
+        },
+        {
+          "start": "2026-10-26",
+          "days": 7,
+          "new_lead_calls": 43,
+          "appointments": 27,
+          "scheduled": 63,
+          "held": 40,
+          "signups": 3,
+          "paid_units": 3
+        },
+        {
+          "start": "2026-11-02",
+          "days": 7,
+          "new_lead_calls": 61,
+          "appointments": 34,
+          "scheduled": 36,
+          "held": 30,
+          "signups": 0.75,
+          "paid_units": 0.75
+        },
+        {
+          "start": "2026-11-09",
+          "days": 7,
+          "new_lead_calls": 72,
+          "appointments": 48,
+          "scheduled": 47,
+          "held": 37,
+          "signups": 10,
+          "paid_units": 10
+        },
+        {
+          "start": "2026-11-16",
+          "days": 7,
+          "new_lead_calls": 62,
+          "appointments": 39,
+          "scheduled": 51,
+          "held": 41,
+          "signups": 4.25,
+          "paid_units": 4.25
+        },
+        {
+          "start": "2026-11-23",
+          "days": 3,
+          "new_lead_calls": 27,
+          "appointments": 19,
+          "scheduled": 19,
+          "held": 13,
+          "signups": 4.25,
+          "paid_units": 4.25
+        }
+      ],
+      "monthly": [
+        {
+          "start": "2025-12-01",
+          "days": 31,
+          "new_lead_calls": 122,
+          "appointments": 75,
+          "scheduled": null,
+          "held": 63,
+          "signups": 11,
+          "paid_units": 7
+        },
+        {
+          "start": "2026-01-01",
+          "days": 31,
+          "new_lead_calls": 136,
+          "appointments": 83,
+          "scheduled": null,
+          "held": 60,
+          "signups": 14,
+          "paid_units": 10
+        },
+        {
+          "start": "2026-02-01",
+          "days": 28,
+          "new_lead_calls": 121,
+          "appointments": 82,
+          "scheduled": 20,
+          "held": 61,
+          "signups": 14,
+          "paid_units": 11
+        },
+        {
+          "start": "2026-03-01",
+          "days": 31,
+          "new_lead_calls": 148,
+          "appointments": 102,
+          "scheduled": 101,
+          "held": 78,
+          "signups": 12,
+          "paid_units": 13
+        },
+        {
+          "start": "2026-04-01",
+          "days": 30,
+          "new_lead_calls": 158,
+          "appointments": 80,
+          "scheduled": 81,
+          "held": 56,
+          "signups": 10,
+          "paid_units": 10
+        },
+        {
+          "start": "2026-05-01",
+          "days": 31,
+          "new_lead_calls": 118,
+          "appointments": 69,
+          "scheduled": 79,
+          "held": 64,
+          "signups": 9,
+          "paid_units": 9
+        },
+        {
+          "start": "2026-06-01",
+          "days": 30,
+          "new_lead_calls": 149,
+          "appointments": 94,
+          "scheduled": 73,
+          "held": 48,
+          "signups": 11,
+          "paid_units": 10
+        },
+        {
+          "start": "2026-07-01",
+          "days": 31,
+          "new_lead_calls": 237,
+          "appointments": 134,
+          "scheduled": 104,
+          "held": 98,
+          "signups": 18,
+          "paid_units": 18
+        },
+        {
+          "start": "2026-08-01",
+          "days": 31,
+          "new_lead_calls": 255,
+          "appointments": 135,
+          "scheduled": 95,
+          "held": 98,
+          "signups": 15,
+          "paid_units": 15
+        },
+        {
+          "start": "2026-09-01",
+          "days": 30,
+          "new_lead_calls": 278,
+          "appointments": 159,
+          "scheduled": 132,
+          "held": 110,
+          "signups": 20,
+          "paid_units": 20
+        },
+        {
+          "start": "2026-10-01",
+          "days": 31,
+          "new_lead_calls": 294,
+          "appointments": 173,
+          "scheduled": 169,
+          "held": 101,
+          "signups": 13,
+          "paid_units": 13
+        },
+        {
+          "start": "2026-11-01",
+          "days": 25,
+          "new_lead_calls": 228,
+          "appointments": 141,
+          "scheduled": 161,
+          "held": 127,
+          "signups": 19.25,
+          "paid_units": 19.25
+        }
+      ],
+      "quarterly": [
+        {
+          "start": "2026-01-01",
+          "days": 90,
+          "new_lead_calls": 405,
+          "appointments": 267,
+          "scheduled": 121,
+          "held": 199,
+          "signups": 40,
+          "paid_units": 34
+        },
+        {
+          "start": "2026-04-01",
+          "days": 91,
+          "new_lead_calls": 425,
+          "appointments": 243,
+          "scheduled": 233,
+          "held": 168,
+          "signups": 30,
+          "paid_units": 29
+        },
+        {
+          "start": "2026-07-01",
+          "days": 92,
+          "new_lead_calls": 770,
+          "appointments": 428,
+          "scheduled": 331,
+          "held": 306,
+          "signups": 53,
+          "paid_units": 53
+        },
+        {
+          "start": "2026-10-01",
+          "days": 56,
+          "new_lead_calls": 522,
+          "appointments": 314,
+          "scheduled": 330,
+          "held": 228,
+          "signups": 32.25,
+          "paid_units": 32.25
+        }
+      ]
+    },
+    "intake": {
+      "prep_upcoming": 9,
+      "prep_past": 482,
+      "journey_classified": 1182,
+      "journey_booked": 467,
+      "referrals_logged": 89,
+      "booking_gaps_reviewed": 30
+    }
+  }
 }
