@@ -19,6 +19,93 @@
     const max = Math.max(1,...entries.map(([,v])=>Number(v)||0));
     $(id).innerHTML = entries.length ? entries.map(([label,v])=>`<div class="bar-row"><span>${esc(label)}</span><div class="track"><i style="width:${Math.max(0,(Number(v)||0)/max*100)}%"></i></div><b>${esc(currency?money(v):n(v))}</b></div>`).join('') : '<p class="muted">No series available.</p>';
   }
+
+  const displayDay = day => new Intl.DateTimeFormat('en-US', {month:'short', day:'numeric', timeZone:'UTC'})
+    .format(new Date(day + 'T00:00:00Z'));
+
+  function renderTrend(id, title, properties, metrics) {
+    const target = $(id);
+    if (!target) return;
+    const choices = list => list.map(([value,label]) => `<option value="${esc(value)}">${esc(label)}</option>`).join('');
+    target.innerHTML = `<div class="panel growth-trend"><div class="trend-head"><h3>${esc(title)}</h3><div class="trend-controls">
+      ${properties.length > 1 ? `<label>Property<select data-trend-property>${choices(properties.map(([key,label]) => [key,label]))}</select></label>` : ''}
+      <label>Metric<select data-trend-metric>${choices(metrics)}</select></label></div></div><div data-trend-content aria-live="polite"></div></div>`;
+    const propertySelect = target.querySelector('[data-trend-property]');
+    const metricSelect = target.querySelector('[data-trend-metric]');
+    const content = target.querySelector('[data-trend-content]');
+
+    function update() {
+      const [,property,source,state] = properties.find(([key]) => key === propertySelect?.value) || properties[0];
+      const [metric,label] = metrics.find(([key]) => key === metricSelect.value);
+      const first = Date.parse(`${source.start_date}T00:00:00Z`);
+      const last = Date.parse(`${source.end_date}T00:00:00Z`);
+      const days = (last - first) / 86_400_000 + 1;
+      const values = new Map((source.daily || []).map(row => [row.date, row[metric]]));
+      const rows = Number.isInteger(days) && days > 0 && days <= 31 ? Array.from({length:days}, (_,index) => {
+        const day = new Date(first + index * 86_400_000).toISOString().slice(0,10);
+        return [day, values.get(day)];
+      }) : [];
+      const measured = rows.filter(([,value]) => Number.isFinite(value));
+      const status = state.status === 'stale' ? ' · Needs refresh' : '';
+      const measurement = id === 'ga4-trend' && source.pageview_tracking_ok === false ? ' · Incomplete GA4 measurement' : '';
+      const context = `<p class="muted trend-context">${esc(win(source) + status + measurement)}</p>`;
+      if (!measured.length) {
+        content.innerHTML = context + '<p class="muted">Daily data is unavailable for this selection.</p>';
+        return;
+      }
+      const max = Math.max(1,...measured.map(([,value]) => value));
+      const dailyBars = rows.map(([day,value]) => Number.isFinite(value)
+        ? `<i style="height:${Math.max(0,value/max*100)}%" title="${esc(`${displayDay(day)} · ${n(value)} ${label.toLowerCase()}`)}"></i>`
+        : `<i class="missing" title="${esc(`${displayDay(day)} · No data`)}"></i>`).join('');
+      content.innerHTML = `${context}<div class="trend-visual" role="img" aria-label="${esc(`${property} daily ${label.toLowerCase()} from ${source.start_date} through ${source.end_date}`)}">
+        <div class="trend-scale muted"><span>${n(max)}</span><span>0</span></div><div class="trend-bars">${dailyBars}</div>
+        <div class="trend-dates muted"><span>${displayDay(source.start_date)}</span><span>${displayDay(source.end_date)}</span></div>
+        </div><details class="trend-days"><summary>View daily totals</summary>${table(['Date',label],rows.map(([day,value]) => [day,n(value)]))}</details>`;
+    }
+    propertySelect?.addEventListener('change',update);
+    metricSelect.addEventListener('change',update);
+    update();
+  }
+
+  function actionCards(g, a, ads, lawmatics) {
+    const lsa = Object.values(ads.lsa || {})[0]?.responsiveness || {};
+    const analytics = a.pageview_tracking_ok === false ? ['Restore GA4 page views',
+      `${n(a.page_views)} page views across ${n(a.sessions_total)} recorded sessions. Verify a page view and one consultation submission in DebugView.`, '#analytics', 'Inspect Google Analytics'] :
+      ['Check website lead measurement', 'Check a test submission against the GA4 event and the corresponding Lawmatics record.', '#analytics', 'Inspect Google Analytics'];
+    const search = ['Improve pages with low search CTR',
+      Number.isFinite(g.clicks) && Number.isFinite(g.previous?.clicks) && g.clicks < g.previous.clicks
+        ? `${n(g.previous.clicks - g.clicks)} fewer search clicks than the prior 28 days. Start with pages earning high impressions and a low click-through rate.`
+        : 'Review titles on relevant pages that receive many impressions and relatively few clicks.', '#search', 'Inspect Search Console'];
+    const acquisition = lsa.no_reply > 0 ? ['Follow up on Local Services messages',
+      `${n(lsa.no_reply)} of ${n(lsa.message_leads)} message leads had no recorded firm reply. Check those leads and assign a first-response owner.`, '#lsa-response', 'Inspect Local Services'] :
+      ['Track leads through to payment', `${pct(lawmatics.attribution_health)} of sampled Lawmatics prospects have attribution. Carry campaign source through booking and verified payment.`, '#lead-to-close', 'Inspect intake'];
+    return [analytics,search,acquisition].map(([title,evidence,href,label]) =>
+      `<article class="growth-action"><h3>${esc(title)}</h3><p>${esc(evidence)}</p><a href="${esc(href)}">${esc(label)} →</a></article>`).join('');
+  }
+
+  function renderMetaAds(m, meta) {
+    const target = $('meta-ads');
+    if (!target) return;
+    const state = sourceState(m,'meta_ads');
+    const status = m._meta?.sources?.meta_ads?.status;
+    if (state.status === 'unavailable') {
+      const message = status === 'failed' ? 'The Meta Ads pull failed. Check the ad account and reporting access.'
+        : 'Awaiting read-only access to the CSL Meta Ads account.';
+      target.innerHTML = `<section class="panel" aria-labelledby="meta-heading"><h3 id="meta-heading">Meta Ads</h3><p class="muted meta-status">${esc(message)}</p></section>`;
+      return;
+    }
+    const price = value => Number.isFinite(value) && /^[A-Z]{3}$/.test(meta.currency)
+      ? new Intl.NumberFormat('en-US',{style:'currency',currency:meta.currency}).format(value) : '—';
+    const prior = meta.previous || {};
+    target.innerHTML = `<section class="panel" aria-labelledby="meta-heading"><h3 id="meta-heading">Meta Ads</h3>
+      <p class="muted">${esc(win(meta))} · Completed 30 days${state.status === 'stale' ? ' · Needs refresh' : ''}</p><div class="cards meta-metrics">
+      ${card('Spend',price(meta.spend),change(meta.spend,prior.spend))}
+      ${card('Link clicks',n(meta.link_clicks),change(meta.link_clicks,prior.link_clicks))}
+      ${card('Meta-attributed leads',n(meta.leads),change(meta.leads,prior.leads))}
+      ${card('Cost per attributed lead',price(meta.cost_per_lead),change(meta.cost_per_lead,prior.cost_per_lead))}
+      </div><p class="caption">${n(meta.impressions)} impressions. Meta lead actions use platform attribution. Compare channels using verified leads and payments in the CRM.</p></section>`;
+  }
+
   function render(m) {
     const group = key => sourceState(m,key).status === 'unavailable' ? {} : m[key] || {};
     const g=group('gsc'), a=group('ga4'), ads=group('ads'), c=group('clio'), intake=group('intake');
@@ -28,11 +115,18 @@
     const months=collected.filter(([k])=>k<month).slice(-6), last=c.collected_last_month;
     const priorMonth=months.length>1 ? months[months.length-2][1] : undefined;
     const leadChange=change(lm.leads_last_30d,lm.leads_prev_30d);
-    $('scorecard').innerHTML=[
+    const closeCard=card('New matters that have paid',n(c.new_paying_clients_30d),`Of ${n(c.new_matters_30d)} newly opened matters · ${cohortWindow(c.recent_matters_window || {})}`,'clio.new_paying_clients_30d');
+    const overview = $('growth-actions');
+    $('scorecard').innerHTML=(overview ? [
+      card('Organic search clicks',n(g.clicks),change(g.clicks,g.previous?.clicks)+' · 28 days','gsc.clicks'),
+      card('Recorded GA4 sessions',n(a.sessions_total),a.pageview_tracking_ok ? change(a.sessions_total,a.previous?.sessions)+' · 28 days' : '28 days · Page-view measurement incomplete','ga4.sessions_total'),
+      card('Initial consultations scheduled',n(consult.scheduled),`${win(consult)} · ${n(consult.canceled)} canceled`,'consultations.scheduled'),
+      closeCard] : [
       card('Collected last full month',money(last),`${c.last_complete_month || 'Month unavailable'} · Clio allocations`, 'clio.collected_last_month','usd0'),
       card('New matters that have paid',n(c.new_paying_clients_30d),`Of ${n(c.new_matters_30d)} newly opened matters · ${usd2(c.new_matter_collected_30d)} applied · ${cohortWindow(c.recent_matters_window || {})}`,'clio.new_paying_clients_30d'),
       card('New intake leads',n(intake.leads),`${cohortWindow(intake)} · excludes detected duplicates and tests`,'intake.leads'),
-      card('Paid search spend',money((ads.last_30d || {}).cost),`${win(ads)} · LSA shown separately`,'ads.last_30d.cost','usd0')].join('');
+      card('Paid search spend',money((ads.last_30d || {}).cost),`${win(ads)} · LSA shown separately`,'ads.last_30d.cost','usd0')]).join('');
+    if (overview) overview.innerHTML=actionCards(g,a,ads,lm);
     $('business-summary').textContent=`${c.last_complete_month || 'Last month'} collections were ${money(last)} (${change(last,priorMonth)}). Lawmatics recorded ${n(intake.leads)} intake leads; ${n(intake.called)} have a recorded outbound Dialpad call after arrival. Clio opened ${n(c.new_matters_30d)} matters in its rolling 30-day cohort, and ${n(c.new_paying_clients_30d)} have collected money so far. These systems use different cohorts and definitions; this is an operating scorecard, not a joined customer-conversion rate.`;
     $('cash-summary').textContent=`${year || 'Year'} collections to the snapshot: ${c.collected_by_month ? money(ytd) : '—'}. Last 12 complete calendar months: ${money(c.collected_last_12mo)}. Outstanding bills: ${money(c.ar_total)}, including ${money(c.ar_over_90)} over 90 days. Collections include active payment allocations only; voided allocations and credit notes are excluded. They do not establish net profit.`;
     bars('collections-chart',months,true);
@@ -53,13 +147,19 @@
       }));
     $('gsc-analysis').textContent=`Google discloses the query for ${n(g.named_clicks)} of ${n(g.clicks)} clicks (${pct(g.named_share_of_clicks)}). Among disclosed queries, ${n(g.brand_clicks)} clicks match firm or attorney names and ${n(g.nonbrand_clicks)} do not. Hidden queries prevent a firm-wide branded/nonbranded traffic split. Use the page and query tables to prioritize high-impression pages with weak CTR; verify commercial intent before rewriting.`;
     $('gsc-queries').innerHTML=table(['Search query','Clicks','Impressions','CTR','Position'],(g.top_queries||[]).map(r=>[r.query,n(r.clicks),n(r.impressions),pct(r.ctr),r.position]));
-    $('gsc-pages').innerHTML=table(['Landing page','Clicks','Impressions','CTR','Position'],(g.top_pages||[]).map(r=>[r.page,n(r.clicks),n(r.impressions),pct(r.ctr),r.position]));
+    const searchPages = [...(g.top_pages || [])].sort((first,second) => second.impressions - first.impressions);
+    $('gsc-pages').innerHTML=table(['Landing page','Clicks','Impressions','CTR','Position'],searchPages.map(r=>[r.page,n(r.clicks),n(r.impressions),pct(r.ctr),r.position]));
+    const searchSites = [['Corcoran Smith Law (CSL)', 'gsc'], ...relatedSites];
+    renderTrend('gsc-trend','Daily search visibility', searchSites.map(([name,key]) => [key,name,group(key),sourceState(m,key)]),
+      [['clicks','Clicks'],['impressions','Impressions']]);
     $('ga4-window').textContent=`${win(a)} · recorded events and traffic`;
-    $('ga4-metrics').innerHTML=[card('Recorded sessions',n(a.sessions_total),a.pageview_tracking_ok?'Page-view coverage passes':'Incomplete while page-view coverage fails','ga4.sessions_total'),card('Recorded page views',n(a.page_views),'Zero is a measured value, not a fallback','ga4.page_views'),card('Consultation events',n(a.conversion_events),`${n(a.conversion_sessions)} submitting sessions; repeat events are possible`,'ga4.conversion_events'),card('Recorded key events',n(a.key_events_total),'All configured key events; not unique clients','ga4.key_events_total')].join('');
+    $('ga4-metrics').innerHTML=[card('Recorded sessions',n(a.sessions_total),change(a.sessions_total,a.previous?.sessions),'ga4.sessions_total'),card('Recorded page views',n(a.page_views),a.pageview_tracking_ok?'Page-view coverage passes':'Page-view coverage incomplete','ga4.page_views'),card('Consultation events',n(a.conversion_events),`${n(a.conversion_sessions)} submitting sessions; repeat events are possible`,'ga4.conversion_events'),card('Recorded key events',n(a.key_events_total),change(a.key_events_total,a.previous?.keyEvents),'ga4.key_events_total')].join('');
     $('ga4-analysis').textContent=a.pageview_tracking_ok ? 'The API reports page-view coverage consistent with the session count. Key events still include multiple actions and should not be equated with unique qualified leads or collected revenue.' : 'The API is current, but the website traffic instrument is incomplete. Restore the intended Google tag and automatic page_view delivery, verify one controlled form submission, and compare client-side events with GA4 DebugView. Do not evaluate channel traffic or landing-page conversion rates from this incomplete dataset.';
     $('ga4-channels').innerHTML=table(['Recorded channel','Sessions','Key events'],(a.channels||[]).map(r=>[r.channel,n(r.sessions),n(r.key_events ?? r.conversions)]));
     $('ga4-events').innerHTML=table(['Recorded event','Count'],Object.entries(a.events||{}).map(([k,v])=>[k,n(v)]));
     $('ga4-landings').innerHTML=table(['Recorded landing page','Sessions','Key events'],(a.top_landing_pages||[]).map(r=>[r.page,n(r.sessions),n(r.key_events)]));
+    renderTrend('ga4-trend','Daily website activity',[['ga4','Google Analytics',a,sourceState(m,'ga4')]],
+      [['sessions','Recorded sessions'],['key_events','Recorded key events'],['page_views','Recorded page views']]);
     $('ads-window').textContent=`${win(ads)} · completed 30 days · account ${ads.account_time_zone || 'time zone not supplied'}`;
     const totalAds=ads.last_30d || {};
     $('ads-metrics').innerHTML=[card('Search spend',money(totalAds.cost),'Media spend only','ads.last_30d.cost','usd0'),card('Ad-reported conversions',n(totalAds.conversions),'Platform events; not signed or paying clients','ads.last_30d.conversions'),card('Cost / reported conversion',usd2(ads.cost_per_conv_30d),'Undefined when there are no conversions','ads.cost_per_conv_30d','usd2'),card('Average CPC',usd2(ads.cpc_30d),`${n(totalAds.clicks)} clicks; ${n(totalAds.impressions)} impressions`,'ads.cpc_30d','usd2')].join('');
@@ -75,6 +175,7 @@
     const lsa=Object.entries(ads.lsa||{});
     $('lsa-table').innerHTML=table(['LSA account','Spend / 30d','Reported conversions / 30d','YTD leads','YTD spend','YTD cost / lead'],lsa.map(([key,r])=>[key,usd2((r.last_30d||{}).cost),n((r.last_30d||{}).conversions),n(r.leads_ytd),money(r.ytd_spend),usd2(r.cost_per_lead_ytd)]));
     $('lsa-response').innerHTML=lsa.map(([key,r])=>{const v=r.responsiveness||{};return `<p class="notice">LSA ${esc(key)} · ${esc(v.window||'response window unavailable')}: ${esc(n(v.replied))}/${esc(n(v.message_leads))} message leads received a firm reply; median first reply ${esc(v.hours_to_firm_reply?.median ?? '—')} hours among replies. ${esc(n(v.no_reply))} had no recorded reply. This measure excludes phone leads.</p>`;}).join('');
+    renderMetaAds(m,group('meta_ads'));
     $('funnel').innerHTML=[['New intake leads',intake.leads,'CRM cohort; duplicates removed'],['Recorded outbound call',intake.called,'Dialpad call after lead creation'],['Call within 24 hours',intake.called_within_24h,'Of all new intake leads'],['Call within 72 hours',intake.called_within_72h,'Of all new intake leads'],['Signed and paid stage',intake.signed,'Lawmatics stage label; not an accounting receipt']].map(([label,v,note])=>`<div class="funnel-row"><span>${esc(label)}<small>${esc(note)}</small></span><strong>${esc(n(v))}</strong><div class="track"><i style="width:${Math.max(0,Math.min(100,(ratio(v,intake.leads)||0)*100))}%"></i></div></div>`).join('');
     $('intake-analysis').textContent=`${n(intake.never_called)} of ${n(intake.leads)} leads have no recorded outbound Dialpad callback (${pct(intake.never_called_share)}). Median delay among those called: ${n(intake.median_hours_to_call)} hours. This does not mean no contact: inbound conversations, email and SMS are outside this measure. Recent leads have had less time to mature. Lawmatics lead-record volume changed ${leadChange}.`;
     const consultState=sourceState(m,'consultations');

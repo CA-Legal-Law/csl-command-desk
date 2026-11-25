@@ -335,9 +335,9 @@
   "new_matters_prev_30d": 60,
   "collected_last_month": 113564.13,
   "last_complete_month": "2026-10",
-  "matters_total": 779,
+  "matters_total": 784,
   "matters_open": 94,
-  "matters_pending": 163,
+  "matters_pending": 168,
   "ar_total": 95874.51,
   "ar_over_90": 24568.26,
   "ar_buckets": {
@@ -364,9 +364,9 @@
   },
   "revenue_by_practice": {
    "Wills, Estates, & Probate (Administration, Beneficiary Rights, Etc.)": {
-    "matters": 351,
+    "matters": 354,
     "collected": 743888.85,
-    "per_matter": 2119.34
+    "per_matter": 2101.38
    },
    "Trust/Estate Plan Drafting": {
     "matters": 82,
@@ -384,9 +384,9 @@
     "per_matter": 1163.43
    },
    "(unassigned)": {
-    "matters": 99,
+    "matters": 101,
     "collected": 36146.2,
-    "per_matter": 365.11
+    "per_matter": 357.88
    },
    "Employment Litigation": {
     "matters": 21,
@@ -465,8 +465,8 @@
     "ytd_spend": 29943.88,
     "cost_per_lead_ytd": 25.18,
     "by_status": {
-     "WIPED_OUT": 1876,
-     "ACTIVE": 167,
+     "WIPED_OUT": 1877,
+     "ACTIVE": 166,
      "NEW": 3
     },
     "by_type": {
@@ -855,6 +855,204 @@
    "start_date": "2026-09-27",
    "end_date": "2026-10-24"
   },
+  "daily": [
+   {
+    "date": "2026-10-25",
+    "clicks": 5,
+    "impressions": 496,
+    "ctr": 0.010080645161290322,
+    "position": 11.3
+   },
+   {
+    "date": "2026-10-26",
+    "clicks": 12,
+    "impressions": 673,
+    "ctr": 0.017830609212481426,
+    "position": 9.8
+   },
+   {
+    "date": "2026-10-27",
+    "clicks": 19,
+    "impressions": 601,
+    "ctr": 0.03161397670549085,
+    "position": 9.2
+   },
+   {
+    "date": "2026-10-28",
+    "clicks": 13,
+    "impressions": 607,
+    "ctr": 0.0214168039538715,
+    "position": 10.9
+   },
+   {
+    "date": "2026-10-29",
+    "clicks": 14,
+    "impressions": 610,
+    "ctr": 0.022950819672131147,
+    "position": 10.1
+   },
+   {
+    "date": "2026-10-30",
+    "clicks": 9,
+    "impressions": 606,
+    "ctr": 0.01485148514851485,
+    "position": 12.0
+   },
+   {
+    "date": "2026-10-31",
+    "clicks": 4,
+    "impressions": 504,
+    "ctr": 0.007936507936507936,
+    "position": 10.5
+   },
+   {
+    "date": "2026-11-01",
+    "clicks": 4,
+    "impressions": 452,
+    "ctr": 0.008849557522123894,
+    "position": 11.0
+   },
+   {
+    "date": "2026-11-02",
+    "clicks": 10,
+    "impressions": 618,
+    "ctr": 0.016181229773462782,
+    "position": 12.6
+   },
+   {
+    "date": "2026-11-03",
+    "clicks": 8,
+    "impressions": 579,
+    "ctr": 0.013816925734024179,
+    "position": 10.6
+   },
+   {
+    "date": "2026-11-04",
+    "clicks": 20,
+    "impressions": 609,
+    "ctr": 0.03284072249589491,
+    "position": 10.9
+   },
+   {
+    "date": "2026-11-05",
+    "clicks": 6,
+    "impressions": 468,
+    "ctr": 0.01282051282051282,
+    "position": 8.5
+   },
+   {
+    "date": "2026-11-06",
+    "clicks": 12,
+    "impressions": 623,
+    "ctr": 0.019261637239165328,
+    "position": 11.3
+   },
+   {
+    "date": "2026-11-07",
+    "clicks": 4,
+    "impressions": 459,
+    "ctr": 0.008714596949891068,
+    "position": 8.6
+   },
+   {
+    "date": "2026-11-08",
+    "clicks": 5,
+    "impressions": 421,
+    "ctr": 0.011876484560570071,
+    "position": 10.9
+   },
+   {
+    "date": "2026-11-09",
+    "clicks": 13,
+    "impressions": 680,
+    "ctr": 0.01911764705882353,
+    "position": 10.9
+   },
+   {
+    "date": "2026-11-10",
+    "clicks": 17,
+    "impressions": 602,
+    "ctr": 0.02823920265780731,
+    "position": 9.8
+   },
+   {
+    "date": "2026-11-11",
+    "clicks": 7,
+    "impressions": 690,
+    "ctr": 0.010144927536231883,
+    "position": 9.6
+   },
+   {
+    "date": "2026-11-12",
+    "clicks": 19,
+    "impressions": 711,
+    "ctr": 0.026722925457102673,
+    "position": 9.0
+   },
+   {
+    "date": "2026-11-13",
+    "clicks": 13,
+    "impressions": 672,
+    "ctr": 0.019345238095238096,
+    "position": 13.3
+   },
+   {
+    "date": "2026-11-14",
+    "clicks": 7,
+    "impressions": 508,
+    "ctr": 0.013779527559055118,
+    "position": 10.8
+   },
+   {
+    "date": "2026-11-15",
+    "clicks": 1,
+    "impressions": 477,
+    "ctr": 0.0020964360587002098,
+    "position": 10.3
+   },
+   {
+    "date": "2026-11-16",
+    "clicks": 12,
+    "impressions": 679,
+    "ctr": 0.017673048600883652,
+    "position": 10.1
+   },
+   {
+    "date": "2026-11-17",
+    "clicks": 18,
+    "impressions": 633,
+    "ctr": 0.02843601895734597,
+    "position": 8.8
+   },
+   {
+    "date": "2026-11-18",
+    "clicks": 9,
+    "impressions": 720,
+    "ctr": 0.0125,
+    "position": 9.6
+   },
+   {
+    "date": "2026-11-19",
+    "clicks": 14,
+    "impressions": 727,
+    "ctr": 0.01925722145804677,
+    "position": 10.3
+   },
+   {
+    "date": "2026-11-20",
+    "clicks": 4,
+    "impressions": 714,
+    "ctr": 0.0056022408963585435,
+    "position": 14.2
+   },
+   {
+    "date": "2026-11-21",
+    "clicks": 3,
+    "impressions": 588,
+    "ctr": 0.00510204081632653,
+    "position": 16.0
+   }
+  ],
   "named_clicks": 88,
   "named_share_of_clicks": 0.3121,
   "brand_clicks": 86,
@@ -1167,204 +1365,6 @@
     "ctr": 0.02100840336134454,
     "position": 11.0
    }
-  ],
-  "daily": [
-   {
-    "date": "2026-11-04",
-    "clicks": 20,
-    "impressions": 609,
-    "ctr": 0.03284072249589491,
-    "position": 10.9
-   },
-   {
-    "date": "2026-10-27",
-    "clicks": 19,
-    "impressions": 601,
-    "ctr": 0.03161397670549085,
-    "position": 9.2
-   },
-   {
-    "date": "2026-11-12",
-    "clicks": 19,
-    "impressions": 711,
-    "ctr": 0.026722925457102673,
-    "position": 9.0
-   },
-   {
-    "date": "2026-11-17",
-    "clicks": 18,
-    "impressions": 633,
-    "ctr": 0.02843601895734597,
-    "position": 8.8
-   },
-   {
-    "date": "2026-11-10",
-    "clicks": 17,
-    "impressions": 602,
-    "ctr": 0.02823920265780731,
-    "position": 9.8
-   },
-   {
-    "date": "2026-10-29",
-    "clicks": 14,
-    "impressions": 610,
-    "ctr": 0.022950819672131147,
-    "position": 10.1
-   },
-   {
-    "date": "2026-11-19",
-    "clicks": 14,
-    "impressions": 727,
-    "ctr": 0.01925722145804677,
-    "position": 10.3
-   },
-   {
-    "date": "2026-10-28",
-    "clicks": 13,
-    "impressions": 607,
-    "ctr": 0.0214168039538715,
-    "position": 10.9
-   },
-   {
-    "date": "2026-11-09",
-    "clicks": 13,
-    "impressions": 680,
-    "ctr": 0.01911764705882353,
-    "position": 10.9
-   },
-   {
-    "date": "2026-11-13",
-    "clicks": 13,
-    "impressions": 672,
-    "ctr": 0.019345238095238096,
-    "position": 13.3
-   },
-   {
-    "date": "2026-10-26",
-    "clicks": 12,
-    "impressions": 673,
-    "ctr": 0.017830609212481426,
-    "position": 9.8
-   },
-   {
-    "date": "2026-11-06",
-    "clicks": 12,
-    "impressions": 623,
-    "ctr": 0.019261637239165328,
-    "position": 11.3
-   },
-   {
-    "date": "2026-11-16",
-    "clicks": 12,
-    "impressions": 679,
-    "ctr": 0.017673048600883652,
-    "position": 10.1
-   },
-   {
-    "date": "2026-11-02",
-    "clicks": 10,
-    "impressions": 618,
-    "ctr": 0.016181229773462782,
-    "position": 12.6
-   },
-   {
-    "date": "2026-10-30",
-    "clicks": 9,
-    "impressions": 606,
-    "ctr": 0.01485148514851485,
-    "position": 12.0
-   },
-   {
-    "date": "2026-11-18",
-    "clicks": 9,
-    "impressions": 720,
-    "ctr": 0.0125,
-    "position": 9.6
-   },
-   {
-    "date": "2026-11-03",
-    "clicks": 8,
-    "impressions": 579,
-    "ctr": 0.013816925734024179,
-    "position": 10.6
-   },
-   {
-    "date": "2026-11-11",
-    "clicks": 7,
-    "impressions": 690,
-    "ctr": 0.010144927536231883,
-    "position": 9.6
-   },
-   {
-    "date": "2026-11-14",
-    "clicks": 7,
-    "impressions": 508,
-    "ctr": 0.013779527559055118,
-    "position": 10.8
-   },
-   {
-    "date": "2026-11-05",
-    "clicks": 6,
-    "impressions": 468,
-    "ctr": 0.01282051282051282,
-    "position": 8.5
-   },
-   {
-    "date": "2026-10-25",
-    "clicks": 5,
-    "impressions": 496,
-    "ctr": 0.010080645161290322,
-    "position": 11.3
-   },
-   {
-    "date": "2026-11-08",
-    "clicks": 5,
-    "impressions": 421,
-    "ctr": 0.011876484560570071,
-    "position": 10.9
-   },
-   {
-    "date": "2026-10-31",
-    "clicks": 4,
-    "impressions": 504,
-    "ctr": 0.007936507936507936,
-    "position": 10.5
-   },
-   {
-    "date": "2026-11-01",
-    "clicks": 4,
-    "impressions": 452,
-    "ctr": 0.008849557522123894,
-    "position": 11.0
-   },
-   {
-    "date": "2026-11-07",
-    "clicks": 4,
-    "impressions": 459,
-    "ctr": 0.008714596949891068,
-    "position": 8.6
-   },
-   {
-    "date": "2026-11-20",
-    "clicks": 4,
-    "impressions": 714,
-    "ctr": 0.0056022408963585435,
-    "position": 14.2
-   },
-   {
-    "date": "2026-11-21",
-    "clicks": 3,
-    "impressions": 588,
-    "ctr": 0.00510204081632653,
-    "position": 16.0
-   },
-   {
-    "date": "2026-11-15",
-    "clicks": 1,
-    "impressions": 477,
-    "ctr": 0.0020964360587002098,
-    "position": 10.3
-   }
   ]
  },
  "ga4": {
@@ -1436,6 +1436,158 @@
    "start_date": "2026-09-29",
    "end_date": "2026-10-26"
   },
+  "daily": [
+   {
+    "date": "2026-10-27",
+    "sessions": 0,
+    "page_views": 0,
+    "key_events": 1.0
+   },
+   {
+    "date": "2026-10-28",
+    "sessions": 3,
+    "page_views": 0,
+    "key_events": 7.0
+   },
+   {
+    "date": "2026-10-29",
+    "sessions": 0,
+    "page_views": 0,
+    "key_events": 2.0
+   },
+   {
+    "date": "2026-10-30",
+    "sessions": 1,
+    "page_views": 0,
+    "key_events": 5.0
+   },
+   {
+    "date": "2026-10-31",
+    "sessions": 2,
+    "page_views": 0,
+    "key_events": 7.0
+   },
+   {
+    "date": "2026-11-02",
+    "sessions": 4,
+    "page_views": 0,
+    "key_events": 8.0
+   },
+   {
+    "date": "2026-11-03",
+    "sessions": 4,
+    "page_views": 0,
+    "key_events": 7.0
+   },
+   {
+    "date": "2026-11-04",
+    "sessions": 3,
+    "page_views": 0,
+    "key_events": 6.0
+   },
+   {
+    "date": "2026-11-05",
+    "sessions": 6,
+    "page_views": 0,
+    "key_events": 8.0
+   },
+   {
+    "date": "2026-11-06",
+    "sessions": 7,
+    "page_views": 0,
+    "key_events": 9.0
+   },
+   {
+    "date": "2026-11-07",
+    "sessions": 4,
+    "page_views": 0,
+    "key_events": 5.0
+   },
+   {
+    "date": "2026-11-08",
+    "sessions": 1,
+    "page_views": 0,
+    "key_events": 1.0
+   },
+   {
+    "date": "2026-11-09",
+    "sessions": 6,
+    "page_views": 0,
+    "key_events": 8.0
+   },
+   {
+    "date": "2026-11-10",
+    "sessions": 4,
+    "page_views": 0,
+    "key_events": 9.0
+   },
+   {
+    "date": "2026-11-11",
+    "sessions": 3,
+    "page_views": 0,
+    "key_events": 4.0
+   },
+   {
+    "date": "2026-11-12",
+    "sessions": 5,
+    "page_views": 0,
+    "key_events": 7.0
+   },
+   {
+    "date": "2026-11-13",
+    "sessions": 1,
+    "page_views": 0,
+    "key_events": 2.0
+   },
+   {
+    "date": "2026-11-15",
+    "sessions": 4,
+    "page_views": 0,
+    "key_events": 3.0
+   },
+   {
+    "date": "2026-11-16",
+    "sessions": 7,
+    "page_views": 0,
+    "key_events": 12.0
+   },
+   {
+    "date": "2026-11-17",
+    "sessions": 1,
+    "page_views": 0,
+    "key_events": 2.0
+   },
+   {
+    "date": "2026-11-18",
+    "sessions": 6,
+    "page_views": 0,
+    "key_events": 7.0
+   },
+   {
+    "date": "2026-11-19",
+    "sessions": 6,
+    "page_views": 0,
+    "key_events": 8.0
+   },
+   {
+    "date": "2026-11-20",
+    "sessions": 2,
+    "page_views": 0,
+    "key_events": 8.0
+   },
+   {
+    "date": "2026-11-21",
+    "sessions": 1,
+    "page_views": 0,
+    "key_events": 1.0
+   },
+   {
+    "date": "2026-11-23",
+    "sessions": 3,
+    "page_views": 0,
+    "key_events": 6.0
+   }
+  ],
   "top_landing_pages": [
    {
     "page": "(not set)",
@@ -1554,7 +1706,7 @@
   }
  },
  "callrail": {
-  "leads_ytd": 1060,
+  "leads_ytd": 1062,
   "leads_by_month": {
    "2026-01": {
     "calls": 34,
@@ -1607,33 +1759,33 @@
     "leads": 154
    },
    "2026-11": {
-    "calls": 48,
-    "forms": 66,
-    "leads": 114
+    "calls": 49,
+    "forms": 67,
+    "leads": 116
    }
   },
   "window_days": 30,
-  "calls": 61,
-  "forms": 76,
-  "leads_total": 137,
-  "answer_rate": 0.8852,
-  "first_time_caller_rate": 0.7213,
-  "gclid_coverage": 0.2951,
+  "calls": 62,
+  "forms": 77,
+  "leads_total": 139,
+  "answer_rate": 0.8871,
+  "first_time_caller_rate": 0.7097,
+  "gclid_coverage": 0.3065,
   "by_campaign": {
    "(unattributed)": {
     "calls": 37,
-    "forms": 42,
-    "leads": 79
+    "forms": 43,
+    "leads": 80
+   },
+   "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE": {
+    "calls": 12,
+    "forms": 8,
+    "leads": 20
    },
    "Google Ads_Paid Search_Inheritance Disputes_English_NonBrand_Conversion_Tier1_AxE": {
     "calls": 8,
     "forms": 12,
     "leads": 20
-   },
-   "Google Ads_Paid Search_Will Litigation_English_NonBrand_Conversion_Tier1_AxE": {
-    "calls": 11,
-    "forms": 8,
-    "leads": 19
    },
    "CSL | Calls+Web Leads | Disputes + Estate Planning | CA": {
     "calls": 0,
@@ -1658,13 +1810,13 @@
   },
   "by_source": {
    "Google My Business": 40,
-   "Website pool": 19,
+   "Website pool": 20,
    "Other": 1,
    "Instagram": 1
   },
   "top_keywords": {
+   "Estate Litigation Lawyer": 4,
    "inheritance lawyers near me": 4,
-   "Estate Litigation Lawyer": 3,
    "\"Estate Litigation Lawyer\"": 3,
    "estate planning lawyer california": 2,
    "Inheritance Disputes": 2,
@@ -1752,7 +1904,7 @@
   "never_called_share": 0.8353,
   "median_hours_to_call": 24.8,
   "callers": {
-   "Richard Dixon": 139,
+   "Richard Dixon": 141,
    "Nick Jacobs": 93,
    "Seth Steward": 69,
    "Joy Erawan": 20,
@@ -1760,11 +1912,11 @@
    "Angie Caporale": 5,
    "Julie Griffin-Smith": 5
   },
-  "outbound_calls": 342,
+  "outbound_calls": 344,
   "outbound_calls_window_days": 35,
   "call_coverage_note": "Recorded outbound Dialpad calls after lead creation only; excludes inbound conversations, email and SMS. Current leads have unequal follow-up time.",
   "outcomes": {
-   "(no stage)": 74,
+   "(no stage)": 73,
    "Not Scheduled - Closed Lost": 72,
    "Rapid Intake Form Sent - Needs Phone Call": 39,
    "Held - Closed Lost": 32,
@@ -1773,7 +1925,7 @@
    "Replied - Staff Follow-Up": 18,
    "Signed & Paid-Engagement Agmt & Initial Invoice": 14,
    "Scheduled - No Show": 8,
-   "Held - Pending Engagement": 6,
+   "Held - Pending Engagement": 7,
    "Held - Firm Rejected": 6,
    "Deferred - Follow-Up Date Set": 6,
    "Held - Referred Out": 4,
@@ -1786,7 +1938,7 @@
    "Voided Docusign": 1
   },
   "signed": 14,
-  "pending_engagement": 6,
+  "pending_engagement": 7,
   "referred_out": 4
  },
  "qbo": {
@@ -1813,7 +1965,213 @@
   "days": 28,
   "window": "2026-10-25 to 2026-11-21",
   "data_state": "final",
-  "reporting_lag_days": 3
+  "reporting_lag_days": 3,
+  "previous": {
+   "clicks": 86,
+   "impressions": 8966,
+   "ctr": 0.009591791211242472,
+   "avg_position": 22.1,
+   "start_date": "2026-09-27",
+   "end_date": "2026-10-24"
+  },
+  "daily": [
+   {
+    "date": "2026-10-25",
+    "clicks": 3,
+    "impressions": 566,
+    "ctr": 0.00530035335689046,
+    "position": 28.1
+   },
+   {
+    "date": "2026-10-26",
+    "clicks": 7,
+    "impressions": 826,
+    "ctr": 0.00847457627118644,
+    "position": 18.8
+   },
+   {
+    "date": "2026-10-27",
+    "clicks": 10,
+    "impressions": 931,
+    "ctr": 0.010741138560687433,
+    "position": 16.8
+   },
+   {
+    "date": "2026-10-28",
+    "clicks": 3,
+    "impressions": 798,
+    "ctr": 0.0037593984962406013,
+    "position": 16.4
+   },
+   {
+    "date": "2026-10-29",
+    "clicks": 3,
+    "impressions": 853,
+    "ctr": 0.0035169988276670576,
+    "position": 18.6
+   },
+   {
+    "date": "2026-10-30",
+    "clicks": 6,
+    "impressions": 690,
+    "ctr": 0.008695652173913044,
+    "position": 23.2
+   },
+   {
+    "date": "2026-10-31",
+    "clicks": 3,
+    "impressions": 479,
+    "ctr": 0.006263048016701462,
+    "position": 23.5
+   },
+   {
+    "date": "2026-11-01",
+    "clicks": 3,
+    "impressions": 628,
+    "ctr": 0.004777070063694267,
+    "position": 33.4
+   },
+   {
+    "date": "2026-11-02",
+    "clicks": 5,
+    "impressions": 665,
+    "ctr": 0.007518796992481203,
+    "position": 15.8
+   },
+   {
+    "date": "2026-11-03",
+    "clicks": 6,
+    "impressions": 595,
+    "ctr": 0.010084033613445379,
+    "position": 17.6
+   },
+   {
+    "date": "2026-11-04",
+    "clicks": 9,
+    "impressions": 563,
+    "ctr": 0.015985790408525755,
+    "position": 15.4
+   },
+   {
+    "date": "2026-11-05",
+    "clicks": 7,
+    "impressions": 602,
+    "ctr": 0.011627906976744186,
+    "position": 21.9
+   },
+   {
+    "date": "2026-11-06",
+    "clicks": 6,
+    "impressions": 569,
+    "ctr": 0.01054481546572935,
+    "position": 24.3
+   },
+   {
+    "date": "2026-11-07",
+    "clicks": 6,
+    "impressions": 329,
+    "ctr": 0.0182370820668693,
+    "position": 20.8
+   },
+   {
+    "date": "2026-11-08",
+    "clicks": 2,
+    "impressions": 459,
+    "ctr": 0.004357298474945534,
+    "position": 30.7
+   },
+   {
+    "date": "2026-11-09",
+    "clicks": 10,
+    "impressions": 820,
+    "ctr": 0.012195121951219513,
+    "position": 18.3
+   },
+   {
+    "date": "2026-11-10",
+    "clicks": 10,
+    "impressions": 617,
+    "ctr": 0.01620745542949757,
+    "position": 18.1
+   },
+   {
+    "date": "2026-11-11",
+    "clicks": 4,
+    "impressions": 661,
+    "ctr": 0.006051437216338881,
+    "position": 24.6
+   },
+   {
+    "date": "2026-11-12",
+    "clicks": 11,
+    "impressions": 1013,
+    "ctr": 0.01085883514313919,
+    "position": 14.8
+   },
+   {
+    "date": "2026-11-13",
+    "clicks": 3,
+    "impressions": 857,
+    "ctr": 0.003500583430571762,
+    "position": 23.7
+   },
+   {
+    "date": "2026-11-14",
+    "clicks": 2,
+    "impressions": 514,
+    "ctr": 0.0038910505836575876,
+    "position": 24.0
+   },
+   {
+    "date": "2026-11-15",
+    "clicks": 4,
+    "impressions": 648,
+    "ctr": 0.006172839506172839,
+    "position": 24.3
+   },
+   {
+    "date": "2026-11-16",
+    "clicks": 8,
+    "impressions": 910,
+    "ctr": 0.008791208791208791,
+    "position": 19.8
+   },
+   {
+    "date": "2026-11-17",
+    "clicks": 11,
+    "impressions": 756,
+    "ctr": 0.01455026455026455,
+    "position": 18.5
+   },
+   {
+    "date": "2026-11-18",
+    "clicks": 13,
+    "impressions": 785,
+    "ctr": 0.016560509554140127,
+    "position": 16.7
+   },
+   {
+    "date": "2026-11-19",
+    "clicks": 10,
+    "impressions": 792,
+    "ctr": 0.012626262626262626,
+    "position": 21.4
+   },
+   {
+    "date": "2026-11-20",
+    "clicks": 6,
+    "impressions": 838,
+    "ctr": 0.007159904534606206,
+    "position": 24.3
+   },
+   {
+    "date": "2026-11-21",
+    "clicks": 8,
+    "impressions": 576,
+    "ctr": 0.013888888888888888,
+    "position": 26.4
+   }
+  ]
  },
  "gsc_ell": {
   "clicks": 8,
@@ -1825,7 +2183,213 @@
   "days": 28,
   "window": "2026-10-25 to 2026-11-21",
   "data_state": "final",
-  "reporting_lag_days": 3
+  "reporting_lag_days": 3,
+  "previous": {
+   "clicks": 0,
+   "impressions": 1643,
+   "ctr": 0,
+   "avg_position": 71.4,
+   "start_date": "2026-09-27",
+   "end_date": "2026-10-24"
+  },
+  "daily": [
+   {
+    "date": "2026-10-25",
+    "clicks": 0,
+    "impressions": 34,
+    "ctr": 0,
+    "position": 67.2
+   },
+   {
+    "date": "2026-10-26",
+    "clicks": 0,
+    "impressions": 43,
+    "ctr": 0,
+    "position": 68.0
+   },
+   {
+    "date": "2026-10-27",
+    "clicks": 0,
+    "impressions": 24,
+    "ctr": 0,
+    "position": 63.6
+   },
+   {
+    "date": "2026-10-28",
+    "clicks": 0,
+    "impressions": 34,
+    "ctr": 0,
+    "position": 66.7
+   },
+   {
+    "date": "2026-10-29",
+    "clicks": 0,
+    "impressions": 61,
+    "ctr": 0,
+    "position": 63.1
+   },
+   {
+    "date": "2026-10-30",
+    "clicks": 1,
+    "impressions": 34,
+    "ctr": 0.029411764705882353,
+    "position": 53.6
+   },
+   {
+    "date": "2026-10-31",
+    "clicks": 0,
+    "impressions": 40,
+    "ctr": 0,
+    "position": 64.8
+   },
+   {
+    "date": "2026-11-01",
+    "clicks": 0,
+    "impressions": 37,
+    "ctr": 0,
+    "position": 50.3
+   },
+   {
+    "date": "2026-11-02",
+    "clicks": 0,
+    "impressions": 45,
+    "ctr": 0,
+    "position": 60.4
+   },
+   {
+    "date": "2026-11-03",
+    "clicks": 0,
+    "impressions": 42,
+    "ctr": 0,
+    "position": 64.1
+   },
+   {
+    "date": "2026-11-04",
+    "clicks": 1,
+    "impressions": 36,
+    "ctr": 0.027777777777777776,
+    "position": 55.7
+   },
+   {
+    "date": "2026-11-05",
+    "clicks": 0,
+    "impressions": 63,
+    "ctr": 0,
+    "position": 72.8
+   },
+   {
+    "date": "2026-11-06",
+    "clicks": 0,
+    "impressions": 50,
+    "ctr": 0,
+    "position": 75.8
+   },
+   {
+    "date": "2026-11-07",
+    "clicks": 0,
+    "impressions": 43,
+    "ctr": 0,
+    "position": 75.7
+   },
+   {
+    "date": "2026-11-08",
+    "clicks": 0,
+    "impressions": 35,
+    "ctr": 0,
+    "position": 75.2
+   },
+   {
+    "date": "2026-11-09",
+    "clicks": 0,
+    "impressions": 47,
+    "ctr": 0,
+    "position": 72.1
+   },
+   {
+    "date": "2026-11-10",
+    "clicks": 0,
+    "impressions": 44,
+    "ctr": 0,
+    "position": 70.8
+   },
+   {
+    "date": "2026-11-11",
+    "clicks": 0,
+    "impressions": 67,
+    "ctr": 0,
+    "position": 65.6
+   },
+   {
+    "date": "2026-11-12",
+    "clicks": 0,
+    "impressions": 64,
+    "ctr": 0,
+    "position": 67.0
+   },
+   {
+    "date": "2026-11-13",
+    "clicks": 1,
+    "impressions": 74,
+    "ctr": 0.013513513513513514,
+    "position": 56.2
+   },
+   {
+    "date": "2026-11-14",
+    "clicks": 0,
+    "impressions": 85,
+    "ctr": 0,
+    "position": 58.3
+   },
+   {
+    "date": "2026-11-15",
+    "clicks": 0,
+    "impressions": 76,
+    "ctr": 0,
+    "position": 63.4
+   },
+   {
+    "date": "2026-11-16",
+    "clicks": 0,
+    "impressions": 86,
+    "ctr": 0,
+    "position": 53
+   },
+   {
+    "date": "2026-11-17",
+    "clicks": 2,
+    "impressions": 75,
+    "ctr": 0.02666666666666667,
+    "position": 48.4
+   },
+   {
+    "date": "2026-11-18",
+    "clicks": 0,
+    "impressions": 78,
+    "ctr": 0,
+    "position": 49.4
+   },
+   {
+    "date": "2026-11-19",
+    "clicks": 0,
+    "impressions": 132,
+    "ctr": 0,
+    "position": 51.7
+   },
+   {
+    "date": "2026-11-20",
+    "clicks": 3,
+    "impressions": 125,
+    "ctr": 0.024,
+    "position": 59.1
+   },
+   {
+    "date": "2026-11-21",
+    "clicks": 0,
+    "impressions": 96,
+    "ctr": 0,
+    "position": 62.8
+   }
+  ]
  },
  "consultations": {
   "start_date": "2026-10-25",
@@ -1855,8 +2419,8 @@
     "spend": 565.39,
     "ads_conversions": 18.0,
     "ads_cost_per_conv": 31.41,
-    "real_leads": 19,
-    "real_cost_per_lead": 29.76,
+    "real_leads": 20,
+    "real_cost_per_lead": 28.27,
     "constraint": "rank",
     "verdict": "rank-limited \u2014 fix quality, not budget"
    },
@@ -1891,8 +2455,8 @@
     "current_to": "2026-11"
    },
    "peak_leads_per_month": 146,
-   "current_leads_per_month": 133.8,
-   "change_vs_baseline": 0.1303,
+   "current_leads_per_month": 134.2,
+   "change_vs_baseline": 0.1345,
    "monthly_revenue_at_risk": 0.0,
    "call_share_now": 0.4935,
    "call_share_before": 0.6438
@@ -1907,10 +2471,10 @@
    "lsa_share_of_spend": 0.4497,
    "lsa_leads_ytd": 1189,
    "lsa_cost_per_lead": 25.18,
-   "tracked_web_leads_ytd": 1060,
-   "search_cost_per_lead": 34.57,
-   "all_paid_leads_ytd": 2249,
-   "blended_cost_per_lead": 29.61
+   "tracked_web_leads_ytd": 1062,
+   "search_cost_per_lead": 34.51,
+   "all_paid_leads_ytd": 2251,
+   "blended_cost_per_lead": 29.58
   },
   "current_cost_per_conv": 41.66,
   "current_cac": 968.84,
@@ -1937,70 +2501,73 @@
   "monthly_revenue_forfeited": 4120.72
  },
  "_meta": {
-  "generated_at": "2026-11-25T02:14:51+00:00",
+  "generated_at": "2026-11-25T03:47:03+00:00",
   "generated_date": "2026-11-24",
   "sources": {
+   "meta_ads": {
+    "status": "not_configured"
+   },
    "gsc": {
     "status": "ok",
-    "at": "2026-11-25T02:14:13+00:00",
-    "secs": 2.2
+    "at": "2026-11-25T03:45:44+00:00",
+    "secs": 2.5
    },
    "ga4": {
     "status": "ok",
-    "at": "2026-11-25T02:14:14+00:00",
-    "secs": 3.0
+    "at": "2026-11-25T03:45:46+00:00",
+    "secs": 4.0
    },
    "ads": {
     "status": "ok",
-    "at": "2026-11-25T02:14:21+00:00",
-    "secs": 9.7
+    "at": "2026-11-25T03:45:49+00:00",
+    "secs": 7.1
    },
    "callrail": {
     "status": "ok",
-    "at": "2026-11-25T02:14:22+00:00",
-    "secs": 8.2
+    "at": "2026-11-25T03:45:50+00:00",
+    "secs": 4.1
    },
-   "lawmatics": {
+   "clio": {
     "status": "ok",
-    "at": "2026-11-25T02:14:23+00:00",
-    "secs": 9.7
+    "at": "2026-11-25T03:45:55+00:00",
+    "secs": 13.0
    },
    "qbo": {
     "status": "snapshot",
-    "at": "2026-11-25T02:14:23+00:00",
+    "at": "2026-11-25T03:45:55+00:00",
     "secs": 0.0,
     "captured_at": "2026-08-25",
     "period": "2026-01-01 to 2026-08-25"
    },
    "gsc_cil": {
     "status": "ok",
-    "at": "2026-11-25T02:14:23+00:00",
-    "secs": 0.5
+    "at": "2026-11-25T03:45:56+00:00",
+    "secs": 1.2
    },
    "gsc_ell": {
     "status": "ok",
-    "at": "2026-11-25T02:14:24+00:00",
-    "secs": 0.6
+    "at": "2026-11-25T03:45:57+00:00",
+    "secs": 1.2
    },
    "consultations": {
     "status": "ok",
-    "at": "2026-11-25T02:14:28+00:00",
-    "secs": 4.2
+    "at": "2026-11-25T03:46:05+00:00",
+    "secs": 7.6
    },
-   "clio": {
+   "lawmatics": {
     "status": "ok",
-    "at": "2026-11-25T02:14:30+00:00",
-    "secs": 18.9
+    "at": "2026-11-25T03:46:05+00:00",
+    "secs": 21.0
    },
    "intake": {
     "status": "ok",
-    "at": "2026-11-25T02:14:51+00:00",
-    "secs": 28.8
+    "at": "2026-11-25T03:47:03+00:00",
+    "secs": 72.6
    },
    "smith": {
     "status": "ok",
-    "at": "2026-11-25T02:14:51+00:00",
-    "secs": 30.4,
+    "at": "2026-11-25T03:47:03+00:00",
+    "secs": 73.6,
     "snapshot_captured_at": "2026-11-23T13:17:21-08:00"
    }
   },
@@ -2009,7 +2576,7 @@
   "sources_snapshot": 1,
   "google_ads_api_version": "v26",
   "sources_stale": 0,
-  "sources_total": 12,
+  "sources_total": 13,
   "gbp": "pending Google API access case 7-4790000041264"
  }
 }
