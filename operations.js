@@ -11,10 +11,10 @@
   const date = value => day.format(new Date(value + 'T00:00:00Z'));
   const formatFor = {number,money,percent};
   const WORKBOOK_TABS = [
-    ['Command Dashboard','#funnel','Funnel, goals, and forecasts'], ['Rep View','#indicators','Firm indicators here. Individual performance in the firm workbook.'],
-    ['Compare','#compare','Reporting-period comparison'], ['Sign-Up Attribution','#attribution','Signings and verification by channel'],
+    ['Command Dashboard','#funnel','Funnel, goals, and projections'], ['Rep View','#reps','Rep Scorecard. Named reports in the firm workbook.'],
+    ['Compare','#compare','Reporting-period comparison'], ['Sign-Up Attribution','#source-attribution','Signings by period and source verification'],
     ['Consultation Audit [NEW]','#audit','Audit totals here. Consultation records in the firm workbook.'],
-    ['Funnel Scorecard','#rolling','Rolling funnel windows'], ['Pre-Consult Prep','#intake','Consultation preparation counts'],
+    ['Funnel Scorecard','#funnel-detail','Funnel targets and 12-period trends'], ['Pre-Consult Prep','#intake','Consultation preparation counts'],
     ['Lead Journey','#intake','Booking-class totals'], ['Missed Consults','#audit','Missed consultation count'],
     ['Off-Calendar Review','#audit','Pending review count'], ['Smith.ai Booking Gaps','#intake','Booking-gap review count'],
     ['Referral Log','#intake','Referral totals here. Individual referrals in the firm workbook.'], ['Ops Log','#audit','Operational exceptions'],
@@ -89,9 +89,10 @@
 
   function renderFollowUp(data) {
     const items = [
-      ['Review open agreements',text(data.unsigned_agreements),'Check status and next steps for unsigned agreements tied to consultations in the last 45 days.'],
-      ['Verify consultation outcomes',text(data.follow_up.unverified_outcome,percent),'Confirm held, canceled, or no-show status in Lawmatics for consults missing verified outcomes in the last 28 days.'],
-      ['Fill in missing lead sources',text(data.follow_up.unknown_source,percent),'Resolve unknown sources from the last 28 days before comparing channels by conversion.'],
+      ['Unsigned agreements open',text(data.unsigned_agreements),'Check status and next steps for unsigned agreements tied to consultations in the last 45 days.'],
+      ['Consults without a verified outcome',text(data.follow_up.unverified_outcome,percent),'Confirm held, canceled, or no-show status in Lawmatics for consults missing verified outcomes in the last 28 days.'],
+      ['Consults with unknown lead source',text(data.follow_up.unknown_source,percent),'Resolve unknown sources from the last 28 days before comparing channels by conversion.'],
+      ['Consults with no rep recorded',text(data.follow_up.unassigned_rep,percent),'Check assignment in Lawmatics for consultations from the last 28 days.'],
       ['Reconcile sign-up units',text(data.weighted_reconciliation_gap),'Review the difference between tracker sign-up units and signed records matched to consultations.']
     ];
     $('follow-up-items').replaceChildren(...items.map(([title,value,description]) => {
@@ -134,12 +135,73 @@
         item.held,item.signups,item.paid_units].map(value => text(value))})));
   }
 
+  const monthName = value => month.format(new Date(value + '-01T00:00:00Z'));
+
+  function tableTrend(values, periods, format=number) {
+    if (!values?.some(Number.isFinite)) return '—';
+    const max = Math.max(0.001,...values.filter(Number.isFinite));
+    const chart = el('span',null,'table-trend');
+    chart.setAttribute('role','img');
+    const notes = values.map((value,index) => `${monthName(periods[index])} ${text(value,format)}`);
+    chart.setAttribute('aria-label',notes.join(', '));
+    chart.title = notes.join(' · ');
+    values.forEach((value,index) => {
+      const mark = el('span',null,Number.isFinite(value) ? 'trend-mark' : '');
+      mark.setAttribute('aria-hidden','true');
+      mark.title = notes[index];
+      mark.style.height = Number.isFinite(value) ? `${Math.max(8,value / max * 100)}%` : '0';
+      mark.dataset.zero = value === 0;
+      chart.append(mark);
+    });
+    return chart;
+  }
+
+  function renderCommandDashboardTables(reports) {
+    const periods = reports.trend_periods || [];
+    const funnel = reports.command_funnel || (reports.pace || []).map(row => [...row,null,[]]);
+    const volumeMax = Math.max(1,...funnel.filter(row => row[1] === 'number').map(row => row[2] || 0));
+    table('funnel-table',['Stage','This period','Volume','Projected (period end)','Prior period','Target','Status','Trend, last 12 periods'],
+      funnel.map(([label,kind,current,prior,target,projection,status,trend]) => {
+        const format = formatFor[kind];
+        const volume = el('span',null,'bar-track funnel-volume');
+        volume.append(track(current,volumeMax));
+        return {label,cells:[text(current,format),kind === 'number' && Number.isFinite(current) ? volume : '—',text(projection,format),
+          text(prior,format),text(target,format),status || '—',tableTrend(trend,periods,format)]};
+      }));
+
+    const windows = reports.kpi_windows || (reports.rolling || []).map(row => [...row,null,null]);
+    table('rolling-table',['KPI','This period','Last 30 days','Last 60 days','Last 90 days','Per 30 days, last 60','Per 30 days, last 90'],
+      windows.map(([label,kind,...values]) => ({label,cells:values.map(value => {
+        if (value === 'n/a') return value;
+        return kind === 'date' && value ? date(value) : text(value,formatFor[kind]);
+      })})));
+
+    table('rep-table',['Rep','On calendar','Held','Show rate','Lost appts','Signed','Close rate','Sales score','Held, last 12 periods'],
+      (reports.rep_scorecard || []).map(([label,scheduled,held,show,lost,signed,close,score,trend]) =>
+        ({label,cells:[text(scheduled),text(held),text(show,percent),text(lost),text(signed),text(close,percent),text(score),tableTrend(trend,periods)]})));
+    $('rep-trend-period').textContent = periods.length ? `Held trends run from ${monthName(periods[0])} to ${monthName(periods.at(-1))}. The latest period may be partial.` : '';
+  }
+
+  function renderSourceAttribution(reports) {
+    const source = reports.source_attribution || {};
+    const periodLabels = ['This period','Prior period','Two periods ago'];
+    const months = periodLabels.map((label,index) => source.months?.[index] ? monthName(source.months[index]) : label);
+    table('source-attribution-table',['Channel',...months,'Last 3 periods','Share, last 3','Verified','Self-reported','Probable / unverified / unknown'],
+      (source.rows || []).map(([label,...values]) => ({label,cells:values.map((value,index) =>
+        text(value,index === 4 || label === 'Share verified by a system record' ? percent : number))})));
+    const channels = ['Lead type','LSA','Google Ads','Google Business Profile','Organic search','ChatGPT (organic)',
+      'ChatGPT Ads','Meta','Referral','Returning client','Unknown','Total'];
+    for (const [id,rows] of [['lead-type-current',reports.lead_type_current],['lead-type-last-three',reports.lead_type_last_three]]) {
+      table(id,channels,(rows || []).map(([label,...values]) => ({label,cells:values.map(value => text(value))})));
+    }
+  }
+
   function renderWorkbookReports(reports, months) {
     const numericReport = (id, headings, rows) => table(id,headings,(rows || []).map(([label,kind,...values]) =>
       ({label,cells:values.map(value => text(value,formatFor[kind]))})));
-    numericReport('funnel-table',['Stage','Current','Prior','Goal','Projection'],reports.pace);
-    numericReport('comparison-table',['Metric',...months.map(item => month.format(new Date(item.month + '-01T00:00:00Z')))],reports.comparison);
-    numericReport('rolling-table',['Metric','Current','Last 30 days','Last 60 days','Last 90 days'],reports.rolling);
+    renderCommandDashboardTables(reports);
+    renderSourceAttribution(reports);
+    numericReport('comparison-table',['Metric',...months.map(item => monthName(item.month))],reports.comparison);
     numericReport('indicators-table',['Indicator','Current','Prior','Goal'],reports.indicators);
     for (const [id,title,rows] of [['channel-table','Channel',reports.channels],['service-table','Service',reports.services]]) {
       table(id,[title,'On calendar','Held','Signed','Close rate'],(rows || []).map(([label,scheduled,held,signed,rate]) =>
@@ -147,9 +209,10 @@
     }
     table('attribution-table',['Channel','Logged signings','Verified source','Verified share'],(reports.attribution || []).map(([label,total,verified]) =>
       ({label,cells:[text(total),text(verified),text(total > 0 && Number.isFinite(verified) ? verified / total : null,percent)]})));
-    table('signing-table',['Service','Signed','Earlier consult','Share','Avg. days to sign','Avg. days from send','Send date on file'],
-      (reports.signing || []).map(([label,signed,earlier,share,delay,sendDelay,sendDates]) =>
-        ({label,cells:[text(signed),text(earlier),text(share,percent),text(delay),text(sendDelay),text(sendDates)]})));
+    const signings = reports.signing_by_date || (reports.signing || []).map(([label,signed,...rest]) => [label,signed,null,...rest]);
+    table('signing-table',['Service','Signed','Consult in period','Consult earlier','Share of sign-ups','Avg days, consult to signed',
+      'Avg days, first sent to signed','With a send date on file'],signings.map(([label,signed,inPeriod,earlier,share,delay,sendDelay,sendDates]) =>
+      ({label,cells:[text(signed),text(inPeriod),text(earlier),text(share,percent),text(delay),text(sendDelay),text(sendDates)]})));
     table('audit-table',['Measure','Count'],(reports.audit || []).map(([label,value]) => ({label,cells:[text(value)]})));
     const intake = reports.intake || {};
     table('intake-table',['Measure','Count'],[

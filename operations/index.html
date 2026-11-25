@@ -1,21 +1,21 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="robots" content="noindex, nofollow, noarchive, nosnippet"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Operating scorecard · Corcoran Smith Law</title>
 <link rel="stylesheet" href="../growth.css?v=5cc06a6a7d2a">
-<link rel="stylesheet" href="../operations.css?v=2320796f351a">
+<link rel="stylesheet" href="../operations.css?v=df1955f5b159">
 <script src="../data-status.js?v=e63da4d74528" defer></script>
 <script src="../marketing-trends.js?v=c9885d0d2d49" defer></script>
-<script src="../operations.js?v=a576958ecafa" defer></script>
+<script src="../operations.js?v=c5914d25c282" defer></script>
 <style></style></head><body>
 <a class="skip" href="#main">Skip to scorecard</a>
 <header class="site-header">
   <div class="shell header-inner">
     <a class="brand" href="../">Corcoran Smith Law <span>Command Desk</span></a>
     <nav aria-label="Scorecard sections">
-      <a href="#overview">Overview</a><a href="#search">Search Console</a><a href="#analytics">GA4</a>
+      <a href="#overview">Overview</a><a href="#kpi-windows">KPI Windows</a><a href="#reps">Rep Scorecard</a><a href="#search">Search Console</a><a href="#analytics">GA4</a>
       <details class="report-menu"><summary>All reports</summary>
         <div class="report-menu-grid">
-          <div><strong>Marketing</strong><a href="#search">Search Console</a><a href="#analytics">Google Analytics</a><a href="#activity">Acquisition and spend</a><a href="#channels">Lead channels</a><a href="#attribution">Sign-up attribution</a></div>
-          <div><strong>Operations</strong><a href="#funnel">Funnel and goals</a><a href="#follow-up">Follow-up</a><a href="#trends">Monthly trend</a><a href="#periods">Daily to yearly activity</a><a href="#compare">Period comparison</a><a href="#rolling">Rolling windows</a><a href="#indicators">Performance indicators</a></div>
-          <div><strong>Service and audit</strong><a href="#services">Services offered</a><a href="#signing">Signed agreements</a><a href="#intake">Prep, bookings, and referrals</a><a href="#audit">Audit and exceptions</a><a href="#collections">Collections</a><a href="#workbook">Workbook tab index</a></div>
+          <div><strong>Marketing</strong><a href="#search">Search Console</a><a href="#analytics">Google Analytics</a><a href="#activity">Acquisition and spend</a><a href="#channels">Lead Channel</a><a href="#source-attribution">Sign-Up Source Attribution</a><a href="#lead-type-channel">Sign-Ups by Lead Type and Channel</a><a href="#attribution">Attribution log totals</a></div>
+          <div><strong>Operations</strong><a href="#funnel">Lead Funnel, Top to Bottom</a><a href="#reps">Rep Scorecard (consults in the period)</a><a href="#kpi-windows">KPI Windows</a><a href="#follow-up">Action Strip</a><a href="#trends">Monthly trend</a><a href="#periods">Daily to yearly activity</a><a href="#compare">Period comparison</a><a href="#indicators">Performance indicators</a></div>
+          <div><strong>Service and audit</strong><a href="#services">Service Offered</a><a href="#signing">Sign-Ups by Signing Date</a><a href="#intake">Prep, bookings, and referrals</a><a href="#audit">Audit and exceptions</a><a href="#collections">Collections</a><a href="#workbook">Workbook tab index</a></div>
         </div>
       </details>
     </nav>
@@ -31,16 +31,30 @@
   </section>
   <div class="split">
     <section id="funnel" class="panel" aria-labelledby="funnel-title">
-      <h2 id="funnel-title">From lead to agreement</h2>
+      <h2 id="funnel-title">Lead Funnel, Top to Bottom</h2>
       <p class="caption">Activity in the selected workbook period. The stages use different event dates and units.</p>
       <div id="funnel-steps" class="funnel-steps"></div>
-      <details class="report-detail"><summary>Funnel goals and projection</summary><div id="funnel-table" class="table-wrap"></div></details>
+      <p class="caption"><a href="#funnel-detail">See the funnel targets, projections, and trends</a></p>
     </section>
     <section id="follow-up" class="panel" aria-labelledby="follow-up-title">
-      <h2 id="follow-up-title">What to follow up on</h2>
+      <h2 id="follow-up-title">Action Strip</h2>
       <div id="follow-up-items" class="follow-up-items"></div>
     </section>
   </div>
+  <section id="kpi-windows" class="panel report-section" aria-labelledby="windows-title">
+    <span id="rolling" class="anchor-alias" aria-hidden="true"></span>
+    <h2 id="windows-title">KPI Windows (this period and rolling 30, 60 and 90 days)</h2>
+    <p class="caption">Rolling windows end on the last filled KPI Tracker date. Per-30-day averages use the 60- and 90-day totals.</p>
+    <div id="rolling-table" class="table-wrap"></div>
+  </section>
+  <section id="reps" class="panel report-section" aria-labelledby="rep-title">
+    <h2 id="rep-title">Rep Scorecard (consults in the period)</h2>
+    <p class="caption">Rep labels are anonymized on this public page. Firm includes the workbook’s aggregate row.</p>
+    <div id="rep-table" class="table-wrap"></div><p id="rep-trend-period" class="caption"></p>
+  </section>
+  <section id="funnel-detail" class="panel report-section" aria-labelledby="funnel-detail-title">
+    <h2 id="funnel-detail-title">Lead funnel targets and projections</h2><div id="funnel-table" class="table-wrap"></div>
+  </section>
   <div class="split">
     <section id="trends" class="panel" aria-labelledby="trend-title">
       <div class="panel-heading"><h2 id="trend-title">Monthly trend</h2>
@@ -79,7 +93,6 @@
     </section>
   </div>
   <section id="compare" class="panel report-section"><h2>Period comparison</h2><p class="caption">Workbook comparison by event date. The periods and values follow the workbook’s Compare view.</p><div id="comparison-table" class="table-wrap"></div></section>
-  <section id="rolling" class="panel report-section"><h2>Rolling windows</h2><p class="caption">Current workbook period and trailing 30, 60, and 90 days.</p><div id="rolling-table" class="table-wrap"></div></section>
   <section id="periods" class="panel report-section">
     <div class="panel-heading"><h2>Daily to yearly activity</h2><label class="trend-picker" for="period-grain">Reporting interval<select id="period-grain">
       <option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option>
@@ -87,16 +100,21 @@
     <p class="caption">KPI Tracker activity by event date. Days reported shows coverage. The current interval can be partial.</p><div id="periods-table" class="table-wrap long-table"></div>
   </section>
   <section id="indicators" class="panel report-section"><h2>Performance indicators</h2><p class="caption">Workbook measures for intake, outcomes, offer timing, sign-ups, and payments. Reporting windows vary by measure.</p><div id="indicators-table" class="table-wrap"></div></section>
-  <section id="channels" class="panel report-section"><h2>Lead channels</h2><p class="caption">Calendar, held, and signed counts from the workbook’s channel breakdown.</p><div id="channel-table" class="table-wrap"></div></section>
-  <section id="attribution" class="panel report-section"><h2>Sign-up attribution</h2><p class="caption">Signed agreements with a recorded channel in the attribution log. Verified counts use the log’s evidence label. The totals describe signings and source verification.</p><div id="attribution-table" class="table-wrap"></div></section>
-  <section id="services" class="panel report-section"><h2>Services offered</h2><div id="service-table" class="table-wrap"></div></section>
-  <section id="signing" class="panel report-section"><h2>Signed agreements by service</h2><p class="caption">Signed consultation records and timing by service. Send-to-sign timing covers agreements with a recorded send date.</p><div id="signing-table" class="table-wrap"></div></section>
+  <section id="channels" class="panel report-section"><h2>Lead Channel (consults in the period)</h2><div id="channel-table" class="table-wrap"></div></section>
+  <section id="source-attribution" class="panel report-section"><h2>Sign-Up Source Attribution</h2><p class="caption">New clients by signing date. Individual sign-ups and their source evidence are available in the firm workbook.</p><div id="source-attribution-table" class="table-wrap"></div></section>
+  <section id="lead-type-channel" class="panel report-section"><h2>Sign-Ups by Lead Type and Channel</h2>
+    <h3 class="caption">Selected workbook period</h3><div id="lead-type-current" class="table-wrap"></div>
+    <h3 class="caption">Last 3 periods</h3><div id="lead-type-last-three" class="table-wrap"></div>
+  </section>
+  <section id="attribution" class="panel report-section"><h2>Attribution log totals</h2><p class="caption">Signed agreements with a recorded channel in the attribution log. Verified counts use the log’s evidence label. The totals describe signings and source verification.</p><div id="attribution-table" class="table-wrap"></div></section>
+  <section id="services" class="panel report-section"><h2>Service Offered (consults in the period)</h2><div id="service-table" class="table-wrap"></div></section>
+  <section id="signing" class="panel report-section"><h2>Sign-Ups by Signing Date</h2><p class="caption">Sign-ups in the period, any consult date. Send-to-sign timing covers agreements with a recorded send date.</p><div id="signing-table" class="table-wrap"></div></section>
   <div class="split secondary">
     <section id="intake" class="panel"><h2>Prep, bookings, and referrals</h2><div id="intake-table" class="table-wrap"></div></section>
     <section id="audit" class="panel"><h2>Audit and exceptions</h2><p class="caption">Current totals from the workbook’s Ops Log.</p><div id="audit-table" class="table-wrap"></div></section>
   </div>
   <section id="workbook" class="panel report-section" aria-labelledby="workbook-title">
-    <h2 id="workbook-title">Workbook tab index</h2><p class="caption">Find the scorecard report or the firm workbook view for each tab.</p><div id="workbook-index" class="table-wrap"></div>
+    <h2 id="workbook-title">Workbook tab index</h2><p class="caption">Find the public report for each tab. Client records, named rep views, and archived sheets are in the firm workbook.</p><div id="workbook-index" class="table-wrap"></div>
   </section>
   <footer>Sources include the CSL operating workbook and Clio. Weighted engagement and invoice units describe service mix. Clio collections show applied receipts in dollars.</footer>
 </main>
