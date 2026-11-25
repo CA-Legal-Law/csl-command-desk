@@ -1,0 +1,101 @@
+{
+  "source": {
+    "kind": "google_sheets",
+    "at": "2026-11-25T20:58:00.597960+00:00",
+    "status": "current"
+  },
+  "period": {
+    "start": "2026-11-01",
+    "end": "2026-11-25"
+  },
+  "funnel": {
+    "new_leads": 228,
+    "scheduled": 161,
+    "held": 127,
+    "offers": 66,
+    "weighted_signups": 19.25
+  },
+  "signed_consult_records": 13,
+  "weighted_reconciliation_gap": 6.25,
+  "unsigned_agreements": 57,
+  "follow_up": {
+    "unknown_source": 0.24855491329479767,
+    "unverified_outcome": 0.09826589595375723,
+    "unassigned_rep": 0.04046242774566474
+  },
+  "indicators": {
+    "show_rate": {
+      "current": 0.7578947368421053,
+      "prior": 0.6027397260273972,
+      "target": 0.8
+    },
+    "fast_offers": {
+      "current": 0.3958333333333333,
+      "prior": 0.22580645161290322,
+      "target": 0.7
+    },
+    "close_rate": {
+      "current": 0.14756944444444445,
+      "prior": 0.13636363636363635,
+      "target": 0.2
+    },
+    "paid_units": {
+      "current": 18.25,
+      "prior": 13,
+      "target": 16
+    }
+  },
+  "activity": {
+    "smith_bookings": {
+      "total": 141,
+      "days": 24,
+      "latest": "2026-11-24"
+    },
+    "meta_spend": {
+      "total": 555.57,
+      "days": 24,
+      "latest": "2026-11-24"
+    },
+    "meta_leads": {
+      "total": 15,
+      "days": 24,
+      "latest": "2026-11-24"
+    },
+    "chatgpt_spend": {
+      "total": 654.65,
+      "days": 24,
+      "latest": "2026-11-24"
+    },
+    "chatgpt_leads": {
+      "total": null,
+      "days": 0,
+      "latest": null
+    }
+  },
+  "history": [
+    {
+      "month": "2026-07",
+      "scheduled": 104,
+      "held": 98,
+      "weighted_signups": 18
+    },
+    {
+      "month": "2026-08",
+      "scheduled": 95,
+      "held": 98,
+      "weighted_signups": 15
+    },
+    {
+      "month": "2026-09",
+      "scheduled": 132,
+      "held": 110,
+      "weighted_signups": 20
+    },
+    {
+      "month": "2026-10",
+      "scheduled": 169,
+      "held": 101,
+      "weighted_signups": 13
+    }
+  ]
+}
