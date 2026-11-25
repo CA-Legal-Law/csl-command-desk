@@ -12,17 +12,18 @@
   const formatFor = {number,money,percent};
   const WORKBOOK_TABS = [
     ['Command Dashboard','#funnel','Funnel, goals, and forecasts'], ['Rep View','#indicators','Firm indicators here. Individual performance in the firm workbook.'],
-    ['Compare','#compare','Reporting-period comparison'], ['Consultation Audit NEW','#audit','Audit totals here. Consultation records in the firm workbook.'],
+    ['Compare','#compare','Reporting-period comparison'], ['Sign-Up Attribution','#attribution','Signings and verification by channel'],
+    ['Consultation Audit [NEW]','#audit','Audit totals here. Consultation records in the firm workbook.'],
     ['Funnel Scorecard','#rolling','Rolling funnel windows'], ['Pre-Consult Prep','#intake','Consultation preparation counts'],
     ['Lead Journey','#intake','Booking-class totals'], ['Missed Consults','#audit','Missed consultation count'],
     ['Off-Calendar Review','#audit','Pending review count'], ['Smith.ai Booking Gaps','#intake','Booking-gap review count'],
     ['Referral Log','#intake','Referral totals here. Individual referrals in the firm workbook.'], ['Ops Log','#audit','Operational exceptions'],
-    ['Daily, Weekly, Monthly, Quarter','#periods','Event-date activity by reporting interval'], ['Instructions','','Operating documentation in the firm workbook'],
+    ['Daily, Weekly, Monthly, Quarterly, Yearly Stats','#periods','Event-date activity by reporting interval'], ['Instructions','','Operating documentation in the firm workbook'],
     ['Funnel Indicators','#indicators','Performance against goals'], ['Funnel Ledger','#signing','Signing and timing totals here. Individual records in the firm workbook.'],
     ['Funnel KPI Feed','#activity','Tracker totals and coverage'], ['Funnel Maps & Goals','#funnel','Goal values here. Source mappings in the firm workbook.'],
     ['Funnel KPI Snapshot','','Historical fallback in the firm workbook'],
-    ...['Dashboard (old)','Metrics','Draft Follow-Ups','Backfill 2026-10-23','SCRATCH - Automation','Consultation Audit']
-      .map(name => [`DO NOT USE ${name}`,'','Archived in the firm workbook'])
+    ...['Dashboard (old)','Metrics','Draft Follow-Ups','Backfill 2026-10-23','SCRATCH - Automation Test','Consultation Audit']
+      .map(name => [`[DO NOT USE] ${name}`,'','Archived in the firm workbook'])
   ];
   const el = (tag, value, className) => {
     const element = document.createElement(tag);
@@ -144,6 +145,8 @@
       table(id,[title,'On calendar','Held','Signed','Close rate'],(rows || []).map(([label,scheduled,held,signed,rate]) =>
         ({label,cells:[text(scheduled),text(held),text(signed),text(rate,percent)]})));
     }
+    table('attribution-table',['Channel','Logged signings','Verified source','Verified share'],(reports.attribution || []).map(([label,total,verified]) =>
+      ({label,cells:[text(total),text(verified),text(total > 0 && Number.isFinite(verified) ? verified / total : null,percent)]})));
     table('signing-table',['Service','Signed','Earlier consult','Share','Avg. days to sign','Avg. days from send','Send date on file'],
       (reports.signing || []).map(([label,signed,earlier,share,delay,sendDelay,sendDates]) =>
         ({label,cells:[text(signed),text(earlier),text(share,percent),text(delay),text(sendDelay),text(sendDates)]})));

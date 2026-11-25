@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="../operations.css?v=2320796f351a">
 <script src="../data-status.js?v=e63da4d74528" defer></script>
 <script src="../marketing-trends.js?v=c9885d0d2d49" defer></script>
-<script src="../operations.js?v=b75bc388b0f9" defer></script>
+<script src="../operations.js?v=a576958ecafa" defer></script>
 <style></style></head><body>
 <a class="skip" href="#main">Skip to scorecard</a>
 <header class="site-header">
@@ -13,8 +13,8 @@
       <a href="#overview">Overview</a><a href="#search">Search Console</a><a href="#analytics">GA4</a>
       <details class="report-menu"><summary>All reports</summary>
         <div class="report-menu-grid">
-          <div><strong>Marketing</strong><a href="#search">Search Console</a><a href="#analytics">Google Analytics</a><a href="#activity">Acquisition and spend</a><a href="#channels">Lead channels</a></div>
-          <div><strong>Operations</strong><a href="#funnel">Funnel and goals</a><a href="#follow-up">Follow-up</a><a href="#trends">Monthly trend</a><a href="#periods">Daily to quarterly activity</a><a href="#compare">Period comparison</a><a href="#rolling">Rolling windows</a><a href="#indicators">Performance indicators</a></div>
+          <div><strong>Marketing</strong><a href="#search">Search Console</a><a href="#analytics">Google Analytics</a><a href="#activity">Acquisition and spend</a><a href="#channels">Lead channels</a><a href="#attribution">Sign-up attribution</a></div>
+          <div><strong>Operations</strong><a href="#funnel">Funnel and goals</a><a href="#follow-up">Follow-up</a><a href="#trends">Monthly trend</a><a href="#periods">Daily to yearly activity</a><a href="#compare">Period comparison</a><a href="#rolling">Rolling windows</a><a href="#indicators">Performance indicators</a></div>
           <div><strong>Service and audit</strong><a href="#services">Services offered</a><a href="#signing">Signed agreements</a><a href="#intake">Prep, bookings, and referrals</a><a href="#audit">Audit and exceptions</a><a href="#collections">Collections</a><a href="#workbook">Workbook tab index</a></div>
         </div>
       </details>
@@ -81,13 +81,14 @@
   <section id="compare" class="panel report-section"><h2>Period comparison</h2><p class="caption">Workbook comparison by event date. The periods and values follow the workbook’s Compare view.</p><div id="comparison-table" class="table-wrap"></div></section>
   <section id="rolling" class="panel report-section"><h2>Rolling windows</h2><p class="caption">Current workbook period and trailing 30, 60, and 90 days.</p><div id="rolling-table" class="table-wrap"></div></section>
   <section id="periods" class="panel report-section">
-    <div class="panel-heading"><h2>Daily to quarterly activity</h2><label class="trend-picker" for="period-grain">Reporting interval<select id="period-grain">
-      <option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option>
+    <div class="panel-heading"><h2>Daily to yearly activity</h2><label class="trend-picker" for="period-grain">Reporting interval<select id="period-grain">
+      <option value="daily">Daily</option><option value="weekly">Weekly</option><option value="monthly">Monthly</option><option value="quarterly">Quarterly</option><option value="yearly">Yearly</option>
     </select></label></div>
     <p class="caption">KPI Tracker activity by event date. Days reported shows coverage. The current interval can be partial.</p><div id="periods-table" class="table-wrap long-table"></div>
   </section>
   <section id="indicators" class="panel report-section"><h2>Performance indicators</h2><p class="caption">Workbook measures for intake, outcomes, offer timing, sign-ups, and payments. Reporting windows vary by measure.</p><div id="indicators-table" class="table-wrap"></div></section>
   <section id="channels" class="panel report-section"><h2>Lead channels</h2><p class="caption">Calendar, held, and signed counts from the workbook’s channel breakdown.</p><div id="channel-table" class="table-wrap"></div></section>
+  <section id="attribution" class="panel report-section"><h2>Sign-up attribution</h2><p class="caption">Signed agreements with a recorded channel in the attribution log. Verified counts use the log’s evidence label. The totals describe signings and source verification.</p><div id="attribution-table" class="table-wrap"></div></section>
   <section id="services" class="panel report-section"><h2>Services offered</h2><div id="service-table" class="table-wrap"></div></section>
   <section id="signing" class="panel report-section"><h2>Signed agreements by service</h2><p class="caption">Signed consultation records and timing by service. Send-to-sign timing covers agreements with a recorded send date.</p><div id="signing-table" class="table-wrap"></div></section>
   <div class="split secondary">
