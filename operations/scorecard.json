@@ -1,48 +1,48 @@
 {
   "source": {
     "kind": "google_sheets",
-    "at": "2026-11-25T21:41:36.732298+00:00",
+    "at": "2026-11-26T14:30:07.400106+00:00",
     "status": "current"
   },
   "period": {
     "start": "2026-11-01",
-    "end": "2026-11-25"
+    "end": "2026-11-26"
   },
   "funnel": {
     "new_leads": 228,
     "scheduled": 161,
     "held": 127,
-    "offers": 66,
-    "weighted_signups": 19.25
+    "offers": 72,
+    "weighted_signups": 20.25
   },
-  "signed_consult_records": 13,
+  "signed_consult_records": 14,
   "weighted_reconciliation_gap": 6.25,
-  "unsigned_agreements": 57,
+  "unsigned_agreements": 60,
   "follow_up": {
-    "unknown_source": 0.24855491329479767,
-    "unverified_outcome": 0.09826589595375723,
-    "unassigned_rep": 0.04046242774566474
+    "unknown_source": 0.2441860465116279,
+    "unverified_outcome": 0.0872093023255814,
+    "unassigned_rep": 0.029069767441860465
   },
   "indicators": {
     "show_rate": {
-      "current": 0.7578947368421053,
-      "prior": 0.6027397260273972,
+      "current": 0.7584269662921348,
+      "prior": 0.6118421052631579,
       "target": 0.8
     },
     "fast_offers": {
-      "current": 0.3958333333333333,
-      "prior": 0.22580645161290322,
+      "current": 0.4305555555555556,
+      "prior": 0.20618556701030927,
       "target": 0.7
     },
     "close_rate": {
-      "current": 0.14756944444444445,
-      "prior": 0.13636363636363635,
+      "current": 0.15,
+      "prior": 0.12903225806451613,
       "target": 0.2
     },
     "paid_units": {
-      "current": 18.25,
+      "current": 19.25,
       "prior": 13,
-      "target": 16
+      "target": 16.666666666666668
     }
   },
   "activity": {
@@ -103,10 +103,10 @@
       [
         "Total calls (all Smith.ai calls)",
         "number",
-        377,
+        381,
         449,
         476,
-        427
+        423
       ],
       [
         "New leads",
@@ -159,15 +159,15 @@
       [
         "Agreements sent (for consults in the period)",
         "number",
-        66,
+        72,
         63,
-        74,
-        79
+        76,
+        85
       ],
       [
         "Held to signed",
         "percent",
-        0.1515748031496063,
+        0.1594488188976378,
         0.12871287128712872,
         0.2,
         0.13815789473684212
@@ -175,7 +175,7 @@
       [
         "NEW-CLIENT SIGN-UPS",
         "number",
-        19.25,
+        20.25,
         13,
         20,
         21
@@ -185,7 +185,7 @@
       [
         "Total calls (all Smith.ai calls)",
         "number",
-        377,
+        381,
         433,
         860,
         null
@@ -241,15 +241,15 @@
       [
         "Agreements sent (for consults in the window)",
         "number",
-        66,
-        85,
-        144,
-        195
+        72,
+        91,
+        150,
+        201
       ],
       [
         "Held to signed",
         "percent",
-        0.1515748031496063,
+        0.1594488188976378,
         0.13198757763975155,
         0.14840637450199204,
         0.14801699716713881
@@ -257,7 +257,7 @@
       [
         "NEW-CLIENT SIGN-UPS (KPI row 22)",
         "number",
-        19.25,
+        20.25,
         21.25,
         37.25,
         52.25
@@ -265,7 +265,7 @@
       [
         "Sign-ups matched to a consult (by signing date)",
         "number",
-        13,
+        14,
         15,
         29,
         44
@@ -273,7 +273,7 @@
       [
         "Avg days, consult held to signed",
         "number",
-        6.5,
+        6.1,
         6.2,
         5.2,
         7.2
@@ -281,7 +281,7 @@
       [
         "Avg days, first agreement sent to signed",
         "number",
-        7.4,
+        6.8,
         7.4,
         7.4,
         7.4
@@ -289,7 +289,7 @@
       [
         "Sign-ups with a send date on file",
         "number",
-        10,
+        11,
         10,
         10,
         10
@@ -405,121 +405,121 @@
       [
         "New-lead calls per week",
         "number",
-        62.25,
-        68.75,
-        74
+        59.75,
+        70.75,
+        72
       ],
       [
         "Smith.ai booking rate",
         "percent",
-        0.6305220883534136,
-        0.5781818181818181,
+        0.6276150627615062,
+        0.5795053003533569,
         0.6
       ],
       [
         "Consults booked for the next 7 days",
         "number",
-        9,
+        2,
         null,
-        41
+        40
       ],
       [
         "Show rate (held / scheduled)",
         "percent",
-        0.7578947368421053,
-        0.6027397260273972,
+        0.7584269662921348,
+        0.6118421052631579,
         0.8
       ],
       [
         "Agreements sent within 1 day of consult",
         "percent",
-        0.3958333333333333,
-        0.22580645161290322,
+        0.4305555555555556,
+        0.20618556701030927,
         0.7
       ],
       [
         "Offer rate (agreements sent / held)",
         "percent",
-        0.5208333333333334,
-        0.6021505376344086,
+        0.5347222222222222,
+        0.5979381443298969,
         0.6
       ],
       [
         "Open unsigned agreements (pipeline)",
         "number",
-        57,
+        60,
         null,
-        6
+        3
       ],
       [
         "Unknown lead-source share",
         "percent",
-        0.24855491329479767,
-        0.2937062937062937,
+        0.2441860465116279,
+        0.272108843537415,
         0.1
       ],
       [
         "Unassigned-rep share",
         "percent",
-        0.04046242774566474,
-        0.13286713286713286,
+        0.029069767441860465,
+        0.14285714285714285,
         0.05
       ],
       [
         "Outcome evidence gap",
         "percent",
-        0.09826589595375723,
-        0.3146853146853147,
+        0.0872093023255814,
+        0.30612244897959184,
         0.05
       ],
       [
         "Average Sales Score",
         "number",
-        48.5,
-        46.4,
+        48.9,
+        45.9,
         60
       ],
       [
         "New-client sign-ups MTD as % of prorated goal",
         "percent",
-        1.1406250000000004,
+        1.1550000000000005,
         null,
         1
       ],
       [
         "Projected month-end new-client sign-ups",
         "number",
-        22.8,
+        23.1,
         13,
         20
       ],
       [
         "Close rate, all Phase 1 (new-client sign-ups / held)",
         "percent",
-        0.14756944444444445,
-        0.13636363636363635,
+        0.15,
+        0.12903225806451613,
         0.2
       ],
       [
         "Close rate, core (whiteboard basis)",
         "percent",
-        0.14756944444444445,
-        0.13636363636363635,
+        0.15,
+        0.12903225806451613,
         0.2
       ],
       [
         "Lead-to-client conversion",
         "percent",
-        0.0853413654618474,
-        0.04363636363636364,
+        0.08472803347280335,
+        0.04240282685512368,
         0.096
       ],
       [
         "Paid initial invoices (weighted units)",
         "number",
-        18.25,
+        19.25,
         13,
-        16
+        16.666666666666668
       ],
       [
         "Median days, consult to signed",
@@ -531,7 +531,7 @@
       [
         "Paid-media spend per new-client sign-up (Meta + ChatGPT only)",
         "money",
-        57.63435294117647,
+        60.480493827160494,
         null,
         null
       ]
@@ -539,10 +539,10 @@
     "channels": [
       [
         "Google LSA",
-        29,
-        23,
+        33,
+        26,
         1,
-        0.043478260869565216
+        0.038461538461538464
       ],
       [
         "Google Paid Search",
@@ -553,17 +553,17 @@
       ],
       [
         "Google (self-reported; LSA/Paid/Organic unknown)",
-        36,
-        32,
+        38,
+        34,
         1,
-        0.03125
+        0.029411764705882353
       ],
       [
         "Online search (self-reported)",
-        18,
-        14,
+        20,
+        16,
         2,
-        0.14285714285714285
+        0.125
       ],
       [
         "Organic Search",
@@ -602,10 +602,10 @@
       ],
       [
         "Referral",
-        9,
-        9,
+        10,
+        10,
         2,
-        0.2222222222222222
+        0.2
       ],
       [
         "Directory",
@@ -632,17 +632,17 @@
         "Unknown",
         33,
         29,
-        3,
-        0.10344827586206896
+        4,
+        0.13793103448275862
       ]
     ],
     "services": [
       [
         "Initial Case Assessment (ICA)",
-        76,
-        70,
-        6,
-        0.08571428571428572
+        81,
+        74,
+        7,
+        0.0945945945945946
       ],
       [
         "Employee Rights Assessment (ERA)",
@@ -653,8 +653,8 @@
       ],
       [
         "Litigation Action Plan (LAP)",
-        7,
-        5,
+        8,
+        6,
         0,
         0
       ],
@@ -674,8 +674,8 @@
       ],
       [
         "Trust Drafting",
-        4,
-        4,
+        6,
+        6,
         0,
         0
       ],
@@ -730,27 +730,27 @@
       ],
       [
         "(none)",
-        19,
-        11,
+        20,
+        12,
         2,
-        0.18181818181818182
+        0.16666666666666666
       ]
     ],
     "signing": [
       [
         "Initial Case Assessment (ICA)",
-        8,
+        9,
         2,
-        0.6153846153846154,
-        9.5,
-        11,
-        6
+        0.6428571428571429,
+        8.6,
+        9.6,
+        7
       ],
       [
         "Employee Rights Assessment (ERA)",
         3,
         0,
-        0.23076923076923078,
+        0.21428571428571427,
         2.3,
         2.3,
         3
@@ -858,37 +858,37 @@
         "(none)",
         2,
         0,
-        0.15384615384615385,
+        0.14285714285714285,
         0.5,
         1,
         1
       ],
       [
         "Firm",
-        13,
+        14,
         2,
         1,
-        6.5,
-        7.4,
-        10
+        6.1,
+        6.8,
+        11
       ]
     ],
     "audit": [
       [
         "Audit rows",
-        996
+        1005
       ],
       [
         "Skeleton audit rows",
-        451
+        453
       ],
       [
         "Skeleton rows older than 7 days",
-        442
+        445
       ],
       [
         "Review flags",
-        301
+        305
       ],
       [
         "Fail flags",
@@ -908,7 +908,7 @@
       ],
       [
         "Off-calendar consults pending review",
-        25
+        24
       ],
       [
         "DocuSign and CRM mismatches",
@@ -984,9 +984,9 @@
       ],
       [
         "Google LSA Leads",
-        64,
-        24,
-        "2026-11-24"
+        67,
+        25,
+        "2026-11-25"
       ],
       [
         "Website Form Fill Leads",
@@ -1086,15 +1086,15 @@
       ],
       [
         "Initial Engagement Agreements Signed",
-        19.25,
-        25,
-        "2026-11-25"
+        20.25,
+        26,
+        "2026-11-26"
       ],
       [
         "Initial invoices paid (tracker units)",
-        19.25,
-        25,
-        "2026-11-25"
+        20.25,
+        26,
+        "2026-11-26"
       ],
       [
         "Meta Ads Spend ($)",
@@ -1123,16 +1123,6 @@
     ],
     "periods": {
       "daily": [
-        {
-          "start": "2026-10-29",
-          "days": 1,
-          "new_lead_calls": 5,
-          "appointments": 4,
-          "scheduled": 13,
-          "held": 6,
-          "signups": 0,
-          "paid_units": 0
-        },
         {
           "start": "2026-10-30",
           "days": 1,
@@ -1402,6 +1392,16 @@
           "held": null,
           "signups": 1,
           "paid_units": 1
+        },
+        {
+          "start": "2026-11-26",
+          "days": 1,
+          "new_lead_calls": null,
+          "appointments": null,
+          "scheduled": null,
+          "held": null,
+          "signups": 1,
+          "paid_units": 1
         }
       ],
       "weekly": [
@@ -1517,13 +1517,13 @@
         },
         {
           "start": "2026-11-23",
-          "days": 3,
+          "days": 4,
           "new_lead_calls": 27,
           "appointments": 19,
           "scheduled": 19,
           "held": 13,
-          "signups": 4.25,
-          "paid_units": 4.25
+          "signups": 5.25,
+          "paid_units": 5.25
         }
       ],
       "monthly": [
@@ -1639,13 +1639,13 @@
         },
         {
           "start": "2026-11-01",
-          "days": 25,
+          "days": 26,
           "new_lead_calls": 228,
           "appointments": 141,
           "scheduled": 161,
           "held": 127,
-          "signups": 19.25,
-          "paid_units": 19.25
+          "signups": 20.25,
+          "paid_units": 20.25
         }
       ],
       "quarterly": [
@@ -1681,13 +1681,13 @@
         },
         {
           "start": "2026-10-01",
-          "days": 56,
+          "days": 57,
           "new_lead_calls": 522,
           "appointments": 314,
           "scheduled": 330,
           "held": 228,
-          "signups": 32.25,
-          "paid_units": 32.25
+          "signups": 33.25,
+          "paid_units": 33.25
         }
       ],
       "yearly": [
@@ -1703,13 +1703,13 @@
         },
         {
           "start": "2026-01-01",
-          "days": 329,
+          "days": 330,
           "new_lead_calls": 2122,
           "appointments": 1252,
           "scheduled": 1015,
           "held": 901,
-          "signups": 155.25,
-          "paid_units": 148.25
+          "signups": 156.25,
+          "paid_units": 149.25
         }
       ]
     },
@@ -1764,10 +1764,10 @@
       [
         "Total calls (all Smith.ai calls)",
         "number",
-        377,
+        381,
         449,
         476,
-        427,
+        423,
         "NEAR",
         []
       ],
@@ -1912,10 +1912,10 @@
       [
         "Agreements sent (for consults in the period)",
         "number",
-        66,
+        72,
         63,
-        74,
-        79,
+        76,
+        85,
         "ON PACE",
         [
           0,
@@ -1929,13 +1929,13 @@
           36,
           59,
           63,
-          66
+          72
         ]
       ],
       [
         "Held to signed",
         "percent",
-        0.1515748031496063,
+        0.1594488188976378,
         0.12871287128712872,
         0.2,
         0.13815789473684212,
@@ -1952,13 +1952,13 @@
           0.15306122448979592,
           0.18181818181818182,
           0.12871287128712872,
-          0.1515748031496063
+          0.1594488188976378
         ]
       ],
       [
         "NEW-CLIENT SIGN-UPS",
         "number",
-        19.25,
+        20.25,
         13,
         20,
         21,
@@ -1975,7 +1975,7 @@
           15,
           20,
           13,
-          19.25
+          20.25
         ]
       ]
     ],
@@ -1983,7 +1983,7 @@
       [
         "Days in window",
         "number",
-        25,
+        26,
         30,
         60,
         90,
@@ -2003,7 +2003,7 @@
       [
         "Window end",
         "date",
-        "2026-11-25",
+        "2026-11-26",
         "2026-11-24",
         "2026-11-24",
         "2026-11-24",
@@ -2013,7 +2013,7 @@
       [
         "Total calls (all Smith.ai calls)",
         "number",
-        377,
+        381,
         433,
         860,
         "n/a",
@@ -2083,17 +2083,17 @@
       [
         "Agreements sent (for consults in the window)",
         "number",
-        66,
-        85,
-        144,
-        195,
         72,
-        65
+        91,
+        150,
+        201,
+        75,
+        67
       ],
       [
         "Held to signed",
         "percent",
-        0.1515748031496063,
+        0.1594488188976378,
         0.13198757763975155,
         0.14840637450199204,
         0.14801699716713881,
@@ -2103,7 +2103,7 @@
       [
         "NEW-CLIENT SIGN-UPS (KPI row 22)",
         "number",
-        19.25,
+        20.25,
         21.25,
         37.25,
         52.25,
@@ -2113,7 +2113,7 @@
       [
         "Sign-ups matched to a consult (by signing date)",
         "number",
-        13,
+        14,
         15,
         29,
         44,
@@ -2123,7 +2123,7 @@
       [
         "Avg days, consult held to signed",
         "number",
-        6.5,
+        6.1,
         6.2,
         5.2,
         7.2,
@@ -2133,7 +2133,7 @@
       [
         "Avg days, first agreement sent to signed",
         "number",
-        7.4,
+        6.8,
         7.4,
         7.4,
         7.4,
@@ -2143,7 +2143,7 @@
       [
         "Sign-ups with a send date on file",
         "number",
-        10,
+        11,
         10,
         10,
         10,
@@ -2154,12 +2154,12 @@
     "rep_scorecard": [
       [
         "Rep 1",
-        100,
-        86,
-        0.86,
-        0.13,
-        8,
-        0.09302325581395349,
+        106,
+        91,
+        0.8584905660377359,
+        0.12264150943396226,
+        9,
+        0.0989010989010989,
         50,
         [
           0,
@@ -2173,18 +2173,18 @@
           0,
           1,
           31,
-          86
+          91
         ]
       ],
       [
         "Rep 2",
-        41,
-        37,
-        0.925,
-        0.07317073170731707,
+        44,
+        40,
+        0.9302325581395349,
+        0.06818181818181818,
         2,
-        0.05405405405405406,
-        46,
+        0.05,
+        47,
         [
           0,
           0,
@@ -2197,7 +2197,7 @@
           54,
           50,
           51,
-          37
+          40
         ]
       ],
       [
@@ -2394,13 +2394,13 @@
       ],
       [
         "Firm",
-        148,
-        126,
-        0.8571428571428571,
-        0.14189189189189189,
-        11,
-        0.0873015873015873,
-        48.8,
+        157,
+        134,
+        0.8589743589743589,
+        0.14012738853503184,
+        12,
+        0.08955223880597014,
+        48.9,
         [
           0,
           0,
@@ -2413,7 +2413,7 @@
           81,
           85,
           107,
-          126
+          134
         ]
       ]
     ],
@@ -2434,20 +2434,20 @@
     "signing_by_date": [
       [
         "Initial Case Assessment (ICA)",
-        8,
-        6,
+        9,
+        7,
         2,
-        0.6153846153846154,
-        9.5,
-        11,
-        6
+        0.6428571428571429,
+        8.6,
+        9.6,
+        7
       ],
       [
         "Employee Rights Assessment (ERA)",
         3,
         3,
         0,
-        0.23076923076923078,
+        0.21428571428571427,
         2.3,
         2.3,
         3
@@ -2567,20 +2567,20 @@
         2,
         2,
         0,
-        0.15384615384615385,
+        0.14285714285714285,
         0.5,
         1,
         1
       ],
       [
         "Firm",
-        13,
-        11,
+        14,
+        12,
         2,
         1,
-        6.5,
-        7.4,
-        10
+        6.1,
+        6.8,
+        11
       ]
     ],
     "source_attribution": {
@@ -2908,10 +2908,10 @@
       ]
     ],
     "intake": {
-      "prep_upcoming": 9,
-      "prep_past": 482,
-      "journey_classified": 1183,
-      "journey_booked": 467,
+      "prep_upcoming": 3,
+      "prep_past": 491,
+      "journey_classified": 1188,
+      "journey_booked": 470,
       "referrals_logged": 89,
       "booking_gaps_reviewed": 30
     }
